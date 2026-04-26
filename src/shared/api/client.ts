@@ -1,5 +1,5 @@
 import { createApiClient } from "./lib/api-client";
-import i18n from "../../i18n";
+import i18n from "../config/i18n.ts";
 
 const getCurrentLanguage = (): string => {
   return i18n.language;
