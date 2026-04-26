@@ -1,0 +1,33 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 3;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.container {
+	width: 100%;
+	max-width: 100%;
+	padding: var(--spacing-10) var(--spacing-20);
+
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: var(--spacing-20);
+	align-items: center;
+
+	background: var(--white);
+	border: 2px solid var(--balance);
+	border-top-left-radius: var(--spacing-2);
+	border-top-right-radius: var(--spacing-2);
+
+	pointer-events: all;
+}
+
+.text {
+	margin: 0;
+	font-size: var(--spacing-5);
+	line-height: 100%;
+}
