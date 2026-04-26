@@ -13,6 +13,8 @@ i18n
   .init({
     debug: import.meta.env.DEV,
     fallbackLng: "ru",
+    ns: ["translation"],
+    defaultNS: "translation",
     supportedLngs: ["ru", "en", "sr-Latn", "sr-Cyrl"],
     detection: {
       order: ["localStorage", "cookie", "navigator"],
@@ -22,10 +24,10 @@ i18n
     },
     interpolation: { escapeValue: false },
     resources: {
-      ru: { common: ru },
-      en: { common: en },
-      "sr-Latn": { common: srLatn },
-      "sr-Cyrl": { common: srCyrl },
+      ru: { translation: ru },
+      en: { translation: en },
+      "sr-Latn": { translation: srLatn },
+      "sr-Cyrl": { translation: srCyrl },
     },
   });
 

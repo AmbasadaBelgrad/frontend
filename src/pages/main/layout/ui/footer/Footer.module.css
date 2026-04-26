@@ -17,6 +17,8 @@
 
   padding: 40px 80px;
   gap: 80px;
+
+  box-sizing: border-box;
 }
 
 /* TOP ROW (logo + nav + socials) */
@@ -24,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   width: 100%;
 }
@@ -47,8 +50,8 @@
   align-items: flex-end;
   justify-content: space-between;
 
-  width: 639px;
-  height: 114px;
+  width: 100%;
+  max-width: 639px;
 }
 
 /* BOTTOM ROW (copyright + legal) */
@@ -56,6 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
 }
 

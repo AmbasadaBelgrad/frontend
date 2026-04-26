@@ -2,30 +2,37 @@ import "../i18n";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+
 import "../shared/styles/variables.css";
 import "../shared/styles/reset.css";
 import "../shared/styles/commonStyles.css";
 import "./styles/index.css";
 
-// функция включения моков
 async function enableMocking() {
-  const shouldMock =
-    import.meta.env.DEV && import.meta.env.VITE_USE_MSW === "true";
-
-  if (!shouldMock) return;
+  if (!import.meta.env.DEV || import.meta.env.VITE_USE_MSW !== "true") {
+    return;
+  }
 
   const { worker } = await import("../mocks/browser");
 
-  return worker.start({
-    onUnhandledRequest: "bypass",
+  await worker.start({
+    serviceWorker: {
+      url: "/mockServiceWorker.js",
+    },
+    onUnhandledRequest: "warn",
   });
+
+  console.log("[MSW] started");
 }
 
-// ждём инициализацию MSW, потом рендерим приложение
-enableMocking().then(() => {
+(async () => {
+  const mswReady = await enableMocking();
+  console.log("[MSW READY STATE]", mswReady);
+
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <App />
     </StrictMode>,
   );
-});
+})();
+

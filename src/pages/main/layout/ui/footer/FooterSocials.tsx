@@ -12,11 +12,19 @@ type Props = {
 };
 
 export const FooterSocials = ({ socials, loading }: Props) => {
-  if (loading || !socials) return null;
+
+
+  const isEmpty = !socials || Object.values(socials).every(v => !v);
 
   return (
     <div className={styles.socials}>
-      {socials.linkedin && (
+      {loading && <span>Loading...</span>}
+
+      {!loading && isEmpty && (
+        <span style={{ opacity: 0.5 }}>No socials available</span>
+      )}
+
+      {!loading && socials?.linkedin && (
         <a
           href={socials.linkedin}
           target="_blank"
@@ -27,7 +35,7 @@ export const FooterSocials = ({ socials, loading }: Props) => {
         </a>
       )}
 
-      {socials.telegram && (
+      {!loading && socials?.telegram && (
         <a
           href={socials.telegram}
           target="_blank"
@@ -38,7 +46,7 @@ export const FooterSocials = ({ socials, loading }: Props) => {
         </a>
       )}
 
-      {socials.instagram && (
+      {!loading && socials?.instagram && (
         <a
           href={socials.instagram}
           target="_blank"
@@ -49,7 +57,7 @@ export const FooterSocials = ({ socials, loading }: Props) => {
         </a>
       )}
 
-      {socials.facebook && (
+      {!loading && socials?.facebook && (
         <a
           href={socials.facebook}
           target="_blank"
@@ -60,7 +68,7 @@ export const FooterSocials = ({ socials, loading }: Props) => {
         </a>
       )}
 
-      {socials.email && (
+      {!loading && socials?.email && (
         <a href={`mailto:${socials.email}`} aria-label="Email">
           <img src="/icons_socials/email.svg" className={styles.icon} />
         </a>

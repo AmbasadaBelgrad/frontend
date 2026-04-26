@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styles from "./MainLayout.module.css";
+import { FooterContainer } from "./ui/footer/FooterContainer";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
@@ -11,7 +12,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {/* <Footer /> */}
+      <FooterContainer />
     </div>
   );
 };
