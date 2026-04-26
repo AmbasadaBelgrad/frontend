@@ -1,7 +1,7 @@
-import ru from "./locales/ru/common.json";
-import en from "./locales/en/common.json";
-import srLatn from "./locales/sr-Latn/common.json";
-import srCyrl from "./locales/sr-Cyrl/common.json";
+import ru from "../../locales/ru/common.json";
+import en from "../../locales/en/common.json";
+import srLatn from "../../locales/sr-Latn/common.json";
+import srCyrl from "../../locales/sr-Cyrl/common.json";
 
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
