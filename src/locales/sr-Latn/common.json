@@ -1,6 +1,14 @@
 {
   "test": "Izlaz niza za probnu proveru prevoda",
   "toggle": "Promeni jezik",
+  "header":{
+    "menu":{
+      "projects_desktop":"Katalog projekata",
+      "projects_tablet":"Projekti",
+      "about":"O zajednici",
+      "contacts":"Kontaktirajte nas"
+    }
+  },
   "language": {
     "ru": "Ruski",
     "en": "Engleski",

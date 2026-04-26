@@ -6,7 +6,7 @@ export const handlers = [
   }),
   http.get("/api/v1/init", () => {
     return HttpResponse.json({
-      site_name: "Амбасада за урбанизм",
+      site_name: "Амбасада за урбанизам",
       seo_description: "Сообщество архитекторов и урбанистов",
       languages: [{ code: "ru", label: "Русский" }],
       socials: [
