@@ -1,0 +1,51 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.textContent {
+  width: 100%;
+  padding-left: 406px;
+  font: var(--desktop_main);
+}
+
+.textContent strong, .accentedText strong {
+  font: 300 24px/1.4 var(--button-font-family);
+  color: #6ea70b;
+}
+
+.imageAndAccentedText {
+  display: grid;
+  flex-direction: row;
+  gap: var(--spacing-6);
+  grid-template-columns: 1fr 1fr;
+}
+
+.image {
+  display: block;
+  width: min-content;
+  height: min-content;
+  object-fit: contain;
+}
+
+.accentedText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    font: var(--desktop_main);
+}
+
+.buttonsList {
+    margin: 0 auto;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-6);
+}
+
+.buttonItem {
+}
+
+.button {
+}
