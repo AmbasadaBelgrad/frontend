@@ -1,12 +1,11 @@
-import "../i18n";
+import "@shared/config/i18n";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
 import "../shared/styles/variables.css";
 import "../shared/styles/reset.css";
 import "../shared/styles/commonStyles.css";
-import "./styles/index.css";
+import App from "./App";
 
 // функция включения моков
 async function enableMocking() {
@@ -29,6 +28,6 @@ enableMocking().then(() => {
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StrictMode>,
+    </StrictMode>
   );
 });
