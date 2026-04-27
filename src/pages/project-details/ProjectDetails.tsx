@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { routesPaths } from "../providers/router/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
 
-const ProjectDetails: React.FC = () => {
+export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
   return (
@@ -13,5 +13,3 @@ const ProjectDetails: React.FC = () => {
     </div>
   );
 };
-
-export default ProjectDetails;
