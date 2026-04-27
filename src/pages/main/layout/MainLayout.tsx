@@ -11,7 +11,7 @@ const MainLayout = () => {
 
   useEffect(() => {
     apiClient
-      .get("/api/v1/home")
+      .get("/home")
       .then((response) => {
         setData(response);
       })
