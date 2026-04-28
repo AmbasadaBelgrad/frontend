@@ -1,35 +1,64 @@
 import { Outlet } from "react-router-dom";
+import { useInitQuery } from "@/entities/init/model/useInitQuery";
+import { useInitSeo } from "@/entities/init/lib/useInitSeo";
 import styles from "./MainLayout.module.css";
-import { useEffect, useState } from "react";
-import { apiClient } from "@shared/api/client.ts";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
-  // example for request, need to add types - it is not a production version!
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [data, setData] = useState<any>(null);
+  const {
+    data: initData,
+    isLoading,
+    isError,
+    error,
+    refetch,
+    isFetching,
+  } = useInitQuery();
 
-  useEffect(() => {
-    apiClient
-      .get("/home")
-      .then((response) => {
-        setData(response);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  useInitSeo(initData);
+
+  if (isLoading) {
+    return (
+      <div className={styles.appState}>
+        <p>Загрузка сайта...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className={styles.appState}>
+        <p>Не удалось загрузить данные сайта</p>
+
+        {error instanceof Error && (
+          <p className={styles.errorText}>{error.message}</p>
+        )}
+
+        <button
+          className="btn btn--primary"
+          type="button"
+          onClick={() => void refetch()}
+          disabled={isFetching}
+        >
+          Повторить запрос
+        </button>
+      </div>
+    );
+  }
+
+  if (!initData) {
+    return null;
+  }
 
   return (
     <div className={styles.layout}>
+      {/* TODO: передать initData в Header, когда компонент будет готов */}
       {/* <Header /> */}
       <main className={styles.main}>
         <div className={styles.mainInner}>
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-
+      {/* TODO: передать initData в Footer, когда компонент будет готов */}
       {/* <Footer /> */}
     </div>
   );
