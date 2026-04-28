@@ -6,5 +6,10 @@
     "en": "English",
     "sr-Latn": "Serbian",
     "sr-Cyrl": "Serbian"
+  },
+  "search": {
+    "placeholder": "Search",
+    "ariaLabel": "Search projects",
+    "clear": "Clear"
   }
 }

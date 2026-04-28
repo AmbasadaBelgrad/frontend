@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useUrlFilters } from "../../hooks/useUrlFilters";
 import styles from "./ProjectsSearch.module.css";
+import { useTranslation } from "react-i18next";
 
 interface ProjectsSearchProps {
   value?: string;
@@ -13,7 +14,7 @@ export const ProjectsSearch: React.FC<ProjectsSearchProps> = ({
   onChange: externalOnChange,
   debounceDelay = 500,
 }) => {
-  console.log("ProjectsSearch rendered");
+  const { t } = useTranslation("common");
   //компонент контролируемый ТОЛЬКО если есть И значение, И функция
   const isControlled =
     externalValue !== undefined && externalOnChange !== undefined;
@@ -105,18 +106,18 @@ export const ProjectsSearch: React.FC<ProjectsSearchProps> = ({
         <input
           type="text"
           className={styles.searchInput}
-          placeholder="Поиск"
+          placeholder={t("search.placeholder", "Поиск")}
           value={inputValue}
           onChange={handleInputChange}
           maxLength={MAX_LENGTH}
-          aria-label="Поиск проектов"
+          aria-label={t("search.ariaLabel", "Поиск проектов")}
         />
 
         {inputValue && (
           <button
             className={styles.searchClear}
             onClick={handleClear}
-            aria-label="Очистить"
+            aria-label={t("search.clear", "Очистить")}
             type="button"
           >
             <img
