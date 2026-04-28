@@ -1,10 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./PicCircle.module.css";
 
 function PicCircle({ pictures }: { pictures: string[] }) {
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating, currentIndex]);
+
   if (!pictures || pictures.length === 0) {
     return null;
+  }
+
+  if (pictures.length === 1) {
+    return (
+      <div className={styles.carousel}>
+        <div className={styles.singlePictureContainer}>
+          <img
+            src={pictures[0]}
+            alt="Изображение"
+            className={`${styles.singleImage} ${styles.image}`}
+          />
+        </div>
+      </div>
+    );
   }
 
   const prevIndex = currentIndex === 0 ? pictures.length - 1 : currentIndex - 1;
@@ -14,10 +40,16 @@ function PicCircle({ pictures }: { pictures: string[] }) {
   };
 
   const nextSlide = () => {
+    if (isAnimating) return;
+    setDirection("next");
+    setIsAnimating(true);
     goToSlide(nextIndex);
   };
 
   const prevSlide = () => {
+    if (isAnimating) return;
+    setDirection("prev");
+    setIsAnimating(true);
     goToSlide(prevIndex);
   };
 
@@ -28,9 +60,10 @@ function PicCircle({ pictures }: { pictures: string[] }) {
           <div className={styles.slidesContainer}>
             <div className={`${styles.slide} ${styles.slidePrev}`}>
               <img
+                key={prevIndex}
                 src={pictures[prevIndex]}
                 alt={`Изображение ${prevIndex + 1}`}
-                className={styles.image}
+                className={`${styles.manyImage} ${styles.image}`}
               />
               <div className={styles.overlay}></div>
             </div>
@@ -39,6 +72,7 @@ function PicCircle({ pictures }: { pictures: string[] }) {
                 className={`${styles.navButton} ${styles.navPrev}`}
                 onClick={prevSlide}
                 aria-label="Предыдущее изображение"
+                disabled={isAnimating}
               >
                 <svg
                   width="13"
@@ -53,15 +87,27 @@ function PicCircle({ pictures }: { pictures: string[] }) {
                   />
                 </svg>
               </button>
-              <img
-                src={pictures[currentIndex]}
-                alt={`Изображение ${currentIndex + 1}`}
-                className={styles.image}
-              />
+              <div className={styles.imageWrapper}>
+                <img
+                  key={currentIndex}
+                  src={pictures[currentIndex]}
+                  alt={`Изображение ${currentIndex + 1}`}
+                  className={`${styles.manyImage} ${styles.image}  ${
+                    isAnimating
+                      ? direction === "next"
+                        ? styles.slideOutLeft
+                        : styles.slideOutRight
+                      : direction === "next"
+                        ? styles.slideInFromRight
+                        : styles.slideInFromLeft
+                  }`}
+                />
+              </div>
               <button
                 className={`${styles.navButton} ${styles.navNext}`}
                 onClick={nextSlide}
                 aria-label="Следующее изображение"
+                disabled={isAnimating}
               >
                 <svg
                   width="13"
@@ -79,10 +125,12 @@ function PicCircle({ pictures }: { pictures: string[] }) {
             </div>
             <div className={`${styles.slide} ${styles.slideNext}`}>
               <img
+                key={nextIndex}
                 src={pictures[nextIndex]}
                 alt={`Изображение ${nextIndex + 1}`}
-                className={styles.image}
+                className={`${styles.manyImage} ${styles.image}`}
               />
+
               <div className={styles.overlay}></div>
             </div>
           </div>

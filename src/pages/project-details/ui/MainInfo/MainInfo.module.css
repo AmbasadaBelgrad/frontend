@@ -56,7 +56,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 4px;
-
 }
 
 .tag {
@@ -77,6 +76,15 @@
   cursor: pointer;
   display: inline-block;
   background-color: var(--white);
+}
+
+.buttonHideTags {
+  margin-top: 5px;
+  margin-left: 30px;
+  width: 120px;
+  font: var(--mobile_button);
+  color: var(--ecologic);
+  text-decoration: underline;
 }
 
 .tagEllipsis:hover {
@@ -103,7 +111,7 @@ button:focus-visible {
   }
   .descriptions {
     width: clamp(41.0625rem, -2.203rem + 83.0033vw, 72.5rem);
-     gap: clamp(1.25rem, 0.2178rem + 1.9802vw, 2rem);
+    gap: clamp(1.25rem, 0.2178rem + 1.9802vw, 2rem);
   }
   .description {
     font: var(--tablet_main);

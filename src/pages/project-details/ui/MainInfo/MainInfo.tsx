@@ -1,7 +1,7 @@
 /*
 Как проверить компонент
 
-import { MainInfo } from "../../pages/project-details/MainInfo";
+import { MainInfo } from "@pages/project-details/ui/MainInfo/";
 
 const mainInfo = {
     picture: ["/images/01.jpg", "/images/02.jpg", "/images/03.jpg"],
@@ -56,7 +56,7 @@ function MainInfo(props: IMainInfo) {
   }, []);
 
   const handleExpand = () => {
-    setExpanded(true);
+    setExpanded(!expanded);
   };
 
   const visibleTags =
@@ -88,6 +88,11 @@ function MainInfo(props: IMainInfo) {
                 </li>
               ))}
             </ul>
+            {expanded && isMobile && (
+              <button className={styles.buttonHideTags} onClick={handleExpand}>
+                Свернуть теги
+              </button>
+            )}
           </div>
         </div>
       </div>
