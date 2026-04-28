@@ -10,6 +10,7 @@ import prettier from "eslint-plugin-prettier";
 import eslintConfigPrettier from "eslint-config-prettier";
 import boundaries from "eslint-plugin-boundaries";
 import { defineConfig, globalIgnores } from "eslint/config";
+import importPlugin from "eslint-plugin-import";
 
 export default defineConfig([
   globalIgnores(["dist", "node_modules"]),
@@ -30,15 +31,27 @@ export default defineConfig([
       "@typescript-eslint": tseslint.plugin,
       prettier,
       boundaries,
+      import: importPlugin,
     },
     settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+          project: "./tsconfig.app.json",
+        },
+        node: true,
+      },
+      "boundaries/include": ["src/**/*"],
+      "boundaries/ignore": ["**/*.test.*", "**/*.spec.*", "**/*.stories.*"],
       "boundaries/elements": [
         { type: "app", pattern: "src/app/**" },
-        { type: "pages", pattern: "src/pages/**" },
-        { type: "widgets", pattern: "src/widgets/**" },
-        { type: "features", pattern: "src/features/**" },
-        { type: "entities", pattern: "src/entities/**" },
+        { type: "pages", pattern: "src/pages/*", capture: ["slice"] },
+        { type: "widgets", pattern: "src/widgets/*", capture: ["slice"] },
+        { type: "features", pattern: "src/features/*", capture: ["slice"] },
+        { type: "entities", pattern: "src/entities/*", capture: ["slice"] },
         { type: "shared", pattern: "src/shared/**" },
+        { type: "shared", pattern: "src/mocks/**" },
+        { type: "shared", pattern: "src/locales/**" },
       ],
     },
     rules: {
@@ -52,42 +65,81 @@ export default defineConfig([
       ],
       "prettier/prettier": "error",
 
-      // Контроль направлений импортов между слоями
-      "boundaries/element-types": [
+      "boundaries/dependencies": [
         "error",
         {
           default: "disallow",
+          message:
+            "Импорт из ${dependency.type} в ${file.type} нарушает FSD-правила.",
           rules: [
             {
-              from: "app",
-              allow: ["pages", "widgets", "features", "entities", "shared"],
+              from: { type: "app" },
+              allow: [
+                { to: { type: "pages" } },
+                { to: { type: "widgets" } },
+                { to: { type: "features" } },
+                { to: { type: "entities" } },
+                { to: { type: "shared" } },
+              ],
             },
             {
-              from: "pages",
-              allow: ["widgets", "features", "entities", "shared"],
+              from: { type: "pages" },
+              allow: [
+                { to: { type: "widgets" } },
+                { to: { type: "features" } },
+                { to: { type: "entities" } },
+                { to: { type: "shared" } },
+              ],
             },
             {
-              from: "widgets",
-              allow: ["features", "entities", "shared"],
+              from: { type: "widgets", captured: { slice: "*" } },
+              allow: [
+                {
+                  to: {
+                    type: "widgets",
+                    captured: { slice: "{{from.slice}}" },
+                  },
+                },
+                { to: { type: "features" } },
+                { to: { type: "entities" } },
+                { to: { type: "shared" } },
+              ],
             },
             {
-              from: "features",
-              allow: ["entities", "shared"],
+              from: { type: "features", captured: { slice: "*" } },
+              allow: [
+                {
+                  to: {
+                    type: "features",
+                    captured: { slice: "{{from.slice}}" },
+                  },
+                },
+                { to: { type: "entities" } },
+                { to: { type: "shared" } },
+              ],
             },
             {
-              from: "entities",
-              allow: ["shared"],
+              from: { type: "entities", captured: { slice: "*" } },
+              allow: [
+                {
+                  to: {
+                    type: "entities",
+                    captured: { slice: "{{from.slice}}" },
+                  },
+                },
+                { to: { type: "shared" } },
+              ],
             },
             {
-              from: "shared",
-              allow: ["shared"],
+              from: { type: "shared" },
+              allow: [{ to: { type: "shared" } }],
             },
           ],
         },
       ],
 
-      // Запрещает импортировать внутренности мимо публичного API
-      "boundaries/no-private": "error",
+      "boundaries/no-unknown": "error",
+      "boundaries/no-unknown-files": "error",
     },
   },
   {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { routesPaths } from "../../app/providers/router/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
 
-const Policy: React.FC = () => {
+export const Policy: React.FC = () => {
   return (
     <div>
       <h1>Политика конфиденциальности</h1>
@@ -10,5 +10,3 @@ const Policy: React.FC = () => {
     </div>
   );
 };
-
-export default Policy;

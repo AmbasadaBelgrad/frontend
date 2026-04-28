@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { routesPaths } from "../../app/providers/router/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
 
-const About: React.FC = () => {
+export const About: React.FC = () => {
   return (
     <div>
       <h1>О нас</h1>
@@ -10,5 +10,3 @@ const About: React.FC = () => {
     </div>
   );
 };
-
-export default About;

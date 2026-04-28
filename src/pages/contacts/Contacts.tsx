@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { routesPaths } from "../../app/providers/router/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
 
-const Contacts: React.FC = () => {
+export const Contacts: React.FC = () => {
   return (
     <div>
       <h1>Контакты</h1>
@@ -10,5 +10,3 @@ const Contacts: React.FC = () => {
     </div>
   );
 };
-
-export default Contacts;

@@ -1,9 +1,7 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
-// https://vite.dev/config/
-import path from "node:path";
+import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
@@ -15,6 +13,17 @@ const dirname =
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@app": path.resolve(__dirname, "src/app"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      "@widgets": path.resolve(__dirname, "src/widgets"),
+      "@features": path.resolve(__dirname, "src/features"),
+      "@entities": path.resolve(__dirname, "src/entities"),
+      "@shared": path.resolve(__dirname, "src/shared"),
+    },
+  },
   server: {
     port: 3000,
   },

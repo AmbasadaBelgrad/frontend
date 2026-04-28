@@ -18,45 +18,94 @@
 
 [Figma](https://www.figma.com/design/HaL00M2j04KDwDzFXfos0c/%D0%A1%D0%B0%D0%B9%D1%82-%D0%90%D0%BC%D0%B1%D0%B0%D1%81%D0%B0%D0%B4%D0%B0-%D0%B7%D0%B0-%D0%A3%D1%80%D0%B1%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D0%BC--%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0-2-?node-id=419-6033&p=f&t=XdvSQ9HZGxQ2dtC2-0)
 
-# Ambasada Frontend
+## 🛠 Стек технологий
 
-Проект на React + TypeScript (Vite)  
-Node.js >= 22.0.0  
-React 19.2.0
+Проект построен по методологии **Feature-Sliced Design (FSD)**.
 
-## Установка проекта
+### Слои (Layers):
+
+- `app` — инициализация приложения: глобальные стили, провайдеры (роутер), точка входа (`main.tsx`).
+- `pages` — страницы приложения. Содержат композиционную логику конкретных экранов.
+- `widgets` — крупные самостоятельные блоки страниц (например, `contact-section`).
+- `features` — функциональные части с бизнес-ценностью (например, `change-language`, `contact-form`).
+- `entities` — бизнес-сущности и их логика (например, `project`, `gallery`, `team`, `values`).
+- `shared` — переиспользуемый инфраструктурный код: API-клиент, конфигурация i18n, базовые стили.
+
+### Проверка архитектуры:
+
+Соблюдение правил FSD контролируется с помощью `eslint-plugin-boundaries`. Правила описаны в `eslint.config.js`.
+
+---
+
+## 📂 Структура проекта (src)
+
+```text
+src/
+├── app/                # Инициализация приложения
+│   ├── providers/      # Провайдеры (Router)
+│   └── styles/         # Глобальные стили
+├── pages/              # Страницы (Home, Projects, Details и др.)
+├── widgets/            # Виджеты (ContactSection)
+├── features/           # Фичи (ChangeLanguage, ContactForm)
+├── entities/           # Сущности (Project, Gallery, Team)
+├── shared/             # Переиспользуемые модули
+│   ├── api/            # API клиент и типы
+│   ├── config/         # Конфигурационные файлы (i18n, routes)
+│   └── styles/         # Базовые стили и переменные
+├── locales/            # Файлы локализации (i18next)
+└── mocks/              # Конфигурация MSW (Mock API)
+```
+
+---
+
+## 📦 Установка проекта
 
 ```bash
 npm install
 ```
 
-## Запуск проекта в development режиме
+## 🚀 Запуск проекта
+
+### Development режим
 
 ```bash
 npm run dev
 ```
 
-## Скрипты
+### Сборка
 
-`npm run dev` - Запуск проекта в development режиме
+```bash
+npm run build
+```
 
-`npm run build` - Сборка проекта (обязательно проверяйте перед PullRequest)
+### Просмотр сборки
 
-`npm run preview` - Запуск проекта в production режиме
+```bash
+npm run preview
+```
 
-`npm run lint` - Проверка проекта eslint
+## 🧹 Линтинг и форматирование
 
-`npm run format` - Форматирование проекта prettier
+- `npm run lint` — проверка кода ESLint (включая проверку границ FSD).
+- `npm run format` — форматирование кода Prettier.
 
 ## 📋 Работа с .env файлами
 
+<<<<<<< HEAD
+
 - `.env` — персональный файл (не коммитится)
 - `.env.example` — шаблон (хранится в репозитории)
-- Процесс настройки: копируем `.env.example` → создаём `.env` → заполняем своими значениями
+- # Процесс настройки: копируем `.env.example` → создаём `.env` → заполняем своими значениями
+- `.env` — персональный файл (не коммитится).
+- `.env.example` — шаблон (хранится в репозитории).
+- Процесс настройки: копируем `.env.example` → создаём `.env` → заполняем своими значениями.
+  > > > > > > > 7e8219150cb7ec0fa9cf84a3500ad28d649c22a2
 
 ## 🧪 Mock API (MSW)
 
 В проекте используется Mock Service Worker (MSW) для имитации backend API в режиме разработки.
+
+<<<<<<< HEAD
 
 ## 🚀 Включить моки
 
@@ -96,8 +145,45 @@ src/
 ├── i18n.ts
 ├── components/LanguageSwitcher/LanguageSwitcher.tsx
 └── utils/api.ts
+=======
+
+### Включить моки (.env):
+
+```env
+VITE_USE_MSW=true
+VITE_API_URL=http://localhost:3000
+```
+
+### Отключить моки (.env):
+
+```env
+VITE_USE_MSW=false
+VITE_API_URL=http://localhost:3000
+```
+
+# 🌍 i18n (Интернационализация)
+
+Поддерживаемые языки: Русский (ru), Английский (en), Сербский кириллица (sr-Cyrl), Сербский латиница (sr-Latn).
+
+## Структура файлов
+
+```text
+src/
+├── locales/            # Файлы переводов
+│   ├── ru/common.json
+│   ├── en/common.json
+│   ├── sr-Cyrl/common.json
+│   └── sr-Latn/common.json
+└── shared/
+    └── config/
+        └── i18n.ts     # Инициализация i18next
+```
+
+> > > > > > > 7e8219150cb7ec0fa9cf84a3500ad28d649c22a2
 
 ## Использование
+
+<<<<<<< HEAD
 
 ```tsx
 import { useTranslation } from "react-i18next";
@@ -113,4 +199,8 @@ import api from "./utils/api";
 
 const projects = await api.get<TProjectListItem[]>("/api/projects");
 // Accept-Language: ru
+=======
+const { t } = useTranslation('common');
+<h1>{t('title')}</h1>
+>>>>>>> 7e8219150cb7ec0fa9cf84a3500ad28d649c22a2
 ```
