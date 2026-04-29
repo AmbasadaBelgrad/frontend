@@ -1,7 +1,7 @@
 import React from "react";
-import { AboutUs } from "./about-us-section/AboutUs";
-import type { AboutData, AboutResponse } from "./about-us-section/type";
-import { apiClient } from "../../../shared/api/client";
+import { AboutUs } from "./ui/about-us-section/AboutUs";
+import type { AboutData, AboutResponse } from "./ui/about-us-section/type";
+import { apiClient } from "../../shared/api/client";
 
 export const About = () => {
   const [aboutData, setAboutData] = React.useState<AboutData | null>(null);
