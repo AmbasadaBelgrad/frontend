@@ -3,7 +3,7 @@ import { AboutUs } from "./about-us-section/AboutUs";
 import type { AboutData, AboutResponse } from "./about-us-section/type";
 import { apiClient } from "../../../shared/api/client";
 
-const About = () => {
+export const About = () => {
   const [aboutData, setAboutData] = React.useState<AboutData | null>(null);
 
   React.useEffect(() => {
