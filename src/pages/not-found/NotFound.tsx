@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { routesPaths } from "../router/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
 
-const NotFound: React.FC = () => {
+export const NotFound: React.FC = () => {
   return (
     <div>
       <h1>404</h1>
@@ -11,5 +11,3 @@ const NotFound: React.FC = () => {
     </div>
   );
 };
-
-export default NotFound;
