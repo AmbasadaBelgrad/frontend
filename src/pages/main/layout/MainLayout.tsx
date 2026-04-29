@@ -34,7 +34,7 @@ const MainLayout = () => {
         )}
 
         <button
-          className="btn btn--primary"
+          className={`btn btn--primary ${styles.button}`}
           type="button"
           onClick={() => void refetch()}
           disabled={isFetching}
