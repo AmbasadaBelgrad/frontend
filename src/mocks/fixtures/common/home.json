@@ -16,8 +16,8 @@
   "team_preview": {
     "title": "Команда",
     "members": [
-      { "name": "Имя Фамилия", "role": "Архитектор", "photo": "url" },
-      { "name": "Имя Фамилия", "role": "Дизайнер", "photo": "url" }
+      { "name": "Имя Фамилия", "role": "Архитектор", "photo": "https://png.pngtree.com/png-vector/20250115/ourmid/pngtree-single-nacho-chip-isolated-on-transparent-background-png-image_15197428.png" },
+      { "name": "Имя Фамилия", "role": "Дизайнер", "photo": "https://png.pngtree.com/png-vector/20250115/ourmid/pngtree-single-nacho-chip-isolated-on-transparent-background-png-image_15197428.png" }
     ],
     "action_button": {
       "label": "Присоединиться к команде",
