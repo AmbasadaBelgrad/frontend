@@ -1,21 +1,17 @@
 import React from "react";
 import { AboutUs } from "./about-us-section/AboutUs";
-import type { AboutData } from "./about-us-section/type";
+import type { AboutData, AboutResponse } from "./about-us-section/type";
+import { apiClient } from "../../../shared/api/client";
 
-const AboutPage = () => {
+const About = () => {
   const [aboutData, setAboutData] = React.useState<AboutData | null>(null);
 
   React.useEffect(() => {
     async function getAbout() {
       try {
-        const res = await fetch("/api/v1/about");
+        const res = await apiClient.get<AboutResponse>("/api/v1/about");
 
-        if (!res.ok) {
-          throw new Error(`error status: ${res.status}`);
-        }
-
-        const data = await res.json();
-        setAboutData(data.about_section);
+        setAboutData(res.about_section);
       } catch (err) {
         console.log(err);
       }
@@ -30,4 +26,4 @@ const AboutPage = () => {
   return <AboutUs data={aboutData} />;
 };
 
-export default AboutPage;
+export default About;

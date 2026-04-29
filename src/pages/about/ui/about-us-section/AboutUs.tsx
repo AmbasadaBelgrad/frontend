@@ -30,10 +30,9 @@ export const AboutUs = ({ data }: AboutUsProps) => {
           <h1 id="about-title" className={styles.title}>
             {data.title}
           </h1>
-
           <div className={styles.paragraphs_container}>
             {data.paragraphs.map((paragraph, index) => (
-              <article key={index} className={styles.paragraph_card}>
+              <div key={index} className={styles.paragraph_card}>
                 <p className={styles.first_sentence}>
                   {`${paragraph.first_sentence} `}
 
@@ -41,13 +40,12 @@ export const AboutUs = ({ data }: AboutUsProps) => {
                     {`${paragraph.main_text}`}
                   </span>
                 </p>
-              </article>
+              </div>
             ))}
           </div>
-
           <Link
             to={data.action_button.link}
-            className={`${styles.custom_button} btn btn--primary`}
+            className={`btn btn--primary ${styles.custom_button}`}
             aria-label={data.action_button.text}
           >
             {data.action_button.text}

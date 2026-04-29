@@ -17,7 +17,6 @@
 }
 
 .container {
-  max-width: var(--breakpoint_desktop);
   width: 100%;
   margin: 0 auto;
   padding: 37px 80px;
@@ -169,7 +168,7 @@
 
 @media (max-width: 833px) {
   .container {
-    padding: 22px var(--spacing-5);
+    padding: var(--spacing-5);
   }
 
   .breadcrumbs {

@@ -15,3 +15,7 @@ export type AboutData = {
 export interface AboutUsProps {
   data: AboutData;
 }
+
+export type AboutResponse = {
+  about_section: AboutData;
+};
