@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useInitQuery } from "@/entities/init/model/useInitQuery";
-import { useInitSeo } from "@/entities/init/lib/useInitSeo";
+import { useInitQuery, useInitSeo } from "@/entities/init";
 import styles from "./MainLayout.module.css";
 
 // компонент будет оборачивать все маршруты в роутере
