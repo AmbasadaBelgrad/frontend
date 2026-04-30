@@ -11,5 +11,21 @@
     "title": "Looks like you took a wrong turn",
     "buttonDesktop": "Back to Home",
     "buttonMobile": "Go to Home"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment"
+    },
+    "errors": {
+      "invalidEmail": "Email is invalid"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "I am not a robot",
+    "continuePrompt": "Click to continue",
+    "imageTextLabel": "Enter the text from the image",
+    "confirmButton": "Confirm"
   }
 }

@@ -11,5 +11,21 @@
     "title": "Изгледа да сте скренули погрешно",
     "buttonDesktop": "Врати се на почетну",
     "buttonMobile": "Иди на почетну"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Име",
+      "email": "Email",
+      "message": "Коментар"
+    },
+    "errors": {
+      "invalidEmail": "Email није исправан"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "Нисам робот",
+    "continuePrompt": "Кликните да наставите",
+    "imageTextLabel": "Унесите текст са слике",
+    "confirmButton": "Потврди"
   }
 }

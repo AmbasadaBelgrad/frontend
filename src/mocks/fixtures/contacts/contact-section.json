@@ -1,0 +1,10 @@
+{
+  "contact_section": {
+    "title": "Связаться с нами",
+    "description": "Оставляй свои идеи или рекомендуй кандидатов в команду через форму связи",
+    "image": {
+      "src": "/images/content-section/contact_with_us.webp",
+      "alt": "Связаться с нами"
+    }
+  }
+}

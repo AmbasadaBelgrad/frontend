@@ -11,5 +11,21 @@
     "title": "Кажется, вы свернули не туда",
     "buttonDesktop": "Вернуться на Главную",
     "buttonMobile": "Перейти на Главную"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Имя",
+      "email": "Email",
+      "message": "Комментарий"
+    },
+    "errors": {
+      "invalidEmail": "Email введён некорректно"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "Я не робот",
+    "continuePrompt": "Нажмите, чтобы продолжить",
+    "imageTextLabel": "Введите текст с картинки",
+    "confirmButton": "Подтвердить"
   }
 }
