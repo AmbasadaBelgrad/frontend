@@ -9,5 +9,10 @@
   },
   "footer": {
     "site_name": "Ambasada za urbanizam"
+  },
+  "notFound": {
+    "title": "Изгледа да сте скренули погрешно",
+    "buttonDesktop": "Врати се на почетну",
+    "buttonMobile": "Иди на почетну"
   }
 }
