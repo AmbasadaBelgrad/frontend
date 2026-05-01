@@ -1,5 +1,5 @@
 import styles from "./SectionTeam.module.css"
-import CardCarousel from "../cardCarousel/cardCarousel";
+import CardCarousel from "../CardCarousel/CardCarousel";
 import { useEffect, useState } from "react";
 import { apiClient } from "@shared/api/client.ts";
 
