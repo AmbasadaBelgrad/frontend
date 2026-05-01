@@ -6,5 +6,8 @@
     "en": "English",
     "sr-Latn": "Serbian",
     "sr-Cyrl": "Serbian"
+  },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
   }
 }

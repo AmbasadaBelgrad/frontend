@@ -9,25 +9,31 @@ import "../shared/styles/commonStyles.css";
 import "./styles/index.css";
 
 async function enableMocking() {
-  if (!import.meta.env.DEV || import.meta.env.VITE_USE_MSW !== "true") {
+  console.log("[MSW] init check...");
+
+  if (import.meta.env.DEV !== true || import.meta.env.VITE_USE_MSW !== "true") {
+    console.log("[MSW] skipped by env");
     return;
   }
 
   const { worker } = await import("../mocks/browser");
 
+  console.log("[MSW] starting worker...");
+
   await worker.start({
     serviceWorker: {
       url: "/mockServiceWorker.js",
     },
-    onUnhandledRequest: "warn",
+    onUnhandledRequest: "bypass",
   });
 
-  console.log("[MSW] started");
+  console.log("[MSW] worker started");
 }
 
 (async () => {
-  const mswReady = await enableMocking();
-  console.log("[MSW READY STATE]", mswReady);
+  await enableMocking();
+
+  console.log("[APP] render");
 
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
@@ -35,4 +41,3 @@ async function enableMocking() {
     </StrictMode>,
   );
 })();
-

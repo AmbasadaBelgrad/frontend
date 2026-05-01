@@ -1,10 +1,11 @@
 .socials {
   display: flex;
-  gap: 12px;
+  gap: 12px;                 /* gap одинаков для всех разрешений */
   align-items: center;
+  width: 248px;              /* desktop */
+  max-width: 100%;
 }
 
-/* ICON BUTTON WRAPPER */
 .iconLink {
   display: flex;
   align-items: center;
@@ -13,16 +14,42 @@
   height: 40px;
 }
 
-/* ICON */
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;               /* desktop: иконки 40x40 */
+  height: 40px;
   display: block;
+  color: #FCFFFF;            /* белый цвет SVG */
 }
 
-/* ACCESSIBILITY IMPROVEMENT */
 .iconLink:focus-visible {
   outline: 2px solid white;
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .socials {
+    width: 201px;            /* точная ширина из Figma tablet */
+    justify-content: center; /* центрируем иконки */
+  }
+
+  /* иконки внутри уменьшаются до 24x24 */
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .socials {
+    width: 201px;
+    padding-left: 25px;
+    
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
 }

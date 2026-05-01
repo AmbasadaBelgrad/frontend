@@ -6,7 +6,19 @@ type Props = {
 };
 
 export const FooterCopyright = ({ copyright, loading }: Props) => {
-  if (loading || !copyright) return null;
+  if (loading) {
+    return (
+      <div className={styles.copyright}>
+        Loading...
+      </div>
+    );
+  }
 
-  return <div className={styles.copyright}>{copyright}</div>;
+  if (!copyright) return null;
+
+  return (
+    <div className={styles.copyright}>
+      {copyright}
+    </div>
+  );
 };

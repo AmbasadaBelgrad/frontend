@@ -1,0 +1,97 @@
+import styles from "./Footer.module.css";
+import { useTranslation } from "react-i18next";
+
+import { FooterNav } from "./FooterNav";
+import { FooterSocials } from "./FooterSocials";
+import { FooterLegalLinks } from "./FooterLegalLinks";
+import { FooterCopyright } from "./FooterCopyright";
+
+type Props = {
+  data: {
+    socials?: Record<string, string>;
+    legal_links?: Record<string, string>;
+    copyright?: string;
+  } | null;
+  loading: boolean;
+};
+
+export const Footer = ({ data, loading }: Props) => {
+  const { t } = useTranslation();
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.content}>
+        {/* TOP ROW */}
+        <div className={styles.topRow}>
+          <div className={styles.logo}>
+            <a href="/" aria-label={t("footer.aria.home")}>
+              <picture>
+                <source
+                    srcSet="/logo_mobile.svg"
+                    media="(max-width: 768px)"
+                />
+
+                <img
+                    src="/logo.svg"
+                    alt={t("footer.site_name")}
+                    className={styles.logoImage}
+                />
+              </picture>
+            </a>
+          </div>
+
+          <div className={styles.rightBlock}>
+            <FooterNav />
+            <FooterSocials socials={data?.socials} loading={loading} />
+          </div>
+        </div>
+
+        <div className={styles.bottomRow}>
+          <FooterCopyright copyright={data?.copyright} loading={loading} />
+          <FooterLegalLinks legalLinks={data?.legal_links} loading={loading} />
+        </div>
+
+        {/* ДЕКОРАТИВНЫЙ ПАТТЕРН (как в Figma) */}
+        <div className={styles.pattern} aria-hidden="true">
+          {/* Первая группа (правая часть) */}
+          <div className={styles.rect138} />
+          <div className={styles.rect139} />
+          <div className={styles.rect140} />
+          <div className={styles.rect143} />
+          <div className={styles.rect146} />
+          <div className={styles.rect147} />
+          <div className={styles.rect148} />
+          <div className={styles.rect149} />
+          <div className={styles.rect150} />
+          <div className={styles.rect151} />
+          <div className={styles.rect153} />
+          <div className={styles.rect144} />
+          <div className={styles.rect141} />
+          <div className={styles.rect145} />
+          <div className={styles.rect152} />
+          <div className={styles.rect154} />
+          <div className={styles.rect142} />
+
+          {/* Вторая группа (левая часть) */}
+          <div className={styles.rect138b} />
+          <div className={styles.rect139b} />
+          <div className={styles.rect140b} />
+          <div className={styles.rect143b} />
+          <div className={styles.rect146b} />
+          <div className={styles.rect147b} />
+          <div className={styles.rect148b} />
+          <div className={styles.rect149b} />
+          <div className={styles.rect150b} />
+          <div className={styles.rect151b} />
+          <div className={styles.rect153b} />
+          <div className={styles.rect144b} />
+          <div className={styles.rect141b} />
+          <div className={styles.rect145b} />
+          <div className={styles.rect152b} />
+          <div className={styles.rect154b} />
+          <div className={styles.rect142b} />
+        </div>
+      </div>
+    </footer>
+  );
+};

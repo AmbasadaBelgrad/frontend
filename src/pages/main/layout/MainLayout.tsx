@@ -2,13 +2,16 @@ import { Outlet } from "react-router-dom";
 import styles from "./MainLayout.module.css";
 import { useEffect, useState } from "react";
 import { apiClient } from "@shared/api/client.ts";
-import { FooterContainer } from "./ui/footer/FooterContainer";
+import { Footer } from "./ui/footer/index";
+import { useInit } from "@shared/api/useInit";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
   // example for request, need to add types - it is not a production version!
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
+
+  const { data: initData, loading } = useInit();
 
   useEffect(() => {
     apiClient
@@ -29,7 +32,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      <FooterContainer />
+      <Footer data={initData} loading={loading}/>
     </div>
   );
 };
