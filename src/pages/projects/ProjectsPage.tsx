@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import { useUrlFilters } from "./hooks/useUrlFilters";
 import { ProjectsSearch } from "./ui/projects-search/ProjectsSearch";
-import styles from "./ProjectsList.module.css";
+import styles from "./ProjectsPage.module.css";
 
-export const ProjectsList: React.FC = () => {
+export const ProjectsPage: React.FC = () => {
   // Хук на уровне страницы
   const { search, updateFilters } = useUrlFilters();
 
@@ -23,4 +23,4 @@ export const ProjectsList: React.FC = () => {
   );
 };
 
-export default ProjectsList;
+export default ProjectsPage;
