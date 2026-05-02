@@ -26,15 +26,12 @@ export const Footer = ({ data, loading }: Props) => {
           <div className={styles.logo}>
             <a href="/" aria-label={t("footer.aria.home")}>
               <picture>
-                <source
-                    srcSet="/logo_mobile.svg"
-                    media="(max-width: 768px)"
-                />
+                <source srcSet="/logo_mobile.svg" media="(max-width: 768px)" />
 
                 <img
-                    src="/logo.svg"
-                    alt={t("footer.site_name")}
-                    className={styles.logoImage}
+                  src="/logo.svg"
+                  alt={t("footer.site_name")}
+                  className={styles.logoImage}
                 />
               </picture>
             </a>

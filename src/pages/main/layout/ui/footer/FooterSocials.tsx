@@ -12,9 +12,7 @@ type Props = {
 };
 
 export const FooterSocials = ({ socials, loading }: Props) => {
-
-
-  const isEmpty = !socials || Object.values(socials).every(v => !v);
+  const isEmpty = !socials || Object.values(socials).every((v) => !v);
 
   return (
     <div className={styles.socials}>

@@ -22,11 +22,7 @@ export const FooterLegalLinks = ({ legalLinks, loading }: Props) => {
   return (
     <div className={styles.legal}>
       {Object.entries(legalLinks).map(([key, url]) => (
-        <a
-          key={key}
-          href={url}
-          className={styles.link}
-        >
+        <a key={key} href={url} className={styles.link}>
           {t(`footer.legal.${key}`)}
         </a>
       ))}
