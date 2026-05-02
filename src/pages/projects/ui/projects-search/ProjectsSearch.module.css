@@ -6,6 +6,21 @@
   min-width: 222px;
 }
 
+/* Мобильный режим - скрытый поиск */
+.searchContainer.mobileSearchActive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  min-width: 100%;
+  background-color: var(--white);
+  z-index: 1000;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .searchWrapper {
   position: relative;
   display: flex;
@@ -21,10 +36,19 @@
   box-sizing: border-box;
 }
 
+/* Мобильный режим - расширенный поиск */
+.mobileSearchActive .searchWrapper {
+  height: 56px;
+  border-radius: 30px;
+  margin-top: 50px;
+}
+
 /* Иконка лупы */
 .searchIcon {
   width: 40px;
   height: 40px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* Поле ввода */
@@ -53,6 +77,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 /* Иконка крестика */
@@ -70,9 +95,18 @@
   .searchInput {
     font: var(--tablet_main);
   }
+
+  .searchInput::placeholder {
+    font: var(--tablet_main);
+  }
 }
 
 @media (max-width: 833px) {
+ .searchContainer {
+    max-width: 46px;
+    min-width: 46px;
+  }
+
   .searchWrapper {
     gap: var(--spacing-2);
   }
