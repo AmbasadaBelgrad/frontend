@@ -1,23 +1,40 @@
+import { ContactForm } from "@/features/contact-form/ui/form/ui";
 import type { TContactSection } from "../model/types";
+import type { TContactFormContent } from "@/features/contact-form/ui/form/model/types";
 import styles from "./ContactSection.module.css";
 
 type TContactSectionProps = {
-  data: TContactSection;
+  sectionData: TContactSection;
+  formData: TContactFormContent;
+  imageLoading?: "lazy" | "eager";
+  imageFetchPriority?: "auto" | "high" | "low";
 };
 
-const ContactSection = ({ data }: TContactSectionProps) => {
+const ContactSection = ({
+  sectionData,
+  formData,
+  imageLoading = "lazy",
+  imageFetchPriority = "auto",
+}: TContactSectionProps) => {
   return (
     <section className={styles.contactSection}>
       <div className={styles.contactSectionContent}>
-        <h2 className={styles.contactSectionTitle}>{data.title}</h2>
+        <h2 className={styles.contactSectionTitle}>{sectionData.title}</h2>
+
         <img
           className={styles.contactSectionImage}
-          src={data.image.src}
-          alt={data.image.alt}
-          loading="lazy"
+          src={sectionData.image.src}
+          alt={sectionData.image.alt}
+          loading={imageLoading}
+          fetchPriority={imageFetchPriority}
         />
-        <p className={styles.contactSectionDescription}>{data.description}</p>
+
+        <p className={styles.contactSectionDescription}>
+          {sectionData.description}
+        </p>
       </div>
+
+      <ContactForm data={formData} />
     </section>
   );
 };

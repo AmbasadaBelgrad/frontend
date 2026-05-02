@@ -1,10 +1,150 @@
 .contactSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: var(--breakpoint_desktop);
+  margin: 0 auto;
+  padding: var(--spacing-20) var(--spacing-8);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
+  gap: var(--spacing-15);
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: -120px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: var(--orange_3);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.contactSection::after {
+  content: "";
+  position: absolute;
+  right: -140px;
+  bottom: 40px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background-color: var(--purpure_3);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.contactSectionContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
 }
 
 .contactSectionTitle {
-    font: var(--desktop_h2);
+  margin: 0;
+  max-width: 720px;
+  font: var(--desktop_h2);
+  color: var(--black);
+}
+
+.contactSectionImage {
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 620 / 420;
+  display: block;
+  object-fit: cover;
+  border-radius: 40px;
+  background-color: var(--gray);
+}
+
+.contactSectionDescription {
+  margin: 0;
+  max-width: 680px;
+  font: var(--desktop_main);
+  color: var(--black_1);
+}
+
+@media (max-width: 1023px) {
+  .contactSection {
+    padding: var(--spacing-15) var(--spacing-6);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-10);
+    align-items: start;
+  }
+
+  .contactSection::before {
+    top: 40px;
+    left: -160px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .contactSection::after {
+    right: -180px;
+    bottom: 120px;
+    width: 320px;
+    height: 320px;
+  }
+
+  .contactSectionContent {
+    gap: var(--spacing-5);
+  }
+
+  .contactSectionTitle {
+    font: var(--tablet_h2);
+  }
+
+  .contactSectionImage {
+    max-width: 100%;
+    border-radius: 32px;
+  }
+
+  .contactSectionDescription {
+    font: var(--tablet_main);
+  }
+}
+
+@media (max-width: 833px) {
+  .contactSection {
+    padding: var(--spacing-10) var(--spacing-4);
+    gap: var(--spacing-8);
+  }
+
+  .contactSection::before {
+    top: 24px;
+    left: -140px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .contactSection::after {
+    right: -160px;
+    bottom: 80px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .contactSectionContent {
+    gap: var(--spacing-4);
+  }
+
+  .contactSectionTitle {
+    font: var(--mobile_h2);
+  }
+
+  .contactSectionImage {
+    aspect-ratio: 343 / 240;
+    border-radius: 24px;
+  }
+
+  .contactSectionDescription {
+    font: var(--mobile_main);
+  }
 }
