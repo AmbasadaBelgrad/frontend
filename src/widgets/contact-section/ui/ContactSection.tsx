@@ -1,8 +1,8 @@
-import type { TContactSectionData } from "../model/types";
+import type { TContactSection } from "../model/types";
 import styles from "./ContactSection.module.css";
 
 type TContactSectionProps = {
-  data: TContactSectionData;
+  data: TContactSection;
 };
 
 const ContactSection = ({ data }: TContactSectionProps) => {
@@ -28,6 +28,5 @@ export default ContactSection;
 // текст пояснение
 // картинка редактируемая
 // форма
-// текст с политикой (ссылка)
 
 // (весь текст и картинка с бека)

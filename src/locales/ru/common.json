@@ -19,13 +19,9 @@
       "message": "Комментарий"
     },
     "errors": {
-      "invalidEmail": "Email введён некорректно"
+      "requiredName": "Введите имя",
+      "invalidEmail": "Email введен некорректно",
+      "requiredMessage": "Введите комментарий"
     }
-  },
-  "captcha": {
-    "notRobotLabel": "Я не робот",
-    "continuePrompt": "Нажмите, чтобы продолжить",
-    "imageTextLabel": "Введите текст с картинки",
-    "confirmButton": "Подтвердить"
   }
 }
