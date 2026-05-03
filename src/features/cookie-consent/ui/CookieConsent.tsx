@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../shared/styles/commonStyles.css";
 import { useCookieConsent } from "../model/useCookieConsent";
 import styles from "./CookieConsent.module.css";
 
