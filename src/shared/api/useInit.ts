@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type InitResponse = {
+export type InitResponse = {
   socials: {
     linkedin?: string;
     telegram?: string;

@@ -8,67 +8,84 @@ type Props = {
     facebook?: string;
     email?: string;
   };
-  loading: boolean;
 };
 
-export const FooterSocials = ({ socials, loading }: Props) => {
+export const FooterSocials = ({ socials }: Props) => {
   const isEmpty = !socials || Object.values(socials).every((v) => !v);
 
   return (
     <div className={styles.socials}>
-      {loading && <span>Loading...</span>}
-
-      {!loading && isEmpty && (
+      {isEmpty && (
         <span style={{ opacity: 0.5 }}>No socials available</span>
       )}
 
-      {!loading && socials?.linkedin && (
+      {socials?.linkedin && (
         <a
           href={socials.linkedin}
           target="_blank"
           rel="noreferrer"
           aria-label="LinkedIn"
         >
-          <img src="/icons_socials/linkedin.svg" className={styles.icon} />
+          <img
+            src="/icons_socials/linkedin.svg"
+            alt="LinkedIn"
+            className={styles.icon}
+          />
         </a>
       )}
 
-      {!loading && socials?.telegram && (
+      {socials?.telegram && (
         <a
           href={socials.telegram}
           target="_blank"
           rel="noreferrer"
           aria-label="Telegram"
         >
-          <img src="/icons_socials/telegram.svg" className={styles.icon} />
+          <img
+            src="/icons_socials/telegram.svg"
+            alt="Telegram"
+            className={styles.icon}
+          />
         </a>
       )}
 
-      {!loading && socials?.instagram && (
+      {socials?.instagram && (
         <a
           href={socials.instagram}
           target="_blank"
           rel="noreferrer"
           aria-label="Instagram"
         >
-          <img src="/icons_socials/instagram.svg" className={styles.icon} />
+          <img
+            src="/icons_socials/instagram.svg"
+            alt="Instagram"
+            className={styles.icon}
+          />
         </a>
       )}
 
-      {!loading && socials?.facebook && (
+      {socials?.facebook && (
         <a
           href={socials.facebook}
           target="_blank"
           rel="noreferrer"
           aria-label="Facebook"
         >
-          <img src="/icons_socials/facebook.svg" className={styles.icon} />
+          <img
+            src="/icons_socials/facebook.svg"
+            alt="Facebook"
+            className={styles.icon}
+          />
         </a>
       )}
 
-      {!loading && socials?.email && (
+      {socials?.email && (
         <a href={`mailto:${socials.email}`} aria-label="Email">
-          <img src="/icons_socials/email.svg" className={styles.icon} />
+          <img
+            src="/icons_socials/email.svg"
+            alt="Email"
+            className={styles.icon}
+          />
         </a>
       )}
     </div>

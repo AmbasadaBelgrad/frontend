@@ -30,7 +30,8 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .footerNav {
-    gap: 24px;                /* из Figma tablet */
+    gap: 24px;
+    transform: translate(13px, 2px);
   }
 
   .footerNavLink {
@@ -45,6 +46,7 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
+    transform: translateX(-2px);
     width: 138px;                 /* точная ширина меню из Figma */
   }
   .footerNavLink {

@@ -32,7 +32,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      <Footer data={initData} loading={loading} />
+      {!loading && <Footer data={initData} />}
     </div>
   );
 };

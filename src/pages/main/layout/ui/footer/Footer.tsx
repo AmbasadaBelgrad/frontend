@@ -1,21 +1,17 @@
 import styles from "./Footer.module.css";
 import { useTranslation } from "react-i18next";
 
-import { FooterNav } from "./FooterNav";
-import { FooterSocials } from "./FooterSocials";
-import { FooterLegalLinks } from "./FooterLegalLinks";
-import { FooterCopyright } from "./FooterCopyright";
+import { FooterNav } from "./nav/FooterNav";
+import { FooterSocials } from "./socials/FooterSocials";
+import { FooterLegalLinks } from "./legalLinks/FooterLegalLinks";
+import { FooterCopyright } from "./copyright/FooterCopyright";
+import type { InitResponse } from "@/shared/api/useInit";
 
 type Props = {
-  data: {
-    socials?: Record<string, string>;
-    legal_links?: Record<string, string>;
-    copyright?: string;
-  } | null;
-  loading: boolean;
+  data: InitResponse | null;
 };
 
-export const Footer = ({ data, loading }: Props) => {
+export const Footer = ({ data }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -39,13 +35,13 @@ export const Footer = ({ data, loading }: Props) => {
 
           <div className={styles.rightBlock}>
             <FooterNav />
-            <FooterSocials socials={data?.socials} loading={loading} />
+            <FooterSocials socials={data?.socials} />
           </div>
         </div>
 
         <div className={styles.bottomRow}>
-          <FooterCopyright copyright={data?.copyright} loading={loading} />
-          <FooterLegalLinks legalLinks={data?.legal_links} loading={loading} />
+          <FooterCopyright copyright={data?.copyright} />
+          <FooterLegalLinks legalLinks={data?.legal_links} />
         </div>
 
         {/* ДЕКОРАТИВНЫЙ ПАТТЕРН (как в Figma) */}
