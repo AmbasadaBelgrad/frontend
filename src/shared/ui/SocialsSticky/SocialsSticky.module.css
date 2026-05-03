@@ -30,3 +30,7 @@
 .icon:hover {
 	color: var(--orange_2);
 }
+
+.link:focus-visible .icon {
+	color: var(--orange_2);
+}

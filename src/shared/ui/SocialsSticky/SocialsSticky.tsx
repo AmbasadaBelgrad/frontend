@@ -1,7 +1,7 @@
+import type { SocialsStickyProps } from "./SocialsSticky.types";
 import { SOCIAL_LABELS } from "./SocialsSticky.constants";
 import { SOCIAL_ICONS } from "./SocialsSticky.icons";
 import styles from "./SocialsSticky.module.css";
-import type { SocialsStickyProps } from "./SocialsSticky.types";
 
 export const SocialsSticky = ({ socials }: SocialsStickyProps) => {
   if (!socials?.length) return null;
