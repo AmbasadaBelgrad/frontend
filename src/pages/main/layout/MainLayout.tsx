@@ -9,7 +9,7 @@ import { useInit } from "@shared/api/useInit";
 const MainLayout = () => {
   // example for request, need to add types - it is not a production version!
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [data, setData] = useState<any>(null);
+  const [_data, setData] = useState<any>(null);
 
   const { data: initData, loading } = useInit();
 
