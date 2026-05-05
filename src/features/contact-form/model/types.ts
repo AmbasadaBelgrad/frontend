@@ -1,4 +1,4 @@
-export type TContactFormContent = {
+export type TContactData = {
   consent: {
     text_before_link: string;
     link_label: string;

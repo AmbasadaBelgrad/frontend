@@ -3,148 +3,251 @@
   width: 100%;
   max-width: var(--breakpoint_desktop);
   margin: 0 auto;
-  padding: var(--spacing-20) var(--spacing-8);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
-  gap: var(--spacing-15);
-  align-items: center;
-  box-sizing: border-box;
+  padding: 40px 120px 120px 80px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.contactSectionDecor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   overflow: hidden;
 }
 
-.contactSection::before {
-  content: "";
+.contactSectionDecorGreen,
+.contactSectionDecorPurpleSmall,
+.contactSectionDecorPurpleLarge {
   position: absolute;
-  top: 80px;
-  left: -120px;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background-color: var(--orange_3);
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: -1;
+  display: block;
+  transform-origin: center;
+  clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
 }
 
-.contactSection::after {
-  content: "";
-  position: absolute;
-  right: -140px;
-  bottom: 40px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background-color: var(--purpure_3);
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: -1;
+.contactSectionDecorGreen {
+  width: 1000px;
+  height: 400px;
+  top: -215px;
+  left: -215px;
+  background-color: var(--green_3);
+  transform: rotate(-35deg);
+}
+
+.contactSectionDecorPurpleSmall {
+  width: 520px;
+  height: 180px;
+  top: 250px;
+  left: 250px;
+  background-color: var(--balance);
+  transform: rotate(-40deg);
+}
+
+.contactSectionDecorPurpleLarge {
+  width: 840px;
+  height: 240px;
+  top: 390px;
+  left: 760px;
+  background-color: var(--purpure_2);
+  transform: rotate(-32deg);
+}
+
+.contactSectionTitle {
+  margin: 0 0 var(--spacing-10);
+  max-width: 720px;
+  font: var(--desktop_h2);
+  color: var(--black);
+  letter-spacing: -0.02em;
+}
+
+.contactSectionBody {
+  display: grid;
+  grid-template-columns: minmax(269px, 480px) 624px;
+  column-gap: clamp(20px, calc(20px + (100vw - 1024px) * 0.2638), 130px);
+  align-items: start;
+  margin-bottom: 50px;
 }
 
 .contactSectionContent {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-6);
-}
-
-.contactSectionTitle {
-  margin: 0;
-  max-width: 720px;
-  font: var(--desktop_h2);
-  color: var(--black);
+  min-width: 0;
 }
 
 .contactSectionImage {
   width: 100%;
-  max-width: 620px;
-  aspect-ratio: 620 / 420;
+  min-width: 269px;
+  max-width: 480px;
+  height: 542px;
   display: block;
   object-fit: cover;
-  border-radius: 40px;
+  border-radius: 10px;
   background-color: var(--gray);
 }
 
 .contactSectionDescription {
+  width: 100%;
   margin: 0;
-  max-width: 680px;
   font: var(--desktop_main);
-  color: var(--black_1);
+  color: var(--politic_black);
+}
+
+.contactSectionFormWrapper {
+  width: min(100%, clamp(335px, 43vw, 624px));
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  align-self: start;
+  margin-top: 10px;
+}
+
+.contactSectionConsent {
+  font: var(--desktop_caption);
+  line-height: 120%;
+  color: var(--politic_black);
+  opacity: 0.5;
+  margin: 0;
+}
+
+.contactSectionSubmitWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contactSectionSubmit {
+  width: 100%;
+  max-width: 500px;
+}
+
+.contactSectionSubmit:disabled,
+.contactSectionSubmit:disabled:hover {
+  background-color: var(--gray);
+  color: var(--black_2);
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
 }
 
 @media (max-width: 1023px) {
   .contactSection {
-    padding: var(--spacing-15) var(--spacing-6);
-    grid-template-columns: 1fr;
-    gap: var(--spacing-10);
-    align-items: start;
+    padding: var(--spacing-10);
   }
 
-  .contactSection::before {
-    top: 40px;
-    left: -160px;
-    width: 280px;
-    height: 280px;
+  .contactSectionDecorGreen {
+    width: 620px;
+    height: 520px;
+    top: -80px;
+    left: -240px;
   }
 
-  .contactSection::after {
-    right: -180px;
-    bottom: 120px;
-    width: 320px;
+  .contactSectionDecorPurpleSmall {
+    width: 360px;
     height: 320px;
+    top: 180px;
+    left: 220px;
   }
 
-  .contactSectionContent {
-    gap: var(--spacing-5);
+  .contactSectionDecorPurpleLarge {
+    width: 620px;
+    height: 540px;
+    top: 300px;
+    left: 420px;
   }
 
   .contactSectionTitle {
+    margin-bottom: var(--spacing-8);
     font: var(--tablet_h2);
   }
 
+  .contactSectionBody {
+    grid-template-columns: 269px minmax(0, 465px);
+  }
+
   .contactSectionImage {
-    max-width: 100%;
-    border-radius: 32px;
+    width: 269px;
+    height: 466px;
+    border-radius: 8px;
   }
 
   .contactSectionDescription {
+    max-width: 100%;
     font: var(--tablet_main);
+  }
+
+  .contactSectionFormWrapper {
+    gap: var(--spacing-5);
+  }
+
+  .contactSectionConsent {
+    font: var(--tablet_caption);
+  }
+
+  .contactSectionSubmit {
+    width: 100%;
+    max-width: 350px;
   }
 }
 
 @media (max-width: 833px) {
   .contactSection {
-    padding: var(--spacing-10) var(--spacing-4);
-    gap: var(--spacing-8);
+    padding: var(--spacing-5);
   }
 
-  .contactSection::before {
-    top: 24px;
-    left: -140px;
-    width: 220px;
-    height: 220px;
+  .contactSectionDecorGreen {
+    width: 360px;
+    height: 320px;
+    top: -80px;
+    left: -180px;
   }
 
-  .contactSection::after {
-    right: -160px;
-    bottom: 80px;
-    width: 240px;
-    height: 240px;
+  .contactSectionDecorPurpleSmall {
+    display: none;
   }
 
-  .contactSectionContent {
-    gap: var(--spacing-4);
+  .contactSectionDecorPurpleLarge {
+    width: 420px;
+    height: 360px;
+    top: 280px;
+    left: 120px;
   }
 
   .contactSectionTitle {
+    margin-bottom: var(--spacing-4);
     font: var(--mobile_h2);
   }
 
+  .contactSectionContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .contactSectionImage {
-    aspect-ratio: 343 / 240;
-    border-radius: 24px;
+    min-width: 269px;
   }
 
   .contactSectionDescription {
+    max-width: none;
     font: var(--mobile_main);
+  }
+
+  .contactSectionFormWrapper {
+    gap: var(--spacing-4);
+  }
+
+  .contactSectionSubmit {
+    max-width: 255px;
+  }
+}
+
+@media (max-width: 499px) {
+  .contactSectionBody {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contactSectionImage {
+    display: none;
   }
 }

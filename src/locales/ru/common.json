@@ -20,6 +20,7 @@
     },
     "errors": {
       "requiredName": "Введите имя",
+      "requiredEmail": "Введите email",
       "invalidEmail": "Email введен некорректно",
       "requiredMessage": "Введите комментарий"
     }

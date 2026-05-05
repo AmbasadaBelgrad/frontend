@@ -49,7 +49,7 @@
   --tablet_h3: 400 28px/1.4 var(--main-font-family);
   --tablet_h4: 300 28px/1.2 var(--main-font-family);
   --tablet_main: 300 20px/1.4 var(--main-font-family);
-  --tablet_caption: 400 20px/1 var(--main-font-family);
+  --tablet_caption: 400 16px/1 var(--main-font-family);
   --tablet_button: 400 20px/1 var(--button-font-family);
 
   /* Параметры шрифтов mobile */
@@ -84,6 +84,6 @@
   --spacing-30: 120px;
   --spacing-32: 128px;
 
-  --focus-ring: 0 0 0 3px var(--black);
+  --focus-ring: 0 0 0 2px var(--black);
   --focus-ring-offset: 2px;
 }
