@@ -1,51 +1,151 @@
+/* variant3.module.css */
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
+  gap: var(--spacing-8);
 }
 
 .textContent {
-  width: 100%;
-  padding-left: 406px;
   font: var(--desktop_main);
+  display: block;
+  position: relative;
 }
 
-.textContent strong, .accentedText strong {
-  font: 300 24px/1.4 var(--button-font-family);
+.textContent span {
+  font: 500 24px/1.4 var(--button-font-family);
   color: #6ea70b;
 }
 
-.imageAndAccentedText {
-  display: grid;
-  flex-direction: row;
+.accentedText {
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-6);
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  margin-bottom: var(--spacing-6);
+  margin-top: 12px;
+}
+
+.accentedText::before {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: calc(100% + 24px);
+  background-color: rgba(230, 226, 255, 0.5);
+  border-radius: 0 8px 8px 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .image {
-  display: block;
-  width: min-content;
-  height: min-content;
+  float: left;
+  width: 100%;
+  height: 100%;
+  max-width: 708px;
   object-fit: contain;
+  margin: 15px var(--spacing-6) var(--spacing-6) 0;
 }
 
-.accentedText {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-6);
-    font: var(--desktop_main);
+.textContent > p {
+  margin: 0 0 var(--spacing-6) 408px;
+  line-height: 1.5;
 }
 
 .buttonsList {
-    margin: 0 auto;
-    padding-top: 60px;
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-6);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-6);
+  clear: both;
 }
-
-.buttonItem {
-}
-
 .button {
+  font: var(--desktop_button);
+}
+
+@media (min-width: 834px) and (max-width: 1439px) {
+  .content {
+  gap: var(--spacing-4);
+}
+  .textContent {
+    font: var(--tablet_main);
+    gap: 10px;
+  }
+  .textContent > p {
+    margin: 0 0 var(--spacing-6)
+      clamp(8.5rem, -14.724rem + 44.5545vw, 25.375rem);
+    line-height: 1.4;
+  }
+
+  .textContent span {
+    font: 500 20px/1.4 var(--main-font-family);
+  }
+  .accentedText {
+    gap: var(--spacing-5);
+  }
+
+  .image {
+    width: clamp(19.375rem, -14.8589rem + 65.6766vw, 44.25rem);
+    object-fit: cover;
+  }
+  .button {
+    font: var(--tablet_button);
+  }
+}
+
+@media (max-width: 833px) {
+  .content {
+    gap: var(--spacing-10);
+  }
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font: var(--mobile_main);
+  }
+  .textContent span {
+    font: 500 16px/1.4 var(--main-font-family);
+  }
+
+  .textContent > p {
+    margin: 0px 20px 0px clamp(1.25rem, -4.6861rem + 25.3275vw, 8.5rem);
+    line-height: 1.4;
+  }
+  .accentedText {
+    margin-top: 0px;
+    margin-left: clamp(5.5625rem, -2.6764rem + 35.1528vw, 15.625rem);
+  }
+
+  .accentedText p {
+    padding-left: 22px;
+  }
+
+  .accentedText::before {
+    left: auto;
+    right: 0;
+    width: 103%;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .image {
+    margin: 0px;
+    width: 100%;
+    height: 127px;
+    border: 2px 0px 2px 2px solid rgba(193, 183, 255, 0.5);
+    border-radius: 0;
+    object-fit: cover;
+    float: none;
+  }
+  .buttonsList {
+    flex-direction: column;
+    align-content: center;
+    gap: var(--spacing-3);
+    padding-top: 0px;
+  }
+  .button {
+    font: var(--mobile_button);
+  }
 }

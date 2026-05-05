@@ -1,44 +1,44 @@
 import styles from "./variant3.module.css";
 import type { Tbutton } from "../../InfoBlock";
+import { insertAfterFirstParagraph } from "./insertParagraph";
 
 interface Variant3Props {
-  index: string;
-  title: string;
-  image: string;
-  text: string;
-  accented_text: string;
-  buttons: Tbutton[];
+  image?: string;
+  text?: string;
+  accented_text?: string;
+  buttons?: Tbutton[];
+  mobileMode: boolean;
 }
 
 function Variant3(props: Variant3Props) {
+  const text = insertAfterFirstParagraph(
+    props.mobileMode,
+    props.text || "",
+    props.accented_text,
+    props.image,
+    styles.image,
+    styles.accentedText,
+  );
+
   return (
     <div className={styles.content}>
-      <div
-        className={styles.textContent}
-        dangerouslySetInnerHTML={{ __html: props.text }}
-      />
-      <div className={styles.imageAndAccentedText}>
-        <img className={styles.image} src={props.image} alt="image" />
+      {text && (
         <div
-          className={styles.accentedText}
-          dangerouslySetInnerHTML={{ __html: props.accented_text }}
+          className={styles.textContent}
+          dangerouslySetInnerHTML={{ __html: text }}
         />
-      </div>
-
-      <div
-        className={styles.textContent}
-        dangerouslySetInnerHTML={{ __html: props.text }}
-      />
-
-      <ul className={styles.buttonsList}>
-        {props.buttons.map((item, index) => (
-          <li key={index} className={styles.buttonItem}>
-            <button className={`${styles.button} btn btn--primary`}>
-              {item.label}
-            </button>
-          </li>
-        ))}
-      </ul>
+      )}
+      {props.buttons && props.buttons.length > 0 && (
+        <ul className={styles.buttonsList}>
+          {props.buttons.map((item, index) => (
+            <li key={index} className={styles.buttonItem}>
+              <button className={`${styles.button} btn btn--primary`}>
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

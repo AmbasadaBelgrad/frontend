@@ -53,10 +53,12 @@ import type { IInfoBlock } from "../../pages/project-details/ui/InfoBlock";
     },
   ];
 
-  <InfoBlock key={item.index} {...item} />
+  {DatainfoBlock.map((item) => (
+          <InfoBlock {...item} key={item.index} />
+        ))}
   */
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./infoBlock.module.css";
 import { Variant1, Variant2, Variant3 } from "./variants";
 
@@ -80,44 +82,60 @@ interface IInfoBlock {
 
 function InfoBlock(props: IInfoBlock) {
   const [hideContent, setHideContent] = useState(false);
-
   const toggleContent = () => {
     setHideContent(!hideContent);
   };
+
+  const [mobileMode, setMobileMode] = useState<boolean>(
+    window.innerWidth < 834,
+  );
+  const prevMobileMode = useRef<boolean>(mobileMode);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newMobileMode = window.innerWidth < 834;
+      if (newMobileMode !== prevMobileMode.current) {
+        setMobileMode(newMobileMode);
+        prevMobileMode.current = newMobileMode;
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const renderContent = () => {
     switch (props.variant) {
       case 1:
         return (
           <Variant1
-            index={props.index}
-            title={props.title}
             image={props.image}
             string_list={props.string_list || []}
             text={props.text}
             accented_text={props.accented_text}
+            mobileMode={mobileMode}
           />
         );
       case 2:
         return (
           <Variant2
-            index={props.index}
-            title={props.title}
             image={props.image}
             left_image={props.left_image || ""}
             text={props.text}
             accented_text={props.accented_text}
+            mobileMode={mobileMode}
           />
         );
       case 3:
         return (
           <Variant3
-            index={props.index}
-            title={props.title}
             image={props.image}
             text={props.text}
             accented_text={props.accented_text}
             buttons={props.buttons || []}
+            mobileMode={mobileMode}
           />
         );
       default:
@@ -138,7 +156,7 @@ function InfoBlock(props: IInfoBlock) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{
-              transform: hideContent ? "rotate(0deg)" : "rotate(180deg)",
+              transform: hideContent ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.3s ease",
             }}
           >

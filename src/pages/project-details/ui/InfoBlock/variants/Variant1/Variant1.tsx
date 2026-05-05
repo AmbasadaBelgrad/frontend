@@ -1,36 +1,37 @@
+import { insertImgList } from "./insertPicList";
 import styles from "./variant1.module.css";
 interface Variant1Props {
-  index: string;
-  title: string;
-  image: string;
-  string_list: string[];
-  text: string;
-  accented_text: string;
+  image?: string;
+  string_list?: string[];
+  text?: string;
+  accented_text?: string;
+  mobileMode: boolean;
 }
 
 function Variant1(props: Variant1Props) {
-  return (
-    <div className={styles.content}>
-      <div
-        className={styles.text}
-        dangerouslySetInnerHTML={{ __html: props.text }}
-      />
-      <div className={styles.imageAndList}>
-        <img className={styles.image} src={props.image} alt="image" />
-        <ul className={styles.list}>
-          {props.string_list.map((item, index) => (
-            <li key={index} className={styles.listItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
 
-      <div
-        className={styles.text}
-        dangerouslySetInnerHTML={{ __html: props.accented_text }}
-      />
-    </div>
+  const data = insertImgList(
+      props.mobileMode,
+      props.text || "",
+      props.accented_text || "",
+      props.image,
+      styles.image,
+      styles.accentedText,
+      props.string_list || [],
+      styles.imageAndList,
+      styles.list,
+      styles.listItems,
+    );
+
+  return (
+    <>
+      {data && (
+        <div
+          className={styles.textContent}
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
+      )}
+    </>
   );
 }
 

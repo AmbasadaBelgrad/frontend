@@ -1,4 +1,5 @@
 .containerVariant {
+  max-width: 1440px;
   color: var(--black);
   display: flex;
   flex-direction: column;
@@ -29,4 +30,33 @@
 .button {
   width: 50px;
   height: 50px;
+}
+
+@media (min-width: 834px) and (max-width: 1439px) {
+  .containerVariant {
+    padding-right: var(--spacing-10);
+    gap: clamp(1.25rem, -0.4703rem + 3.3003vw, 2.5rem);
+  }
+  .title {
+    padding-left: clamp(2.5rem, -0.9406rem + 6.6007vw, 5rem);
+  }
+  .titleText {
+    font: var(--mobile_h4);
+    left: clamp(8.5rem, -14.724rem + 44.5545vw, 25.375rem);
+  }
+}
+
+@media (max-width: 833px) {
+  .containerVariant {
+    padding-right: 0px;
+    gap: 10px;
+  }
+  .title {
+    justify-content: flex-start;
+    padding-left: clamp(1.25rem, 0.2265rem + 4.3668vw, 2.5rem);
+  }
+  .titleText {
+    font: var(--mobile_h4);
+    left: clamp(12.1875rem, 15.2067rem + -12.8821vw, 8.5rem);
+  }
 }
