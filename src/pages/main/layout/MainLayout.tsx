@@ -45,7 +45,7 @@ const MainLayout = () => {
   }
 
   if (!initData) {
-    return null;
+    throw new Error("Init data is missing");
   }
 
   return (
