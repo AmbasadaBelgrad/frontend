@@ -15,6 +15,11 @@
     "sr-Latn": "Srpski",
     "sr-Cyrl": "Srpski"
   },
+  "search": {
+    "placeholder": "Pretraga",
+    "ariaLabel": "Pretraga projekata",
+    "clear": "Obriši"
+  },
   "notFound": {
     "title": "Izgleda da ste skrenuli pogrešno",
     "buttonDesktop": "Vrati se na početnu",

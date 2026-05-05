@@ -2,12 +2,9 @@ import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useInit } from "../../../../../shared/api/useInit";
+import type {HeaderProps} from "./types";
 
-export const Header = () => {
-  const { data, loading, error } = useInit();
-  console.log("init", { data, loading, error });
-  console.log(data);
+export const Header = ({ data }: HeaderProps) => {
 
   const { t, i18n } = useTranslation("common");
   const location = useLocation();
@@ -17,11 +14,22 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
-  const langRef = useRef<HTMLDivElement | null>(null); // Закрытие меню при смене страницы
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+
+      const clickedLang = langRef.current && langRef.current.contains(target);
+
+      const clickedMenu = menuRef.current && menuRef.current.contains(target);
+
+      if (!clickedLang) {
         setIsLangOpen(false);
+      }
+
+      if (!clickedMenu) {
+        setIsMenuOpen(false);
       }
     };
 
@@ -30,19 +38,6 @@ export const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []); // Закрытие dropdown языка по Escape
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsLangOpen(false);
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const changeLang = (code: string) => {
@@ -58,8 +53,6 @@ export const Header = () => {
       ? "sr"
       : currentLangCode;
 
-  if (loading) return null;
-  if (error) return null;
   if (!data?.site_name) return null;
 
   const words = data.site_name.split(" ");
@@ -135,7 +128,10 @@ export const Header = () => {
               className="lang-switcher__button"
               aria-haspopup="listbox"
               aria-expanded={isLangOpen}
-              onClick={() => setIsLangOpen((prev) => !prev)}
+              onClick={() => {
+                setIsLangOpen((prev) => !prev);
+                setIsMenuOpen(false);
+              }}
             >
               <span className="lang-switcher__current">{displayCode}</span>
               <span className="lang-switcher__arrow" aria-hidden="true">
@@ -204,12 +200,13 @@ export const Header = () => {
           {/* BURGER */}
           <button
             type="button"
-            className={`burger-button ${
-              isMenuOpen ? "burger-button--open" : ""
-            }`}
+            className={`burger-button ${isMenuOpen ? "burger-button--open" : ""}`}
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onClick={() => {
+              setIsMenuOpen((prev) => !prev);
+              setIsLangOpen(false);
+            }}
           >
             <span className="burger-button__menu" />
             <span className="burger-button__menu" />
@@ -218,7 +215,10 @@ export const Header = () => {
         </div>
       </div>
       {/* MOBILE MENU */}
-      <div className={`mobile-menu ${isMenuOpen ? "mobile-menu--open" : ""}`}>
+      <div
+        className={`mobile-menu ${isMenuOpen ? "mobile-menu--open" : ""}`}
+        ref={menuRef}
+      >
         <NavLink
           to="/projects"
           className={({ isActive }) =>

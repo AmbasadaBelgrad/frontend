@@ -1,7 +1,6 @@
 import "@shared/config/i18n";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
 import "../shared/styles/variables.css";
 import "../shared/styles/reset.css";
 import "../shared/styles/commonStyles.css";
@@ -25,9 +24,7 @@ async function enableMocking() {
 enableMocking().then(() => {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </StrictMode>
   );
 });
