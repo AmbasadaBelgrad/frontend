@@ -1,12 +1,12 @@
 {
   "test": "Вывод строки для тестовой проверки перевода",
   "toggle": "Переключить язык",
-  "header":{
-    "menu":{
-      "projects_desktop":"Каталог проектов",
-      "projects_tablet":"Проекты",
-      "about":"О сообществе",
-      "contacts":"Связаться с нами"
+  "header": {
+    "menu": {
+      "projects_desktop": "Каталог проектов",
+      "projects_tablet": "Проекты",
+      "about": "О сообществе",
+      "contacts": "Связаться с нами"
     }
   },
   "language": {

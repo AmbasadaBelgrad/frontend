@@ -42,7 +42,6 @@ const MainLayout = () => {
       });
   }, [i18n.language]);
 
-
   return (
     <div className={styles.layout}>
       <Header data={initData}></Header>

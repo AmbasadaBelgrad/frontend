@@ -2,10 +2,9 @@ import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import type {HeaderProps} from "./types";
+import type { HeaderProps } from "./types";
 
 export const Header = ({ data }: HeaderProps) => {
-
   const { t, i18n } = useTranslation("common");
   const location = useLocation();
 
@@ -20,15 +19,14 @@ export const Header = ({ data }: HeaderProps) => {
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as Node;
 
-      const clickedLang = langRef.current && langRef.current.contains(target);
+      const isInsideLang = langRef.current?.contains(target);
+      const isInsideMenu = menuRef.current?.contains(target);
 
-      const clickedMenu = menuRef.current && menuRef.current.contains(target);
-
-      if (!clickedLang) {
+      if (isLangOpen && !isInsideLang) {
         setIsLangOpen(false);
       }
 
-      if (!clickedMenu) {
+      if (isMenuOpen && !isInsideMenu) {
         setIsMenuOpen(false);
       }
     };
@@ -38,7 +36,7 @@ export const Header = ({ data }: HeaderProps) => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [isLangOpen, isMenuOpen]);
 
   const changeLang = (code: string) => {
     i18n.changeLanguage(code);

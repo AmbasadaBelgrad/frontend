@@ -1,12 +1,12 @@
 {
   "test": "Output of a line for a test translation check",
   "toggle": "Toggle Language",
-  "header":{
-    "menu":{
-      "projects_desktop":"Project catalog",
-      "projects_tablet":"Projects",
-      "about":"About the community",
-      "contacts":"Contact us"
+  "header": {
+    "menu": {
+      "projects_desktop": "Project catalog",
+      "projects_tablet": "Projects",
+      "about": "About the community",
+      "contacts": "Contact us"
     }
   },
   "language": {

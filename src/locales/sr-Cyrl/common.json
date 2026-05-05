@@ -1,12 +1,12 @@
 {
   "test": "Излаз низа за пробну проверу превода",
   "toggle": "Промени језик",
-  "header":{
-    "menu":{
-      "projects_desktop":"Каталог пројеката",
-      "projects_tablet":"Пројекти",
-      "about":"О заједници",
-      "contacts":"Контактирајте нас"
+  "header": {
+    "menu": {
+      "projects_desktop": "Каталог пројеката",
+      "projects_tablet": "Пројекти",
+      "about": "О заједници",
+      "contacts": "Контактирајте нас"
     }
   },
   "language": {

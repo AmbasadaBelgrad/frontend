@@ -8,7 +8,6 @@ export type InitData = {
   languages: Language[];
 };
 
-
 export type HeaderProps = {
   data: InitData | null;
 };
