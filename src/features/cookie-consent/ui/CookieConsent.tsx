@@ -1,8 +1,11 @@
 import React from "react";
 import { useCookieConsent } from "../model/useCookieConsent";
 import styles from "./CookieConsent.module.css";
+import type { ICookieConsent } from "../model/types";
 
-export const CookieConsent: React.FC = () => {
+export const CookieConsent: React.FC<ICookieConsent> = ({
+  text,
+}: ICookieConsent) => {
   const { isVisible, accept } = useCookieConsent();
 
   if (!isVisible) return null;
@@ -15,10 +18,7 @@ export const CookieConsent: React.FC = () => {
       aria-label="Уведомление об использовании cookies"
     >
       <div className={styles.container}>
-        <p className={styles.text}>
-          Мы используем cookies для быстрой и удобной работы сайта. Продолжая
-          использование сайта, вы соглашаетесь с этим.
-        </p>
+        <p className={styles.text}>{text}</p>
 
         <button
           className={`btn btn--primary ${styles.button}`}

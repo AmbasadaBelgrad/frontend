@@ -8,7 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <AppRouter />
-      <CookieConsent />
+      <CookieConsent
+        text={
+          "Мы используем cookies для быстрой и удобной работы сайта. Продолжая использование сайта, вы соглашаетесь с этим."
+        }
+      />
     </BrowserRouter>
   );
 }

@@ -28,12 +28,15 @@
 .text {
 	margin: 0;
 	font: var(--desktop_main);
+	line-height: 100%;
+	font-size: var(--spacing-5);
 }
 
 @media (max-width: 1023px) and (min-width: 834px) {
 	.container {
 		padding: var(--spacing-5) var(--spacing-6);
 		gap: var(--spacing-5);
+		grid-template-columns: 1fr;
 	}
 
 	.text {
@@ -44,7 +47,8 @@
 	.button {
 		height: 44px;
 		padding: 0 var(--spacing-5);
-		min-width: 70px;
+		max-width: 200px;
+		justify-self: center;
 	}
 }
 
@@ -53,6 +57,7 @@
 		padding: var(--spacing-4) var(--spacing-4);
 		gap: var(--spacing-3);
 		border-width: 1px;
+		grid-template-columns: 1fr;
 		border-radius: var(--spacing-2);
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
@@ -68,19 +73,16 @@
 		height: 36px;
 		padding: 0 var(--spacing-4);
 		font: var(--mobile_button);
-		min-width: 60px;
+		max-width: 160px;
 		border-radius: 30px;
+		justify-self: center;
 	}
 }
 
 @media (max-width: 480px) {
 	.container {
 		padding: var(--spacing-3) var(--spacing-3);
-		gap: var(--spacing-2);
 		flex-direction: column;
-	}
-
-	.container {
 		grid-template-columns: 1fr;
 		gap: var(--spacing-3);
 	}
