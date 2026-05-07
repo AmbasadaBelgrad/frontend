@@ -1,6 +1,6 @@
 /*
-import { InfoBlock } from "../../pages/project-details/ui/InfoBlock";
-import type { IInfoBlock } from "../../pages/project-details/ui/InfoBlock";
+import { InfoBlock } from "@pages/project-details/ui/InfoBlock";
+import type { IInfoBlock } from "@pages/project-details/ui/InfoBlock";
 
  const DatainfoBlock: IInfoBlock[] = [
     {
@@ -149,7 +149,7 @@ function InfoBlock(props: IInfoBlock) {
         <span className={styles.index}>{props.index}</span>
         <h4 className={styles.titleText}>{props.title}</h4>
         <button className={styles.button} onClick={toggleContent}>
-          <svg
+          { !mobileMode && <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -172,7 +172,31 @@ function InfoBlock(props: IInfoBlock) {
               strokeWidth="2"
               strokeLinecap="round"
             />
-          </svg>
+          </svg>}
+          { mobileMode && <svg
+            width="18"
+            height="12"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              transform: hideContent ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.3s ease",
+            }}
+          >
+            <path
+              d="M5 15L12 8"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12 8L19 15"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>}
         </button>
       </div>
 

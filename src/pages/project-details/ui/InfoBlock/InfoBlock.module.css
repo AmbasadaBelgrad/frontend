@@ -54,9 +54,16 @@
   .title {
     justify-content: flex-start;
     padding-left: clamp(1.25rem, 0.2265rem + 4.3668vw, 2.5rem);
+    gap: 8px;
   }
   .titleText {
     font: var(--mobile_h4);
-    left: clamp(12.1875rem, 15.2067rem + -12.8821vw, 8.5rem);
+    left: auto;
+    right: 20px;
+    letter-spacing: -2%;
   }
+  .button {
+  width: 24px;
+  height: 24px;
+}
 }
