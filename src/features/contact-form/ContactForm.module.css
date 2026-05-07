@@ -2,18 +2,19 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: var(--spacing-5);
 }
 
 .contactFormField {
-  width: min(100%, clamp(335px, 43vw, 624px));
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
 }
 
-.visuallyHidden {
+.visuallyHidden,
+.contactFormHoneypot {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -23,6 +24,7 @@
   white-space: nowrap;
   border: 0;
   clip: rect(0 0 0 0);
+  clip-path: inset(50%);
 }
 
 .contactFormInput,
@@ -58,7 +60,7 @@
 
 .contactFormInput:hover,
 .contactFormTextarea:hover {
-  border-color: var(--black_2);
+  border-color: var(--balance);
 }
 
 .contactFormInput:focus-visible,
@@ -76,19 +78,32 @@
   color: var(--fault);
 }
 
-.contactFormHoneypot {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .contactForm {
+    gap: var(--spacing-4);
+  }
+
+  .contactFormInput,
+  .contactFormTextarea {
+    padding: var(--spacing-3) var(--spacing-4);
+    font: var(--tablet_main);
+  }
+
+  .contactFormInput {
+    height: 64px;
+    padding: 0 var(--spacing-4);
+  }
+
+  .contactFormTextarea {
+    height: 150px;
+  }
+
+  .contactFormError {
+    font: var(--mobile_main);
+  }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .contactForm {
     gap: var(--spacing-4);
   }
@@ -109,10 +124,6 @@
   }
 
   .contactFormError {
-    font: var(--mobile_main);
-  }
-
-  .contactFormConsent {
     font: var(--mobile_main);
   }
 }
@@ -139,13 +150,5 @@
 
   .contactFormError {
     font: var(--mobile_caption);
-  }
-
-  .contactFormConsent {
-    font: var(--mobile_caption);
-  }
-
-  .contactFormSubmit {
-    margin-top: var(--spacing-1);
   }
 }
