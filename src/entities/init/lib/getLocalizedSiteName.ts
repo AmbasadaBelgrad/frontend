@@ -5,11 +5,13 @@ export const getLocalizedSiteName = (
   language: string,
   fallbackSiteName: string,
 ): string => {
-  if (language === "ru" || language === "sr-Cyrl") {
+  const normalizedLanguage = language.toLowerCase();
+
+  if (language === "ru" || normalizedLanguage === "sr-Cyrl") {
     return CYRILLIC_SITE_NAME;
   }
 
-  if (language === "en" || language === "sr-Latn") {
+  if (language === "en" || normalizedLanguage === "sr-Latn") {
     return LATIN_SITE_NAME;
   }
 

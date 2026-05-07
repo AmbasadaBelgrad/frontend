@@ -14,6 +14,9 @@ export const commonHandlers = [
     return HttpResponse.json({
       site_name: "Амбасада за урбанизм",
       seo_description: "Сообщество архитекторов и урбанистов",
+      privacy_policy: "Политика конфиденциальности",
+      cookie_message: "Мы используем cookies",
+      cookie_button_text: "OK",
       languages: [
         { code: "ru", label: "Русский" },
         { code: "en", label: "English" },
@@ -21,14 +24,8 @@ export const commonHandlers = [
         { code: "sr-Cyrl", label: "Српски" },
       ],
       socials: [
-        { type: "telegram", url: "https://t.me/example" },
-        { type: "instagram", url: "https://instagram.com/example" },
-      ],
-      legal_links: [
-        {
-          label: "Политика конфиденциальности",
-          url: "/politics",
-        },
+        { social_type: "Telegram", url: "https://t.me/example" },
+        { social_type: "Instagram", url: "https://instagram.com/example" },
       ],
       copyright: "© 2026 Амбасада за урбанизм",
     });

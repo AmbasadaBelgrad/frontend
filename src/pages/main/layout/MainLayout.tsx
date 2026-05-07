@@ -45,7 +45,24 @@ const MainLayout = () => {
   }
 
   if (!initData) {
-    throw new Error("Init data is missing");
+    return (
+      <div className={styles.appState}>
+        <p>Инициализация приложения...</p>
+
+        <p className={styles.errorText}>
+          Загружаем базовые данные сайта. Если состояние не меняется — обновите
+          страницу.
+        </p>
+
+        <button
+          className={`btn btn--primary ${styles.button}`}
+          type="button"
+          onClick={() => window.location.reload()}
+        >
+          Обновить страницу
+        </button>
+      </div>
+    );
   }
 
   return (
