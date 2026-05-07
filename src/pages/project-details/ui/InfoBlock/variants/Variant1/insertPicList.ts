@@ -74,7 +74,7 @@ export function insertImgList(
       imageAndListBlock += `<ul class="list">`;
     }
 
-    string_list.forEach((item, index) => {
+    string_list.forEach((item) => {
       if (listItemsClassName) {
         imageAndListBlock += `<li class="${listItemsClassName}">${item}</li>`;
       } else {
@@ -106,7 +106,7 @@ export function insertImgList(
         listBlock += `<ul class="list">`;
       }
 
-      string_list.forEach((item, index) => {
+      string_list.forEach((item) => {
         if (listItemsClassName) {
           listBlock += `<li class="${listItemsClassName}">${item}</li>`;
         } else {
