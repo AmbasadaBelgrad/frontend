@@ -1,6 +1,5 @@
 .our_values_section {
   width: 100%;
-  min-width: var(--breakpoint_mobile);
   padding: 0 var(--spacing-20);
   overflow-x: auto;
   margin-top: var(--spacing-30);
@@ -9,6 +8,7 @@
 .title {
   font: var(--desktop_h2);
   margin-bottom: var(--spacing-10);
+  letter-spacing: -0.02em;
 }
 
 .items_list {
@@ -20,6 +20,7 @@
 .items_list li {
   padding: var(--spacing-10);
   border-radius: var(--spacing-5);
+  min-height: 450px;
 }
 
 .green {
@@ -87,6 +88,7 @@
 
   .items_list li {
     width: 100%;
+    min-height: 320px;
   }
 
   .items_list h3 {
