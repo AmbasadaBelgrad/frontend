@@ -1,16 +1,64 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
-
+import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const path: string[] = ["Главная", "Каталог проектов", slug || ""];
+  const [deviceType, setDeviceType] = useState("desktop"); // 'mobile', 'tablet', 'desktop'
+
+  useEffect(() => {
+    const checkDeviceType = () => {
+      const width = window.innerWidth;
+      if (width <= 833) {
+        setDeviceType("mobile");
+      } else if (width > 834 && width < 1440) {
+        setDeviceType("tablet");
+      } else {
+        setDeviceType("desktop");
+      }
+    };
+
+    checkDeviceType();
+    window.addEventListener("resize", checkDeviceType);
+
+    return () => window.removeEventListener("resize", checkDeviceType);
+  }, []);
+
+  const isMobile = deviceType === "mobile";
+  const isTablet = deviceType === "tablet";
 
   return (
-    <div>
-      <h1>Детали проекта</h1>
-      <p>Проект: {slug}</p>
-      <Link to={routesPaths.projects}>Назад к проектам</Link>
+    <div className={styles.container}>
+      <ul className={styles.pathList}>
+        <li className={styles.pathItem}>
+          <Link className={styles.pathText} to={routesPaths.home}>
+            Главная
+          </Link>
+        </li>
+        <li className={styles.pathItem}>
+          <Link className={styles.pathText} to={routesPaths.projects}>
+            Каталог проектов
+          </Link>
+        </li>
+        <li className={styles.pathItem}>
+          <Link className={styles.pathText} to={routesPaths.projectDetails}>
+            {slug}
+          </Link>
+        </li>
+      </ul>
+      <Link
+        className={`${!isMobile ? "btn btn--primary" : ""} ${styles.button}`}
+        to={routesPaths.projects}
+      >
+        {!isTablet && !isMobile && "Назад в каталог"}
+        {isTablet && !isMobile && "В каталог"}
+        {isMobile && (
+          <img src="/back_arrow.svg" alt="arrow" className={styles.arrow} />
+        )}
+      </Link>
     </div>
   );
 };
