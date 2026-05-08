@@ -5,12 +5,13 @@ import MainLayout from "@pages/main";
 
 // Lazy-импорты страниц (code splitting по роутам)
 const Home = lazy(() => import("@pages/home"));
-const ProjectsList = lazy(() => import("@pages/projects"));
+const ProjectsPage = lazy(() => import("@pages/projects"));
 const ProjectDetails = lazy(() => import("@pages/project-details"));
 const About = lazy(() => import("@pages/about"));
 const Contacts = lazy(() => import("@pages/contacts"));
 const Policy = lazy(() => import("@pages/politics"));
 const NotFound = lazy(() => import("@pages/not-found"));
+
 
 export const AppRouter: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ export const AppRouter: React.FC = () => {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path={routesPaths.home} element={<Home />} />
-          <Route path={routesPaths.projects} element={<ProjectsList />} />
+          <Route path={routesPaths.projects} element={<ProjectsPage />} />
           <Route
             path={routesPaths.projectDetails}
             element={<ProjectDetails />}

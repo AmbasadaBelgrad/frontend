@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import styles from "./MainLayout.module.css";
 import { useEffect, useState } from "react";
 import { apiClient } from "@shared/api/client.ts";
+import SectionTeam from "./ui/sectionTeam";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
@@ -23,6 +24,7 @@ const MainLayout = () => {
   return (
     <div className={styles.layout}>
       {/* <Header /> */}
+      <SectionTeam></SectionTeam>
       <main className={styles.main}>
         <div className={styles.mainInner}>
           <Outlet /> {/* Здесь подставляется содержимое страниц */}

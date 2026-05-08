@@ -1,11 +1,14 @@
-import styles from "./SectionTeam.module.css"
-import CardCarousel from "../CardCarousel/CardCarousel";
-import { useEffect, useState } from "react";
-import { apiClient } from "@shared/api/client.ts";
+import styles from "./SectionTeam.module.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import CardCarousel from "../cardCarousel/cardCarousel";
+import { apiClient } from "@/shared/api/client";
+// import type {SectionTeamProps} from './type';
 
 const SectionTeam = () => {
-
-  const [data, setData] = useState<any>(null);
+  
+const navigate = useNavigate();
+const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,10 +32,17 @@ const SectionTeam = () => {
 
   return (
     <div className={styles.container}>
-      <h2>{data?.team_preview.title}</h2>
-      <CardCarousel cards={data?.team_preview.members}></CardCarousel>
-      <button onClick={data?.team_preview.action_button.link} className={styles.button}>{data?.team_preview.action_button.label}</button>
-    </div>
+      <h2 className={styles.tittle}>{data.team_preview?.title}</h2>
+      <CardCarousel cards={data?.team_preview?.members}></CardCarousel>
+      <div className={styles.button_container}>
+      <button
+        onClick={() => navigate(data?.team_preview?.action_button?.link ?? "/")}
+        className={styles.button}
+      >
+        {data?.team_preview?.action_button?.label}
+      </button>
+      </div>
+       </div>
   )
 }
 
