@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.header__top {
+.headerTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,8 +14,12 @@
   margin: 0 auto;
 }
 
+.logoSection {
+  display: flex;
+}
+
 .logo,
-.logo-link {
+.logoLink {
   display: inline-flex;
   align-items: center;
   gap: 15px;
@@ -27,40 +31,40 @@
   max-width: 230px;
 }
 
-.logo img,
-.logo-link img {
+.logoImage {
   width: 61px;
   height: 61px;
   flex-shrink: 0;
   object-fit: contain;
 }
 
-.logo__text {
+.logoText {
   font-size: 17px;
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: 1.1px;
   text-transform: uppercase;
   color: var(--black);
+  white-space: nowrap;
 }
 
-.logo__text-first {
+.logoTextFirst {
   font-size: 23px;
   letter-spacing: 1.9px;
 }
 
-.header__actions {
+.headerActions {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
 }
 
-.header__nav {
+.headerNav {
   margin-left: 35px;
 }
 
-.nav-list {
+.navList {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,35 +78,40 @@
   font: var(--desktop_main);
 }
 
-.nav-list__item {
+.navListItem {
   font-size: 24px;
   font-weight: 300;
 }
 
-.nav-label--tablet {
+.navLabelTablet {
   display: none;
 }
 
-.nav-link {
+.navLink {
   text-decoration: none;
   color: var(--white);
   opacity: 0.5;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
-.nav-link:hover {
+.navLink:hover {
   opacity: 0.8;
 }
 
-.nav-link--active {
+.navLinkActive {
   opacity: 1;
 }
 
-.lang-switcher {
+.navLabelDesktop {
+  display: inline;
+}
+
+.langSwitcher {
   position: relative;
 }
 
-.lang-switcher__button {
+.langSwitcherButton {
   border: none;
   padding: 0;
   margin: 0;
@@ -118,21 +127,21 @@
   cursor: pointer;
 }
 
-.lang-switcher__current {
+.langSwitcherCurrent {
   font-size: 24px;
   line-height: 140%;
   font-weight: 300;
   text-transform: lowercase;
 }
 
-.lang-switcher__arrow {
+.langSwitcherArrow {
   margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.lang-switcher__list {
+.langSwitcherList {
   display: none;
 
   position: absolute;
@@ -154,11 +163,11 @@
   font-weight: 300;
 }
 
-.lang-switcher__list--open {
+.langSwitcherListOpen {
   display: block;
 }
 
-.lang-switcher__item {
+.langSwitcherItem {
   padding: 16px 24px;
   font-size: 24px;
   text-align: center;
@@ -172,20 +181,20 @@
     background 0.2s ease;
 }
 
-.lang-switcher__item:last-child {
+.langSwitcherItem:last-child {
   border-bottom: none;
 }
 
-.lang-switcher__item:hover {
+.langSwitcherItem:hover {
   background: var(--white);
   opacity: 1;
 }
 
-.lang-switcher__item--active {
+.langSwitcherItemActive {
   opacity: 1;
 }
 
-.burger-button {
+.burgerButton {
   display: none;
   width: 28px;
   height: 22px;
@@ -198,7 +207,7 @@
   position: relative;
 }
 
-.burger-button__menu {
+.burgerButtonMenu {
   position: absolute;
   left: 0;
 
@@ -214,146 +223,144 @@
   transform-origin: center;
 }
 
-.burger-button__menu:nth-child(1) {
+.burgerButtonMenu:nth-child(1) {
   top: 0;
 }
 
-.burger-button__menu:nth-child(2) {
+.burgerButtonMenu:nth-child(2) {
   top: 10px;
 }
 
-.burger-button__menu:nth-child(3) {
+.burgerButtonMenu:nth-child(3) {
   top: 20px;
 }
 
-.burger-button--open .burger-button__menu {
+.burgerButtonOpen .burgerButtonMenu {
   transform: rotate(90deg);
 }
 
-.burger-button--open .burger-button__menu:nth-child(1) {
+.burgerButtonOpen .burgerButtonMenu:nth-child(1) {
   left: -12px;
   top: 10px;
 }
 
-.burger-button--open .burger-button__menu:nth-child(2) {
+.burgerButtonOpen .burgerButtonMenu:nth-child(2) {
   left: -3px;
   top: 10px;
 }
 
-.burger-button--open .burger-button__menu:nth-child(3) {
+.burgerButtonOpen .burgerButtonMenu:nth-child(3) {
   left: 6px;
   top: 10px;
 }
 
-.mobile-menu {
+.mobileMenu {
   display: none;
 }
 
-@media (max-width: 834px) {
-  .header__top {
+@media (max-width: 1060px) {
+  .headerTop {
     padding: 18px 40px 16px 40px;
   }
 
-  .logo img,
-  .logo-link img {
+  .logoImage {
     width: 51px;
     height: 51px;
   }
 
   .logo,
-  .logo-link {
+  .logoLink {
     max-width: 200px;
   }
 
-  .logo__text {
+  .logoText {
     font-size: 14px;
   }
 
-  .logo__text-first {
+  .logoTextFirst {
     font-size: 20px;
     letter-spacing: 1px;
   }
 
-  .header__nav {
+  .headerNav {
     margin-left: 22px;
   }
 
-  .nav-list {
+  .navList {
     gap: 22px;
   }
 
-  .nav-label--desktop {
+  .navLabelDesktop {
     display: none;
   }
 
-  .nav-label--tablet {
+  .navLabelTablet {
     display: inline;
   }
 
-  .nav-list__item {
+  .navListItem {
     font-size: 20px;
   }
 
-  .lang-switcher__current {
+  .langSwitcherCurrent {
     font-size: 20px;
   }
 
-  .lang-switcher__button {
+  .langSwitcherButton {
     gap: 10px;
   }
 
-  .lang-switcher__arrow {
+  .langSwitcherArrow {
     margin-top: 5px;
   }
 }
 
-@media (max-width: 375px) {
-  .header__top {
+@media (max-width: 833px) {
+  .headerTop {
     padding: 20.5px 22px;
     gap: 10px;
     position: relative;
     z-index: 2;
   }
 
-  .logo img,
-  .logo-link img {
+  .logoImage {
     width: 35px;
     height: 35px;
   }
 
   .logo,
-  .logo-link {
+  .logoLink {
     gap: 10px;
     max-width: 140px;
   }
 
-  .logo__text {
+  .logoText {
     font-size: 10px;
     letter-spacing: 0.6px;
   }
 
-  .logo__text-first {
+  .logoTextFirst {
     font-size: 14px;
     letter-spacing: 0.7px;
   }
 
-  .header__actions {
+  .headerActions {
     gap: 40px;
   }
 
-  .lang-switcher__current {
+  .langSwitcherCurrent {
     font-size: 16px;
   }
 
-  .header__nav {
+  .headerNav {
     display: none;
   }
 
-  .burger-button {
+  .burgerButton {
     display: flex;
   }
 
-  .mobile-menu {
+  .mobileMenu {
     position: absolute;
     top: 100%;
     right: 0;
@@ -379,14 +386,14 @@
       visibility 0.25s ease;
   }
 
-  .mobile-menu--open {
+  .mobileMenuOpen {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
   }
 
-  .mobile-menu__link {
+  .mobileMenuLink {
     min-height: 46px;
     line-height: 140%;
 
@@ -406,15 +413,15 @@
     transition: opacity 0.2s ease;
   }
 
-  .mobile-menu__link:hover {
+  .mobileMenuLink:hover {
     opacity: 0.8;
   }
 
-  .mobile-menu__link--active {
+  .mobileMenuLinkActive {
     opacity: 1;
   }
 
-  .mobile-menu__link:last-child {
+  .mobileMenuLink:last-child {
     border-bottom: none;
   }
 }

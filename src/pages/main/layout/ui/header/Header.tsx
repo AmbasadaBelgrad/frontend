@@ -1,4 +1,4 @@
-import "./Header.css";
+import styles from "./Header.module.css";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -15,18 +15,21 @@ export const Header = ({ data }: HeaderProps) => {
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
+  const burgerRef = useRef<HTMLButtonElement | null>(null);
+
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as Node;
 
       const isInsideLang = langRef.current?.contains(target);
       const isInsideMenu = menuRef.current?.contains(target);
+      const isInsideBurger = burgerRef.current?.contains(target);
 
       if (isLangOpen && !isInsideLang) {
         setIsLangOpen(false);
       }
 
-      if (isMenuOpen && !isInsideMenu) {
+      if (isMenuOpen && !isInsideMenu && !isInsideBurger) {
         setIsMenuOpen(false);
       }
     };
@@ -58,59 +61,78 @@ export const Header = ({ data }: HeaderProps) => {
   const restWords = words.slice(1).join(" ");
 
   return (
-    <header className="header">
-      <div className="header__top">
-        <div className="logo-section">
+    <header className={styles.header}>
+      <div className={styles.headerTop}>
+        <div className={styles.logoSection}>
           {!isHome ? (
-            <NavLink to="/" className="logo-link" aria-label="На главную">
-              <img src="/images/logo.svg" alt={data.site_name} />
-              <span className="logo__text">
-                <span className="logo__text-first">{firstWord}</span>{" "}
+            <NavLink to="/" className={styles.logoLink} aria-label="На главную">
+              <img
+                className={styles.logoImage}
+                src="/images/logo.svg"
+                alt={data.site_name}
+              />
+              <span className={styles.logoText}>
+                <span className={styles.logoTextFirst}>{firstWord}</span>
+                <br />
                 {restWords}
               </span>
             </NavLink>
           ) : (
-            <div className="logo">
-              <img src="/images/logo.svg" alt={data.site_name} />
-              <span className="logo__text">
-                <span className="logo__text-first">{firstWord}</span>{" "}
+            <div className={styles.logo}>
+              <img
+                className={styles.logoImage}
+                src="/images/logo.svg"
+                alt={data.site_name}
+              />
+              <span className={styles.logoText}>
+                <span className={styles.logoTextFirst}>{firstWord}</span>
+                <br />
                 {restWords}
               </span>
             </div>
           )}
         </div>
-        <nav className="header__nav" aria-label="Главное меню">
-          <ul className="nav-list">
-            <li className="nav-list__item">
+
+        <nav className={styles.headerNav} aria-label="Главное меню">
+          <ul className={styles.navList}>
+            <li className={styles.navListItem}>
               <NavLink
                 to="/projects"
                 className={({ isActive }) =>
-                  isActive ? "nav-link nav-link--active" : "nav-link"
+                  isActive
+                    ? `${styles.navLink} ${styles.navLinkActive}`
+                    : styles.navLink
                 }
               >
-                <span className="nav-label nav-label--desktop">
+                <span className={styles.navLabelDesktop}>
                   {t("header.menu.projects_desktop")}
                 </span>
-                <span className="nav-label nav-label--tablet">
+                <span className={styles.navLabelTablet}>
                   {t("header.menu.projects_tablet")}
                 </span>
               </NavLink>
             </li>
-            <li className="nav-list__item">
+
+            <li className={styles.navListItem}>
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  isActive ? "nav-link nav-link--active" : "nav-link"
+                  isActive
+                    ? `${styles.navLink} ${styles.navLinkActive}`
+                    : styles.navLink
                 }
               >
                 {t("header.menu.about")}
               </NavLink>
             </li>
-            <li className="nav-list__item">
+
+            <li className={styles.navListItem}>
               <NavLink
                 to="/contacts"
                 className={({ isActive }) =>
-                  isActive ? "nav-link nav-link--active" : "nav-link"
+                  isActive
+                    ? `${styles.navLink} ${styles.navLinkActive}`
+                    : styles.navLink
                 }
               >
                 {t("header.menu.contacts")}
@@ -118,12 +140,13 @@ export const Header = ({ data }: HeaderProps) => {
             </li>
           </ul>
         </nav>
-        <div className="header__actions">
+
+        <div className={styles.headerActions}>
           {/* LANGUAGE SWITCHER */}
-          <div className="lang-switcher" ref={langRef}>
+          <div className={styles.langSwitcher} ref={langRef}>
             <button
               type="button"
-              className="lang-switcher__button"
+              className={styles.langSwitcherButton}
               aria-haspopup="listbox"
               aria-expanded={isLangOpen}
               onClick={() => {
@@ -131,8 +154,9 @@ export const Header = ({ data }: HeaderProps) => {
                 setIsMenuOpen(false);
               }}
             >
-              <span className="lang-switcher__current">{displayCode}</span>
-              <span className="lang-switcher__arrow" aria-hidden="true">
+              <span className={styles.langSwitcherCurrent}>{displayCode}</span>
+
+              <span className={styles.langSwitcherArrow} aria-hidden="true">
                 {isLangOpen ? (
                   <svg
                     width="14"
@@ -164,9 +188,10 @@ export const Header = ({ data }: HeaderProps) => {
                 )}
               </span>
             </button>
+
             <ul
-              className={`lang-switcher__list ${
-                isLangOpen ? "lang-switcher__list--open" : ""
+              className={`${styles.langSwitcherList} ${
+                isLangOpen ? styles.langSwitcherListOpen : ""
               }`}
               role="listbox"
               aria-label="Выбор языка"
@@ -174,9 +199,9 @@ export const Header = ({ data }: HeaderProps) => {
               {data.languages.map((lang) => (
                 <li
                   key={lang.code}
-                  className={`lang-switcher__item ${
+                  className={`${styles.langSwitcherItem} ${
                     i18n.language === lang.code
-                      ? "lang-switcher__item--active"
+                      ? styles.langSwitcherItemActive
                       : ""
                   }`}
                   role="option"
@@ -195,10 +220,14 @@ export const Header = ({ data }: HeaderProps) => {
               ))}
             </ul>
           </div>
+
           {/* BURGER */}
           <button
+            ref={burgerRef}
             type="button"
-            className={`burger-button ${isMenuOpen ? "burger-button--open" : ""}`}
+            className={`${styles.burgerButton} ${
+              isMenuOpen ? styles.burgerButtonOpen : ""
+            }`}
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={isMenuOpen}
             onClick={() => {
@@ -206,39 +235,50 @@ export const Header = ({ data }: HeaderProps) => {
               setIsLangOpen(false);
             }}
           >
-            <span className="burger-button__menu" />
-            <span className="burger-button__menu" />
-            <span className="burger-button__menu" />
+            <span className={styles.burgerButtonMenu} />
+            <span className={styles.burgerButtonMenu} />
+            <span className={styles.burgerButtonMenu} />
           </button>
         </div>
       </div>
+
       {/* MOBILE MENU */}
       <div
-        className={`mobile-menu ${isMenuOpen ? "mobile-menu--open" : ""}`}
+        className={`${styles.mobileMenu} ${
+          isMenuOpen ? styles.mobileMenuOpen : ""
+        }`}
         ref={menuRef}
       >
         <NavLink
           to="/projects"
           className={({ isActive }) =>
-            `mobile-menu__link ${isActive ? "mobile-menu__link--active" : ""}`
+            isActive
+              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
+              : styles.mobileMenuLink
           }
           onClick={() => setIsMenuOpen(false)}
         >
           {t("header.menu.projects_desktop")}
         </NavLink>
+
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `mobile-menu__link ${isActive ? "mobile-menu__link--active" : ""}`
+            isActive
+              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
+              : styles.mobileMenuLink
           }
           onClick={() => setIsMenuOpen(false)}
         >
           {t("header.menu.about")}
         </NavLink>
+
         <NavLink
           to="/contacts"
           className={({ isActive }) =>
-            `mobile-menu__link ${isActive ? "mobile-menu__link--active" : ""}`
+            isActive
+              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
+              : styles.mobileMenuLink
           }
           onClick={() => setIsMenuOpen(false)}
         >
