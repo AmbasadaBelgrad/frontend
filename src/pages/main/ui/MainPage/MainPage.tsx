@@ -1,7 +1,7 @@
 import styles from "./MainPage.module.css";
 import { useEffect, useState } from "react";
 import { apiClient } from "@shared/api/client";
-import type { HomeResponse } from "@/pages/main/layout/ui/MainPage/types";
+import type { HomeResponse } from "@/pages/main/ui/MainPage/types";
 
 const MainPage = () => {
   const [data, setData] = useState<HomeResponse | null>(null);
