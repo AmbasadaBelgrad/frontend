@@ -32,10 +32,8 @@ export function insertPicTextBlock(
 
   const leftImageHtml =
     imageLeftSrc && imageLeftClassName
-      ? `<img src="${imageLeftSrc}" class="${imageLeftClassName}" alt="" />`
-      : imageLeftSrc
-        ? `<img src="${imageLeftSrc}" alt="" />`
-        : "";
+      ? `<img src="${imageLeftSrc}" loading="lazy" class="${imageLeftClassName}" alt="left image" />`
+      : "";
 
   // Формируем акцентированный текст
   const accentedHtml =
@@ -48,8 +46,7 @@ export function insertPicTextBlock(
   // Формируем правую картинку
   let rightImageHtml = "";
   if (imageSrc) {
-    const className = imageClassName ? ` class="${imageClassName}"` : "";
-    rightImageHtml = `<img src="${imageSrc}"${className} alt="" />`;
+    rightImageHtml = `<img src="${imageSrc}" class="${imageClassName}" loading="lazy" alt="right image" />`;
   }
 
   // В мобильном режиме правая картинка вставляется перед всем контентом

@@ -19,6 +19,7 @@
   display: grid;
   flex-direction: row;
   grid-template-columns: 708px 1fr;
+  margin-bottom: var(--spacing-1);
 }
 
 .accentedText {
@@ -52,7 +53,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-6);
-  padding: 12px 50px 10px 80px;
+  padding: 12px 50px 10px 83px;
 }
 
 .listItems {
@@ -64,7 +65,7 @@
 .listItems::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 17px;
   left: -10px;
   transform: translateY(-50%);
   width: 12px;
@@ -91,13 +92,16 @@
   }
 
   .list {
-    gap: clamp(0.6875rem, -0.4307rem + 2.1452vw, 1.5rem);
+    /*gap: clamp(0.6875rem, -0.4307rem + 2.1452vw, 1.5rem);*/
+    gap: clamp(0.75rem, -0.2822rem + 1.9802vw, 1.5rem);
+    padding: 10px 30px 10px 96px;
   }
   .listItems {
     font: var(--tablet_main);
   }
   .imageAndList {
     grid-template-columns: clamp(25.4375rem, -0.453rem + 49.67vw, 44.25rem) 1fr;
+    margin-bottom: 0px;
   }
   .image {
     width: auto;
@@ -128,13 +132,14 @@
 
   .list {
     gap: clamp(0.75rem, 0.1359rem + 2.6201vw, 1.5rem);
-    padding: 12px 50px 10px clamp(6.5625rem, 7.8418rem + -5.4585vw, 5rem);
+    padding: 8px 50px 10px clamp(6.5625rem, 7.8418rem + -5.4585vw, 5rem);
   }
   .listItems {
     font: var(--mobile_main);
   }
   .listItems::before {
-    left: 0px;
+    top: 12px;
+    left: 4px;
     width: 8px;
     height: 8px;
   }

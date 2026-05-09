@@ -19,7 +19,7 @@ export function insertImgList(
     let result = "";
 
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" loading="lazy" alt="image" class="${imageClassName}" />`;
     }
 
     if (accentedText && accentedClassName) {
@@ -36,7 +36,7 @@ export function insertImgList(
     let result = html;
 
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" loading="lazy" alt="image" class="${imageClassName}" />`;
     }
 
     if (accentedText && accentedClassName) {
@@ -66,7 +66,7 @@ export function insertImgList(
       imageAndListBlock += `<div class="imageAndList">`;
     }
 
-    imageAndListBlock += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+    imageAndListBlock += `<img src="${imageSrc}" loading="lazy" alt="image" class="${imageClassName}" />`;
 
     if (listClassName) {
       imageAndListBlock += `<ul class="${listClassName}">`;
@@ -88,7 +88,7 @@ export function insertImgList(
 
   if (mobileMode) {
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" loading="lazy" alt="image" class="${imageClassName}" />`;
     }
 
     result += html.slice(0, endOfFirstParagraph);

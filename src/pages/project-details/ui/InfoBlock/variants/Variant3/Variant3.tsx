@@ -68,6 +68,7 @@ function Variant3(props: Variant3Props) {
               <button
                 className={`${styles.button} btn btn--primary`}
                 onClick={() => handleButtonClick(item)}
+                aria-label={`Кнопка ${item.label}`}
               >
                 {item.label}
               </button>

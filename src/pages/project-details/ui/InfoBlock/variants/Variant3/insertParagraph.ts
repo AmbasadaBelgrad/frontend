@@ -3,8 +3,8 @@ export function insertAfterFirstParagraph(
   html: string = "",
   accentedText?: string,
   imageSrc?: string,
-  imageClassName?: string,   
-  accentedClassName?: string, 
+  imageClassName?: string,
+  accentedClassName?: string,
 ) {
   if (!html && !accentedText && !imageSrc) {
     return "";
@@ -14,7 +14,7 @@ export function insertAfterFirstParagraph(
     let result = "";
 
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" loading="lazy" alt="image" class="${imageClassName}" />`;
     }
 
     if (accentedText && accentedClassName) {
@@ -31,7 +31,7 @@ export function insertAfterFirstParagraph(
     let result = html;
 
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" alt="image" loading="lazy" class="${imageClassName}" />`;
     }
 
     if (accentedText && accentedClassName) {
@@ -42,7 +42,8 @@ export function insertAfterFirstParagraph(
   }
 
   const firstParagraph = match[0];
-  const endOfFirstParagraph = html.indexOf(firstParagraph) + firstParagraph.length;
+  const endOfFirstParagraph =
+    html.indexOf(firstParagraph) + firstParagraph.length;
   const afterFirstParagraph = html.slice(endOfFirstParagraph);
 
   if (mobileMode) {
@@ -51,7 +52,7 @@ export function insertAfterFirstParagraph(
 
     // Сначала картинка
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" alt="image" loading="lazy" class="${imageClassName}" />`;
     }
 
     // Первый параграф
@@ -75,7 +76,7 @@ export function insertAfterFirstParagraph(
 
     // Картинка
     if (imageSrc && imageClassName) {
-      result += `<img src="${imageSrc}" alt="image" class="${imageClassName}" />`;
+      result += `<img src="${imageSrc}" alt="image" loading="lazy" class="${imageClassName}" />`;
     }
 
     // Акцентированный текст

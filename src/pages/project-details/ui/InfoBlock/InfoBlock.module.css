@@ -8,6 +8,7 @@
 }
 
 .title {
+  margin-bottom: var(--spacing-1);
   padding-left: 80px;
   position: relative;
   display: flex;
@@ -38,10 +39,12 @@
     gap: clamp(1.25rem, -0.4703rem + 3.3003vw, 2.5rem);
   }
   .title {
+    margin-bottom: 0px;
     padding-left: clamp(2.5rem, -0.9406rem + 6.6007vw, 5rem);
   }
   .titleText {
-    font: var(--mobile_h4);
+    font: var(--tablet_h4);
+    letter-spacing: -2%;
     left: clamp(8.5rem, -14.724rem + 44.5545vw, 25.375rem);
   }
 }
@@ -55,6 +58,7 @@
     justify-content: flex-start;
     padding-left: clamp(1.25rem, 0.2265rem + 4.3668vw, 2.5rem);
     gap: 8px;
+    margin-bottom: 10px;
   }
   .titleText {
     font: var(--mobile_h4);
@@ -63,7 +67,7 @@
     letter-spacing: -2%;
   }
   .button {
-  width: 24px;
-  height: 24px;
-}
+    width: 24px;
+    height: 24px;
+  }
 }

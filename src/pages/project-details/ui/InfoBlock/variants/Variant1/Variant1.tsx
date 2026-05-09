@@ -9,19 +9,18 @@ interface Variant1Props {
 }
 
 function Variant1(props: Variant1Props) {
-
   const data = insertImgList(
-      props.mobileMode,
-      props.text || "",
-      props.accented_text || "",
-      props.image,
-      styles.image,
-      styles.accentedText,
-      props.string_list || [],
-      styles.imageAndList,
-      styles.list,
-      styles.listItems,
-    );
+    props.mobileMode,
+    props.text || "",
+    props.accented_text || "",
+    props.image,
+    styles.image,
+    styles.accentedText,
+    props.string_list || [],
+    styles.imageAndList,
+    styles.list,
+    styles.listItems,
+  );
 
   return (
     <>

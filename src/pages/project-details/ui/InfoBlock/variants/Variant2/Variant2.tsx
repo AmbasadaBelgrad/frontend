@@ -19,8 +19,8 @@ function Variant2(props: Variant2Props) {
     styles.imageRight,
     styles.accentedText,
     styles.imageLeft,
-    styles.textContent,   
-    styles.rightImageWrapper
+    styles.textContent,
+    styles.rightImageWrapper,
   );
 
   return (
