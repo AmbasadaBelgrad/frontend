@@ -5,6 +5,7 @@ import type { ICookieConsent } from "../model/types";
 
 export const CookieConsent: React.FC<ICookieConsent> = ({
   text,
+  confirmButtonText,
 }: ICookieConsent) => {
   const { isVisible, accept } = useCookieConsent();
 
@@ -25,7 +26,7 @@ export const CookieConsent: React.FC<ICookieConsent> = ({
           onClick={accept}
           aria-label="Принять cookies"
         >
-          Ок
+          {confirmButtonText}
         </button>
       </div>
     </div>
