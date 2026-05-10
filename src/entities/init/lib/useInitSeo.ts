@@ -12,16 +12,16 @@ export function useInitSeo(initData?: InitResponse) {
 
     document.title = getLocalizedSiteName(language, initData.site_name);
 
-      let metaDescription = document.querySelector<HTMLMetaElement>(
-        'meta[name="description"]',
-      );
+    let metaDescription = document.querySelector<HTMLMetaElement>(
+      'meta[name="description"]',
+    );
 
-      if (!metaDescription) {
-        metaDescription = document.createElement("meta");
-        metaDescription.name = "description";
-        document.head.appendChild(metaDescription);
-      }
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
 
-      metaDescription.content = initData.seo_description ?? "";
+    metaDescription.content = initData.seo_description ?? "";
   }, [initData, language]);
 }
