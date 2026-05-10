@@ -1,13 +1,16 @@
 import React from "react";
 import { AboutUs } from "./ui/about-us-section/AboutUs";
 import { OurValues } from "./ui/our-values/OurValues";
+import { OurTeam } from "./ui/our-team/OutTeam";
 import type { AboutData } from "./ui/about-us-section/type";
 import type { ValuesData } from "./ui/our-values/type";
+import type { TeamData } from "./ui/our-team/type";
 import { apiClient } from "../../shared/api/client";
 
 type PageResponse = {
   about_section: AboutData;
   values: ValuesData;
+  team: TeamData;
 };
 
 export const About = () => {
@@ -34,6 +37,7 @@ export const About = () => {
     <>
       <AboutUs data={pageData.about_section} />
       <OurValues data={pageData.values} />
+      <OurTeam data={pageData.team} />
     </>
   );
 };
