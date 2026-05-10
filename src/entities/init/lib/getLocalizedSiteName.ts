@@ -7,11 +7,11 @@ export const getLocalizedSiteName = (
 ): string => {
   const normalizedLanguage = language.toLowerCase();
 
-  if (language === "ru" || normalizedLanguage === "sr-Cyrl") {
+  if (normalizedLanguage === "ru" || normalizedLanguage === "sr-cyrl") {
     return CYRILLIC_SITE_NAME;
   }
 
-  if (language === "en" || normalizedLanguage === "sr-Latn") {
+  if (normalizedLanguage === "en" || normalizedLanguage === "sr-latn") {
     return LATIN_SITE_NAME;
   }
 

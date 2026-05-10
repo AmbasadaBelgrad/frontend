@@ -5,14 +5,13 @@ import { getLocalizedSiteName } from "./getLocalizedSiteName";
 
 export function useInitSeo(initData?: InitResponse) {
   const { i18n } = useTranslation();
-  const language = i18n.language || "ru";
+  const language = i18n.resolvedLanguage || i18n.language || "ru";
 
   useEffect(() => {
     if (!initData) return;
 
     document.title = getLocalizedSiteName(language, initData.site_name);
 
-    if (initData.seo_description) {
       let metaDescription = document.querySelector<HTMLMetaElement>(
         'meta[name="description"]',
       );
@@ -23,7 +22,6 @@ export function useInitSeo(initData?: InitResponse) {
         document.head.appendChild(metaDescription);
       }
 
-      metaDescription.content = initData.seo_description;
-    }
+      metaDescription.content = initData.seo_description ?? "";
   }, [initData, language]);
 }
