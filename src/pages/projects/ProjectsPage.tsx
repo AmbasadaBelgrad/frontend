@@ -16,28 +16,34 @@ export const ProjectsPage: React.FC = () => {
   const abortControllerRef = useRef<AbortController | null>(null);
 
   // Debounce: обновляем URL после паузы ввода
-  const debouncedUpdate = useCallback((value: string) => {
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current);
-    }
-    
-    debounceTimerRef.current = setTimeout(() => {
-      updateFilters({ search: value });
-      debounceTimerRef.current = null;
-    }, 500);
-  }, [updateFilters]);
+  const debouncedUpdate = useCallback(
+    (value: string) => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+
+      debounceTimerRef.current = setTimeout(() => {
+        updateFilters({ search: value });
+        debounceTimerRef.current = null;
+      }, 500);
+    },
+    [updateFilters],
+  );
 
   // Обработчик изменения поиска
-  const handleSearchChange = useCallback((value: string) => {
-    setLocalSearch(value);
-    debouncedUpdate(value);
-    
-    // Отмена предыдущего API запроса
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-    abortControllerRef.current = new AbortController();
-  }, [debouncedUpdate]);
+  const handleSearchChange = useCallback(
+    (value: string) => {
+      setLocalSearch(value);
+      debouncedUpdate(value);
+
+      // Отмена предыдущего API запроса
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+      abortControllerRef.current = new AbortController();
+    },
+    [debouncedUpdate],
+  );
 
   // Синхронизация с URL (когда URL меняется извне, например, кнопка "Назад")
   useEffect(() => {
@@ -50,10 +56,7 @@ export const ProjectsPage: React.FC = () => {
     <div className={styles.projectsList}>
       <h1>Проекты</h1>
 
-      <ProjectsSearch
-        value={localSearch}
-        onChange={handleSearchChange}
-      />
+      <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
 
       <Link to={routesPaths.home}>На главную</Link>
     </div>
