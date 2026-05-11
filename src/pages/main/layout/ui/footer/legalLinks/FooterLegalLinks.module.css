@@ -17,12 +17,12 @@
 
 /* HOVER */
 .link:hover {
-  color: #ffffff;
+  color: var(--white);
 }
 
 /* FOCUS ACCESSIBILITY */
 .link:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid var(--white);
   outline-offset: 2px;
   border-radius: 4px;
 }

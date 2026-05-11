@@ -1,7 +1,7 @@
 /* FOOTER WRAPPER */
 .footer {
   width: 100%;
-  background: #78ba07;
+  background: var(--ecologic);
   border-radius: 0 0 8px 8px;
   position: relative;
   overflow: hidden;

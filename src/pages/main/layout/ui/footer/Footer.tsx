@@ -5,10 +5,10 @@ import { FooterNav } from "./nav/FooterNav";
 import { FooterSocials } from "./socials/FooterSocials";
 import { FooterLegalLinks } from "./legalLinks/FooterLegalLinks";
 import { FooterCopyright } from "./copyright/FooterCopyright";
-import type { InitResponse } from "@/shared/api/useInit";
+import type { FooterData } from "./types";
 
 type Props = {
-  data: InitResponse | null;
+  data: FooterData | null;
 };
 
 export const Footer = ({ data }: Props) => {

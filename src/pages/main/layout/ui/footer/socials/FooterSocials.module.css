@@ -18,11 +18,11 @@
   width: 40px;               /* desktop: иконки 40x40 */
   height: 40px;
   display: block;
-  color: #FCFFFF;            /* белый цвет SVG */
+  color: var(--white);            /* белый цвет SVG */
 }
 
 .iconLink:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid var(--white);
   outline-offset: 2px;
   border-radius: 4px;
 }
