@@ -1,12 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { routesPaths } from "@shared/config/routesPaths.ts";
+import { AboutUs } from "./ui/about-us-section/AboutUs";
+import { OurValues } from "./ui/our-values/OurValues";
+import type { AboutData } from "./ui/about-us-section/type";
+import type { ValuesData } from "./ui/our-values/type";
+import { apiClient } from "../../shared/api/client";
 
-export const About: React.FC = () => {
+type PageResponse = {
+  about_section: AboutData;
+  values: ValuesData;
+};
+
+export const About = () => {
+  const [pageData, setPageData] = React.useState<PageResponse | null>(null);
+
+  React.useEffect(() => {
+    async function getAbout() {
+      try {
+        const res = await apiClient.get<PageResponse>("/api/v1/about");
+
+        setPageData(res);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getAbout();
+  }, []);
+
+  if (!pageData) {
+    return null;
+  }
+
   return (
-    <div>
-      <h1>О нас</h1>
-      <Link to={routesPaths.home}>На главную</Link>
-    </div>
+    <>
+      <AboutUs data={pageData.about_section} />
+      <OurValues data={pageData.values} />
+    </>
   );
 };
+
+export default About;

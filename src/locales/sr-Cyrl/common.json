@@ -10,6 +10,11 @@
   "footer": {
     "site_name": "Ambasada za urbanizam"
   },
+  "search": {
+    "placeholder": "Претрага",
+    "ariaLabel": "Претрага пројеката",
+    "clear": "Обриши"
+  },
   "notFound": {
     "title": "Изгледа да сте скренули погрешно",
     "buttonDesktop": "Врати се на почетну",

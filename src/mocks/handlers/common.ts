@@ -28,7 +28,7 @@ export const commonHandlers = [
         personal_data_processing_agreement: "/personal-data-processing",
       },
 
-      copyright: "2026 © Амбасада за Урбанизм",
+      copyright: "2026 © Амбасада за Урбанизам",
     });
   }),
 

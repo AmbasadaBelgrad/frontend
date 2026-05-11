@@ -26,6 +26,11 @@
       "personal_data_processing_agreement": "Согласие на обработку персональных данных"
     }
   },
+  "search": {
+    "placeholder": "Поиск",
+    "ariaLabel": "Поиск проектов",
+    "clear": "Очистить"
+  },
   "notFound": {
     "title": "Кажется, вы свернули не туда",
     "buttonDesktop": "Вернуться на Главную",

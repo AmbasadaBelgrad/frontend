@@ -344,6 +344,7 @@ button:focus:not(:focus-visible) {
   .content {
     padding: 20px 0;
     gap: 24px;
+    max-height: 163px;
   }
 
   .topRow {
@@ -353,7 +354,7 @@ button:focus:not(:focus-visible) {
 
   .logoImage {
     width: 240px;
-    transform: translateY(11px);
+    transform: translateY(9px);
   }
 
   .rightBlock {
@@ -365,6 +366,7 @@ button:focus:not(:focus-visible) {
     padding: 0 40px;
     gap: 180px;
     flex-wrap: wrap;
+    transform: translateY(17px);
   }
 
   .pattern {
@@ -622,6 +624,7 @@ button:focus:not(:focus-visible) {
   .content {
     padding: 20px 0;
     gap: 24px;
+    max-height: 215px;
   }
 
   .topRow {
@@ -635,6 +638,7 @@ button:focus:not(:focus-visible) {
 
   .logoImage {
     width: 72px;
+    transform: translate(1px, 1px);
   }
 
   .rightBlock {

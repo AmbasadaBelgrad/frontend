@@ -31,7 +31,7 @@
 @media (max-width: 1024px) {
   .footerNav {
     gap: 24px;
-    transform: translate(13px, 2px);
+    transform: translate(19px, 1px);
   }
 
   .footerNavLink {
