@@ -21,17 +21,20 @@ export const commonHandlers = [
   }),
   http.get("/api/v1/init", () => {
     return HttpResponse.json({
-      site_name: "Амбасада за урбанизам",
+      site_name: "Амбасада за урбанизм",
       seo_description: "Сообщество архитекторов и урбанистов",
+      privacy_policy: "Политика конфиденциальности",
+      cookie_message: "Мы используем cookies",
+      cookie_button_text: "OK",
       languages: [
         { code: "ru", label: "Русский" },
         { code: "en", label: "English" },
-        { code: "sr-Lat", label: "Srpski" },
+        { code: "sr-Latn", label: "Srpski" },
         { code: "sr-Cyrl", label: "Српски" },
       ],
       socials: [
-        { type: "telegram", url: "https://t.me/example" },
-        { type: "instagram", url: "https://instagram.com/example" },
+        { social_type: "Telegram", url: "https://t.me/example" },
+        { social_type: "Instagram", url: "https://instagram.com/example" },
       ],
       copyright: "© 2026 Амбасада за урбанизм",
     });
