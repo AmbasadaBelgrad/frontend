@@ -4,6 +4,7 @@
   align-items: center;
   gap: 40px;                  /* desktop */
   width: 100%;
+  transform: translateX(2px);
 }
 
 .footerNavLink {

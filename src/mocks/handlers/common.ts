@@ -14,6 +14,7 @@ export const commonHandlers = [
     return HttpResponse.json({
       status: "ok",
       timestamp: Date.now(),
+      site_name: "Амбасада за Урбанизам",
 
       socials: {
         linkedin: "https://linkedin.com/example",

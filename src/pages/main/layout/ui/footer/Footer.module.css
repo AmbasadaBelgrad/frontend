@@ -30,17 +30,58 @@
   box-sizing: border-box;
 }
 
-.logo {
+.logoLink {
   display: flex;
   align-items: center;
+  gap: 16px;
+  max-width: 400px;
+  max-height: 110px;
+  min-width: 0;
   flex-shrink: 0;
 }
 
 .logoImage {
-  width: 400px;
-  max-width: 100%;
+  width: 110px;
   height: auto;
   display: block;
+  flex-shrink: 0;
+}
+
+/* основной контейнер текста */
+.logoText {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--black);
+  min-width: 0;
+}
+
+/* первая строка — крупная */
+.logoTextMain {
+  font-size: 39.9px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  transform: translate(13px, -5px);
+}
+
+/* вторая строка — меньше */
+.logoTextSub {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  transform: translate(13px, 1px);
+}
+
+/* fallback перенос (страховка) */
+.logoText,
+.logoTextMain,
+.logoTextSub {
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 /* ПРАВЫЙ БЛОК (nav + соцсети) */
@@ -352,9 +393,36 @@ button:focus:not(:focus-visible) {
     padding: 0 40px;
   }
 
-  .logoImage {
+  .logoLink {
     width: 240px;
-    transform: translateY(9px);
+    height: 66px;
+    gap: 10px;
+  }
+
+  .logoImage{
+    width: 66px;
+    transform: translateY(7px);
+  }
+
+  .logoText {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  /* первая строка */
+  .logoTextMain {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transform: translate(7px, 2px);
+  }
+
+  /* вторая строка */
+  .logoTextSub {
+    font-size: 18px;
+    font-weight: 540;
+    letter-spacing: 1.5px;
+    transform: translate(7px, 7.8px);
   }
 
   .rightBlock {
@@ -636,9 +704,20 @@ button:focus:not(:focus-visible) {
     min-height: 138px;
   }
 
+  .logoLink {
+    width: 72px;
+    height: 72px;
+    gap: 0;
+  }
+
   .logoImage {
     width: 72px;
-    transform: translate(1px, 1px);
+    height: 72px;
+    transform: none;
+  }
+
+  .logoText {
+    display: none;
   }
 
   .rightBlock {

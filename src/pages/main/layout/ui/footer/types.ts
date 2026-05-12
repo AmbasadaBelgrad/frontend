@@ -1,4 +1,6 @@
 export type FooterData = {
+  site_name?: string;
+  
   socials?: {
     linkedin?: string;
     telegram?: string;

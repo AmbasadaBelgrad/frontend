@@ -12,33 +12,60 @@ type Props = {
 };
 
 export const Footer = ({ data }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
+
+  if (!data) return null;
+
+  const siteNameRaw =
+    t("site_name", {
+      defaultValue: data.site_name ?? "Амбасада за Урбанизам",
+    });
+
+  const words = siteNameRaw.split(" ");
+  const firstWord = words[0];
+  const restWords = words.slice(1).join(" ");
 
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
+
         {/* TOP ROW */}
         <div className={styles.topRow}>
-          <div className={styles.logo}>
-            <a href="/" aria-label={t("footer.aria.home")}>
-              <picture>
-                <source srcSet="/logo_mobile.svg" media="(max-width: 768px)" />
+          <a
+            href="/"
+            aria-label={siteNameRaw}
+            className={styles.logoLink}
+          >
 
-                <img
-                  src="/logo.svg"
-                  alt={t("footer.site_name")}
-                  className={styles.logoImage}
-                />
-              </picture>
-            </a>
-          </div>
+            {/* LOGO IMAGE */}
+            <img
+              src="/logo.svg"
+              alt={siteNameRaw}
+              className={styles.logoImage}
+            />
+
+            {/*новый layout текста*/}
+            <span className={styles.logoText}>
+              <span className={styles.logoTextMain}>
+                {firstWord}
+              </span>
+
+              {restWords && (
+                <span className={styles.logoTextSub}>
+                  {restWords}
+                </span>
+              )}
+            </span>
+
+          </a>
 
           <div className={styles.rightBlock}>
             <FooterNav />
-            <FooterSocials socials={data?.socials} />
+            <FooterSocials socials={data.socials} />
           </div>
         </div>
 
+        {/* BOTTOM ROW */}
         <div className={styles.bottomRow}>
           <FooterCopyright copyright={data?.copyright} />
           <FooterLegalLinks legalLinks={data?.legal_links} />

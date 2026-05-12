@@ -32,8 +32,8 @@
   .socials {
     width: 201px;            /* точная ширина из Figma tablet */
     justify-content: center; /* центрируем иконки */
-    transform: translate(15px, 10px);
-    gap: 17px;
+    transform: translate(14px, 7px);
+    gap: 16px;
   }
 
   /* иконки внутри уменьшаются до 24x24 */
