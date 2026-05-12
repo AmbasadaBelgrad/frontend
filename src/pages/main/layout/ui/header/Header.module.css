@@ -261,6 +261,7 @@
 @media (max-width: 1060px) {
   .headerTop {
     padding: 18px 40px 16px 40px;
+    min-height: 91px;
   }
 
   .logoImage {
@@ -330,7 +331,7 @@
 
   .logo,
   .logoLink {
-    gap: 10px;
+    gap: 7px;
     max-width: 140px;
   }
 
@@ -345,11 +346,17 @@
   }
 
   .headerActions {
-    gap: 40px;
+    gap: 30px;
+    padding-right: 7px;
   }
 
   .langSwitcherCurrent {
     font-size: 16px;
+  }
+
+  .arrow {
+    width: 12px;
+    height: 10px;
   }
 
   .headerNav {

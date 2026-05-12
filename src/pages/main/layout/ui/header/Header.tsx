@@ -159,6 +159,7 @@ export const Header = ({ data }: HeaderProps) => {
               <span className={styles.langSwitcherArrow} aria-hidden="true">
                 {isLangOpen ? (
                   <svg
+                    className={styles.arrow}
                     width="14"
                     height="12"
                     viewBox="0 0 14 12"
@@ -173,6 +174,7 @@ export const Header = ({ data }: HeaderProps) => {
                   </svg>
                 ) : (
                   <svg
+                    className={styles.arrow}
                     width="14"
                     height="12"
                     viewBox="0 0 14 12"
