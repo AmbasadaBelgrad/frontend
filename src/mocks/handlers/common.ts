@@ -12,8 +12,15 @@ export const commonHandlers = [
   // INIT
   http.get("/api/v1/init", () => {
     return HttpResponse.json({
-      status: "ok",
-      timestamp: Date.now(),
+      seo_description: "Сообщество архитекторов и урбанистов",
+      cookie_message: "Мы используем cookies",
+      cookie_button_text: "OK",
+      languages: [
+        { code: "ru", label: "Русский" },
+        { code: "en", label: "English" },
+        { code: "sr-Latn", label: "Srpski" },
+        { code: "sr-Cyrl", label: "Српски" },
+      ],
       site_name: "Амбасада за Урбанизам",
 
       socials: {
