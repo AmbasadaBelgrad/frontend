@@ -8,6 +8,7 @@
 
 .imageLeft {
   margin-top: 88px;
+  margin-left: var(--spacing-3);
   width: auto;
   height: auto;
   max-width: 400px;
