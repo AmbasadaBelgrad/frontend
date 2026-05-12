@@ -2,19 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
+import { useTranslation } from "react-i18next";
 import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const path: string[] = ["Главная", "Каталог проектов", slug || ""];
   const [deviceType, setDeviceType] = useState("desktop"); // 'mobile', 'tablet', 'desktop'
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     const checkDeviceType = () => {
       const width = window.innerWidth;
       if (width <= 833) {
         setDeviceType("mobile");
-      } else if (width > 834 && width < 1440) {
+      } else if (width >= 834 && width < 1440) {
         setDeviceType("tablet");
       } else {
         setDeviceType("desktop");
@@ -34,27 +35,41 @@ export const ProjectDetails: React.FC = () => {
     <div className={styles.container}>
       <ul className={styles.pathList}>
         <li className={styles.pathItem}>
-          <Link className={styles.pathText} to={routesPaths.home}>
-            Главная
+          <Link
+            className={styles.pathText}
+            aria-label={t("projectDetails.mainPage")}
+            to={routesPaths.home}
+          >
+            {t("projectDetails.mainPage")}
           </Link>
         </li>
         <li className={styles.pathItem}>
-          <Link className={styles.pathText} to={routesPaths.projects}>
-            Каталог проектов
+          <Link
+            className={styles.pathText}
+            aria-label={t("projectDetails.catalogProject")}
+            to={routesPaths.projects}
+          >
+            {!isMobile && t("projectDetails.catalogProject")}
+            {isMobile && "..."}
           </Link>
         </li>
         <li className={styles.pathItem}>
-          <Link className={styles.pathText} to={routesPaths.projectDetails}>
+          <Link
+            className={styles.pathText}
+            aria-label={slug}
+            to={routesPaths.projectDetails}
+          >
             {slug}
           </Link>
         </li>
       </ul>
       <Link
         className={`${!isMobile ? "btn btn--primary" : ""} ${styles.button}`}
+        aria-label={t("projectDetails.textButtonDesktop")}
         to={routesPaths.projects}
       >
-        {!isTablet && !isMobile && "Назад в каталог"}
-        {isTablet && !isMobile && "В каталог"}
+        {!isTablet && !isMobile && t("projectDetails.textButtonDesktop")}
+        {isTablet && !isMobile && t("projectDetails.textButtonTablet")}
         {isMobile && (
           <img src="/back_arrow.svg" alt="arrow" className={styles.arrow} />
         )}

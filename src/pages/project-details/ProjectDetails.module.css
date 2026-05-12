@@ -24,6 +24,19 @@
 
 .button {
   width: 500px;
+  font: var(--desktop_button);
+}
+
+.pathText:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.pathText:focus-visible {
+  outline: 4px solid var(--black);
+  outline-offset: 4px;
+  border-radius: 2px;
+  transition: outline 0.2s ease-in-out, outline-offset 0.2s ease-in-out;
 }
 
 @media (min-width: 834px) and (max-width: 1439px) {
@@ -36,21 +49,46 @@
 
   .pathList {
     display: flex;
-    gap: var(--spacing-6);
+    gap: clamp(0.625rem, -0.5792rem + 2.3102vw, 1.5rem);
+    align-items: flex-start;
+    margin-top: 6px;
   }
-  
+
   .pathText {
     font: var(--tablet_main);
   }
 
   .pathItem:not(:last-child)::after {
     font: var(--tablet_main);
-    margin-left: var(--spacing-6);
+    margin-left: clamp(1rem, 0.3119rem + 1.3201vw, 1.5rem);
   }
   .button {
     width: clamp(10.8125rem, -17.3144rem + 53.9604vw, 31.25rem);
+    font: var(--tablet_button);
   }
 }
 
 @media (max-width: 833px) {
+  .container {
+    height: 54px;
+    margin: 0 20px;
+  }
+
+  .pathList {
+    gap: 8px;
+  }
+  .pathText {
+    font: var(--mobile_caption);
+  }
+
+  .pathItem:not(:last-child)::after {
+    font: var(--mobile_caption);
+    margin-left: 14px;
+  }
+  .button {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
 }

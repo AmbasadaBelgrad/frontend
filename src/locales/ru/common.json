@@ -16,5 +16,11 @@
     "title": "Кажется, вы свернули не туда",
     "buttonDesktop": "Вернуться на Главную",
     "buttonMobile": "Перейти на Главную"
+  },
+  "projectDetails": {
+    "textButtonDesktop": "Назад в каталог",
+    "textButtonTablet": "В каталог",
+    "mainPage": "Главная",
+    "catalogProject": "Каталог проектов"
   }
 }
