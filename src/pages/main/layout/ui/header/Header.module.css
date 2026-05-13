@@ -9,9 +9,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-
-  padding: 20px 90px 20px 80px;
   margin: 0 auto;
+  min-height: 104px;
+  padding: 0 90px 0 80px;
+  width: 100%;
+  max-width: 1440px;
 }
 
 .logoSection {
@@ -61,7 +63,7 @@
 }
 
 .headerNav {
-  margin-left: 35px;
+  margin-left: 45px;
 }
 
 .navList {
@@ -260,7 +262,7 @@
 
 @media (max-width: 1060px) {
   .headerTop {
-    padding: 18px 40px 16px 40px;
+    padding: 0 40px;
     min-height: 91px;
   }
 
@@ -318,8 +320,9 @@
 
 @media (max-width: 833px) {
   .headerTop {
-    padding: 20.5px 22px;
-    gap: 10px;
+    padding: 0 20px;
+    min-height: 80px;
+    gap: 90px;
     position: relative;
     z-index: 2;
   }
@@ -331,7 +334,7 @@
 
   .logo,
   .logoLink {
-    gap: 7px;
+    gap: 9px;
     max-width: 140px;
   }
 
@@ -352,6 +355,10 @@
 
   .langSwitcherCurrent {
     font-size: 16px;
+  }
+
+  .langSwitcherButton {
+    gap: 23px;
   }
 
   .arrow {
