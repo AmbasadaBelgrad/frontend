@@ -16,7 +16,7 @@ const MainLayout = () => {
 
   useInitSeo(initData);
 
-  if (isLoading) {
+   if (isLoading) {
     return (
       <div className={styles.appState}>
         <p>Загрузка сайта...</p>
@@ -67,12 +67,11 @@ const MainLayout = () => {
   }
 
   const footerData: FooterData | null = initData
-    ? {
-        socials: initData.socials,
-        legal_links: initData.legal_links,
-        copyright: initData.copyright,
-      }
-    : null;
+  ? {
+      socials: initData.socials,
+      copyright: initData.copyright,
+    }
+  : null;
 
   return (
     <div className={styles.layout}>
@@ -83,7 +82,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {!isLoading && <Footer data={footerData} />}
+      {footerData && <Footer data={footerData} />}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse} from "msw";
 import home from "../fixtures/common/home.json";
 import about from "../fixtures/common/about.json";
 
@@ -9,6 +9,10 @@ type ContactRequest = {
 };
 
 export const commonHandlers = [
+  http.get("/", () => {
+    return; // важно: ничего не возвращаем (undefined)
+  }),
+  
   // INIT
   http.get("/api/v1/init", () => {
     return HttpResponse.json({
@@ -23,13 +27,13 @@ export const commonHandlers = [
       ],
       site_name: "Амбасада за Урбанизам",
 
-      socials: {
-        linkedin: "https://linkedin.com/example",
-        telegram: "https://t.me/example",
-        instagram: "https://instagram.com/example",
-        facebook: "https://facebook.com/example",
-        email: "info@example.com",
-      },
+      socials: [
+        { social_type: "LinkedIn", url: "https://linkedin.com/example" },
+        { social_type: "Telegram", url: "https://t.me/example" },
+        { social_type: "Instagram", url: "https://instagram.com/example" },
+        { social_type: "Facebook", url: "https://facebook.com/example" },
+        { social_type: "Email", url: "info@example.com" },
+      ],
 
       legal_links: {
         privacy_policy: "/privacy",
