@@ -12,11 +12,10 @@
     "lint": "eslint .",
     "format": "prettier ./src --write",
     "typecheck": "tsc -b --noEmit",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.100.5",
     "i18next": "^26.0.4",
     "i18next-browser-languagedetector": "^8.2.1",
     "i18next-http-backend": "^3.0.4",
@@ -62,5 +61,9 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "^1.0.0-rc.15",
+    "lightningcss-linux-x64-gnu": "^1.30.2"
   }
 }
