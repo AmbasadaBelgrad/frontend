@@ -1,6 +1,6 @@
-import styles from "./variant3.module.css";
+import styles from "./Variant3.module.css";
 import type { Tbutton } from "../../InfoBlock";
-import { insertAfterFirstParagraph } from "./insertParagraph";
+import { splitByFirstParagraph } from "../splitParagraph";
 
 interface Variant3Props {
   image?: string;
@@ -10,15 +10,34 @@ interface Variant3Props {
   mobileMode: boolean;
 }
 
-function Variant3(props: Variant3Props) {
-  const text = insertAfterFirstParagraph(
-    props.mobileMode,
-    props.text || "",
-    props.accented_text,
-    props.image,
-    styles.image,
-    styles.accentedText,
-  );
+export function Variant3(props: Variant3Props) {
+  const paragraphText = splitByFirstParagraph(props.text || "");
+  const firstParagraph = paragraphText[0] ? (
+    <div
+      className={styles.notAccentedText}
+      dangerouslySetInnerHTML={{ __html: paragraphText[0] }}
+    />
+  ) : null;
+  const accentedText = props.accented_text ? (
+    <div
+      className={styles.accentedText}
+      dangerouslySetInnerHTML={{ __html: props.accented_text }}
+    />
+  ) : null;
+  const image = props.image ? (
+    <img
+      src={props.image}
+      className={styles.image}
+      loading="lazy"
+      alt="image"
+    />
+  ) : null;
+  const otherParagraph = paragraphText[1] ? (
+    <div
+      className={styles.notAccentedText}
+      dangerouslySetInnerHTML={{ __html: paragraphText[1] }}
+    />
+  ) : null;
 
   const handleButtonClick = (item: Tbutton) => {
     if (item.type === "download") {
@@ -53,14 +72,29 @@ function Variant3(props: Variant3Props) {
     }
   };
 
+  const mobileVersion = (
+    <>
+      {image}
+      {firstParagraph}
+      {accentedText}
+      {otherParagraph}
+    </>
+  );
+
+  const desktopVersion = (
+    <>
+      {firstParagraph}
+      {image}
+      {accentedText}
+      {otherParagraph}
+    </>
+  );
+
   return (
     <div className={styles.content}>
-      {text && (
-        <div
-          className={styles.textContent}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-      )}
+      <div className={styles.textContent}>
+        {props.mobileMode ? mobileVersion : desktopVersion}
+      </div>
       {props.buttons && props.buttons.length > 0 && (
         <ul className={styles.buttonsList}>
           {props.buttons.map((item, index) => (
@@ -79,5 +113,3 @@ function Variant3(props: Variant3Props) {
     </div>
   );
 }
-
-export default Variant3;

@@ -57,9 +57,13 @@ import type { IInfoBlock } from "@pages/project-details/ui/InfoBlock";
         ))}
   */
 
-import { useState, useEffect, useRef } from "react";
-import styles from "./infoBlock.module.css";
-import { Variant1, Variant2, Variant3 } from "./variants";
+import { useState, useEffect } from "react";
+import { useViewportWidth } from "@shared/lib/useWidthViewPort";
+import styles from "./InfoBlock.module.css";
+import { Variant1 } from "./variants/Variant1/Variant1";
+import { Variant2 } from "./variants/Variant2/Variant2";
+import { Variant3 } from "./variants/Variant3/Variant3";
+import { safeCode } from "./variants/safeCode";
 
 type Tbutton = {
   label: string;
@@ -85,25 +89,7 @@ function InfoBlock(props: IInfoBlock) {
     setHideContent(!hideContent);
   };
 
-  const [mobileMode, setMobileMode] = useState<boolean>(
-    window.innerWidth < 834,
-  );
-  const prevMobileMode = useRef<boolean>(mobileMode);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newMobileMode = window.innerWidth < 834;
-      if (newMobileMode !== prevMobileMode.current) {
-        setMobileMode(newMobileMode);
-        prevMobileMode.current = newMobileMode;
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const mobileMode = useViewportWidth().isMobile;
 
   const renderContent = () => {
     switch (props.variant) {
@@ -112,8 +98,8 @@ function InfoBlock(props: IInfoBlock) {
           <Variant1
             image={props.image}
             string_list={props.string_list || []}
-            text={props.text}
-            accented_text={props.accented_text}
+            text={safeCode(props.text)}
+            accented_text={safeCode(props.accented_text)}
             mobileMode={mobileMode}
           />
         );
@@ -122,8 +108,8 @@ function InfoBlock(props: IInfoBlock) {
           <Variant2
             image={props.image}
             left_image={props.left_image || ""}
-            text={props.text}
-            accented_text={props.accented_text}
+            text={safeCode(props.text)}
+            accented_text={safeCode(props.accented_text)}
             mobileMode={mobileMode}
           />
         );
@@ -131,8 +117,8 @@ function InfoBlock(props: IInfoBlock) {
         return (
           <Variant3
             image={props.image}
-            text={props.text}
-            accented_text={props.accented_text}
+            text={safeCode(props.text)}
+            accented_text={safeCode(props.accented_text)}
             buttons={props.buttons || []}
             mobileMode={mobileMode}
           />
