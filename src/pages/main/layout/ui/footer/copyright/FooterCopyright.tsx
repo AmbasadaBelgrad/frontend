@@ -5,11 +5,10 @@ type Props = {
 };
 
 export const FooterCopyright = ({ copyright }: Props) => {
-  if (!copyright) return null;
-
   return (
     <div className={styles.copyright}>
-      {copyright}
+      {copyright ?? ""}
     </div>
   );
 };
+

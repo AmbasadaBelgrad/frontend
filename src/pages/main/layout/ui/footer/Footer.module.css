@@ -15,8 +15,9 @@
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  gap: 80px;
+  z-index: 1;
   box-sizing: border-box;
+  height: 298px;
   position: relative;           /* для абсолютного позиционирования паттерна */
 }
 
@@ -103,6 +104,9 @@
   gap: 101px;
   width: 100%;
   box-sizing: border-box;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
 }
 
 /* Скрываем правовые ссылки (в макете их нет) */
@@ -121,6 +125,12 @@ button:focus-visible {
 a:focus:not(:focus-visible),
 button:focus:not(:focus-visible) {
   outline: none;
+}
+
+.topRow,
+.bottomRow {
+  position: relative;
+  z-index: 3;
 }
 
 /* ========== ДЕКОРАТИВНЫЙ ПАТТЕРН ========== */
@@ -380,12 +390,56 @@ button:focus:not(:focus-visible) {
   background: rgba(26, 26, 26, 0.05);
 }
 
+@media (max-width: 1300px) and (min-width: 1025px) {
+  
+  .topRow {
+    padding: 0 40px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .logoLink {
+    max-width: 280px;
+    gap: 12px;
+  }
+
+  .logoImage {
+    width: 80px;
+  }
+
+  .logoTextMain {
+    font-size: 27px;
+  }
+
+  .logoTextSub {
+    font-size: 20px;
+  }
+
+  .rightBlock {
+    width: auto;
+    max-width: 420px;
+    gap: 20px;
+    align-items: flex-end;
+  }
+
+  .bottomRow {
+    padding: 0 40px;
+    gap: 60px;
+    justify-content: space-between;
+  }
+}
+
 /* ========== TABLET (≤1024px) ========== */
 @media (max-width: 1024px) {
   .content {
     padding: 20px 0;
     gap: 24px;
-    max-height: 163px;
+    height: 163px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
   }
 
   .topRow {
@@ -434,7 +488,6 @@ button:focus:not(:focus-visible) {
     padding: 0 40px;
     gap: 180px;
     flex-wrap: wrap;
-    transform: translateY(17px);
   }
 
   .pattern {
@@ -692,7 +745,7 @@ button:focus:not(:focus-visible) {
   .content {
     padding: 20px 0;
     gap: 24px;
-    max-height: 215px;
+    height: 215px;
   }
 
   .topRow {
@@ -730,9 +783,7 @@ button:focus:not(:focus-visible) {
   }
 
   .bottomRow {
-    flex-direction: row;
-    display: none;
-    align-items: center;
+    flex-wrap: wrap;
     padding: 0 20px;
     gap: 10px;
   }

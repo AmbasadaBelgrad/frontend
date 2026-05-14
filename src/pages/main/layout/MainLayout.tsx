@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
 import styles from "./MainLayout.module.css";
 import { Footer } from "./ui/footer/index";
-import type { FooterData } from "./ui/footer/types";
+
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
   const {
@@ -66,13 +66,6 @@ const MainLayout = () => {
     );
   }
 
-  const footerData: FooterData | null = initData
-  ? {
-      socials: initData.socials,
-      copyright: initData.copyright,
-    }
-  : null;
-
   return (
     <div className={styles.layout}>
       {/* TODO: передать initData в Header, когда компонент будет готов */}
@@ -82,7 +75,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {footerData && <Footer data={footerData} />}
+      <Footer data={initData} />
     </div>
   );
 };

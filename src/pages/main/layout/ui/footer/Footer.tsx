@@ -8,13 +8,12 @@ import { FooterCopyright } from "./copyright/FooterCopyright";
 import type { FooterData } from "./types";
 
 type Props = {
-  data: FooterData | null;
+  data: FooterData;
 };
 
 export const Footer = ({ data }: Props) => {
   const { t } = useTranslation("common");
 
-  if (!data) return null;
 
   const siteNameRaw =
     t("site_name", {

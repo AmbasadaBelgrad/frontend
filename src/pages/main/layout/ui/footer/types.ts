@@ -1,12 +1,6 @@
-import type { Social } from "@/entities/init/model/types";
+import type { InitResponse } from "@/entities/init/model/types";
 
-export type FooterData = {
-  site_name?: string;
-
-  socials?: Social[];
-
-  legal_links?: Record<string, string>;
-
-  copyright?: string;
-};
-
+export type FooterData = Pick<
+  InitResponse,
+  "site_name" | "socials" | "legal_links" | "copyright"
+>;
