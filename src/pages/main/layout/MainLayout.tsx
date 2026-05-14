@@ -74,7 +74,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      {initData && (<pre>{JSON.stringify(initData, null, 2)}</pre>)}
 
       {/* <Footer /> */}
     </div>
