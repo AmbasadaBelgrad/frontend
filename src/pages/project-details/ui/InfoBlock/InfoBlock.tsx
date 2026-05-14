@@ -57,7 +57,7 @@ import type { IInfoBlock } from "@pages/project-details/ui/InfoBlock";
         ))}
   */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import styles from "./InfoBlock.module.css";
 import { Variant1 } from "./variants/Variant1/Variant1";
