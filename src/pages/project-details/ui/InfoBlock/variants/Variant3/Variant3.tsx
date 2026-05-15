@@ -99,13 +99,27 @@ export function Variant3(props: Variant3Props) {
         <ul className={styles.buttonsList}>
           {props.buttons.map((item, index) => (
             <li key={index} className={styles.buttonItem}>
-              <button
-                className={`${styles.button} btn btn--primary`}
-                onClick={() => handleButtonClick(item)}
-                aria-label={`Кнопка ${item.label}`}
-              >
-                {item.label}
-              </button>
+              {item.type === "redirect" && (
+                <button
+                  className={`${styles.button} btn btn--primary`}
+                  onClick={() => handleButtonClick(item)}
+                  aria-label={`Кнопка ${item.label}`}
+                >
+                  {item.label}
+                </button>
+              )}
+              {item.type === "download" && (
+                <a
+                  href={item.url}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.button} btn btn--primary`}
+                  aria-label={`Кнопка ${item.label}`}
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
