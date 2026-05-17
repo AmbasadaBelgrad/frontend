@@ -12,7 +12,11 @@ export const OurTeam = ({ data }: ITeamProps) => {
           <li key={member.id}>
             <div className={styles.img_wrapper}>
               <div className={styles.gradient_bg}></div>
-              <img className={styles.img} src={member.photo} />
+              <img
+                className={styles.img}
+                src={member.photo}
+                alt={`${member.name} - ${member.role}`}
+              />
             </div>
             <div className={styles.member_info}>
               <span className={styles.member_name}>{member.name}</span>
