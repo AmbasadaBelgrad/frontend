@@ -49,6 +49,8 @@
   margin-top: 30px;
   flex: 1;
   overflow-y: auto;
+  max-height: calc(100vh - 200px);
+  min-height: 0;
 }
 
 .infoBlock {
@@ -59,7 +61,7 @@
 }
 
 .content::-webkit-scrollbar {
-  width: 16px;
+  width: 24px;
 }
 
 .content::-webkit-scrollbar-track {
@@ -70,17 +72,12 @@
 
 .content::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #cdc5ff 0%, #fcffff 50%, #e6e2ff 100%);
-  border-radius: 8px; /* Radius from layout */
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .content::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #bdb5ef 0%, #ecefff 50%, #d6d2ef 100%);
-}
-
-.content {
-  scrollbar-width: thin;
-  scrollbar-color: #cdc5ff rgba(201, 201, 201, 0.2);
 }
 
 .content {
@@ -127,7 +124,7 @@
   .content {
     margin-top: clamp(0rem, -2.5804rem + 4.9505vw, 1.875rem);
   }
-  .infoBlock{
+  .infoBlock {
     margin-top: clamp(3.4375rem, -2.1535rem + 10.7261vw, 7.5rem);
     gap: clamp(1.875rem, 1.0149rem + 1.6502vw, 2.5rem);
   }
@@ -160,8 +157,8 @@
   .content {
     margin-top: clamp(0.3125rem, 0.5678rem + -1.0893vw, 0rem);
   }
-  .infoBlock{
-    margin-top: clamp(0.625rem, -1.6728rem + 9.8039vw, 3.4375rem);;
+  .infoBlock {
+    margin-top: clamp(0.625rem, -1.6728rem + 9.8039vw, 3.4375rem);
     gap: clamp(1.5625rem, 1.3072rem + 1.0893vw, 1.875rem);
   }
 }

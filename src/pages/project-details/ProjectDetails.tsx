@@ -1,70 +1,40 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import { useTranslation } from "react-i18next";
 import { MainInfo } from "./ui/MainInfo/";
 import { InfoBlock } from "./ui/InfoBlock/";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
-import { useProjectDetailsQuery } from "@entities/project-details/model/useProjectDetailsQuery";
+import { useProjectDetailsQuery } from "@entities/project-details/";
 import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data, isLoading, isError, error, refetch, isFetching } =
-    useProjectDetailsQuery(slug!);
+  const { data, isLoading, isError, error } = useProjectDetailsQuery(slug!);
   const device = useViewportWidth();
   const { t } = useTranslation("common");
   const isMobile = device.isMobile;
   const isTablet = device.isTablet;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isError) {
+      console.error("ProjectDetails Error:", error);
+      navigate(routesPaths.projects);
+    }
+  }, [isError, error, navigate]);
 
   if (isLoading) {
     return (
       <div className={styles.appState}>
-        <p>Загрузка сайта...</p>
+        <p>Загрузка...</p>
       </div>
     );
   }
 
-  if (isError) {
-    return (
-      <div className={styles.appState}>
-        <p>Не удалось загрузить данные сайта</p>
-
-        {error instanceof Error && (
-          <p className={styles.errorText}>{error.message}</p>
-        )}
-
-        <button
-          className={`btn btn--primary ${styles.button}`}
-          type="button"
-          onClick={() => void refetch()}
-          disabled={isFetching}
-        >
-          Повторить запрос
-        </button>
-      </div>
-    );
-  }
-
-  if (!data) {
-    return (
-      <div className={styles.appState}>
-        <p>Инициализация приложения...</p>
-
-        <p className={styles.errorText}>
-          Загружаем базовые данные сайта. Если состояние не меняется — обновите
-          страницу.
-        </p>
-
-        <button
-          className={`btn btn--primary ${styles.button}`}
-          type="button"
-          onClick={() => window.location.reload()}
-        >
-          Обновить страницу
-        </button>
-      </div>
-    );
+  if (!data || isError) {
+    return null;
   }
 
   const mainInfo = {
