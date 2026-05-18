@@ -11,7 +11,6 @@ import importPlugin from "eslint-plugin-import";
 
 export default defineConfig([
   globalIgnores(["dist", "node_modules"]),
-
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -140,7 +139,6 @@ export default defineConfig([
       "boundaries/no-unknown-files": "error",
     },
   },
-
   {
     files: ["**/*.{js,ts}", "eslint.config.js", "vite.config.ts"],
     ignores: ["src/**/*", "dist/**/*"],

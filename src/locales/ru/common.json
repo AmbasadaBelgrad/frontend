@@ -7,6 +7,11 @@
     "sr-Latn": "Сербский",
     "sr-Cyrl": "Сербский"
   },
+  "search": {
+    "placeholder": "Поиск",
+    "ariaLabel": "Поиск проектов",
+    "clear": "Очистить"
+  },
   "notFound": {
     "title": "Кажется, вы свернули не туда",
     "buttonDesktop": "Вернуться на Главную",
