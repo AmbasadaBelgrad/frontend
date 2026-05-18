@@ -25,6 +25,10 @@
 	pointer-events: all;
 }
 
+.button {
+	padding: 19px 98px;
+}
+
 .text {
 	margin: 0;
 	font: var(--desktop_main);
