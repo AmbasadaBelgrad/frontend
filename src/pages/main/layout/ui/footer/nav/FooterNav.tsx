@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
 export const FooterNav = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const [isTablet, setIsTablet] = useState(false);
 
@@ -46,3 +46,5 @@ export const FooterNav = () => {
     </nav>
   );
 };
+
+
