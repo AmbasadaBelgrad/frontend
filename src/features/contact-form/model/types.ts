@@ -22,3 +22,7 @@ export type TFormErrors = {
   email?: string;
   message?: string;
 };
+
+export type TTouchedFields = Partial<
+  Record<keyof TContactFormPayload, boolean>
+>;

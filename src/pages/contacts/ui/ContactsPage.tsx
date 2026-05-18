@@ -16,7 +16,7 @@ const ContactsPage = () => {
     <main className={styles.contactsPage}>
       <ContactSection
         sectionData={contactsPageData.contact_section}
-        payload={contactsPageData.contact_form}
+        contactData={contactsPageData.contact_form}
         imageLoading="eager"
         imageFetchPriority="high"
       />

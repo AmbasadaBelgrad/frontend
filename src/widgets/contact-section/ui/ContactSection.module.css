@@ -4,7 +4,7 @@
   width: 100%;
   max-width: var(--breakpoint_desktop);
   margin: 0 auto;
-  padding: 40px 120px 120px 80px;
+  padding: var(--spacing-10) var(--spacing-30) var(--spacing-30) var(--spacing-20);
   overflow: hidden;
 
   --contact-image-width: clamp(
@@ -20,8 +20,8 @@
   );
 
   --contact-form-width: clamp(
-    335px,
-    calc(335px + (100vw - 834px) * 0.4769),
+    465px,
+    calc(465px + (100vw - 834px) * 0.2624),
     624px
   );
 }
@@ -35,45 +35,33 @@
 }
 
 .contactSectionDecorGreen,
-.contactSectionDecorPurpleSmall,
-.contactSectionDecorPurpleLarge {
+.contactSectionDecorPurple {
   position: absolute;
   display: block;
   transform-origin: center;
 }
 
 .contactSectionDecorGreen {
-  position: absolute;
-  top: -35px;
-  left: -93px;
-  width: 807px;
-  height: 689px;
-  background-color: var(--green_3);
-clip-path: polygon(
-  33% 2%,
-  97% 3%,
-  -13% 115%,
-  -70% 94%
-);
+  top: -8px;
+  left: -30px;
+  width: 789px;
+  height: 654px;
+  background-image: url("/images/content-section/green_shape.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-position: center;
 }
 
-/*.contactSectionDecorPurpleSmall {
-  width: 520px;
-  height: 180px;
-  top: 250px;
-  left: 250px;
-  background-color: var(--balance);
-  transform: rotate(-40deg);
+.contactSectionDecorPurple {
+  right: -16px;
+  bottom: 0;
+  width: 659px;
+  height: 728px;
+  background-image: url("/images/content-section/purple_shape.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
 }
-
-.contactSectionDecorPurpleLarge {
-  width: 840px;
-  height: 240px;
-  top: 390px;
-  left: 760px;
-  background-color: var(--purpure_2);
-  transform: rotate(-32deg);
-}*/
 
 .contactSectionTitle {
   margin: 0 0 var(--spacing-10);
@@ -88,15 +76,35 @@ clip-path: polygon(
   grid-template-columns: var(--contact-image-width) minmax(0, 1fr);
   column-gap: clamp(20px, calc(20px + (100vw - 1024px) * 0.2638), 130px);
   align-items: start;
-  margin-bottom: 50px;
+  margin-bottom: var(--spacing-10);
 }
 
 .contactSectionContent {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
   width: 100%;
   min-width: 0;
 }
 
+.contactSectionContent::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -40px;
+  bottom: -62px;
+  width: 508px;
+  height: 508px;
+  background-image: url("/images/content-section/purple_image_frame.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  pointer-events: none;
+}
+
 .contactSectionImage {
+  position: relative;
+  z-index: 1;
   width: var(--contact-image-width);
   height: var(--contact-image-height);
   display: block;
@@ -130,15 +138,26 @@ clip-path: polygon(
   opacity: 0.5;
 }
 
+.contactSectionSubmitError {
+  margin: 0;
+  font: var(--desktop_caption);
+  color: var(--fault);
+}
+
 .contactSectionSubmitWrapper {
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: center;
   width: 100%;
+  opacity: 1;
 }
 
 .contactSectionSubmit {
-  width: 100%;
-  max-width: 500px;
+  width: 500px;
+  max-width: 100%;
+  height: 72px;
+  opacity: 1;
 }
 
 .contactSectionSubmit:disabled,
@@ -151,9 +170,6 @@ clip-path: polygon(
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
-  .contactSectionBody {
-    margin-bottom: var(--spacing-8);
-  }
 
   .contactSectionFormWrapper {
     gap: var(--spacing-4);
@@ -168,28 +184,64 @@ clip-path: polygon(
     font: var(--tablet_caption);
     line-height: 120%;
   }
+}
+
+@media (min-width: 834px) and (max-width: 1439px) {
+  .contactSection {
+    padding: var(--spacing-5) var(--spacing-10) var(--spacing-25);
+  }
 
   .contactSectionSubmit {
-    max-width: 420px;
-    height: 56px;
-    padding: 10px var(--spacing-6);
-    font: var(--tablet_button);
+    width: clamp(
+      350px,
+      calc(350px + (100vw - 834px) * 0.2475),
+      500px
+    );
+    height: clamp(
+      48px,
+      calc(48px + (100vw - 834px) * 0.0396),
+      72px
+    );
+    padding: 0 clamp(24px, 5vw, 80px);
+    font-size: clamp(
+      20px,
+      calc(20px + (100vw - 834px) * 0.0066),
+      24px
+    );
+  }
+
+  .contactSectionDecorGreen {
+    top: -18px;
+    left: -28px;
+    width: 680px;
+    height: 445px;
+    background-size: 100% 104%;
+    transform: rotate(5deg);
+  }
+
+  .contactSectionDecorPurple {
+    right: -3px;
+    bottom: 3px;
+    width: 520px;
+    height: 400px;
+    background-size: 100% 92%;
+    transform: rotate(-2deg);
   }
 }
 
 @media (max-width: 1279px) {
-  .contactSection {
-    padding: var(--spacing-10);
+  .contactSectionContent::before {
+    content: none;
   }
 
   .contactSectionTitle {
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-10);
     font: var(--tablet_h2);
   }
 
   .contactSectionBody {
     grid-template-columns: var(--contact-image-width) minmax(0, 1fr);
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-10);
   }
 
   .contactSectionImage {
@@ -210,51 +262,36 @@ clip-path: polygon(
     line-height: 120%;
   }
 
-  .contactSectionSubmit {
-    max-width: 320px;
-  }
-}
-
-@media (min-width: 834px) and (max-width: 1085px) {
-  .contactSectionBody {
-    column-gap: 30px;
-  }
-}
-
-@media (max-width: 1023px) {
-  .contactSectionDecorPurpleSmall {
-    width: 360px;
-    height: 320px;
-    top: 180px;
-    left: 220px;
-  }
-
-  .contactSectionDecorPurpleLarge {
-    width: 620px;
-    height: 540px;
-    top: 300px;
-    left: 420px;
+  .contactSectionSubmitError {
+    font: var(--mobile_main);
   }
 }
 
 @media (max-width: 833px) {
   .contactSection {
-    padding: var(--spacing-5);
+    padding: var(--spacing-6) var(--spacing-5) var(--spacing-20);
   }
 
-  .contactSectionDecorPurpleSmall {
-    display: none;
+  .contactSectionDecorGreen {
+    top: -32px;
+    left: -86px;
+    width: 528px;
+    height: 328px;
+    background-size: 100% 83%;
+    transform: rotate(-3deg);
   }
 
-  .contactSectionDecorPurpleLarge {
-    width: 420px;
-    height: 360px;
-    top: 280px;
-    left: 120px;
+  .contactSectionDecorPurple {
+    right: -42px;
+    bottom: -20px;
+    width: 439px;
+    height: 351px;
+    background-size: 100% 86%;
+    transform: rotate(-14deg);
   }
 
   .contactSectionTitle {
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-5);
     font: var(--mobile_h2);
   }
 
@@ -262,14 +299,10 @@ clip-path: polygon(
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);
-    margin-bottom: var(--spacing-6);
+    margin-bottom: var(--spacing-12);
   }
 
   .contactSectionContent {
-    display: none;
-  }
-
-  .contactSectionImage {
     display: none;
   }
 
@@ -288,7 +321,26 @@ clip-path: polygon(
     line-height: 120%;
   }
 
+  .contactSectionSubmitError {
+    font: var(--mobile_caption);
+  }
+
   .contactSectionSubmit {
-    max-width: 255px;
+    width: clamp(
+      255px,
+      calc(255px + (100vw - 375px) * 0.207),
+      350px
+    );
+    height: clamp(
+      36px,
+      calc(36px + (100vw - 375px) * 0.0261),
+      48px
+    );
+    padding: 0 clamp(10px, 3vw, 24px);
+    font-size: clamp(
+      16px,
+      calc(16px + (100vw - 375px) * 0.0087),
+      20px
+    );
   }
 }

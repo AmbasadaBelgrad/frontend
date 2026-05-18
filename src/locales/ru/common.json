@@ -20,9 +20,12 @@
     },
     "errors": {
       "requiredName": "Введите имя",
+      "invalidNameAlphabet": "Поле может содержать только символы кириллицы и латиницы, а также пробел, дефис и апостроф",
       "requiredEmail": "Введите email",
-      "invalidEmail": "Email введен некорректно",
-      "requiredMessage": "Введите комментарий"
+      "invalidEmailWithExample": "Укажите адрес электронной почты в формате name@example.com",
+      "requiredMessage": "Введите комментарий",
+      "messageMinLength": "Комментарий должен быть не короче {{min}} символов",
+      "messageMaxLength": "Комментарий не должен превышать {{max}} символов"
     }
   }
 }

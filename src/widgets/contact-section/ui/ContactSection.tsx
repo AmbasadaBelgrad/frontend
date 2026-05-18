@@ -10,7 +10,7 @@ import styles from "./ContactSection.module.css";
 
 type TContactSectionProps = {
   sectionData: TContactSection;
-  payload: TContactData;
+  contactData: TContactData;
   imageLoading?: "lazy" | "eager";
   imageFetchPriority?: "auto" | "high" | "low";
 };
@@ -19,30 +19,38 @@ const CONTACT_FORM_ID = "contact-form";
 
 const ContactSection = ({
   sectionData,
-  payload,
+  contactData,
   imageLoading = "lazy",
   imageFetchPriority = "auto",
 }: TContactSectionProps) => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isContactFormValid, setIsContactFormValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleSubmit = async (formPayload: TContactFormPayload) => {
     if (formPayload.contact_preference) {
       return;
     }
 
-    // отправка на API
-    // await sendContactRequest(formPayload);
+    setIsSubmitting(true);
+    setSubmitError("");
 
-    setIsSuccessModalOpen(true);
+    try {
+      setIsSuccessModalOpen(true);
+    } catch (error) {
+      setSubmitError("Не удалось отправить форму. Попробуйте еще раз.");
+      throw error;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section className={styles.contactSection}>
       <div className={styles.contactSectionDecor} aria-hidden="true">
         <span className={styles.contactSectionDecorGreen} />
-        <span className={styles.contactSectionDecorPurpleSmall} />
-        <span className={styles.contactSectionDecorPurpleLarge} />
+        <span className={styles.contactSectionDecorPurple} />
       </div>
 
       <h2 className={styles.contactSectionTitle}>{sectionData.title}</h2>
@@ -63,19 +71,26 @@ const ContactSection = ({
             {sectionData.description}
           </p>
 
-          <ContactForm 
+          <ContactForm
             id={CONTACT_FORM_ID}
+            isSubmitting={isSubmitting}
             onSubmit={handleSubmit}
             onValidityChange={setIsContactFormValid}
-            />
+          />
 
           <p className={styles.contactSectionConsent}>
-            {payload.consent.text_before_link}{" "}
-            <Link className="linkForm" to={payload.consent.link}>
-              {payload.consent.link_label}
+            {contactData.consent.text_before_link}{" "}
+            <Link className="linkForm" to={contactData.consent.link}>
+              {contactData.consent.link_label}
             </Link>{" "}
-            {payload.consent.text_after_link}
+            {contactData.consent.text_after_link}
           </p>
+
+          {submitError && (
+            <p className={styles.contactSectionSubmitError} role="alert">
+              {submitError}
+            </p>
+          )}
         </div>
       </div>
 
@@ -84,17 +99,13 @@ const ContactSection = ({
           className={`btn btn--primary ${styles.contactSectionSubmit}`}
           type="submit"
           form={CONTACT_FORM_ID}
-          disabled={!isContactFormValid}
+          disabled={!isContactFormValid || isSubmitting}
         >
-          {payload.submit_button.label}
+          {isSubmitting ? "Отправляем..." : contactData.submit_button.label}
         </button>
       </div>
 
-      {isSuccessModalOpen && (
-        <div>
-          {/* SuccessModal */}
-        </div>
-      )}
+      {isSuccessModalOpen && <div>{/* SuccessModal */}</div>}
     </section>
   );
 };
