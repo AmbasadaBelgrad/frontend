@@ -24,10 +24,10 @@ i18n
     },
     interpolation: { escapeValue: false },
     resources: {
-      ru: { translation: ru },
-      en: { translation: en },
-      "sr-Latn": { translation: srLatn },
-      "sr-Cyrl": { translation: srCyrl },
+      ru: { common: ru },
+      en: { common: en },
+      "sr-Latn": { common: srLatn },
+      "sr-Cyrl": { common: srCyrl },
     },
   });
 
