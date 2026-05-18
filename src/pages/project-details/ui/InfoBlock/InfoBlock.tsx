@@ -75,11 +75,11 @@ interface IInfoBlock {
   variant: 1 | 2 | 3;
   index: string;
   title: string;
-  image: string;
+  image?: string;
   left_image?: string;
   string_list?: string[];
-  text: string;
-  accented_text: string;
+  text?: string;
+  accented_text?: string;
   buttons?: Tbutton[];
 }
 
@@ -98,8 +98,8 @@ function InfoBlock(props: IInfoBlock) {
           <Variant1
             image={props.image}
             string_list={props.string_list || []}
-            text={safeCode(props.text)}
-            accented_text={safeCode(props.accented_text)}
+            text={safeCode(props.text || "")}
+            accented_text={safeCode(props.accented_text || "")}
             mobileMode={mobileMode}
           />
         );
@@ -108,8 +108,8 @@ function InfoBlock(props: IInfoBlock) {
           <Variant2
             image={props.image}
             left_image={props.left_image || ""}
-            text={safeCode(props.text)}
-            accented_text={safeCode(props.accented_text)}
+            text={safeCode(props.text || "")}
+            accented_text={safeCode(props.accented_text || "")}
             mobileMode={mobileMode}
           />
         );
@@ -117,8 +117,8 @@ function InfoBlock(props: IInfoBlock) {
         return (
           <Variant3
             image={props.image}
-            text={safeCode(props.text)}
-            accented_text={safeCode(props.accented_text)}
+            text={safeCode(props.text || "")}
+            accented_text={safeCode(props.accented_text || "")}
             buttons={props.buttons || []}
             mobileMode={mobileMode}
           />

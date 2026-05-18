@@ -1,19 +1,21 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
 }
 
 .navigation {
-  margin: var(--spacing-20) var(--spacing-20) var(--spacing-0);
+  margin-top: var(--spacing-10);
+  padding: 0 var(--spacing-20);
+  width: 100%;
   height: 72px;
   display: flex;
   justify-content: space-between;
-}
-
-.navigation {
   position: sticky;
   top: 0;
+  z-index: 100;
+  background-color: var(--white);
 }
+
 .pathList {
   display: flex;
   gap: var(--spacing-6);
@@ -35,6 +37,7 @@
 .button {
   width: 500px;
   font: var(--desktop_button);
+  height: 100%;
 }
 
 .pathItem:not(:last-child) .pathText:hover {
@@ -43,9 +46,16 @@
 }
 
 .content {
+  margin-top: 30px;
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+}
+
+.infoBlock {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .content::-webkit-scrollbar {
@@ -89,9 +99,9 @@
 
 @media (min-width: 834px) and (max-width: 1439px) {
   .navigation {
-    margin: clamp(1.75rem, -2.7228rem + 8.5809vw, 5rem)
-      clamp(2.375rem, -1.2376rem + 6.9307vw, 5rem)
+    margin: clamp(1.75rem, -2.7228rem + 8.5809vw, 5rem) 0
       clamp(1rem, 2.3762rem + -2.6403vw, 0rem);
+    padding: 0 clamp(2.375rem, -1.2376rem + 6.9307vw, 5rem);
     height: clamp(3rem, 0.9356rem + 3.9604vw, 4.5rem);
   }
 
@@ -114,12 +124,20 @@
     width: clamp(10.8125rem, -17.3144rem + 53.9604vw, 31.25rem);
     font: var(--tablet_button);
   }
+  .content {
+    margin-top: clamp(0rem, -2.5804rem + 4.9505vw, 1.875rem);
+  }
+  .infoBlock{
+    margin-top: clamp(3.4375rem, -2.1535rem + 10.7261vw, 7.5rem);
+    gap: clamp(1.875rem, 1.0149rem + 1.6502vw, 2.5rem);
+  }
 }
 
 @media (max-width: 833px) {
   .navigation {
     height: 54px;
-    margin: 0 20px;
+    padding: 0 20px;
+    margin: 0;
   }
 
   .pathList {
@@ -138,5 +156,12 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
+  }
+  .content {
+    margin-top: clamp(0.3125rem, 0.5678rem + -1.0893vw, 0rem);
+  }
+  .infoBlock{
+    margin-top: clamp(0.625rem, -1.6728rem + 9.8039vw, 3.4375rem);;
+    gap: clamp(1.5625rem, 1.3072rem + 1.0893vw, 1.875rem);
   }
 }

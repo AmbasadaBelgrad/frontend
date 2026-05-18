@@ -1,37 +1,82 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import { useTranslation } from "react-i18next";
-//import { MainInfo } from "@pages/project-details/ui/MainInfo/";
-//import { InfoBlock } from "@pages/project-details/ui/InfoBlock/";
+import { MainInfo } from "./ui/MainInfo/";
+import { InfoBlock } from "./ui/InfoBlock/";
+import { useViewportWidth } from "@shared/lib/useWidthViewPort";
+import { useProjectDetailsQuery } from "@entities/project-details/model/useProjectDetailsQuery";
 import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [deviceType, setDeviceType] = useState("desktop"); // 'mobile', 'tablet', 'desktop'
+  const { data, isLoading, isError, error, refetch, isFetching } =
+    useProjectDetailsQuery(slug!);
+  const device = useViewportWidth();
   const { t } = useTranslation("common");
+  const isMobile = device.isMobile;
+  const isTablet = device.isTablet;
 
-  useEffect(() => {
-    const checkDeviceType = () => {
-      const width = window.innerWidth;
-      if (width <= 833) {
-        setDeviceType("mobile");
-      } else if (width >= 834 && width < 1440) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
-    };
+  if (isLoading) {
+    return (
+      <div className={styles.appState}>
+        <p>Загрузка сайта...</p>
+      </div>
+    );
+  }
 
-    checkDeviceType();
-    window.addEventListener("resize", checkDeviceType);
+  if (isError) {
+    return (
+      <div className={styles.appState}>
+        <p>Не удалось загрузить данные сайта</p>
 
-    return () => window.removeEventListener("resize", checkDeviceType);
-  }, []);
+        {error instanceof Error && (
+          <p className={styles.errorText}>{error.message}</p>
+        )}
 
-  const isMobile = deviceType === "mobile";
-  const isTablet = deviceType === "tablet";
+        <button
+          className={`btn btn--primary ${styles.button}`}
+          type="button"
+          onClick={() => void refetch()}
+          disabled={isFetching}
+        >
+          Повторить запрос
+        </button>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return (
+      <div className={styles.appState}>
+        <p>Инициализация приложения...</p>
+
+        <p className={styles.errorText}>
+          Загружаем базовые данные сайта. Если состояние не меняется — обновите
+          страницу.
+        </p>
+
+        <button
+          className={`btn btn--primary ${styles.button}`}
+          type="button"
+          onClick={() => window.location.reload()}
+        >
+          Обновить страницу
+        </button>
+      </div>
+    );
+  }
+
+  const mainInfo = {
+    picture: data.info.image,
+    title: data.info.title,
+    description: data.info.description,
+    tags: data.info.tags,
+  };
+
+  const dataInfoBlock = {
+    content_blocks: data.content_blocks,
+  };
 
   return (
     <div className={styles.container}>
@@ -57,7 +102,7 @@ export const ProjectDetails: React.FC = () => {
             </Link>
           </li>
           <li className={styles.pathItem}>
-            <span className={styles.pathText}>{slug}</span>
+            <span className={styles.pathText}>{data.info.title}</span>
           </li>
         </ul>
         <Link
@@ -73,8 +118,12 @@ export const ProjectDetails: React.FC = () => {
         </Link>
       </div>
       <div className={styles.content}>
-        {/* main info */}
-        {/* block info */}
+        <MainInfo {...mainInfo} />
+        <div className={styles.infoBlock}>
+          {dataInfoBlock.content_blocks.map((item) => (
+            <InfoBlock {...item} key={item.index} />
+          ))}
+        </div>
       </div>
     </div>
   );
