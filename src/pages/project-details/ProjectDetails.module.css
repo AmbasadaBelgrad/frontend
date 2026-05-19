@@ -51,6 +51,8 @@
   overflow-y: auto;
   max-height: calc(100vh - 200px);
   min-height: 0;
+  scrollbar-width: auto;
+  scrollbar-color: #cdc5ff rgba(201, 201, 201, 0.2);
 }
 
 .infoBlock {
@@ -78,11 +80,6 @@
 
 .content::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #bdb5ef 0%, #ecefff 50%, #d6d2ef 100%);
-}
-
-.content {
-  scrollbar-width: auto;
-  scrollbar-color: #cdc5ff rgba(201, 201, 201, 0.2);
 }
 
 .pathItem:not(:last-child) .pathText:focus-visible {

@@ -5,8 +5,5 @@ export function getProjectDetails(
   id: string,
   signal?: AbortSignal,
 ): Promise<IProjectDetailsResponse> {
-  if (!id) {
-    throw new Error("Project ID is required");
-  }
   return apiClient.get<IProjectDetailsResponse>(`/projects/${id}`, { signal });
 }

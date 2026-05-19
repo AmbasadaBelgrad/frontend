@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
@@ -11,12 +10,17 @@ import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data, isLoading, isError, error } = useProjectDetailsQuery(slug!);
   const device = useViewportWidth();
   const { t } = useTranslation("common");
   const isMobile = device.isMobile;
   const isTablet = device.isTablet;
   const navigate = useNavigate();
+
+  if (!slug) {
+    navigate(routesPaths.projects);
+    return null;
+  }
+  const { data, isLoading, isError, error } = useProjectDetailsQuery(slug);
 
   useEffect(() => {
     if (isError) {

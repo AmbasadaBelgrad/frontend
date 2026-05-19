@@ -20,9 +20,10 @@
     ],
     "year": "2023",
     "image": [
-      "https://downloader.disk.yandex.ru/preview/bc93dfe1963455c89d8797119a8edfd1efcdba0edb85911f9b18cc09a7d556f8/6a0af079/Ji4eVZffrhQVMCE4h-bl3OtSBNei-sM4HtAyYL_DxenVXl39e_zfAgMYt7012Or8R32LotVktorWmmOWl70VbQ%3D%3D?uid=0&filename=foto5%20%281%29.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
-      "https://downloader.disk.yandex.ru/preview/1dac3002c97d2e62171da9b318de42c4c48d7b555d764b99a742e4da12fab4a4/6a0af097/nLuqVkMwCgm5sum8Hr3fFK2Kh17xlKbipXCV9YLZv9qfyhVULAlkcqHuwUQujHD2_IzKguKnxKpFEEeKRmgegA%3D%3D?uid=0&filename=foto5.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
-      "https://downloader.disk.yandex.ru/preview/83613a585b647438f0bb35b01473d5e7583526bfaf80c9f390b78d181e5e3453/6a0af0a8/hWzrTIiXpJIDxOAL17bBJopDeeFZOPkWjrl7uF_I7QhkBml_BxokftF7mn-wwB218HPmsYcukHNtFTTFymki1Q%3D%3D?uid=0&filename=foto5%20%282%29.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048"
+      "/images/01.jpg",
+      "/images/02.jpg",
+      "/images/03.jpg",
+      "/images/04.jpg"
     ]
   },
   "content_blocks": [
@@ -30,7 +31,7 @@
       "variant": 1,
       "index": "001",
       "title": "Исследование",
-      "image": "https://downloader.disk.yandex.ru/preview/678aa3212e105dc41de07ffd27b8c83278efdbbbaee18e8f4f83d859642514de/6a0afd26/VUjPXCpOy9UNpo3Umz2rPggD2PcIP79yGz4CUXUgs_NjBCm_q8NUSvCOtvydwkD9xp4ldUJ2lOywus8agc_Krw%3D%3D?uid=0&filename=maps_var1.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
+      "image": "/images/maps_var1.png",
       "string_list": [
         "поведение посетителей и типы активности",
         "неформальные тропы и паттерны передвижения по парку",
@@ -46,8 +47,8 @@
       "variant": 2,
       "index": "002",
       "title": "Навигация и брендинг",
-      "image": "https://downloader.disk.yandex.ru/preview/2ffa6c9f9e0a1c3e8c400b245804bc040cdf906d99c34fc1941620d07ce9e6dd/6a0afd46/1xgDXGexIp-xYvz53pHYapTQCGTJNQwOGSo9oVzJRsC8sh7MhxGLgvi9TyPCWY28T1nkI0Kk2VYfZu6VA7lW0g%3D%3D?uid=0&filename=2_var2.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
-      "left_image": "https://downloader.disk.yandex.ru/preview/1a8d3e6c6d341e74d84cba35c5167d58c9dfa2481f7581834197a388aff22fdf/6a0afd5a/DLE9tFPcN5KGL5coY9AchJTQCGTJNQwOGSo9oVzJRsBKkdMqytERWjLWxS0TJEwgxFlvrnDziwDl6g3W2quTXQ%3D%3D?uid=0&filename=1_var2.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
+      "image": "/images/2_var2.png",
+      "left_image": "/images/1_var2.png",
       "text": "<p>Проект навигации и брендинга <b>Звездарского леса</b> является продолжением исследовательской работы и основан на реальном опыте людей, которые ежедневно пользуются парком. В ходе исследования была выявлена одна из ключевых проблем — практически полное отсутствие навигации, из-за чего затруднены ориентация, использование маршрутов и доступ к важным точкам внутри парка.</p><p>В этом проекте брендинг рассматривается не только как визуальный инструмент, но и как <b>способ заботы о парке</b> и его <b>сохранении</b>. Чёткая навигация и единый визуальный язык помогают направлять потоки посетителей, снижать хаотичное движение и формировать более бережное отношение к территории.</p><p>Проект навигации и брендинга усиливает связь между людьми и <strong>пространством</strong>, поддерживает безопасность и способствует уважительному отношению к парку как к важной части городской среды.</p>",
       "accented_text": "<p><b>Цель проекта</b> — сделать парк более понятным, доступным и дружелюбным, не нарушая его природный характер и существующую экосистему</p>"
     },
@@ -55,7 +56,7 @@
       "variant": 3,
       "index": "003",
       "title": "Концепция",
-      "image": "https://downloader.disk.yandex.ru/preview/fea81946c6fe8384fa5a3f1d47c91f8f010e04bb3a716aa0be14ce607e047c1e/6a0afd70/Bt8jCcVmqrR12Fmu8Es9D5TQCGTJNQwOGSo9oVzJRsBsIT9lxMjlLOSUaDGnd8nsunOMsPE6c-s8bQ0_KH1-Tg%3D%3D?uid=0&filename=1_var3.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048",
+      "image": "/images/1_var3.png",
       "text": "<p>В рамках проекта архитекторы разработали концепцию зонирования и использования <b>Звездарского леса</b>, основанную на бережном и уважительном отношении к природной среде.</p><p>Активности в парке организованы через небольшие, пространственно разнесённые зоны, что предотвращает концентрацию потоков посетителей и позволяет взаимодействовать с лесом через тактильные и сенсорные впечатления с использованием <b>натуральных материалов</b>.</p><p>Передвижение по территории организовано с помощью наземных троп и деревянных настилов, которые не нарушают почву и помогают сохранить естественный рельеф. Освещение спроектировано как <b>экологичное и ненавязчивое</b> — оно поддерживает безопасность в вечернее время, не нанося вреда окружающей среде.</p>",
       "accented_text": "<p><b>Главная цель концепции</b> — создать условия для отдыха и использования территории при сохранении экосистемы и естественных процессов леса.</p><p><strong>Ключевой принцип концепции</strong> — сохранение существующих границ парка без расширения в лесные зоны. Вмешательство в природную среду сведено к минимуму, а часть леса сохраняется полностью нетронутой — без застройки и благоустройства.</p>",
       "buttons": [
@@ -65,8 +66,8 @@
           "url": "https://cdn.example.com/materials.pdf"
         },
         {
-          " label": "Youtube Урбанфеста",
-          " type": "redirect",
+          "label": "Youtube Урбанфеста",
+          "type": "redirect",
           "url": "https://youtube.com/urbanfest"
         }
       ]
