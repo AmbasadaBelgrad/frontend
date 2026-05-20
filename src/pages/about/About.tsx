@@ -2,12 +2,14 @@ import React from "react";
 import { AboutUs, type AboutData } from "./ui/about-us-section";
 import { OurValues, type ValuesData } from "./ui/our-values";
 import { OurTeam, type TeamData } from "./ui/our-team";
+import { Gallery, type TCarousel } from "./ui/our-gallery";
 import { apiClient } from "../../shared/api/client";
 
 type PageResponse = {
   about_section: AboutData;
   values: ValuesData;
   team: TeamData;
+  gallery_carousel: TCarousel;
 };
 
 export const About = () => {
@@ -35,6 +37,7 @@ export const About = () => {
       <AboutUs data={pageData.about_section} />
       <OurValues data={pageData.values} />
       <OurTeam data={pageData.team} />
+      <Gallery data={pageData.gallery_carousel} />
     </>
   );
 };
