@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getHome } from "../api/getHome";
+import type { HomeResponse } from "../home/model/types";
 
 export const homeQueryKey = ["home"] as const;
 
@@ -7,7 +8,7 @@ const HOME_STALE_TIME = 30 * 60 * 1000;
 const HOME_GC_TIME = 60 * 60 * 1000;
 
 export function useHomeQuery() {
-  return useQuery({
+  return useQuery<HomeResponse>({
     queryKey: homeQueryKey,
     queryFn: ({ signal }) => getHome(signal),
 
@@ -15,7 +16,6 @@ export function useHomeQuery() {
     gcTime: HOME_GC_TIME,
 
     retry: 1,
-
     refetchOnWindowFocus: true,
     refetchOnReconnect: true,
   });
