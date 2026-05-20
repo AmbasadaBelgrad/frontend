@@ -16,7 +16,7 @@ export const About = () => {
   React.useEffect(() => {
     async function getAbout() {
       try {
-        const res = await apiClient.get<PageResponse>("/api/v1/about");
+        const res = await apiClient.get<PageResponse>("/about");
 
         setPageData(res);
       } catch (err) {
