@@ -1,14 +1,33 @@
 import styles from "./Header.module.css";
 import { useEffect, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { NavLink, useLocation } from "react-router-dom";
+import { routesPaths } from "@shared/config/routesPaths";
 import { useTranslation } from "react-i18next";
-import type { HeaderProps } from "./types";
+import type { HeaderProps, NavItem } from "./types";
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    to: routesPaths.projects,
+    labelKey: "header.menu.projects_desktop",
+    labelTabletKey: "header.menu.projects_tablet",
+  },
+  {
+    to: routesPaths.about,
+    labelKey: "header.menu.about",
+  },
+  {
+    to: routesPaths.contacts,
+    labelKey: "header.menu.contacts",
+  },
+];
 
 export const Header = ({ data }: HeaderProps) => {
   const { t, i18n } = useTranslation("common");
   const location = useLocation();
+  const queryClient = useQueryClient();
 
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === routesPaths.home;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -41,10 +60,11 @@ export const Header = ({ data }: HeaderProps) => {
     };
   }, [isLangOpen, isMenuOpen]);
 
-  const changeLang = (code: string) => {
-    i18n.changeLanguage(code);
-    localStorage.setItem("i18nextLng", code);
+  const changeLang = async (code: string) => {
+    await i18n.changeLanguage(code);
     setIsLangOpen(false);
+
+    queryClient.invalidateQueries();
   };
 
   const currentLangCode = i18n.language;
@@ -65,7 +85,11 @@ export const Header = ({ data }: HeaderProps) => {
       <div className={styles.headerTop}>
         <div className={styles.logoSection}>
           {!isHome ? (
-            <NavLink to="/" className={styles.logoLink} aria-label="На главную">
+            <NavLink
+              to="/"
+              className={styles.logoLink}
+              aria-label={t("header.ariaLabel1")}
+            >
               <img
                 className={styles.logoImage}
                 src="/images/logo.svg"
@@ -93,51 +117,33 @@ export const Header = ({ data }: HeaderProps) => {
           )}
         </div>
 
-        <nav className={styles.headerNav} aria-label="Главное меню">
+        <nav className={styles.headerNav} aria-label={t("header.ariaLabel2")}>
           <ul className={styles.navList}>
-            <li className={styles.navListItem}>
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navLink} ${styles.navLinkActive}`
-                    : styles.navLink
-                }
-              >
-                <span className={styles.navLabelDesktop}>
-                  {t("header.menu.projects_desktop")}
-                </span>
-                <span className={styles.navLabelTablet}>
-                  {t("header.menu.projects_tablet")}
-                </span>
-              </NavLink>
-            </li>
-
-            <li className={styles.navListItem}>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navLink} ${styles.navLinkActive}`
-                    : styles.navLink
-                }
-              >
-                {t("header.menu.about")}
-              </NavLink>
-            </li>
-
-            <li className={styles.navListItem}>
-              <NavLink
-                to="/contacts"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navLink} ${styles.navLinkActive}`
-                    : styles.navLink
-                }
-              >
-                {t("header.menu.contacts")}
-              </NavLink>
-            </li>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.to} className={styles.navListItem}>
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${styles.navLink} ${styles.navLinkActive}`
+                      : styles.navLink
+                  }
+                >
+                  {item.labelTabletKey ? (
+                    <>
+                      <span className={styles.navLabelDesktop}>
+                        {t(item.labelKey)}
+                      </span>
+                      <span className={styles.navLabelTablet}>
+                        {t(item.labelTabletKey)}
+                      </span>
+                    </>
+                  ) : (
+                    t(item.labelKey)
+                  )}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -196,7 +202,7 @@ export const Header = ({ data }: HeaderProps) => {
                 isLangOpen ? styles.langSwitcherListOpen : ""
               }`}
               role="listbox"
-              aria-label="Выбор языка"
+              aria-label={t("header.ariaLabel3")}
             >
               {data.languages.map((lang) => (
                 <li
@@ -208,7 +214,7 @@ export const Header = ({ data }: HeaderProps) => {
                   }`}
                   role="option"
                   aria-selected={i18n.language === lang.code}
-                  tabIndex={0}
+                  tabIndex={isLangOpen ? 0 : -1}
                   onClick={() => changeLang(lang.code)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
@@ -230,7 +236,9 @@ export const Header = ({ data }: HeaderProps) => {
             className={`${styles.burgerButton} ${
               isMenuOpen ? styles.burgerButtonOpen : ""
             }`}
-            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-label={t(
+              isMenuOpen ? "header.ariaLabel4" : "header.ariaLabel5",
+            )}
             aria-expanded={isMenuOpen}
             onClick={() => {
               setIsMenuOpen((prev) => !prev);
@@ -251,41 +259,20 @@ export const Header = ({ data }: HeaderProps) => {
         }`}
         ref={menuRef}
       >
-        <NavLink
-          to="/projects"
-          className={({ isActive }) =>
-            isActive
-              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
-              : styles.mobileMenuLink
-          }
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {t("header.menu.projects_desktop")}
-        </NavLink>
-
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
-              : styles.mobileMenuLink
-          }
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {t("header.menu.about")}
-        </NavLink>
-
-        <NavLink
-          to="/contacts"
-          className={({ isActive }) =>
-            isActive
-              ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
-              : styles.mobileMenuLink
-          }
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {t("header.menu.contacts")}
-        </NavLink>
+        {NAV_ITEMS.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              isActive
+                ? `${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`
+                : styles.mobileMenuLink
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t(item.labelKey)}
+          </NavLink>
+        ))}
       </div>
     </header>
   );

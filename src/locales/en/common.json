@@ -2,6 +2,11 @@
   "test": "Output of a line for a test translation check",
   "toggle": "Toggle Language",
   "header": {
+    "ariaLabel1": "Go to the main page",
+    "ariaLabel2": "Main menu",
+    "ariaLabel3": "Language selection",
+    "ariaLabel4": "Close the menu",
+    "ariaLabel5": "Open the menu",
     "menu": {
       "projects_desktop": "Project catalog",
       "projects_tablet": "Projects",

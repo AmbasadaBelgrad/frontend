@@ -11,3 +11,9 @@ export type HeaderData = {
 export type HeaderProps = {
   data: HeaderData | null;
 };
+
+export type NavItem = {
+  to: string;
+  labelKey: string;
+  labelTabletKey?: string;
+};

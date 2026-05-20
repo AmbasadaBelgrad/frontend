@@ -322,9 +322,15 @@
   .headerTop {
     padding: 0 20px;
     min-height: 80px;
-    gap: 90px;
+    gap: 0;
     position: relative;
     z-index: 2;
+    flex-wrap: nowrap;
+  }
+
+  .logoSection {
+    min-width: 0;
+    flex: 1;
   }
 
   .logoImage {
@@ -351,6 +357,7 @@
   .headerActions {
     gap: 30px;
     padding-right: 7px;
+    min-width: 0;
   }
 
   .langSwitcherCurrent {
