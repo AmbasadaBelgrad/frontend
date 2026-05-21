@@ -20,6 +20,9 @@
     "sr-Latn": "Serbian",
     "sr-Cyrl": "Serbian"
   },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
+  },
   "search": {
     "placeholder": "Search",
     "ariaLabel": "Search projects",

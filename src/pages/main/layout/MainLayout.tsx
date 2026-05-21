@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
 import styles from "./MainLayout.module.css";
 import { Header } from "./ui/header";
+import { Footer } from "./ui/footer/index";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
@@ -16,7 +17,7 @@ const MainLayout = () => {
 
   useInitSeo(initData);
 
-  if (isLoading) {
+   if (isLoading) {
     return (
       <div className={styles.appState}>
         <p>Загрузка сайта...</p>
@@ -75,8 +76,7 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
-      {/* TODO: передать initData в Footer, когда компонент будет готов */}
-      {/* <Footer /> */}
+      <Footer data={initData} />
     </div>
   );
 };
