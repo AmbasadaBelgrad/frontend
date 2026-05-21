@@ -206,12 +206,15 @@ const ContactForm = ({
       contact_preference: values.contact_preference,
     };
 
-    await onSubmit?.(submitPayload);
-
-    setValues(initialValues);
-    setErrors({});
-    setTouched(initialTouched);
-    onValidityChange?.(false);
+    try {
+      await onSubmit?.(submitPayload);
+      setValues(initialValues);
+      setErrors({});
+      setTouched(initialTouched);
+      onValidityChange?.(false);
+    } catch (error) {
+      console.error("Submit failed:", error);
+    }
   };
 
   return (

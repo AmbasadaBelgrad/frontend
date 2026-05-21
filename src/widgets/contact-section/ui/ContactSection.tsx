@@ -8,7 +8,7 @@ import type {
 } from "@/features/contact-form/model/types";
 import styles from "./ContactSection.module.css";
 
-type TContactSectionProps = {
+export type TContactSectionProps = {
   sectionData: TContactSection;
   contactData: TContactData;
   imageLoading?: "lazy" | "eager";
@@ -30,6 +30,7 @@ const ContactSection = ({
 
   const handleSubmit = async (formPayload: TContactFormPayload) => {
     if (formPayload.contact_preference) {
+      setIsSubmitting(false);
       return;
     }
 
@@ -38,6 +39,7 @@ const ContactSection = ({
 
     try {
       setIsSuccessModalOpen(true);
+      // TODO: отправить данные на сервер
     } catch (error) {
       setSubmitError("Не удалось отправить форму. Попробуйте еще раз.");
       throw error;
