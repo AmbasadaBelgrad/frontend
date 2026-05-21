@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Home.module.css";
-import { useHomeQuery } from "@/entities/init/home/useHomeQuery";
-
+import { useHomeQuery } from "@/entities/home/useHomeQuery";
+import { Link } from "react-router-dom";
+import { routesPaths } from "@shared/config/routesPaths";
 
 export const Home: React.FC = () => {
   const {
@@ -29,6 +30,11 @@ export const Home: React.FC = () => {
 
   return (
     <div className={styles.mainContainer}>
+      <h1>Главная страница</h1>
+
+      <Link to={routesPaths.projects}>
+        Проекты
+      </Link>
       {/* HeroSection */}
       {/* AboutSection */}
       {/* TeamSection */}

@@ -1,5 +1,5 @@
 import { apiClient } from "@/shared/api/client";
-import type { HomeResponse } from "../home/model/types";
+import type { HomeResponse } from "./model/types";
 
 export function getHome(
   signal?: AbortSignal,

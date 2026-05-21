@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getHome } from "../api/getHome";
-import type { HomeResponse } from "../home/model/types";
+import { getHome } from "./getHome";
+import type { HomeResponse } from "./model/types";
 
 export const homeQueryKey = ["home"] as const;
 
