@@ -1,32 +1,25 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ContactForm } from "@/features/contact-form";
-import type { TContactSection } from "../model/types";
-import type {
-  TContactData,
-  TContactFormPayload,
-} from "@/features/contact-form/model/types";
+import type { TContactFormPayload } from "@/features/contact-form/model/types";
+import { useTranslation } from "react-i18next";
+import { routesPaths } from "@/shared/config/routesPaths.ts";
 import styles from "./ContactSection.module.css";
 
 export type TContactSectionProps = {
-  sectionData: TContactSection;
-  contactData: TContactData;
-  imageLoading?: "lazy" | "eager";
-  imageFetchPriority?: "auto" | "high" | "low";
+  text_before_link: string;
+  link_label: string;
+  text_after_link: string;
 };
 
 const CONTACT_FORM_ID = "contact-form";
 
-const ContactSection = ({
-  sectionData,
-  contactData,
-  imageLoading = "lazy",
-  imageFetchPriority = "auto",
-}: TContactSectionProps) => {
+const ContactSection = (props: TContactSectionProps) => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isContactFormValid, setIsContactFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const { t } = useTranslation("common");
 
   const handleSubmit = async (formPayload: TContactFormPayload) => {
     if (formPayload.contact_preference) {
@@ -55,22 +48,21 @@ const ContactSection = ({
         <span className={styles.contactSectionDecorPurple} />
       </div>
 
-      <h2 className={styles.contactSectionTitle}>{sectionData.title}</h2>
+      <h2 className={styles.contactSectionTitle}>{t("contactForm.title")}</h2>
 
       <div className={styles.contactSectionBody}>
         <div className={styles.contactSectionContent}>
           <img
             className={styles.contactSectionImage}
-            src={sectionData.image.src}
-            alt={sectionData.image.alt}
-            loading={imageLoading}
-            fetchPriority={imageFetchPriority}
+            src="/images/ContactFormImage.png"
+            alt={t("contactForm.title")}
+            loading="lazy"
           />
         </div>
 
         <div className={styles.contactSectionFormWrapper}>
           <p className={styles.contactSectionDescription}>
-            {sectionData.description}
+            {t("contactForm.text")}
           </p>
 
           <ContactForm
@@ -81,11 +73,11 @@ const ContactSection = ({
           />
 
           <p className={styles.contactSectionConsent}>
-            {contactData.consent.text_before_link}{" "}
-            <Link className="linkForm" to={contactData.consent.link}>
-              {contactData.consent.link_label}
+            {props.text_before_link}{" "}
+            <Link className="linkForm" to={routesPaths.policy}>
+              {props.link_label}
             </Link>{" "}
-            {contactData.consent.text_after_link}
+            {props.text_after_link}
           </p>
 
           {submitError && (
@@ -103,7 +95,9 @@ const ContactSection = ({
           form={CONTACT_FORM_ID}
           disabled={!isContactFormValid || isSubmitting}
         >
-          {isSubmitting ? "Отправляем..." : contactData.submit_button.label}
+          {isSubmitting
+            ? `{t("contactForm.title")} + "..."`
+            : `{t("contactForm.title")}`}
         </button>
       </div>
 

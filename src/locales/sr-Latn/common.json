@@ -21,7 +21,10 @@
     "fields": {
       "name": "Ime",
       "email": "Email",
-      "message": "Komentar"
+      "message": "Komentar",
+      "title": "Kontaktirajte nas",
+      "text": "Ostavljaj svoje ideje ili preporučuj kandidate za tim putem kontakt forme",
+      "button_text": "Pošalji"
     },
     "errors": {
       "invalidEmail": "Email nije ispravan"

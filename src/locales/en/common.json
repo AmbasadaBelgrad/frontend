@@ -21,7 +21,10 @@
     "fields": {
       "name": "Name",
       "email": "Email",
-      "message": "Comment"
+      "message": "Comment",
+      "title": "Contact us",
+      "text": "Leave your ideas or recommend candidates for the team via the contact form",
+      "button_text": "Submit"
     },
     "errors": {
       "invalidEmail": "Email is invalid"
