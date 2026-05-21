@@ -1,7 +1,8 @@
 import { useInitQuery, useInitSeo } from "@/entities/init";
+import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
 import { Outlet } from "react-router-dom";
 import styles from "./MainLayout.module.css";
-import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
+import { Footer } from "./ui/footer/index";
 
 // компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
@@ -81,6 +82,7 @@ const MainLayout = () => {
       />
       {/* TODO: передать initData в Footer, когда компонент будет готов */}
       {/* <Footer /> */}
+      <Footer data={initData} />
     </div>
   );
 };
