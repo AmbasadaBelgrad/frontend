@@ -31,6 +31,7 @@ const initialValues: TContactFormPayload = {
   email: "",
   message: "",
   contact_preference: "",
+  reason: "",
 };
 
 const initialTouched: TTouchedFields = {
@@ -66,6 +67,7 @@ const ContactForm = ({
   const email = values.email.trim();
   const message = values.message.trim();
   const contactPreference = values.contact_preference.trim();
+  const reason = "submitForm";
 
   const validateValues = (formValues: TContactFormPayload) => {
     const nextErrors: TFormErrors = {};
@@ -204,11 +206,12 @@ const ContactForm = ({
       email,
       message,
       contact_preference: values.contact_preference,
+      reason,
     };
 
     try {
       await onSubmit?.(submitPayload);
-      setValues(initialValues);
+      // setValues(initialValues);
       setErrors({});
       setTouched(initialTouched);
       onValidityChange?.(false);
@@ -231,7 +234,7 @@ const ContactForm = ({
 
         <input
           id={nameFieldId}
-          className={styles.contactFormInput}
+          className={`${styles.contactFormInput} ${styles.nameInput}`}
           name="name"
           type="text"
           value={values.name}
@@ -245,11 +248,10 @@ const ContactForm = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
-
         {errors.name && (
           <span
             id={`${nameFieldId}-error`}
-            className={styles.contactFormError}
+            className={`${styles.contactFormError} ${styles.nameError}`}
             role="alert"
           >
             {errors.name}
@@ -264,7 +266,7 @@ const ContactForm = ({
 
         <input
           id={emailFieldId}
-          className={styles.contactFormInput}
+          className={`${styles.contactFormInput} ${styles.emailInput}`}
           name="email"
           type="email"
           value={values.email}
@@ -281,7 +283,7 @@ const ContactForm = ({
         {errors.email && (
           <span
             id={`${emailFieldId}-error`}
-            className={styles.contactFormError}
+            className={`${styles.contactFormError} ${styles.emailError}`}
             role="alert"
           >
             {errors.email}

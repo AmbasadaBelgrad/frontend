@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
+import { InitDataContext } from "@/shared/context/InitDataContext";
 import styles from "./MainLayout.module.css";
 
-// компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
   const {
     data: initData,
@@ -66,17 +66,19 @@ const MainLayout = () => {
   }
 
   return (
-    <div className={styles.layout}>
-      {/* TODO: передать initData в Header, когда компонент будет готов */}
-      {/* <Header /> */}
-      <main className={styles.main}>
-        <div className={styles.mainInner}>
-          <Outlet /> {/* Здесь подставляется содержимое страниц */}
-        </div>
-      </main>
-      {/* TODO: передать initData в Footer, когда компонент будет готов */}
-      {/* <Footer /> */}
-    </div>
+    <InitDataContext.Provider value={initData}>
+      <div className={styles.layout}>
+        {/* TODO: передать initData в Header, когда компонент будет готов */}
+        {/* <Header /> */}
+        <main className={styles.main}>
+          <div className={styles.mainInner}>
+            <Outlet /> {/* Здесь подставляется содержимое страниц */}
+          </div>
+        </main>
+        {/* TODO: передать initData в Footer, когда компонент будет готов */}
+        {/* <Footer /> */}
+      </div>
+    </InitDataContext.Provider>
   );
 };
 

@@ -4,7 +4,8 @@
   width: 100%;
   max-width: var(--breakpoint_desktop);
   margin: 0 auto;
-  padding: var(--spacing-10) var(--spacing-30) var(--spacing-30) var(--spacing-20);
+  padding: var(--spacing-10) var(--spacing-30) var(--spacing-30)
+    var(--spacing-20);
   overflow: hidden;
 
   --contact-image-width: clamp(
@@ -48,7 +49,7 @@
   height: 654px;
   background-image: url("/images/content-section/green_shape.svg");
   background-repeat: no-repeat;
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
   background-position: center;
 }
 
@@ -73,8 +74,8 @@
 
 .contactSectionBody {
   display: grid;
-  grid-template-columns: var(--contact-image-width) minmax(0, 1fr);
-  column-gap: clamp(20px, calc(20px + (100vw - 1024px) * 0.2638), 130px);
+  grid-template-columns: 503px minmax(0, 1fr);
+  column-gap: 85px;
   align-items: start;
   margin-bottom: var(--spacing-10);
 }
@@ -105,8 +106,8 @@
 .contactSectionImage {
   position: relative;
   z-index: 1;
-  width: var(--contact-image-width);
-  height: var(--contact-image-height);
+  width: 503px;
+  height: 627px;
   display: block;
   object-fit: cover;
   border-radius: 10px;
@@ -120,7 +121,6 @@
   flex-direction: column;
   gap: var(--spacing-5);
   align-self: start;
-  margin-top: 10px;
 }
 
 .contactSectionDescription {
@@ -130,12 +130,16 @@
   color: var(--politic_black);
 }
 
-.contactSectionConsent {
+.policyContent p {
   margin: 0;
   font: var(--desktop_caption);
   line-height: 120%;
   color: var(--politic_black);
   opacity: 0.5;
+}
+
+.policyContent a {
+  text-decoration: underline;
 }
 
 .contactSectionSubmitError {
@@ -170,7 +174,6 @@
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
-
   .contactSectionFormWrapper {
     gap: var(--spacing-4);
     margin-top: 0;
@@ -180,7 +183,7 @@
     font: var(--tablet_main);
   }
 
-  .contactSectionConsent {
+  .policyContent p {
     font: var(--tablet_caption);
     line-height: 120%;
   }
@@ -192,22 +195,10 @@
   }
 
   .contactSectionSubmit {
-    width: clamp(
-      350px,
-      calc(350px + (100vw - 834px) * 0.2475),
-      500px
-    );
-    height: clamp(
-      48px,
-      calc(48px + (100vw - 834px) * 0.0396),
-      72px
-    );
+    width: clamp(350px, calc(350px + (100vw - 834px) * 0.2475), 500px);
+    height: clamp(48px, calc(48px + (100vw - 834px) * 0.0396), 72px);
     padding: 0 clamp(24px, 5vw, 80px);
-    font-size: clamp(
-      20px,
-      calc(20px + (100vw - 834px) * 0.0066),
-      24px
-    );
+    font-size: clamp(20px, calc(20px + (100vw - 834px) * 0.0066), 24px);
   }
 
   .contactSectionDecorGreen {
@@ -257,7 +248,7 @@
     font: var(--tablet_main);
   }
 
-  .contactSectionConsent {
+  .policyContent p {
     font: var(--tablet_caption);
     line-height: 120%;
   }
@@ -316,7 +307,7 @@
     font: var(--mobile_main);
   }
 
-  .contactSectionConsent {
+  .policyContent p {
     font: var(--mobile_caption);
     line-height: 120%;
   }
@@ -326,21 +317,9 @@
   }
 
   .contactSectionSubmit {
-    width: clamp(
-      255px,
-      calc(255px + (100vw - 375px) * 0.207),
-      350px
-    );
-    height: clamp(
-      36px,
-      calc(36px + (100vw - 375px) * 0.0261),
-      48px
-    );
+    width: clamp(255px, calc(255px + (100vw - 375px) * 0.207), 350px);
+    height: clamp(36px, calc(36px + (100vw - 375px) * 0.0261), 48px);
     padding: 0 clamp(10px, 3vw, 24px);
-    font-size: clamp(
-      16px,
-      calc(16px + (100vw - 375px) * 0.0087),
-      20px
-    );
+    font-size: clamp(16px, calc(16px + (100vw - 375px) * 0.0087), 20px);
   }
 }

@@ -63,7 +63,7 @@ import styles from "./InfoBlock.module.css";
 import { Variant1 } from "./variants/Variant1/Variant1";
 import { Variant2 } from "./variants/Variant2/Variant2";
 import { Variant3 } from "./variants/Variant3/Variant3";
-import { safeCode } from "./variants/safeCode";
+import { safeCode } from "@/shared/lib/safeCode";
 
 type Tbutton = {
   label: string;

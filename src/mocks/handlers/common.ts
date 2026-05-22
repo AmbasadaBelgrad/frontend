@@ -14,7 +14,8 @@ export const commonHandlers = [
     return HttpResponse.json({
       site_name: "Амбасада за урбанизм",
       seo_description: "Сообщество архитекторов и урбанистов",
-      privacy_policy: "Политика конфиденциальности",
+      privacy_policy:
+        "<p>Нажимая Отправить, я подтверждаю ознакомление с <a href='/politics'>Политикой конфиденциальности</a> и даю согласие на обработку моих данных для обработки моего запроса и связи со мной</p>",
       cookie_message: "Мы используем cookies",
       cookie_button_text: "OK",
       languages: [

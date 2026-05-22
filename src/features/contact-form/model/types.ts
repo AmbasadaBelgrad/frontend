@@ -15,6 +15,7 @@ export type TContactFormPayload = {
   email: string;
   message: string;
   contact_preference: string;
+  reason: string;
 };
 
 export type TFormErrors = {

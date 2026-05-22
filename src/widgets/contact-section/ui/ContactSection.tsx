@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useInitData } from "@shared/context/InitDataContext.tsx";
+import { safeCode } from "@shared/lib/safeCode";
 import { ContactForm } from "@/features/contact-form";
 import type { TContactFormPayload } from "@/features/contact-form/model/types";
 import { useTranslation } from "react-i18next";
-import { routesPaths } from "@/shared/config/routesPaths.ts";
+import { usePostContact } from "@entities/form/index";
 import styles from "./ContactSection.module.css";
 
 export type TContactSectionProps = {
@@ -14,31 +15,35 @@ export type TContactSectionProps = {
 
 const CONTACT_FORM_ID = "contact-form";
 
-const ContactSection = (props: TContactSectionProps) => {
+const ContactSection = () => {
+  const initData = useInitData();
+  const politics = safeCode(initData?.privacy_policy || "");
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isContactFormValid, setIsContactFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const { t } = useTranslation("common");
+  const { mutate: postContact, isPending, isSuccess } = usePostContact();
 
-  const handleSubmit = async (formPayload: TContactFormPayload) => {
+  const handleSubmit = (formPayload: TContactFormPayload) => {
     if (formPayload.contact_preference) {
-      setIsSubmitting(false);
       return;
     }
-
-    setIsSubmitting(true);
     setSubmitError("");
+    console.log("1. Отправка формы, данные:", formPayload);
 
-    try {
-      setIsSuccessModalOpen(true);
-      // TODO: отправить данные на сервер
-    } catch (error) {
-      setSubmitError("Не удалось отправить форму. Попробуйте еще раз.");
-      throw error;
-    } finally {
-      setIsSubmitting(false);
-    }
+    postContact(formPayload, {
+      onSuccess: () => {
+        console.log("2. onSuccess вызван!");
+        setIsSuccessModalOpen(true);
+        console.log("3. isSuccessModalOpen установлен в true");
+      },
+      onError: (error) => {
+        console.log("2. onError вызван:", error);
+        setSubmitError("Не удалось отправить форму. Попробуйте еще раз.");
+        console.error("Submit error:", error);
+      },
+    });
   };
 
   return (
@@ -48,38 +53,35 @@ const ContactSection = (props: TContactSectionProps) => {
         <span className={styles.contactSectionDecorPurple} />
       </div>
 
-      <h2 className={styles.contactSectionTitle}>{t("contactForm.title")}</h2>
+      <h2 className={styles.contactSectionTitle}>
+        {t("contactForm.fields.title")}
+      </h2>
 
       <div className={styles.contactSectionBody}>
         <div className={styles.contactSectionContent}>
           <img
             className={styles.contactSectionImage}
-            src="/images/ContactFormImage.png"
-            alt={t("contactForm.title")}
+            src="/images/contactFormImg.png"
+            alt={t("contactForm.fields.title")}
             loading="lazy"
           />
         </div>
 
         <div className={styles.contactSectionFormWrapper}>
           <p className={styles.contactSectionDescription}>
-            {t("contactForm.text")}
+            {t("contactForm.fields.text")}
           </p>
 
           <ContactForm
             id={CONTACT_FORM_ID}
-            isSubmitting={isSubmitting}
+            isSubmitting={isPending}
             onSubmit={handleSubmit}
             onValidityChange={setIsContactFormValid}
           />
-
-          <p className={styles.contactSectionConsent}>
-            {props.text_before_link}{" "}
-            <Link className="linkForm" to={routesPaths.policy}>
-              {props.link_label}
-            </Link>{" "}
-            {props.text_after_link}
-          </p>
-
+          <div
+            className={styles.policyContent}
+            dangerouslySetInnerHTML={{ __html: politics }}
+          />
           {submitError && (
             <p className={styles.contactSectionSubmitError} role="alert">
               {submitError}
@@ -93,11 +95,11 @@ const ContactSection = (props: TContactSectionProps) => {
           className={`btn btn--primary ${styles.contactSectionSubmit}`}
           type="submit"
           form={CONTACT_FORM_ID}
-          disabled={!isContactFormValid || isSubmitting}
+          disabled={!isContactFormValid || isPending}
         >
-          {isSubmitting
-            ? `{t("contactForm.title")} + "..."`
-            : `{t("contactForm.title")}`}
+          {isPending
+            ? `${t("contactForm.fields.button_text")}...`
+            : t("contactForm.fields.button_text")}
         </button>
       </div>
 
