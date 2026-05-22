@@ -34,6 +34,21 @@
       "requiredMessage": "Введите комментарий",
       "messageMinLength": "Комментарий должен быть не короче {{min}} символов",
       "messageMaxLength": "Комментарий не должен превышать {{max}} символов"
+    },
+    "hints": {
+      "nameRequired": "Введите имя",
+      "emailRequired": "Введите email",
+      "messageRequired": "Введите комментарий"
+    },
+    "successModal": {
+      "title": "Спасибо!",
+      "text": "Команда свяжется с Вами после рассмотрения обращения",
+      "button": "Окей"
+    },
+    "errorModal": {
+      "title": "Не удалось отправить",
+      "text": "Если проблема повторяется, напишите нам напрямую на email: ambasadazaurbanizam@gmail.com ",
+      "button": "Попробовать снова"
     }
   }
 }

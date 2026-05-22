@@ -56,18 +56,34 @@ const ContactForm = ({
   const [values, setValues] = useState<TContactFormPayload>(initialValues);
   const [errors, setErrors] = useState<TFormErrors>({});
   const [touched, setTouched] = useState<TTouchedFields>(initialTouched);
-
+  const [hints, setHints] = useState<TFormErrors>({});
   const nameFieldId = `${id}-name`;
   const emailFieldId = `${id}-email`;
   const messageFieldId = `${id}-message`;
-
   const messageLength = values.message.length;
-
   const name = values.name.trim();
   const email = values.email.trim();
   const message = values.message.trim();
   const contactPreference = values.contact_preference.trim();
   const reason = "submitForm";
+
+  useEffect(() => {
+    const initialHints: TFormErrors = {};
+
+    if (!values.name.trim()) {
+      initialHints.name = t("contactForm.hints.nameRequired");
+    }
+    if (!values.email.trim()) {
+      initialHints.email = t("contactForm.hints.emailRequired");
+    }
+    if (!values.message.trim()) {
+      initialHints.message = t("contactForm.hints.messageRequired", {
+        min: FIELD_LIMITS.messageMin,
+      });
+    }
+
+    setHints(initialHints);
+  }, []);
 
   const validateValues = (formValues: TContactFormPayload) => {
     const nextErrors: TFormErrors = {};
@@ -118,20 +134,34 @@ const ContactForm = ({
   ) => {
     const nextAllErrors = validateValues(nextValues);
     const nextVisibleErrors: TFormErrors = {};
+    const nextHints: TFormErrors = {};
 
-    if (nextTouched.name && nextAllErrors.name) {
+    if (nextValues.name.trim() && nextTouched.name && nextAllErrors.name) {
       nextVisibleErrors.name = nextAllErrors.name;
+    } else if (!nextValues.name.trim()) {
+      nextHints.name = t("contactForm.hints.nameRequired");
     }
 
-    if (nextTouched.email && nextAllErrors.email) {
+    if (nextValues.email.trim() && nextTouched.email && nextAllErrors.email) {
       nextVisibleErrors.email = nextAllErrors.email;
+    } else if (!nextValues.email.trim()) {
+      nextHints.email = t("contactForm.hints.emailRequired");
     }
 
-    if (nextTouched.message && nextAllErrors.message) {
+    if (
+      nextValues.message.trim() &&
+      nextTouched.message &&
+      nextAllErrors.message
+    ) {
       nextVisibleErrors.message = nextAllErrors.message;
+    } else if (!nextValues.message.trim()) {
+      nextHints.message = t("contactForm.hints.messageRequired", {
+        min: FIELD_LIMITS.messageMin,
+      });
     }
 
     setErrors(nextVisibleErrors);
+    setHints(nextHints);
   };
 
   const handleChange = (
@@ -176,13 +206,7 @@ const ContactForm = ({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isSubmitting) {
-      return;
-    }
-
-    if (contactPreference) {
-      return;
-    }
+    if (isSubmitting || contactPreference) return;
 
     const nextTouched: TTouchedFields = {
       name: true,
@@ -211,12 +235,12 @@ const ContactForm = ({
 
     try {
       await onSubmit?.(submitPayload);
-      // setValues(initialValues);
+      setValues(initialValues);
       setErrors({});
       setTouched(initialTouched);
       onValidityChange?.(false);
     } catch (error) {
-      console.error("Submit failed:", error);
+      console.error("Ошибка при отправке формы:", error);
     }
   };
 
@@ -257,6 +281,14 @@ const ContactForm = ({
             {errors.name}
           </span>
         )}
+        {hints.name && !errors.name && (
+          <span
+            id={`${nameFieldId}-hint`}
+            className={`${styles.contactFormHint} ${styles.nameHint}`}
+          >
+            {hints.name}
+          </span>
+        )}
       </div>
 
       <div className={styles.contactFormField}>
@@ -289,6 +321,14 @@ const ContactForm = ({
             {errors.email}
           </span>
         )}
+        {hints.email && !errors.email && (
+          <span
+            id={`${emailFieldId}-hint`}
+            className={`${styles.contactFormHint} ${styles.emailHint}`}
+          >
+            {hints.email}
+          </span>
+        )}
       </div>
 
       <div
@@ -301,7 +341,7 @@ const ContactForm = ({
         <div className={styles.contactFormTextareaWrapper}>
           <textarea
             id={messageFieldId}
-            className={styles.contactFormTextarea}
+            className={`${styles.contactFormTextarea} ${styles.textAreaInput}`}
             name="message"
             value={values.message}
             placeholder={t("contactForm.fields.message")}
@@ -328,10 +368,18 @@ const ContactForm = ({
         {errors.message && (
           <span
             id={`${messageFieldId}-error`}
-            className={styles.contactFormError}
+            className={`${styles.contactFormError} ${styles.textAreaError}`}
             role="alert"
           >
             {errors.message}
+          </span>
+        )}
+        {hints.message && !errors.message && (
+          <span
+            id={`${messageFieldId}-hint`}
+            className={`${styles.contactFormHint} ${styles.textAreaHint}`}
+          >
+            {hints.message}
           </span>
         )}
       </div>

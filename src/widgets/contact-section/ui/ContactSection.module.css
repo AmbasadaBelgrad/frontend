@@ -129,6 +129,9 @@
   font: var(--desktop_main);
   color: var(--politic_black);
 }
+.policyContent {
+  margin-top: 20px;
+}
 
 .policyContent p {
   margin: 0;

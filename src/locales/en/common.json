@@ -28,6 +28,16 @@
     },
     "errors": {
       "invalidEmail": "Email is invalid"
+    },
+    "successModal": {
+      "title": "Thank you!",
+      "text": "The team will contact you after reviewing your request",
+      "button": "OK"
+    },
+    "errorModal": {
+      "title": "Failed to send",
+      "text": "If the problem persists, write to us directly at: ambasadazaurbanizam@gmail.com",
+      "button": "Try again"
     }
   },
   "captcha": {

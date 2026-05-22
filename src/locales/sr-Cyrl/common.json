@@ -28,6 +28,16 @@
     },
     "errors": {
       "invalidEmail": "Email није исправан"
+    },
+    "successModal": {
+      "title": "Хвала!",
+      "text": "Тим ће вас контактирати након разматрања захтева",
+      "button": "У реду"
+    },
+    "errorModal": {
+      "title": "Неуспешно слање",
+      "text": "Ако се проблем понавља, пишите нам директно на емаил: ambasadazaurbanizam@gmail.com",
+      "button": "Покушај поново"
     }
   },
   "captcha": {

@@ -101,20 +101,29 @@
 }
 
 .nameInput,
-.emailInput {
+.emailInput,
+.textAreaInput {
   position: relative;
 }
 
-.nameError{
+.nameError,
+.emailError,
+.nameHint,
+.emailHint {
   position: absolute;
   top: 80px;
 }
 
-.emailError{
+.textAreaError,
+.textAreaHint {
   position: absolute;
-  top: 80px;
+  top: 300px;
 }
 
+.contactFormHint {
+  font: var(--desktop_caption);
+  color: var(--black_2);
+}
 
 @media (min-width: 1280px) and (max-width: 1439px) {
   .contactForm {

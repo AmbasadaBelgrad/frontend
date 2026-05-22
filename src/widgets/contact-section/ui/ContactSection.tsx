@@ -1,49 +1,41 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInitData } from "@shared/context/InitDataContext.tsx";
 import { safeCode } from "@shared/lib/safeCode";
 import { ContactForm } from "@/features/contact-form";
 import type { TContactFormPayload } from "@/features/contact-form/model/types";
 import { useTranslation } from "react-i18next";
 import { usePostContact } from "@entities/form/index";
+import Modal from "./modal/modal";
 import styles from "./ContactSection.module.css";
-
-export type TContactSectionProps = {
-  text_before_link: string;
-  link_label: string;
-  text_after_link: string;
-};
 
 const CONTACT_FORM_ID = "contact-form";
 
 const ContactSection = () => {
   const initData = useInitData();
+  const { t } = useTranslation("common");
+  const { mutateAsync: postContactAsync, isPending } = usePostContact();
   const politics = safeCode(initData?.privacy_policy || "");
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const [isContactFormValid, setIsContactFormValid] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-  const { t } = useTranslation("common");
-  const { mutate: postContact, isPending, isSuccess } = usePostContact();
+  const isSubmitDisabled = !isContactFormValid || isPending;
 
-  const handleSubmit = (formPayload: TContactFormPayload) => {
+  const handleSubmit = async (formPayload: TContactFormPayload) => {
     if (formPayload.contact_preference) {
-      return;
+      throw new Error("Honeypot triggered");
     }
-    setSubmitError("");
-    console.log("1. Отправка формы, данные:", formPayload);
 
-    postContact(formPayload, {
-      onSuccess: () => {
-        console.log("2. onSuccess вызван!");
-        setIsSuccessModalOpen(true);
-        console.log("3. isSuccessModalOpen установлен в true");
-      },
-      onError: (error) => {
-        console.log("2. onError вызван:", error);
-        setSubmitError("Не удалось отправить форму. Попробуйте еще раз.");
-        console.error("Submit error:", error);
-      },
-    });
+    await postContactAsync(formPayload);
+    setIsSuccessModalOpen(true);
+  };
+
+  const handleCloseSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+    setIsContactFormValid(false);
+  };
+
+  const handleCloseErrorModal = () => {
+    setIsErrorModalOpen(false);
   };
 
   return (
@@ -82,11 +74,6 @@ const ContactSection = () => {
             className={styles.policyContent}
             dangerouslySetInnerHTML={{ __html: politics }}
           />
-          {submitError && (
-            <p className={styles.contactSectionSubmitError} role="alert">
-              {submitError}
-            </p>
-          )}
         </div>
       </div>
 
@@ -95,7 +82,7 @@ const ContactSection = () => {
           className={`btn btn--primary ${styles.contactSectionSubmit}`}
           type="submit"
           form={CONTACT_FORM_ID}
-          disabled={!isContactFormValid || isPending}
+          disabled={isSubmitDisabled}
         >
           {isPending
             ? `${t("contactForm.fields.button_text")}...`
@@ -103,7 +90,13 @@ const ContactSection = () => {
         </button>
       </div>
 
-      {isSuccessModalOpen && <div>{/* SuccessModal */}</div>}
+      {isSuccessModalOpen && (
+        <Modal type="success" onClose={handleCloseSuccessModal} />
+      )}
+
+      {isErrorModalOpen && (
+        <Modal type="error" onClose={handleCloseErrorModal} />
+      )}
     </section>
   );
 };
