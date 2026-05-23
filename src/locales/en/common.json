@@ -7,6 +7,9 @@
     "sr-Latn": "Serbian",
     "sr-Cyrl": "Serbian"
   },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
+  },
   "search": {
     "placeholder": "Search",
     "ariaLabel": "Search projects",
@@ -16,5 +19,9 @@
     "title": "Looks like you took a wrong turn",
     "buttonDesktop": "Back to Home",
     "buttonMobile": "Go to Home"
+  },
+  "card_carousel": {
+    "button_right": "Scroll to the right",
+    "button_left": "Scroll to the left"
   }
 }

@@ -7,6 +7,9 @@
     "sr-Latn": "Српски",
     "sr-Cyrl": "Српски"
   },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
+  },
   "search": {
     "placeholder": "Претрага",
     "ariaLabel": "Претрага пројеката",
@@ -16,5 +19,9 @@
     "title": "Изгледа да сте скренули погрешно",
     "buttonDesktop": "Врати се на почетну",
     "buttonMobile": "Иди на почетну"
+  },
+  "card_carousel": {
+    "button_right": "Померите се удесно",
+    "button_left": "Померите се улево"
   }
 }
