@@ -46,7 +46,7 @@
 }
 
 .content {
-  margin-top: 30px;
+  margin-top: 60px;
   flex: 1;
   overflow-y: auto;
   max-height: calc(100vh - 200px);
@@ -56,7 +56,7 @@
 }
 
 .infoBlock {
-  margin-top: 120px;
+  margin-top: 65px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -122,7 +122,7 @@
     margin-top: clamp(0rem, -2.5804rem + 4.9505vw, 1.875rem);
   }
   .infoBlock {
-    margin-top: clamp(3.4375rem, -2.1535rem + 10.7261vw, 7.5rem);
+    margin-top: clamp(1.5625rem, -9.4112rem + 21.0526vw, 4.0625rem);
     gap: clamp(1.875rem, 1.0149rem + 1.6502vw, 2.5rem);
   }
 }
@@ -155,7 +155,7 @@
     margin-top: clamp(0.3125rem, 0.5678rem + -1.0893vw, 0rem);
   }
   .infoBlock {
-    margin-top: clamp(0.625rem, -1.6728rem + 9.8039vw, 3.4375rem);
+    margin-top: clamp(0.9375rem, 0.4269rem + 2.1786vw, 1.5625rem);
     gap: clamp(1.5625rem, 1.3072rem + 1.0893vw, 1.875rem);
   }
 }

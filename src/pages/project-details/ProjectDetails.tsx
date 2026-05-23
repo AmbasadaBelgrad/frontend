@@ -1,41 +1,33 @@
-import { useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { routesPaths } from "@shared/config/routesPaths.ts";
+import { routesPaths } from "@shared/config/routesPaths";
 import { useTranslation } from "react-i18next";
 import { MainInfo } from "./ui/MainInfo/";
 import { InfoBlock } from "./ui/InfoBlock/";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import { useProjectDetailsQuery } from "@entities/project-details/";
+import { QueryStateFallback } from "@shared/ui/QueryStateFallback/";
 import styles from "./ProjectDetails.module.css";
 
 export const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const device = useViewportWidth();
   const { t } = useTranslation("common");
-  const isMobile = device.isMobile;
-  const isTablet = device.isTablet;
+  const { isMobile, isTablet } = useViewportWidth();
   const navigate = useNavigate();
+  const { data, isLoading, isError, error } = useProjectDetailsQuery(
+    slug || "",
+  );
 
   if (!slug) {
     navigate(routesPaths.projects);
     return null;
   }
-  const { data, isLoading, isError, error } = useProjectDetailsQuery(slug);
 
-  useEffect(() => {
-    if (isError) {
-      console.error("ProjectDetails Error:", error);
-      navigate(routesPaths.projects);
-    }
-  }, [isError, error, navigate]);
-
-  if (isLoading) {
-    return (
-      <div className={styles.appState}>
-        <p>Загрузка...</p>
-      </div>
-    );
-  }
+  QueryStateFallback({
+    isLoading,
+    isError,
+    error,
+    pathNavigate: routesPaths.projects,
+  });
 
   if (!data || isError) {
     return null;
