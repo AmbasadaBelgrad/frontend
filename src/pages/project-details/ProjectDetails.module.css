@@ -46,7 +46,6 @@
 }
 
 .content {
-  margin-top: 60px;
   flex: 1;
   overflow-y: auto;
   max-height: calc(100vh - 200px);
@@ -93,17 +92,21 @@
 
 @media (min-width: 834px) and (max-width: 1439px) {
   .navigation {
-    margin: clamp(1.75rem, -2.7228rem + 8.5809vw, 5rem) 0
-      clamp(1rem, 2.3762rem + -2.6403vw, 0rem);
-    padding: 0 clamp(2.375rem, -1.2376rem + 6.9307vw, 5rem);
-    height: clamp(3rem, 0.9356rem + 3.9604vw, 4.5rem);
+    margin-top: 0px;
+    padding: clamp(1.75rem, -2.7228rem + 8.5809vw, 5rem)
+      clamp(2.375rem, -1.2376rem + 6.9307vw, 5rem) 0px;
+    height: calc(
+      clamp(3rem, 0.9356rem + 3.9604vw, 4.5rem) +
+        clamp(1.75rem, -2.7228rem + 8.5809vw, 5rem)
+    );
+    background-color: var(--bg_color);
   }
 
   .pathList {
     display: flex;
     gap: clamp(0.625rem, -0.5792rem + 2.3102vw, 1.5rem);
     align-items: flex-start;
-    margin-top: 6px;
+    margin-top: var(--spacing-1);
   }
 
   .pathText {
@@ -118,9 +121,6 @@
     width: clamp(10.8125rem, -17.3144rem + 53.9604vw, 31.25rem);
     font: var(--tablet_button);
   }
-  .content {
-    margin-top: clamp(0rem, -2.5804rem + 4.9505vw, 1.875rem);
-  }
   .infoBlock {
     margin-top: clamp(1.5625rem, -9.4112rem + 21.0526vw, 4.0625rem);
     gap: clamp(1.875rem, 1.0149rem + 1.6502vw, 2.5rem);
@@ -129,6 +129,7 @@
 
 @media (max-width: 833px) {
   .navigation {
+    background-color: var(--bg_color);
     height: 54px;
     padding: 0 20px;
     margin: 0;
@@ -150,9 +151,6 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
-  }
-  .content {
-    margin-top: clamp(0.3125rem, 0.5678rem + -1.0893vw, 0rem);
   }
   .infoBlock {
     margin-top: clamp(0.9375rem, 0.4269rem + 2.1786vw, 1.5625rem);
