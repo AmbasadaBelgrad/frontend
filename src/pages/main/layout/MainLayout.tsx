@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
 import styles from "./MainLayout.module.css";
+import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
 
 // компонент будет оборачивать все маршруты в роутере
@@ -69,7 +70,7 @@ const MainLayout = () => {
   return (
     <div className={styles.layout}>
       {/* TODO: передать initData в Header, когда компонент будет готов */}
-      {/* <Header /> */}
+      <Header data = {initData}></Header>
       <main className={styles.main}>
         <div className={styles.mainInner}>
           <Outlet /> {/* Здесь подставляется содержимое страниц */}

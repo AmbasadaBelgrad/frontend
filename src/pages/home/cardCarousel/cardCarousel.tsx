@@ -1,7 +1,7 @@
 import type React from "react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
-import styles from "./cardCarousel.module.css";
+import styles from "./CardCarousel.module.css";
 import type { Member } from "../sectionTeam/ui/type";
 
 interface CardCarouselProps {
@@ -49,9 +49,9 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
     <div className={styles.wrapper}>
       <button
         className={`${styles.button} ${styles.left}`}
-        onClick={() => startScroll("left")}
+        onMouseDown={() => startScroll("left")}
         onMouseUp={stopScroll}
-        onMouseLeave={stopScroll}
+        onMouseOut={stopScroll}
         aria-label={t("card_carousel.button_left")}
       >
         <svg
@@ -89,9 +89,9 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </ul>
       <button
         className={`${styles.button} ${styles.right}`}
-        onClick={() => startScroll("right")}
+        onMouseDown={() => startScroll("right")}
         onMouseUp={stopScroll}
-        onMouseLeave={stopScroll}
+        onMouseOut={stopScroll}
         aria-label={t("card_carousel.button_right")}
       >
         <svg

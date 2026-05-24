@@ -1,6 +1,6 @@
 import styles from "./SectionTeam.module.css";
 import { Link } from "react-router-dom";
-import CardCarousel from "../../cardCarousel/cardCarousel";
+import CardCarousel from "../../cardCarousel/CardCarousel";
 import type { TeamPreview } from "./type";
 
 interface SectionTeamProps {
@@ -8,6 +8,7 @@ interface SectionTeamProps {
 }
 
 export const SectionTeam: React.FC<SectionTeamProps> = ({ teamPreview }) => {
+  console.log(teamPreview);
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{teamPreview.title}</h2>
