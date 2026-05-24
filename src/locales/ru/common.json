@@ -28,17 +28,17 @@
     },
     "errors": {
       "requiredName": "Введите имя",
-      "invalidNameAlphabet": "Поле может содержать только символы кириллицы и латиницы, а также пробел, дефис и апостроф",
+      "invalidNameAlphabet": "Поле содержит недопустимые символы, кроме: пробела, дефиса и апострофа",
       "requiredEmail": "Введите email",
-      "invalidEmailWithExample": "Укажите адрес электронной почты в формате name@example.com",
+      "invalidEmailWithExample": "Адрес указан неверно, пример: name@example.com",
       "requiredMessage": "Введите комментарий",
       "messageMinLength": "Комментарий должен быть не короче {{min}} символов",
       "messageMaxLength": "Комментарий не должен превышать {{max}} символов"
     },
     "hints": {
-      "nameRequired": "Введите имя",
-      "emailRequired": "Введите email",
-      "messageRequired": "Введите комментарий"
+      "nameRequired": "Введите имя на кириллице или латинице",
+      "emailRequired": "Введите email в формате name@example.com",
+      "messageRequired": "Введите комментарий от {{min}} до {{max}} символов"
     },
     "successModal": {
       "title": "Спасибо!",
