@@ -6,8 +6,8 @@ export interface Project {
   tags: string[];
   year: string;
   image: string;
-  isFirst: boolean;
-  action_button: ActionButton;
+  isFirst?: boolean;
+  action_button?: ActionButton;
 }
 
 export interface ActionButton {

@@ -22,11 +22,11 @@ export const SectionProjects: React.FC<ProjectProps> = ({
             <div className={styles.content}>
               <h3 className={styles.title}>{project.title}</h3>
               <p className={styles.description}>{project.description}</p>
-
+              {project.action_button && (
               <Link
-                to={project.action_button.link.replace("{id}", project.id)}
+                to={project.action_button?.link.replace("{id}", project.id)}
                 className={styles.button_project}
-                aria-label={project.action_button.label}
+                aria-label={project.action_button?.label}
               >
                 <img
                   src="/button for cards.svg"
@@ -34,9 +34,9 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                   className={styles.icon}
                 />
                 <span className={styles.buttonText}>
-                  {project.action_button.label}
+                  {project.action_button?.label}
                 </span>
-              </Link>
+              </Link>)}
             </div>
           </li>
         ))}
