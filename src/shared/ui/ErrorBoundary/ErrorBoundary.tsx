@@ -1,84 +1,47 @@
-import { Component, type ErrorInfo, type ReactNode } from 'react'
-import '../../styles/commonStyles.css'
-import styles from './ErrorBoundary.module.css'
+import { Component, type ErrorInfo, type ReactNode } from "react";
 import type {
-	ErrorBoundaryProps,
-	ErrorBoundaryState
-} from './ErrorBoundary.types'
+  ErrorBoundaryProps,
+  ErrorBoundaryState,
+} from "./ErrorBoundary.types";
+
+import { ErrorFallback } from "./ErrorFallback";
 
 export class ErrorBoundary extends Component<
-	ErrorBoundaryProps,
-	ErrorBoundaryState
+  ErrorBoundaryProps,
+  ErrorBoundaryState
 > {
-	constructor(props: ErrorBoundaryProps) {
-		super(props)
-		this.state = {
-			hasError: false
-		}
-	}
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
 
-	static getDerivedStateFromError(): Partial<ErrorBoundaryState> {
-		return {
-			hasError: true
-		}
-	}
+    this.state = {
+      hasError: false,
+      error: null,
+      errorInfo: null,
+    };
+  }
 
-	componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-		const { onError } = this.props
+  static getDerivedStateFromError(): Partial<ErrorBoundaryState> {
+    return {
+      hasError: true,
+    };
+  }
 
-		if (onError) {
-			onError(error, errorInfo)
-		}
-	}
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    this.setState({
+      error,
+      errorInfo,
+    });
 
-	handleReload = (): void => {
-		window.location.reload()
-	}
+    this.props.onError?.(error, errorInfo);
+  }
 
-	render(): ReactNode {
-		const { hasError } = this.state
-		const { children, fallback } = this.props
+  render(): ReactNode {
+    const { hasError, error, errorInfo } = this.state;
 
-		if (hasError) {
-			if (fallback) {
-				return fallback
-			}
+    if (hasError) {
+      return <ErrorFallback error={error} errorInfo={errorInfo} />;
+    }
 
-			return (
-				<main
-					className={styles.errorBoundary}
-					role="alert"
-					aria-labelledby="error-title"
-				>
-					<div className="container">
-						<div className={styles.content}>
-							<h1
-								id="error-title"
-								className={styles.title}
-							>
-								Что-то пошло не так
-							</h1>
-
-							<p className={styles.description}>
-								Произошла непредвиденная ошибка в приложении.
-							</p>
-
-							<div className={styles.actions}>
-								<button
-									onClick={this.handleReload}
-									className="btn btn--secondary"
-									aria-label="Перезагрузить страницу"
-									type="button"
-								>
-									Перезагрузить страницу
-								</button>
-							</div>
-						</div>
-					</div>
-				</main>
-			)
-		}
-
-		return children
-	}
+    return this.props.children;
+  }
 }

@@ -6,5 +6,18 @@
     "en": "English",
     "sr-Latn": "Serbian",
     "sr-Cyrl": "Serbian"
+  },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
+  },
+  "search": {
+    "placeholder": "Search",
+    "ariaLabel": "Search projects",
+    "clear": "Clear"
+  },
+  "notFound": {
+    "title": "Looks like you took a wrong turn",
+    "buttonDesktop": "Back to Home",
+    "buttonMobile": "Go to Home"
   }
 }

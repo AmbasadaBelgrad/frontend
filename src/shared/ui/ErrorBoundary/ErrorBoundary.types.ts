@@ -1,11 +1,13 @@
-import type { ErrorInfo, ReactNode } from 'react'
+import type { ErrorInfo, ReactNode } from "react";
 
 export interface ErrorBoundaryProps {
-	children: ReactNode
-	fallback?: ReactNode
-	onError?: (error: Error, errorInfo: ErrorInfo) => void
+  children: ReactNode;
+  fallback?: ReactNode;
+  onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 export interface ErrorBoundaryState {
-	hasError: boolean
+  hasError: boolean;
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
 }

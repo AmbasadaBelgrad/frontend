@@ -9,11 +9,38 @@ type ContactRequest = {
 };
 
 export const commonHandlers = [
+  http.get("/", () => {
+    return; // важно: ничего не возвращаем (undefined)
+  }),
+
   // INIT
   http.get("/api/v1/init", () => {
     return HttpResponse.json({
-      status: "ok",
-      timestamp: Date.now(),
+      seo_description: "Сообщество архитекторов и урбанистов",
+      cookie_message: "Мы используем cookies",
+      cookie_button_text: "OK",
+      languages: [
+        { code: "ru", label: "Русский" },
+        { code: "en", label: "English" },
+        { code: "sr-Latn", label: "Srpski" },
+        { code: "sr-Cyrl", label: "Српски" },
+      ],
+      site_name: "Амбасада за Урбанизам",
+
+      socials: [
+        { social_type: "LinkedIn", url: "https://linkedin.com/example" },
+        { social_type: "Telegram", url: "https://t.me/example" },
+        { social_type: "Instagram", url: "https://instagram.com/example" },
+        { social_type: "Facebook", url: "https://facebook.com/example" },
+        { social_type: "Email", url: "info@example.com" },
+      ],
+
+      legal_links: {
+        privacy_policy: "/privacy",
+        personal_data_processing_agreement: "/personal-data-processing",
+      },
+
+      copyright: "2026 © Амбасада за Урбанизам",
     });
   }),
 
