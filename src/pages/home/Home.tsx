@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
-import { useHomeQuery } from "@/entities/home/useHomeQuery";
+import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
 import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 
