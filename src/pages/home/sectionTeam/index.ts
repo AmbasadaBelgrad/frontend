@@ -1,1 +1,0 @@
-export { SectionTeam } from "./ui/SectionTeam"

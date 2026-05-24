@@ -36,5 +36,11 @@
   "card_carousel": {
     "button_right": "Померите се удесно",
     "button_left": "Померите се улево"
+  },
+  "projectDetails": {
+    "textButtonDesktop": "Назад у каталог",
+    "textButtonTablet": "У каталог",
+    "mainPage": "Почетна",
+    "catalogProject": "Каталог пројеката"
   }
 }

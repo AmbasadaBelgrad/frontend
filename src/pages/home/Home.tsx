@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import { apiClient } from "@shared/api/client";
-import { SectionTeam } from "./sectionTeam/index";
-import type { TeamPreview } from "./sectionTeam/ui/type";
+import { SectionTeam } from "./ui/section-team";
+import type { TeamPreview } from "./ui/section-team/type";
 
 type HomeResponse = {
   team_preview: TeamPreview;

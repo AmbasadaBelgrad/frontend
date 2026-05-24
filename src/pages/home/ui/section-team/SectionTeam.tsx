@@ -1,6 +1,6 @@
 import styles from "./SectionTeam.module.css";
 import { Link } from "react-router-dom";
-import CardCarousel from "../../cardCarousel/CardCarousel";
+import CardCarousel from "../card-carousel/CardCarousel";
 import type { TeamPreview } from "./type";
 
 interface SectionTeamProps {

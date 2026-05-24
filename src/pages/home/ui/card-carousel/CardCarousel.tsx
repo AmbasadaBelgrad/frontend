@@ -2,7 +2,7 @@ import type React from "react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
 import styles from "./CardCarousel.module.css";
-import type { Member } from "../sectionTeam/ui/type";
+import type { Member } from "../section-team/type"
 
 interface CardCarouselProps {
   cards: Member[];

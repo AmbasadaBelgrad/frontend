@@ -36,5 +36,11 @@
   "card_carousel": {
     "button_right": "Pomerite se udesno",
     "button_left": "Pomerite se ulevo"
+  },
+  "projectDetails": {
+    "textButtonDesktop": "Nazad u katalog",
+    "textButtonTablet": "U katalog",
+    "mainPage": "Početna",
+    "catalogProject": "Katalog projekata"
   }
 }

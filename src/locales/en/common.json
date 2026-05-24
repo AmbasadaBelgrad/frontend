@@ -36,5 +36,12 @@
   "card_carousel": {
     "button_right": "Scroll to the right",
     "button_left": "Scroll to the left"
+  },
+
+  "projectDetails": {
+    "textButtonDesktop": "Back to catalog",
+    "textButtonTablet": "To catalog",
+    "mainPage": "Home",
+    "catalogProject": "Projects catalog"
   }
 }
