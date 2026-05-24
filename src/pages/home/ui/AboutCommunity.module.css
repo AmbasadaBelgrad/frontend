@@ -1,3 +1,12 @@
+.desktopLayout {
+  display: block;
+}
+
+.tabletLayout,
+.mobileLayout {
+  display: none;
+}
+
 .section {
   width: 100%;
 }
@@ -130,39 +139,128 @@
 /* TABLET */
 
 @media (max-width: 1024px) {
+  .desktopLayout {
+    display: none;
+  }
+
+  .tabletLayout {
+    display: block;
+  }
+
   .section {
-    padding: 0 40px 64px;
+    width: 100%;
+    padding: 0 40px 40px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .container {
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 754px;
+    margin: 0 auto;
+    gap: 40px;
+    box-sizing: border-box;
   }
 
+
   .content {
-    max-width: 100%;
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 22px;
   }
 
   .title {
     font-size: 32px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #000;
+    width: 100%;
+    height: 38px;
+    margin-bottom: 40px;
   }
 
   .text {
+    display: block;
+    width: 100%;
+    max-width: 754px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
     font-size: 20px;
+    font-weight: 300;
+    line-height: 140%;
+    color: #000;
+    padding-right: 10px;
+    margin-bottom: 40px;
   }
 
   .button {
-    min-height: 48px;
-    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 350px;
+    height: 48px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 40px;
+    background: #eb3d00;
+    text-decoration: none;
+    transform: translateY(-0.5px);
+    transition: background-color 0.2s ease;
+  }
 
+  .buttonText {
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
     font-size: 20px;
-    line-height: 120%;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 754px;
+    max-height: 336px;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 33%;
+    border-radius: 8px;
   }
 }
 
 /* MOBILE */
 
 @media (max-width: 640px) {
+  .tabletLayout {
+    display: none;
+  }
+
+  .mobileLayout {
+    display: block;
+  }
+
   .section {
     padding: 0 20px 40px;
   }
