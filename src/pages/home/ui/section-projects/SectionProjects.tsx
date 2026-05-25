@@ -11,7 +11,7 @@ export const SectionProjects: React.FC<ProjectProps> = ({
       <h2>{projects_preview.title}</h2>
       <ul className={styles.grid}>
         {projects_preview.items.map((project) => (
-          <li key={project.id} className={styles.card}>
+          <li key={project.id} className={`${styles.card} ${project.isFirst ? styles.card_first : ""}`}>
             <img
               src={project.image}
               alt={project.title}

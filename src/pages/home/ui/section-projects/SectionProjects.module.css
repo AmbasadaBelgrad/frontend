@@ -11,7 +11,8 @@
   gap: 24px;
   width: 100%;
   margin: 0 auto;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /*декстоп 3 колонки*/
+  grid-template-columns: [one] 1fr [two] 1fr [three] 1fr [four];
+  /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
 }
 
 .card {
@@ -23,6 +24,11 @@
   flex-direction: column;
   gap: 20px;
   box-sizing: border-box;
+}
+
+.card_first {
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .image {
