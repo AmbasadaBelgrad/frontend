@@ -1,47 +1,55 @@
-import React from "react";
-import styles from "./Home.module.css";
-import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { routesPaths } from "@shared/config/routesPaths";
+import { routesPaths } from "@shared/config/routesPaths.ts";
+import { apiClient } from "@shared/api/client";
+import { SectionProjects } from "./ui/section-projects";
+import type { ProjectsPreview } from "./ui/section-projects/type";
+
+type HomeResponse = {
+  projects_preview: ProjectsPreview;
+};
 
 export const Home: React.FC = () => {
-  const {
-    data,
-    isLoading,
-    isError,
-    error,
-  } = useHomeQuery();
+  const [homeResponse, setHomeResponse] = useState<HomeResponse | null>(null);
 
-  if (isLoading) {
-    return <div>Загрузка...</div>;
+  useEffect(() => {
+    apiClient
+      .get<HomeResponse>("/api/v1/home")
+      .then((response) => {
+        setHomeResponse(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching home:", error);
+      });
+  }, []);
+
+  if (!homeResponse) {
+    return <div>Loading...</div>;
   }
-
-  if (isError) {
-    return (
-      <div>
-        {error instanceof Error
-          ? error.message
-          : "Ошибка загрузки"}
-      </div>
-    );
-  }
-
-  if (!data) return null;
+  //  React.useEffect(() => {
+  //     async function getHome() {
+  //       try {
+  //         const res = await apiClient.get<HomeResponse>("/home");
+  
+  //         setHomeResponse(res);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     }
+  //     getHome();
+  //   }, []);
+  
+  //   if (!homeResponse) {
+  //     return null;
+  //   }
+  
 
   return (
-    <div className={styles.mainContainer}>
+    <div>
       <h1>Главная страница</h1>
-
-      <Link to={routesPaths.projects}>
-        Проекты
-      </Link>
-      {/* HeroSection */}
-      {/* AboutSection */}
-      {/* TeamSection */}
-      {/* ProjectsSection */}
-      {/* ContactSection */}
+      <Link to={routesPaths.projects}>Проекты</Link>
+      <SectionProjects projects_preview={homeResponse.projects_preview}></SectionProjects>
     </div>
   );
 };
 
-export default Home;

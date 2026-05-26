@@ -17,28 +17,57 @@
 
 .card {
   background: #cbf28780;
-  block-size: 685px;
   border-radius: 8px;
   padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.card_usual {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-sizing: border-box;
+  min-height: 685px;
 }
 
 .card_first {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 60% 54%;
+  min-height: 580px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.image {
+.image_usual {
   width: 100%;
   height: 265px;
   object-fit: cover;
   border-radius: 16px;
 }
 
-.content {
+.image_first {
+  width: 100%;
+  height: 92%;
+  right: 200px;
+  top: 4%;
+  position: relative;
+  object-fit: cover;
+  grid-column: 2;
+  grid-row: 1;
+  border-radius: 16px;
+}
+
+.image_first::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #0000001a;
+}
+
+.content_usual {
   background: var(--white);
   border-radius: 16px;
   padding: 20px;
@@ -50,7 +79,64 @@
   overflow: hidden;
 }
 
-.title {
+.content_first {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  margin: 20px 0 20px 20px;
+  width: calc(100% + 120px);
+  z-index: 2;
+}
+
+.content_container_first {
+  max-width: 592px;
+  padding: 18px;
+  height: 100%;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  color: var(--ecologic);
+  font-family: var(--main-font-family);
+  font-weight: 300;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 2px var(--ecologic) solid;
+  border-radius: 20px;
+  min-height: 96px;
+
+}
+
+.line_diagonal {
+    position: absolute;
+    top: 20px;
+    right: 400px;
+    z-index: 10;
+}
+
+.content_first::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #f1f1f1;
+  clip-path: polygon(0 0, calc(98% - 1px) 0, calc(64% - 2px) 100%, 0 100%);
+  z-index: 1;
+}
+
+.content_first > * {
+  position: relative;
+  z-index: 2;
+}
+
+.title_usual, .title_first {
   font: var(--desktop_h3);
   font-family: var(--main-font-family);
   color: var(--black);
@@ -65,7 +151,7 @@
   letter-spacing: -2%;
 }
 
-.description {
+.description_usual, .description_first {
   font: var(--desktop_main);
   font-family: var(--main-font-family);
   color: var(--black);
@@ -83,7 +169,6 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-
 .button_project {
   position: relative;
   width: 60px;
