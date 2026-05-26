@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
 import { InitDataContext } from "@/shared/context/InitDataContext";
+import { Header } from "./ui/header";
+import { Footer } from "./ui/footer/index";
 import styles from "./MainLayout.module.css";
 
 const MainLayout = () => {
@@ -65,18 +67,18 @@ const MainLayout = () => {
     );
   }
 
+  console.log(initData);
   return (
     <InitDataContext.Provider value={initData}>
       <div className={styles.layout}>
         {/* TODO: передать initData в Header, когда компонент будет готов */}
-        {/* <Header /> */}
+        <Header data={initData} />
         <main className={styles.main}>
           <div className={styles.mainInner}>
             <Outlet /> {/* Здесь подставляется содержимое страниц */}
           </div>
         </main>
-        {/* TODO: передать initData в Footer, когда компонент будет готов */}
-        {/* <Footer /> */}
+        <Footer data={initData} />
       </div>
     </InitDataContext.Provider>
   );
