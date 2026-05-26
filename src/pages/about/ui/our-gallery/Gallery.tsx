@@ -62,6 +62,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_prev}`}
           onClick={prevSlide}
           disabled={isAnimating}
+          aria-label="previous slide"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
             <path
@@ -71,15 +72,22 @@ export const Gallery = ({ data }: ICarouselProps) => {
           </svg>
         </button>
 
-        <div className={styles.slides_container}>
-          <div className={`${styles.slide} ${styles.slide_prev}`}>
-            <img src={images[prevIndex].url} alt={images[prevIndex].alt} />
-          </div>
+        <ul className={styles.slides_container}>
+          <li className={`${styles.slide} ${styles.slide_prev}`}>
+            <img
+              src={images[prevIndex].url}
+              alt={images[prevIndex].alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
 
-          <div className={`${styles.slide} ${styles.slide_current}`}>
+          <li className={`${styles.slide} ${styles.slide_current}`}>
             <img
               src={images[currentIndex].url}
               alt={images[currentIndex].alt}
+              loading="lazy"
+              decoding="async"
               className={
                 isAnimating
                   ? direction === "next"
@@ -90,17 +98,23 @@ export const Gallery = ({ data }: ICarouselProps) => {
                     : styles.slide_in_from_left
               }
             />
-          </div>
+          </li>
 
-          <div className={`${styles.slide} ${styles.slide_next}`}>
-            <img src={images[nextIndex].url} alt={images[nextIndex].alt} />
-          </div>
-        </div>
+          <li className={`${styles.slide} ${styles.slide_next}`}>
+            <img
+              src={images[nextIndex].url}
+              alt={images[nextIndex].alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        </ul>
 
         <button
           className={`${styles.nav_button} ${styles.nav_next}`}
           onClick={nextSlide}
           disabled={isAnimating}
+          aria-label="next slide"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
             <path
