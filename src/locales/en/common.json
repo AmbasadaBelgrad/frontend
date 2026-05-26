@@ -27,7 +27,18 @@
       "button_text": "Submit"
     },
     "errors": {
-      "invalidEmail": "Email is invalid"
+      "requiredName": "Enter name",
+      "invalidNameAlphabet": "The field contains invalid characters, allowed: space, hyphen, and apostrophe",
+      "requiredEmail": "Enter email",
+      "invalidEmailWithExample": "Invalid email address, example: name@example.com",
+      "requiredMessage": "Enter comment",
+      "messageMinLength": "Comment must be at least {{min}} characters long",
+      "messageMaxLength": "Comment must not exceed {{max}} characters"
+    },
+    "hints": {
+      "nameRequired": "Enter name in Cyrillic or Latin alphabet",
+      "emailRequired": "Enter email in the format name@example.com",
+      "messageRequired": "Enter a comment between 20 and 600 characters"
     },
     "successModal": {
       "title": "Thank you!",

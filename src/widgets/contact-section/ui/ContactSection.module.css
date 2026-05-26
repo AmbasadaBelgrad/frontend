@@ -4,8 +4,8 @@
   width: 100%;
   max-width: var(--breakpoint_desktop);
   margin: 0 auto;
-  padding: var(--spacing-10) var(--spacing-30) var(--spacing-30)
-    var(--spacing-20);
+  padding: var(--spacing-10) var(--spacing-20) var(--spacing-30)
+    var(--spacing-30);
   overflow: hidden;
 
   --contact-image-width: clamp(
@@ -115,11 +115,11 @@
 }
 
 .contactSectionFormWrapper {
-  width: min(100%, var(--contact-form-width));
+  width: 100%;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-5);
+  gap: 10px;
   align-self: start;
 }
 
@@ -128,9 +128,6 @@
   margin: 0;
   font: var(--desktop_main);
   color: var(--politic_black);
-}
-.policyContent {
-  margin-top: 20px;
 }
 
 .policyContent p {
@@ -145,13 +142,8 @@
   text-decoration: underline;
 }
 
-.contactSectionSubmitError {
-  margin: 0;
-  font: var(--desktop_caption);
-  color: var(--fault);
-}
-
 .contactSectionSubmitWrapper {
+  left: -40px;
   position: relative;
   z-index: 3;
   display: flex;
@@ -203,6 +195,9 @@
     padding: 0 clamp(24px, 5vw, 80px);
     font-size: clamp(20px, calc(20px + (100vw - 834px) * 0.0066), 24px);
   }
+  .contactSectionSubmitWrapper {
+    left: clamp(0rem, 3.4463rem + -6.6116vw, -2.5rem);
+  }
 
   .contactSectionDecorGreen {
     top: -18px;
@@ -221,9 +216,7 @@
     background-size: 100% 92%;
     transform: rotate(-2deg);
   }
-}
 
-@media (max-width: 1279px) {
   .contactSectionContent::before {
     content: none;
   }
@@ -236,14 +229,16 @@
   .contactSectionBody {
     grid-template-columns: var(--contact-image-width) minmax(0, 1fr);
     margin-bottom: var(--spacing-10);
+    column-gap: clamp(1.25rem, -6.3638rem + 14.6067vw, 5.3125rem);
   }
 
   .contactSectionImage {
+    height: clamp(35.1875rem, 29.6735rem + 10.5785vw, 39.1875rem);
     border-radius: 8px;
   }
 
   .contactSectionFormWrapper {
-    gap: var(--spacing-5);
+    gap: 10px;
     margin-top: 0;
   }
 
@@ -252,12 +247,7 @@
   }
 
   .policyContent p {
-    font: var(--tablet_caption);
-    line-height: 120%;
-  }
-
-  .contactSectionSubmitError {
-    font: var(--mobile_main);
+    font: var(--tablet_politic);
   }
 }
 
@@ -293,7 +283,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);
-    margin-bottom: var(--spacing-12);
+    margin-bottom: var(--spacing-5);
   }
 
   .contactSectionContent {
@@ -311,12 +301,7 @@
   }
 
   .policyContent p {
-    font: var(--mobile_caption);
-    line-height: 120%;
-  }
-
-  .contactSectionSubmitError {
-    font: var(--mobile_caption);
+    font: var(--mobile_politic);
   }
 
   .contactSectionSubmit {
@@ -324,5 +309,8 @@
     height: clamp(36px, calc(36px + (100vw - 375px) * 0.0261), 48px);
     padding: 0 clamp(10px, 3vw, 24px);
     font-size: clamp(16px, calc(16px + (100vw - 375px) * 0.0087), 20px);
+  }
+  .contactSectionSubmitWrapper {
+    left: 0px;
   }
 }

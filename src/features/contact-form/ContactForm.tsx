@@ -272,23 +272,25 @@ const ContactForm = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
-        {errors.name && (
-          <span
-            id={`${nameFieldId}-error`}
-            className={`${styles.contactFormError} ${styles.nameError}`}
-            role="alert"
-          >
-            {errors.name}
-          </span>
-        )}
-        {hints.name && !errors.name && (
-          <span
-            id={`${nameFieldId}-hint`}
-            className={`${styles.contactFormHint} ${styles.nameHint}`}
-          >
-            {hints.name}
-          </span>
-        )}
+        <div className={styles.contactFormMessages}>
+          {errors.name && (
+            <span
+              id={`${nameFieldId}-error`}
+              className={`${styles.contactFormError} ${styles.nameError}`}
+              role="alert"
+            >
+              {errors.name}
+            </span>
+          )}
+          {hints.name && !errors.name && (
+            <span
+              id={`${nameFieldId}-hint`}
+              className={`${styles.contactFormHint} ${styles.nameHint}`}
+            >
+              {hints.name}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className={styles.contactFormField}>
@@ -311,24 +313,25 @@ const ContactForm = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
-
-        {errors.email && (
-          <span
-            id={`${emailFieldId}-error`}
-            className={`${styles.contactFormError} ${styles.emailError}`}
-            role="alert"
-          >
-            {errors.email}
-          </span>
-        )}
-        {hints.email && !errors.email && (
-          <span
-            id={`${emailFieldId}-hint`}
-            className={`${styles.contactFormHint} ${styles.emailHint}`}
-          >
-            {hints.email}
-          </span>
-        )}
+        <div className={styles.contactFormMessages}>
+          {errors.email && (
+            <span
+              id={`${emailFieldId}-error`}
+              className={`${styles.contactFormError} ${styles.emailError}`}
+              role="alert"
+            >
+              {errors.email}
+            </span>
+          )}
+          {hints.email && !errors.email && (
+            <span
+              id={`${emailFieldId}-hint`}
+              className={`${styles.contactFormHint} ${styles.emailHint}`}
+            >
+              {hints.email}
+            </span>
+          )}
+        </div>
       </div>
 
       <div
@@ -364,24 +367,25 @@ const ContactForm = ({
             {messageLength}/{FIELD_LIMITS.messageMax}
           </span>
         </div>
-
-        {errors.message && (
-          <span
-            id={`${messageFieldId}-error`}
-            className={`${styles.contactFormError} ${styles.textAreaError}`}
-            role="alert"
-          >
-            {errors.message}
-          </span>
-        )}
-        {hints.message && !errors.message && (
-          <span
-            id={`${messageFieldId}-hint`}
-            className={`${styles.contactFormHint} ${styles.textAreaHint}`}
-          >
-            {hints.message}
-          </span>
-        )}
+        <div className={styles.contactFormMessages}>
+          {errors.message && (
+            <span
+              id={`${messageFieldId}-error`}
+              className={`${styles.contactFormError} ${styles.textAreaError}`}
+              role="alert"
+            >
+              {errors.message}
+            </span>
+          )}
+          {hints.message && !errors.message && (
+            <span
+              id={`${messageFieldId}-hint`}
+              className={`${styles.contactFormHint} ${styles.textAreaHint}`}
+            >
+              {hints.message}
+            </span>
+          )}
+        </div>
       </div>
 
       <label className={styles.contactFormHoneypot} aria-hidden="true">

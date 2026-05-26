@@ -38,7 +38,7 @@
     "hints": {
       "nameRequired": "Введите имя на кириллице или латинице",
       "emailRequired": "Введите email в формате name@example.com",
-      "messageRequired": "Введите комментарий от {{min}} до {{max}} символов"
+      "messageRequired": "Введите комментарий от 20 до 600 символов"
     },
     "successModal": {
       "title": "Спасибо!",

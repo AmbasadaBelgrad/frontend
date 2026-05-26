@@ -27,7 +27,18 @@
       "button_text": "Pošalji"
     },
     "errors": {
-      "invalidEmail": "Email nije ispravan"
+      "requiredName": "Unesite ime",
+      "invalidNameAlphabet": "Polje sadrži nedozvoljene znakove, dozvoljeni su: razmak, crtica i apostrof",
+      "requiredEmail": "Unesite email",
+      "invalidEmailWithExample": "Adresa je navedena pogrešno, primer: name@example.com",
+      "requiredMessage": "Unesite komentar",
+      "messageMinLength": "Komentar mora imati najmanje {{min}} karaktera",
+      "messageMaxLength": "Komentar ne sme prelaziti {{max}} karaktera"
+    },
+    "hints": {
+      "nameRequired": "Unesite ime na ćirilici ili latinici",
+      "emailRequired": "Unesite email u formatu name@example.com",
+      "messageRequired": "Unesite komentar od 20 do 600 karaktera"
     },
     "successModal": {
       "title": "Hvala!",

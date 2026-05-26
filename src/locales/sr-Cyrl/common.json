@@ -27,7 +27,18 @@
       "button_text": "Пошаљи"
     },
     "errors": {
-      "invalidEmail": "Email није исправан"
+      "requiredName": "Унесите име",
+      "invalidNameAlphabet": "Поље садржи недозвољене знакове, дозвољени су: размак, цртица и апостроф",
+      "requiredEmail": "Унесите емаил",
+      "invalidEmailWithExample": "Адреса је наведена погрешно, пример: name@example.com",
+      "requiredMessage": "Унесите коментар",
+      "messageMinLength": "Коментар мора имати најмање {{min}} карактера",
+      "messageMaxLength": "Коментар не сме прелазити {{max}} карактера"
+    },
+    "hints": {
+      "nameRequired": "Унесите име на ћирилици или латиници",
+      "emailRequired": "Унесите емаил у формату name@example.com",
+      "messageRequired": "Унесите коментар од 20 до 600 карактера"
     },
     "successModal": {
       "title": "Хвала!",

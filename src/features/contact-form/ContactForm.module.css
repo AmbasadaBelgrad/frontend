@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 75px;
+  gap: 25px;
+  margin-top: 10px;
 }
 
 .contactFormField {
@@ -12,6 +13,13 @@
   flex-direction: column;
   gap: var(--spacing-2);
   position: relative;
+}
+
+.contactFormMessages {
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
 }
 
 .visuallyHidden,
@@ -30,6 +38,7 @@
 
 .contactFormInput,
 .contactFormTextarea {
+  position: relative;
   user-select: text;
   -webkit-user-select: text;
   caret-color: var(--black);
@@ -53,7 +62,7 @@
 }
 
 .contactFormTextarea {
-  height: 288px;
+  min-height: 288px;
   resize: none;
 }
 
@@ -80,7 +89,10 @@
 .contactFormError {
   font: var(--desktop_caption);
   color: var(--fault);
+  display: block;
+  line-height: 1.4;
 }
+
 .contactFormTextareaWrapper {
   position: relative;
   width: 100%;
@@ -100,29 +112,25 @@
   pointer-events: none;
 }
 
-.nameInput,
-.emailInput,
-.textAreaInput {
-  position: relative;
-}
-
-.nameError,
-.emailError,
-.nameHint,
-.emailHint {
-  position: absolute;
-  top: 80px;
-}
-
-.textAreaError,
-.textAreaHint {
-  position: absolute;
-  top: 300px;
-}
-
 .contactFormHint {
   font: var(--desktop_caption);
   color: var(--black_2);
+  display: block;
+  line-height: 1.4;
+}
+
+.contactFormError,
+.contactFormHint {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
@@ -142,11 +150,16 @@
   }
 
   .contactFormTextarea {
-    height: 150px;
+    min-height: 150px;
   }
 
-  .contactFormError {
+  .contactFormError,
+  .contactFormHint {
     font: var(--mobile_main);
+  }
+
+  .contactFormMessages {
+    height: 40px;
   }
 }
 
@@ -166,21 +179,30 @@
   }
 
   .contactFormTextarea {
-    height: 120px;
+    min-height: 220px;
+    max-height: 359px;
+    overflow-y: auto;
+    resize: vertical;
   }
 
-  .contactFormError {
+  .contactFormError,
+  .contactFormHint {
     font: var(--mobile_main);
   }
 
   .contactFormCounter {
     font: var(--mobile_main);
   }
+
+  .contactFormMessages {
+    height: 38px;
+  }
 }
 
 @media (max-width: 833px) {
   .contactForm {
     gap: var(--spacing-3);
+    margin-top: 0px;
   }
 
   .contactFormInput,
@@ -189,20 +211,27 @@
   }
 
   .contactFormInput {
-    height: 40px;
+    height: 46px;
     padding: 0 var(--spacing-3);
   }
 
   .contactFormTextarea {
-    height: 80px;
+    min-height: 80px;
+    max-height: 450px;
+    resize: vertical;
     padding: var(--spacing-2) var(--spacing-3);
   }
 
-  .contactFormError {
+  .contactFormError,
+  .contactFormHint {
     font: var(--mobile_caption);
   }
 
   .contactFormCounter {
     font: var(--mobile_caption);
+  }
+
+  .contactFormMessages {
+    height: 34px;
   }
 }
