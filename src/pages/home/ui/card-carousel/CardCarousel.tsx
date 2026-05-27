@@ -1,6 +1,6 @@
 import type React from "react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import styles from "./CardCarousel.module.css";
 import type { Member } from "../section-team/type"
 
@@ -12,7 +12,6 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
   const { t } = useTranslation("common");
 
   const containerRef = useRef<HTMLUListElement>(null);
-  const intervalRef = useRef<number | null>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (!containerRef.current) return;
@@ -22,36 +21,11 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       behavior: "smooth",
     });
   };
-
-  const startScroll = (direction: "left" | "right") => {
-    if (intervalRef.current) return;
-
-    intervalRef.current = window.setInterval(() => {
-      scroll(direction);
-    }, 200);
-  };
-
-  const stopScroll = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
-  }, []);
   return (
     <div className={styles.wrapper}>
       <button
         className={`${styles.button} ${styles.left}`}
-        onMouseDown={() => startScroll("left")}
-        onMouseUp={stopScroll}
-        onMouseOut={stopScroll}
+        onClick={() => scroll("left")}
         aria-label={t("card_carousel.button_left")}
       >
         <svg
@@ -89,9 +63,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </ul>
       <button
         className={`${styles.button} ${styles.right}`}
-        onMouseDown={() => startScroll("right")}
-        onMouseUp={stopScroll}
-        onMouseOut={stopScroll}
+        onClick={() => scroll("right")}
         aria-label={t("card_carousel.button_right")}
       >
         <svg
