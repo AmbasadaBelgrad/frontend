@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
-import type { ICarouselProps } from "./type";
+import type { ICarouselProps } from "@/entities/about/model/types";
 
 export const Gallery = ({ data }: ICarouselProps) => {
   const [direction, setDirection] = useState<"next" | "prev">("next");
