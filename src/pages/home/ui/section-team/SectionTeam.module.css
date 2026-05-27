@@ -1,6 +1,6 @@
 
 .title {
-  font-size: 48px;
+  font: var(--desktop_h2);
   line-height: 120%;
   font-weight: 400;
   letter-spacing: -0.98px;
@@ -30,7 +30,7 @@
 
 @media (max-width: 1023px) {
   .title {
-    font-size: 32px;
+    font: var(--tablet_h2);
     margin-bottom: 24px;
   }
 
@@ -55,7 +55,7 @@
   } 
 
   .button {
-    font-size: 16px;
+    font: var(--mobile_h2);
     width: 255px;
     height: 36px;
   }
