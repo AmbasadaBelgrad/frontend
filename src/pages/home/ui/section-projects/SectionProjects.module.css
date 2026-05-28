@@ -42,8 +42,8 @@
   grid-template-columns: 60% 54%;
   min-height: 580px;
   padding: 0;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .image_usual {
@@ -55,21 +55,15 @@
 
 .image_first {
   width: 100%;
+  min-width: 950px;
   height: 92%;
-  right: 200px;
-  top: 4%;
   position: relative;
+  right: 454px;
+  top: 4%;
   object-fit: cover;
   grid-column: 2;
   grid-row: 1;
   border-radius: 16px;
-}
-
-.image_first::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #0000001a;
 }
 
 .content_usual {
@@ -94,7 +88,7 @@
 }
 
 .content_container_first {
-  max-width: 592px;
+  max-width: 600px;
   padding: 18px;
   height: 100%;
   display: flex;
@@ -129,11 +123,18 @@
   color: var(--white);
 }
 
-.line_diagonal {
+.content_first::before {
+  content: "";
   position: absolute;
-  top: 20px;
-  right: 438px;
-  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 100%;
+  background: #cbf28780;
+  clip-path: polygon(0 100%, 7% 100%, 100% 0, 93% 0);
+  transform: translateX(-16%);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .content_first::after {
@@ -189,6 +190,9 @@
   word-wrap: break-word;
 }
 
+.description_first {
+  max-height: calc(1.3em * 5);
+}
 
 .button_project_first {
   width: 500px;
@@ -267,6 +271,23 @@
 
 /* Адаптив */
 @media (min-width: 834px) and (max-width: 1023px) {
+  .card .card_first:not {
+    block-size: 636px;
+  }
+
+  .card_first {
+    min-height: 570px;
+  }
+
+  .title,
+  .title_first {
+    font: var(--tablet_h2);
+  }
+
+  .description_first {
+    font: var(--tablet_main);
+  }
+
   .container {
     padding: 0 40px;
     box-sizing: border-box;
@@ -277,21 +298,46 @@
     gap: 20px;
   }
 
+  .tags {
+    margin-top: 28px;
+  }
+  
   .content {
     height: 327px;
   }
 
-  .card {
-    block-size: 636px;
+  .content_first {
+    width: calc(100% + 160px);
   }
 
-  .title {
-    font: var(--tablet_h3);
+  .content_first::before {
+    width: 42%;
+    clip-path: polygon(0 100%, 10% 100%, 100% 0, 90% 0);
+    transform: translateX(0%);
+  }
+
+  .content_first::after {
+    inset: 0;
+    clip-path: polygon(0% 0%, 100% 0, 62% 100%, 0 100%);
+  }
+
+  .content_container_first {
+    max-width: 406px;
+  }
+
+  .image_first {
+    min-width: 434px;
+    right: 150px;
   }
 
   .description {
     font: var(--tablet_main);
     line-height: 136%;
+  }
+
+  .button_project_first {
+    width: 350px;
+    font-size: 20px;
   }
 }
 
