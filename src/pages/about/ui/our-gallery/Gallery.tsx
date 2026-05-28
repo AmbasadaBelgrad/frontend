@@ -7,7 +7,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const images = data.images;
+  const images = data.images || [];
   const itemsLength = images.length;
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [isAnimating, currentIndex]);
+  }, [isAnimating]);
 
   if (!images || images.length === 0) return null;
 
@@ -62,7 +62,8 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_prev}`}
           onClick={prevSlide}
           disabled={isAnimating}
-          aria-label="previous slide"
+          aria-label="Предыдущее изображение"
+          type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
             <path
@@ -114,7 +115,8 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_next}`}
           onClick={nextSlide}
           disabled={isAnimating}
-          aria-label="next slide"
+          aria-label="Следующее изображение"
+          type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
             <path
