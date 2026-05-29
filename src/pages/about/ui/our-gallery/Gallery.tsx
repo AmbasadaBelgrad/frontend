@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
 import type { ICarouselProps } from "@/entities/about/model/types";
+import { useTranslation } from "react-i18next";
 
 export const Gallery = ({ data }: ICarouselProps) => {
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { t } = useTranslation("common");
 
   const images = data.images || [];
   const itemsLength = images.length;
@@ -62,7 +64,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_prev}`}
           onClick={prevSlide}
           disabled={isAnimating}
-          aria-label="Предыдущее изображение"
+          aria-label={t("gallery.previous")}
           type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
@@ -115,7 +117,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_next}`}
           onClick={nextSlide}
           disabled={isAnimating}
-          aria-label="Следующее изображение"
+          aria-label={t("gallery.next")}
           type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">

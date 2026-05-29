@@ -38,5 +38,9 @@
     "textButtonTablet": "To catalog",
     "mainPage": "Home",
     "catalogProject": "Projects catalog"
+  },
+  "gallery": {
+    "previous": "Previous slide",
+    "next": "Next slide"
   }
 }
