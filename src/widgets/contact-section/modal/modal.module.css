@@ -67,6 +67,9 @@
   .text {
     font: var(--tablet_main);
   }
+  .button {
+    width: 350px;
+  }
 }
 
 @media (max-width: 833px) {
@@ -83,5 +86,9 @@
 
   .text {
     font: var(--mobile_main);
+  }
+
+  .button {
+    width: 245px;
   }
 }

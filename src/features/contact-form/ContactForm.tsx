@@ -6,9 +6,10 @@ import {
   type FormEvent,
 } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./ContactForm.module.css";
+import { AdaptiveTextarea } from "./adaptiveTextArea/adaptiveTextArea";
 import type { TFormErrors, TTouchedFields } from "./model/types";
 import type { contactFormPost } from "@entities/form/model/types";
+import styles from "./ContactForm.module.css";
 
 type TContactFormProps = {
   id: string;
@@ -329,7 +330,7 @@ const ContactForm = ({
         </label>
 
         <div className={styles.contactFormTextareaWrapper}>
-          <textarea
+          <AdaptiveTextarea
             id={messageFieldId}
             className={styles.contactFormTextarea}
             name="message"
@@ -346,7 +347,6 @@ const ContactForm = ({
             onChange={handleChange}
             onBlur={handleBlur}
           />
-
           <span
             className={styles.contactFormCounter}
             aria-label={`Введено ${messageLength} из ${FIELD_LIMITS.messageMax} символов. Минимум ${FIELD_LIMITS.messageMin}`}

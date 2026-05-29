@@ -145,44 +145,46 @@ export const ProjectsPage: React.FC = () => {
   const totalPages = Math.ceil(totalItems / itemsPerPage); // общее количество страниц
 
   return (
-    <div className={styles.projectsList}>
-      <h1>Проекты</h1>
+    <>
+      <div className={styles.projectsList}>
+        <h1>Проекты</h1>
 
-      <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
-      <ProjectsList projects={currentItems} />
+        <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
+        <ProjectsList projects={currentItems} />
 
-      {/* Пагинация */}
-      {totalPages > 1 && (
-        <div className={styles.pagination}>
-          <button
-            onClick={goToPrevPage}
-            disabled={currentPage === 1}
-            className={styles.paginationButton}
-            aria-label="Предыдущая страница"
-          >
-            ← Назад
-          </button>
+        {/* Пагинация */}
+        {totalPages > 1 && (
+          <div className={styles.pagination}>
+            <button
+              onClick={goToPrevPage}
+              disabled={currentPage === 1}
+              className={styles.paginationButton}
+              aria-label="Предыдущая страница"
+            >
+              ← Назад
+            </button>
 
-          <span className={styles.pageInfo}>
-            Страница {currentPage} из {totalPages}
-          </span>
+            <span className={styles.pageInfo}>
+              Страница {currentPage} из {totalPages}
+            </span>
 
-          <button
-            onClick={goToNextPage}
-            disabled={currentPage === totalPages}
-            className={styles.paginationButton}
-            aria-label="Следующая страница"
-          >
-            Вперед →
-          </button>
-        </div>
-      )}
+            <button
+              onClick={goToNextPage}
+              disabled={currentPage === totalPages}
+              className={styles.paginationButton}
+              aria-label="Следующая страница"
+            >
+              Вперед →
+            </button>
+          </div>
+        )}
 
-      <Link to={routesPaths.home} className={styles.homeLink}>
-        На главную
-      </Link>
+        <Link to={routesPaths.home} className={styles.homeLink}>
+          На главную
+        </Link>
+      </div>
       <ContactSection />
-    </div>
+    </>
   );
 };
 

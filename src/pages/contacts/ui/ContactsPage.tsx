@@ -3,9 +3,10 @@ import styles from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   return (
-    <main className={styles.contactsPage}>
+    <>
+      <main className={styles.contactsPage}></main>
       <ContactSection />
-    </main>
+    </>
   );
 };
 
