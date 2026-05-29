@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import { Link } from "react-router-dom";
 import type { ProjectProps } from "./type";
 import styles from "./SectionProjects.module.css";
@@ -6,12 +7,25 @@ import styles from "./SectionProjects.module.css";
 export const SectionProjects: React.FC<ProjectProps> = ({
   projects_preview,
 }) => {
-  console.log(projects_preview);
+  const { isMobile, isTablet } = useViewportWidth();
+
+  const [visibleProjects, setVisibleProjects] = useState(4);
+
+  useEffect(() => {
+    if (isMobile) {
+      setVisibleProjects(1);
+    } else if (isTablet) {
+      setVisibleProjects(3);
+    } else {
+      setVisibleProjects(4);
+    }
+  }, [isMobile, isTablet]);
+
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{projects_preview.title}</h2>
       <ul className={styles.grid}>
-        {projects_preview.items.map((project) => (
+        {projects_preview.items.slice(0, visibleProjects).map((project) => (
           <li
             key={project.id}
             className={`${styles.card} ${project.isFirst ? styles.card_first : styles.card_usual}`}
