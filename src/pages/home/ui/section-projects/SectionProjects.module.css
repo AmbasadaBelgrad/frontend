@@ -96,6 +96,12 @@
   flex-direction: column;
 }
 
+.content_container_usual {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .tags {
   display: flex;
   gap: 8px;
@@ -269,8 +275,20 @@
   opacity: 1;
 }
 
+.button {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 35px;
+  letter-spacing: 0.02em;
+}
+
 /* Адаптив */
 @media (min-width: 834px) and (max-width: 1023px) {
+
+  .title {
+    font: var(--tablet_h2);
+  }
+
   .card .card_first:not {
     block-size: 636px;
   }
@@ -279,12 +297,20 @@
     min-height: 570px;
   }
 
-  .title,
+  .card_usual {
+    min-height: 685px;
+  }
+ 
   .title_first {
+    letter-spacing: -0.02em;
     font: var(--tablet_h2);
   }
 
-  .description_first {
+  .title_usual {
+    font: var(--tablet_h3);
+  }
+
+  .description_first, .description_usual{
     font: var(--tablet_main);
   }
 
@@ -302,7 +328,7 @@
     margin-top: 28px;
   }
   
-  .content {
+  .content_usual {
     height: 327px;
   }
 
@@ -322,7 +348,8 @@
   }
 
   .content_container_first {
-    max-width: 406px;
+    max-width: 440px;
+
   }
 
   .image_first {
@@ -330,18 +357,35 @@
     right: 150px;
   }
 
-  .description {
+  .description_usual {
     font: var(--tablet_main);
     line-height: 136%;
   }
 
-  .button_project_first {
-    width: 350px;
-    font-size: 20px;
+  .description_first {
+    max-height: calc(2.3em * 5);
+  }
+
+  .button_project_first, .button{
+    max-width: 350px;
+  }
+
+  .buttonText {
+    font: var(--tablet_button);
+  }
+
+  .button {
+    letter-spacing: 0;
   }
 }
 
 @media (max-width: 833px) {
+
+  .title {
+      font: var(--mobile_h2);
+      margin-bottom: 30px;
+    }
+
   .container {
     padding: 0 20px;
   }
@@ -354,20 +398,24 @@
     block-size: 519px;
   }
 
-  .content {
+  .card_usual {
+    min-height: 335px;
+  }
+
+  .content_usual, .content_container_usual {
     gap: 16px;
     height: 295px;
   }
 
-  .image {
+  .image_usual {
     max-height: 205px;
   }
 
-  .title {
+  .title_usual {
     font: var(--mobile_h3);
   }
 
-  .description {
+  .description_usual{
     font: var(--mobile_main);
   }
 
@@ -384,6 +432,10 @@
 
   .icon {
     display: none;
+  }
+
+  .button {
+    max-width: 255px;
   }
 
   .buttonText {
