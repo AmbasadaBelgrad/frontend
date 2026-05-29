@@ -2,8 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { postContact } from "../api/postContactForm";
 import type { contactFormPost } from "../model/types";
 
-export const contactQueryKey = ["contact"] as const;
-
 export function usePostContact() {
   return useMutation({
     mutationFn: (data: contactFormPost) => postContact(data),

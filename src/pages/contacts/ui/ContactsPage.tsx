@@ -1,4 +1,4 @@
-import ContactSection from "@/widgets/contact-section/ui/ContactSection";
+import ContactSection from "@/widgets/contact-section/ContactSection";
 import styles from "./ContactsPage.module.css";
 
 const ContactsPage = () => {

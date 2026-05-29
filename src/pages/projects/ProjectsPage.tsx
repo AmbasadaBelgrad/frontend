@@ -6,7 +6,7 @@ import { ProjectsSearch } from "./ui/projects-search/ProjectsSearch";
 import { ProjectsList } from "./ui/projects-list/ProjectsList";
 import styles from "./ProjectsPage.module.css";
 import { apiClient } from "@shared/api/client";
-import ContactSection from "@/widgets/contact-section/ui/ContactSection";
+import ContactSection from "@/widgets/contact-section/ContactSection";
 
 type ProjectsResponse = {
   items: Array<{

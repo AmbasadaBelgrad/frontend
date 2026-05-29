@@ -38,6 +38,7 @@
 
 .contactFormInput,
 .contactFormTextarea {
+  box-sizing: border-box;
   position: relative;
   user-select: text;
   -webkit-user-select: text;
@@ -64,6 +65,7 @@
 .contactFormTextarea {
   min-height: 288px;
   resize: none;
+  padding-bottom: var(--spacing-8);
 }
 
 .contactFormInput::placeholder,
@@ -98,14 +100,10 @@
   width: 100%;
 }
 
-.contactFormTextarea {
-  padding-bottom: var(--spacing-8);
-}
-
 .contactFormCounter {
   position: absolute;
   right: var(--spacing-5);
-  bottom: var(--spacing-3);
+  bottom: var(--spacing-5);
   font: var(--desktop_caption);
   color: var(--black_2);
   white-space: nowrap;
@@ -166,6 +164,7 @@
 @media (max-width: 1279px) {
   .contactForm {
     gap: var(--spacing-5);
+    margin-top: clamp(0.3125rem, -0.1176rem + 0.8251vw, 0.625rem);
   }
 
   .contactFormInput,

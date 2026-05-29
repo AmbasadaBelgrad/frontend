@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useInitData } from "@shared/context/InitDataContext.tsx";
 import { safeCode } from "@shared/lib/safeCode";
 import { ContactForm } from "@/features/contact-form";
-import type { TContactFormPayload } from "@/features/contact-form/model/types";
 import { useTranslation } from "react-i18next";
 import { usePostContact } from "@entities/form/index";
+import type { contactFormPost } from "@entities/form/model/types";
 import Modal from "./modal/modal";
 import styles from "./ContactSection.module.css";
 
@@ -20,13 +20,18 @@ const ContactSection = () => {
   const [isContactFormValid, setIsContactFormValid] = useState(false);
   const isSubmitDisabled = !isContactFormValid || isPending;
 
-  const handleSubmit = async (formPayload: TContactFormPayload) => {
+  const handleSubmit = async (formPayload: contactFormPost) => {
     if (formPayload.contact_preference) {
       throw new Error("Honeypot triggered");
     }
 
-    await postContactAsync(formPayload);
-    setIsSuccessModalOpen(true);
+    try {
+      await postContactAsync(formPayload);
+      setIsSuccessModalOpen(true);
+    } catch (error) {
+      setIsErrorModalOpen(true);
+      console.error("Submit error:", error);
+    }
   };
 
   const handleCloseSuccessModal = () => {
@@ -40,11 +45,6 @@ const ContactSection = () => {
 
   return (
     <section className={styles.contactSection}>
-      <div className={styles.contactSectionDecor} aria-hidden="true">
-        <span className={styles.contactSectionDecorGreen} />
-        <span className={styles.contactSectionDecorPurple} />
-      </div>
-
       <h2 className={styles.contactSectionTitle}>
         {t("contactForm.fields.title")}
       </h2>

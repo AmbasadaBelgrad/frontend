@@ -1,3 +1,39 @@
+@property --angle1 {
+  syntax: "<angle>";
+  initial-value: -37deg;
+  inherits: false;
+}
+
+@property --angle2 {
+  syntax: "<angle>";
+  initial-value: -40deg;
+  inherits: false;
+}
+
+@property --green-start {
+  syntax: "<percentage>";
+  initial-value: 75%;
+  inherits: false;
+}
+
+@property --green-end {
+  syntax: "<percentage>";
+  initial-value: 91%;
+  inherits: false;
+}
+
+@property --white-end {
+  syntax: "<percentage>";
+  initial-value: 13%;
+  inherits: false;
+}
+
+@property --purple-end {
+  syntax: "<percentage>";
+  initial-value: 30%;
+  inherits: false;
+}
+
 .contactSection {
   position: relative;
   z-index: 0;
@@ -7,61 +43,32 @@
   padding: var(--spacing-10) var(--spacing-20) var(--spacing-30)
     var(--spacing-30);
   overflow: hidden;
+  --angle1: -37deg;
+  --angle2: -40deg;
+  --green-start: 75%;
+  --green-end: 91%;
+  --white-end: 13%;
+  --purple-end: 30%;
 
-  --contact-image-width: clamp(
-    269px,
-    calc(269px + (100vw - 834px) * 0.3482),
-    480px
-  );
-
-  --contact-image-height: clamp(
-    466px,
-    calc(466px + (100vw - 834px) * 0.1254),
-    542px
-  );
-
-  --contact-form-width: clamp(
-    465px,
-    calc(465px + (100vw - 834px) * 0.2624),
-    624px
-  );
-}
-
-.contactSectionDecor {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.contactSectionDecorGreen,
-.contactSectionDecorPurple {
-  position: absolute;
-  display: block;
-  transform-origin: center;
-}
-
-.contactSectionDecorGreen {
-  top: -8px;
-  left: -30px;
-  width: 789px;
-  height: 654px;
-  background-image: url("/images/content-section/green_shape.svg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-}
-
-.contactSectionDecorPurple {
-  right: -16px;
-  bottom: 0;
-  width: 659px;
-  height: 728px;
-  background-image: url("/images/content-section/purple_shape.svg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center bottom;
+  background:
+    repeating-linear-gradient(
+      var(--angle1),
+      transparent 0%,
+      transparent var(--green-start),
+      var(--green_3) var(--green-start),
+      var(--green_3) var(--green-end),
+      transparent var(--green-end),
+      transparent 100%
+    ),
+    repeating-linear-gradient(
+      var(--angle2),
+      var(--white) 0%,
+      var(--white) var(--white-end),
+      var(--purpure_2) var(--white-end),
+      var(--purpure_2) var(--purple-end),
+      var(--white) var(--purple-end),
+      var(--white) 100%
+    );
 }
 
 .contactSectionTitle {
@@ -168,7 +175,42 @@
   box-shadow: none;
 }
 
-@media (min-width: 1280px) and (max-width: 1439px) {
+@media (min-width: 834px) and (max-width: 1439px) {
+  .contactSection {
+    padding: var(--spacing-10) var(--spacing-10) var(--spacing-25);
+
+    --angle1: clamp(
+      -42deg,
+      calc(-37deg - (5deg * max(0, 1440px - 100vw) / 606)),
+      -37deg
+    );
+    --angle2: clamp(
+      -41deg,
+      calc(-40deg - (1deg * max(0, 1440px - 100vw) / 606)),
+      -40deg
+    );
+    --green-start: clamp(
+      75%,
+      calc(75.5% - (0.5% * max(0, 1440px - 100vw) / 606)),
+      75.5%
+    );
+    --green-end: clamp(
+      91%,
+      calc(95% - (4% * max(0, 1440px - 100vw) / 606)),
+      95%
+    );
+    --white-end: clamp(
+      10%,
+      calc(13% - (3% * max(0, 1440px - 100vw) / 606)),
+      13%
+    );
+    --purple-end: clamp(
+      29%,
+      calc(30% - (1% * max(0, 1440px - 100vw) / 606)),
+      30%
+    );
+  }
+
   .contactSectionFormWrapper {
     gap: var(--spacing-4);
     margin-top: 0;
@@ -182,12 +224,6 @@
     font: var(--tablet_caption);
     line-height: 120%;
   }
-}
-
-@media (min-width: 834px) and (max-width: 1439px) {
-  .contactSection {
-    padding: var(--spacing-5) var(--spacing-10) var(--spacing-25);
-  }
 
   .contactSectionSubmit {
     width: clamp(350px, calc(350px + (100vw - 834px) * 0.2475), 500px);
@@ -197,24 +233,6 @@
   }
   .contactSectionSubmitWrapper {
     left: clamp(0rem, 3.4463rem + -6.6116vw, -2.5rem);
-  }
-
-  .contactSectionDecorGreen {
-    top: -18px;
-    left: -28px;
-    width: 680px;
-    height: 445px;
-    background-size: 100% 104%;
-    transform: rotate(5deg);
-  }
-
-  .contactSectionDecorPurple {
-    right: -3px;
-    bottom: 3px;
-    width: 520px;
-    height: 400px;
-    background-size: 100% 92%;
-    transform: rotate(-2deg);
   }
 
   .contactSectionContent::before {
@@ -227,19 +245,17 @@
   }
 
   .contactSectionBody {
-    grid-template-columns: var(--contact-image-width) minmax(0, 1fr);
+    grid-template-columns:
+      clamp(16.8125rem, calc(-3.315rem + 38.6139vw), 31.4375rem)
+      1fr;
     margin-bottom: var(--spacing-10);
     column-gap: clamp(1.25rem, -6.3638rem + 14.6067vw, 5.3125rem);
   }
 
   .contactSectionImage {
+    width: 100%;
     height: clamp(35.1875rem, 29.6735rem + 10.5785vw, 39.1875rem);
     border-radius: 8px;
-  }
-
-  .contactSectionFormWrapper {
-    gap: 10px;
-    margin-top: 0;
   }
 
   .contactSectionDescription {
@@ -254,24 +270,13 @@
 @media (max-width: 833px) {
   .contactSection {
     padding: var(--spacing-6) var(--spacing-5) var(--spacing-20);
-  }
 
-  .contactSectionDecorGreen {
-    top: -32px;
-    left: -86px;
-    width: 528px;
-    height: 328px;
-    background-size: 100% 83%;
-    transform: rotate(-3deg);
-  }
-
-  .contactSectionDecorPurple {
-    right: -42px;
-    bottom: -20px;
-    width: 439px;
-    height: 351px;
-    background-size: 100% 86%;
-    transform: rotate(-14deg);
+    --angle1: -46deg;
+    --angle2: -55deg;
+    --green-start: 75%;
+    --green-end: 91%;
+    --white-end: 7%;
+    --purple-end: 23%;
   }
 
   .contactSectionTitle {

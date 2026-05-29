@@ -3,7 +3,7 @@ import { AboutUs, type AboutData } from "./ui/about-us-section";
 import { OurValues, type ValuesData } from "./ui/our-values";
 import { OurTeam, type TeamData } from "./ui/our-team";
 import { apiClient } from "../../shared/api/client";
-import ContactSection from "@/widgets/contact-section/ui/ContactSection";
+import ContactSection from "@/widgets/contact-section/ContactSection";
 
 type PageResponse = {
   about_section: AboutData;

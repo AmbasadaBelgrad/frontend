@@ -1,22 +1,4 @@
-export type TContactData = {
-  consent: {
-    text_before_link: string;
-    link_label: string;
-    text_after_link: string;
-    link: string;
-  };
-  submit_button: {
-    label: string;
-  };
-};
-
-export type TContactFormPayload = {
-  name: string;
-  email: string;
-  message: string;
-  contact_preference: string;
-  reason: string;
-};
+import type { contactFormPost } from "@entities/form/model/types";
 
 export type TFormErrors = {
   name?: string;
@@ -24,6 +6,4 @@ export type TFormErrors = {
   message?: string;
 };
 
-export type TTouchedFields = Partial<
-  Record<keyof TContactFormPayload, boolean>
->;
+export type TTouchedFields = Partial<Record<keyof contactFormPost, boolean>>;
