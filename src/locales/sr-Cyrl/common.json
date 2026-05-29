@@ -38,5 +38,9 @@
     "textButtonTablet": "У каталог",
     "mainPage": "Почетна",
     "catalogProject": "Каталог пројеката"
+  },
+  "gallery": {
+    "previous": "Претходни слајд",
+    "next": "Следећи слајд"
   }
 }
