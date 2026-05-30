@@ -284,13 +284,8 @@
 
 /* Адаптив */
 @media (min-width: 834px) and (max-width: 1023px) {
-
   .title {
     font: var(--tablet_h2);
-  }
-
-  .card .card_first:not {
-    block-size: 636px;
   }
 
   .card_first {
@@ -298,9 +293,9 @@
   }
 
   .card_usual {
-    min-height: 685px;
+    min-height: 636px;
   }
- 
+
   .title_first {
     letter-spacing: -0.02em;
     font: var(--tablet_h2);
@@ -310,7 +305,8 @@
     font: var(--tablet_h3);
   }
 
-  .description_first, .description_usual{
+  .description_first,
+  .description_usual {
     font: var(--tablet_main);
   }
 
@@ -327,7 +323,7 @@
   .tags {
     margin-top: 28px;
   }
-  
+
   .content_usual {
     height: 327px;
   }
@@ -349,7 +345,6 @@
 
   .content_container_first {
     max-width: 440px;
-
   }
 
   .image_first {
@@ -366,7 +361,8 @@
     max-height: calc(2.3em * 5);
   }
 
-  .button_project_first, .button{
+  .button_project_first,
+  .button {
     max-width: 350px;
   }
 
@@ -380,11 +376,10 @@
 }
 
 @media (max-width: 833px) {
-
   .title {
-      font: var(--mobile_h2);
-      margin-bottom: 30px;
-    }
+    font: var(--mobile_h2);
+    margin-bottom: 30px;
+  }
 
   .container {
     padding: 0 20px;
@@ -402,7 +397,8 @@
     min-height: 335px;
   }
 
-  .content_usual, .content_container_usual {
+  .content_usual,
+  .content_container_usual {
     gap: 16px;
     height: 295px;
   }
@@ -415,7 +411,7 @@
     font: var(--mobile_h3);
   }
 
-  .description_usual{
+  .description_usual {
     font: var(--mobile_main);
   }
 
