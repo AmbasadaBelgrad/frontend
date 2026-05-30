@@ -5,10 +5,11 @@ export interface ActionButton {
 
 export interface Hero {
   title: string;
+  subtitle: string;
   image_left: string;
   image_right: string;
   action_button: ActionButton;
-  link: string;
+  link?: string;
   
 }
 
