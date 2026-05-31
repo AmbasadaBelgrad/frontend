@@ -5,7 +5,7 @@ export function getHome(
   signal?: AbortSignal,
 ): Promise<HomeResponse> {
   return apiClient.get<HomeResponse>(
-    "/api/v1/home",
+    "/home",
     { signal },
   );
 }
