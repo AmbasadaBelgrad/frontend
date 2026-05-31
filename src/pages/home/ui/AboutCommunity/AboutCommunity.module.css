@@ -1,100 +1,86 @@
-.desktopLayout {
-  display: block;
-}
-
-.tabletLayout,
-.mobileLayout {
-  display: none;
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .section {
   width: 100%;
-}
-
-.container {
-  max-width: 1440px;
-  padding: 0 80px 80px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
+  padding: 0 0px 80px;
   box-sizing: border-box;
 }
 
-/* CONTENT BLOCK (left side) */
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1 1 543px;
-  max-width: 543px;
-  height: 380px;
+.container {
+  display: grid;
+  grid-template-columns: 543px 628px;
+  grid-template-areas:
+    "title image"
+    "text image"
+    "button image";
+  column-gap: 109px;
+  grid-template-rows: auto 1fr auto;
+  width: 1280px;
+  margin: 0;
+  box-sizing: border-box;
+  max-height: 460px;
+  align-items: stretch;
 }
-
-/* TITLE */
 
 .title {
+  grid-area: title;
   max-width: 314px;
-  font-family: "Rubik";
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 120%;
+  font: var(--desktop_h2);
   letter-spacing: -0.02em;
-  color: #1a1a1a;
+  color: var(--black);
+  margin: 0 0 43px;
 }
-
-/* TEXT */ 
 
 .text {
+  grid-area: text;
   width: 100%;
   max-width: 543px;
-  font-family: "Rubik";
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 140%;
-  color: #1a1a1a;
+  font: var(--desktop_main);
+  color: var(--black);
   padding-right: 30px;
+  margin: 0;
 }
 
-/* BUTTON */
-
 .button {
+  grid-area: button;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 500px;
   height: 72px;
-  padding: 0 80px;
   border-radius: 40px;
-  background: #eb3d00;
+  background: var(--energy);
   text-decoration: none;
-  transform: translateY(-2px);
   border: 2px solid transparent;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
     transform 0.2s ease;
+  align-self: end;
+  transform: translateY(2px);
 }
 
 .buttonText {
-  font-family: var(--button-font-family);
   font-style: normal;
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 34px;
+  font: var(--desktop_button);
   text-align: center;
-  color: #ffffff;
+  color: var(--politic_white);
   transition: color 0.2s ease;
 }
 
 .button:hover {
-  background: #fcffff;
-  border: 2px solid #eb3d00;
+  background: var(--energy-hover);
+  border: 2px solid var(--energy);
 }
 
 .button:hover .buttonText {
-  color: #eb3d00;
+  color: var(--energy-hover);
 }
 
 .button:active {
@@ -102,27 +88,27 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid #1a1a1a;
+  outline: 2px solid var(--black);
   outline-offset: 4px;
 }
 
 .buttonDisabled {
   background: rgba(189, 189, 189, 0.5);
-  color: #848484;
+  color: var(--disabled-text);
   border: none;
   pointer-events: none;
 }
 
 .buttonDisabled .buttonText {
-  color: #848484;
+  color: var(--disabled-text);
 }
 
-/* IMAGE */
 
 .imageWrapper {
-  flex: 1 1 628px;
-  max-width: 628px;
-  height: 380px;
+  grid-area: image;
+  width: 628px;
+  height: 100%;
+  max-height: 380px;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -139,105 +125,52 @@
 /* TABLET */
 
 @media (max-width: 1024px) {
-  .desktopLayout {
-    display: none;
-  }
-
-  .tabletLayout {
-    display: block;
-  }
 
   .section {
     width: 100%;
-    padding: 0 40px 40px;
+    padding: 0 0px 40px;
     box-sizing: border-box;
     overflow-x: hidden;
   }
 
   .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+      "title"
+      "image"
+      "text"
+      "button";
+    grid-template-columns: 1fr;
+    row-gap: 40px;
     width: 100%;
     max-width: 754px;
-    margin: 0 auto;
-    gap: 40px;
+    margin: 0;
     box-sizing: border-box;
   }
 
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 22px;
-  }
+  /* TITLE */
 
   .title {
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 120%;
+    grid-area: title;
+    width: 100%;
+    font: var(--tablet_h2);
     letter-spacing: -0.02em;
-    color: #000;
-    width: 100%;
+    color: var(--black);
     height: 38px;
-    margin-bottom: 40px;
+    margin: 0;
   }
 
-  .text {
-    display: block;
-    width: 100%;
-    max-width: 754px;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: break-word;
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 140%;
-    color: #000;
-    padding-right: 10px;
-    margin-bottom: 40px;
-  }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    width: 350px;
-    height: 48px;
-    padding: 10px;
-    margin: 0 auto;
-    border-radius: 40px;
-    background: #eb3d00;
-    text-decoration: none;
-    transform: translateY(-0.5px);
-    transition: background-color 0.2s ease;
-  }
-
-  .buttonText {
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    color: #ffffff;
-  }
+  /* IMAGE */
 
   .imageWrapper {
+    grid-area: image;
     width: 100%;
     max-width: 754px;
-    max-height: 336px;
+    height: 336px;
     overflow: hidden;
     border-radius: 8px;
-    flex-shrink: 0;
     box-sizing: border-box;
-    margin-bottom: 22px;
+    margin: 0;
   }
 
   .image {
@@ -245,95 +178,135 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 33%;
+    object-position: center 20%;
+    transform: scaleY(1.1);
     border-radius: 8px;
+  }
+
+  /* TEXT */
+
+  .text {
+    grid-area: text;
+    display: block;
+    width: 100%;
+    max-width: 735px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    font-style: normal;
+    font: var(--tablet_main);
+    color: var(--politic_black);
+    margin: 0;
+  }
+
+  /* BUTTON */
+
+  .button {
+    grid-area: button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    width: 350px;
+    height: 48px;
+    padding: 10px;
+    border-radius: 40px;
+    background: var(--energy);
+    text-decoration: none;
+    transform: translate(-1px, -0.5px);
+    transition: background-color 0.2s ease;
+    margin: 0;
+  }
+
+  .buttonText {
+    font: var(--tablet_button);
   }
 }
 
 /* MOBILE */
 
 @media (max-width: 640px) {
-  .tabletLayout {
-    display: none;
-  }
-
-  .mobileLayout {
-    display: block;
-  }
 
   .section {
     width: 100%;
-    padding: 0 20px 80px;
+    padding: 0 0px 80px;
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 335px;
-    margin: 0 auto;
-    gap: 10px;
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "text"
+      "image"
+      "button";
+    width: 335px;
+    max-width: 100%;
+    margin: 0;
     box-sizing: border-box;
+    row-gap: 40px;
   }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 40px;
-  }
+  /* TITLE */
 
   .title {
+    grid-area: title;
     width: 100%;
-    font-family: "Rubik", sans-serif;
+    font: var(--mobile_h2);
     font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 120%;
     letter-spacing: -0.02em;
-    color: #000;
+    color: var(--politic_black);
+    margin: 0 0 -35px;
+  }
+
+  /* TEXT */
+
+  .text {
+    grid-area: text;
+    display: block;
+    box-sizing: border-box;
+    width: 337px;
+    min-width: 0;
+    max-width: none;
+    align-self: stretch;
+    font: var(--mobile_main);
+    color: var(--politic_black);
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    letter-spacing: -0.7px;
     margin: 0;
   }
 
-  .text {
-    width: 100%;
-    max-width: 335px;
-    align-self: stretch;
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 140%;
-    color: #000;
-    letter-spacing: -0.3px;
-    word-break: normal;
-    transform: translateY(3px);
-  }
+  /* IMAGE */
 
   .imageWrapper {
+    grid-area: image;
     width: 100%;
     height: 256px;
     overflow: hidden;
     border-radius: 8px;
-    flex-shrink: 0;
-    margin-bottom: 40px;
-    transform: translateY(3px);
+    box-sizing: border-box;
+    margin: 0;
   }
 
   .image {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: 45% center;
+    height: 100%;
+    object-fit: fill;
+    object-position: center 99%;
     border-radius: 8px;
   }
 
+  /* BUTTON */
+
   .button {
+    grid-area: button;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,20 +315,21 @@
     padding: 10px;
     gap: 10px;
     border-radius: 40px;
-    background: #eb3d00;
+    background: var(--energy);
     text-decoration: none;
-    margin: 0 auto;
+    justify-self: center;
     box-sizing: border-box;
-    transform: translateY(3px);
+  }
+
+  .buttonText::after {
+    content: "Подробнее";
+    font: var(--mobile_button);
+    color: var(--politic_white);
   }
 
   .buttonText {
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
+    font-size: 0px;
     text-align: center;
-    color: #ffffff;
+    color: var(--politic_white);
   }
 }

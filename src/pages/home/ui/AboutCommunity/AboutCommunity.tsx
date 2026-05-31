@@ -1,107 +1,50 @@
 import styles from "./AboutCommunity.module.css";
+import type { AboutCommunityProps } from "./types";
+import { Link } from "react-router-dom";
 
-export const AboutCommunity = () => {
+export const AboutCommunity = ({
+  aboutPreview,
+}: AboutCommunityProps) => {
   return (
     <section
       className={styles.section}
       aria-labelledby="about-community-title"
     >
+      {/* ✅ ИЗМЕНИЛ: теперь одна общая container-разметка */}
+      <div className={styles.container}>
+        {/* TITLE */}
+        <h2
+          id="about-community-title"
+          className={styles.title}
+        >
+          {aboutPreview.title}
+        </h2>
 
-      {/* =========================
-          DESKTOP LAYOUT
-          ========================= */}
-      <div className={styles.desktopLayout}>
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <h2 className={styles.title}>О сообществе</h2>
+        {/* TEXT */}
+        <p className={styles.text}>
+          {aboutPreview.text.replace("к сообществу", "к\u00A0сообществу")}
+        </p>
 
-            <p className={styles.text}>
-              Объединяя усилия для улучшения Белграда, мы создаем
-              городскую среду, в которой приятно и безопасно находиться.
-              Присоединяйтесь к сообществу урбанистов, меняющих город к лучшему
-            </p>
+        {/* BUTTON */}
+        <Link
+          to={aboutPreview.action_button.link}
+          className={styles.button}
+        >
+          <span className={styles.buttonText}>
+            {aboutPreview.action_button.label}
+          </span>
+        </Link>
 
-            <a href="/about" className={styles.button}>
-              <span className={styles.buttonText}>
-                Подробнее о сообществе
-              </span>
-            </a>
-          </div>
-
-          <div className={styles.imageWrapper}>
-            <img
-              src="image_aboutCommunity.jpg"
-              alt="О сообществе"
-              className={styles.image}
-            />
-          </div>
+        {/* IMAGE */}
+        <div className={styles.imageWrapper}>
+          <img
+            src="image_aboutCommunity.jpg"
+            alt={aboutPreview.title}
+            className={styles.image}
+            loading="lazy"
+          />
         </div>
       </div>
-
-      {/* =========================
-          TABLET LAYOUT
-          H2 → IMAGE → TEXT → BUTTON
-          ========================= */}
-      <div className={styles.tabletLayout}>
-        <div className={styles.containerTablet}>
-
-          <h2 className={styles.title}>О сообществе</h2>
-
-          <div className={styles.imageWrapper}>
-            <img
-              src="image_aboutCommunity.jpg"
-              alt="О сообществе"
-              className={styles.image}
-            />
-          </div>
-
-          <p className={styles.text}>
-            Объединяя усилия для улучшения Белграда, мы создаем
-            городскую среду, <br />в которой приятно и безопасно находиться.
-            Присоединяйтесь<br /> к сообществу урбанистов, меняющих город к лучшему
-          </p>
-
-          <a href="/about" className={styles.button}>
-            <span className={styles.buttonText}>
-              Подробнее о сообществе
-            </span>
-          </a>
-
-        </div>
-      </div>
-
-      {/* =========================
-          MOBILE LAYOUT
-          H2 → TEXT → IMAGE → BUTTON
-          ========================= */}
-      <div className={styles.mobileLayout}>
-        <div className={styles.containerMobile}>
-
-          <h2 className={styles.title}>О сообществе</h2>
-
-          <p className={styles.text}>
-            Объединяя усилия для улучшения Белграда, мы создаем
-            городскую среду, в которой приятно и безопасно находиться.
-            Присоединяйтесь к сообществу<br /> урбанистов, улучшающих город.
-          </p>
-
-          <div className={styles.imageWrapper}>
-            <img
-              src="image_aboutCommunity.jpg"
-              alt="О сообществе"
-              className={styles.image}
-            />
-          </div>
-
-          <a href="/about" className={styles.button}>
-            <span className={styles.buttonText}>
-              Подробнее
-            </span>
-          </a>
-
-        </div>
-      </div>
-
     </section>
   );
 };
