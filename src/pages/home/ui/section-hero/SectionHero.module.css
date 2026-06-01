@@ -197,6 +197,13 @@
 
   .grid {
     grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 25px;
+  }
+
+  .right_column {
+    padding-top: 0;
+    gap: 38px;
   }
 
   .left_column {
@@ -217,34 +224,41 @@
   }
 
   .image_wrapper_right {
-    margin-right: 0;
+    margin: 0 auto;
   }
 
   .image_wrapper_right img {
-    min-width: 303px;
+    max-width: 303px;
     min-height: 391px;
   }
 
   .image_wrapper_right::before {
-    left: 47%;
-    bottom: -7%;
-    width: 57%;
-    height: 80%;
+    left: 63%;
+    bottom: 0;
+    top: -4%;
+    width: 42%;
+    height: 64%;
   }
 
   .image_wrapper_right::after {
     content: "";
     position: absolute;
-    left: -6%;
-    bottom: -8%;
-    width: 80%;
-    height: 80%;
+    left: -5%;
+    bottom: -4%;
+    width: 86%;
+    height: 67%;
     background: var(--balance);
     clip-path: polygon(0 50%, 50% 100%, 0 100%);
     z-index: 2;
   }
 
+  .subtitle {
+    font-size: 14px;
+  }
+
   .button {
     max-width: 255px;
+    margin: 0 auto;
+    letter-spacing: 0;
   }
 }
