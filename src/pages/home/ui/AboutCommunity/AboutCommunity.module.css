@@ -14,14 +14,17 @@ body,
 
 .container {
   display: grid;
-  grid-template-columns: 543px 628px;
+  grid-template-columns:
+    minmax(420px, 543px)
+    minmax(480px, 628px);
   grid-template-areas:
     "title image"
     "text image"
     "button image";
-  column-gap: 109px;
-  grid-template-rows: auto 1fr auto;
-  width: 1280px;
+  column-gap: clamp(40px, 6vw, 109px);
+  grid-template-rows: auto auto auto;
+  max-width: 1280px;
+  width: 100%;
   margin: 0;
   box-sizing: border-box;
   max-height: 460px;
@@ -34,7 +37,7 @@ body,
   font: var(--desktop_h2);
   letter-spacing: -0.02em;
   color: var(--black);
-  margin: 0 0 43px;
+  margin: 0 0 11px;
 }
 
 .text {
@@ -44,7 +47,6 @@ body,
   font: var(--desktop_main);
   color: var(--black);
   padding-right: 30px;
-  margin: 0;
 }
 
 .button {
@@ -52,7 +54,7 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  max-width: 500px;
   height: 72px;
   border-radius: 40px;
   background: var(--energy);
@@ -63,7 +65,7 @@ body,
     border-color 0.2s ease,
     transform 0.2s ease;
   align-self: end;
-  transform: translateY(2px);
+  transform: translateY(-4px);
 }
 
 .buttonText {
@@ -106,11 +108,12 @@ body,
 
 .imageWrapper {
   grid-area: image;
-  width: 628px;
+  max-width: 628px;
   height: 100%;
   max-height: 380px;
   overflow: hidden;
   border-radius: 8px;
+  transform: translate(22px, -3px);
 }
 
 .image {
@@ -122,6 +125,78 @@ body,
   object-position: center 99%;
 }
 
+@media (max-width: 1325px) and (min-width: 1025px) {
+
+  .section {
+    padding: 0 40px 80px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-areas:
+      "title image"
+      "text image"
+      "button image";
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: 40px;
+    row-gap: 40px;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  /* TITLE */
+
+  .title {
+    margin: 0;
+  }
+
+  /* TEXT */
+
+  .text {
+    max-width: 100%;
+    padding-right: 0;
+    margin: 0;
+  }
+
+  /* BUTTON */
+
+  .button {
+    width: min(100%, 500px);
+    max-width: 500px;
+    margin: 0;
+    align-self: end;
+  }
+
+  /* IMAGE */
+
+  .imageWrapper {
+    grid-area: image;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 100%;
+    align-self: stretch;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 99%;
+    border-radius: 8px;
+  }
+}
+
 /* TABLET */
 
 @media (max-width: 1024px) {
@@ -130,7 +205,6 @@ body,
     width: 100%;
     padding: 0 0px 40px;
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   .container {
@@ -140,12 +214,20 @@ body,
       "image"
       "text"
       "button";
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 40px;
     width: 100%;
     max-width: 754px;
+    max-height: 608px;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  .title,
+  .text,
+  .imageWrapper,
+  .button {
+    min-width: 0;
   }
 
   /* TITLE */
@@ -170,7 +252,8 @@ body,
     overflow: hidden;
     border-radius: 8px;
     box-sizing: border-box;
-    margin: 0;
+    transform: translateX(-3px);
+    margin: 0 0 -20px;
   }
 
   .image {
@@ -214,7 +297,7 @@ body,
     border-radius: 40px;
     background: var(--energy);
     text-decoration: none;
-    transform: translate(-1px, -0.5px);
+    transform: translate(-2px, -1px);
     transition: background-color 0.2s ease;
     margin: 0;
   }
@@ -243,7 +326,7 @@ body,
       "text"
       "image"
       "button";
-    width: 335px;
+    max-width: 335px;
     max-width: 100%;
     margin: 0;
     box-sizing: border-box;
@@ -268,7 +351,7 @@ body,
     grid-area: text;
     display: block;
     box-sizing: border-box;
-    width: 337px;
+    max-width: 337px;
     min-width: 0;
     max-width: none;
     align-self: stretch;
