@@ -1,5 +1,6 @@
-import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
+import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
+import { Outlet } from "react-router-dom";
 import styles from "./MainLayout.module.css";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
@@ -17,7 +18,7 @@ const MainLayout = () => {
 
   useInitSeo(initData);
 
-   if (isLoading) {
+  if (isLoading) {
     return (
       <div className={styles.appState}>
         <p>Загрузка сайта...</p>
@@ -76,6 +77,12 @@ const MainLayout = () => {
           <Outlet /> {/* Здесь подставляется содержимое страниц */}
         </div>
       </main>
+      <CookieConsent
+        text={initData.cookie_message}
+        confirmButtonText={initData.cookie_button_text}
+      />
+      {/* TODO: передать initData в Footer, когда компонент будет готов */}
+      {/* <Footer /> */}
       <Footer data={initData} />
     </div>
   );
