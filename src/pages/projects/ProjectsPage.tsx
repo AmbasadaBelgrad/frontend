@@ -36,22 +36,11 @@ type ProjectsResponse = {
 };
 
 export const ProjectsPage: React.FC = () => {
-<<<<<<< HEAD
-  // Состояния для данных, загрузки, пагинации и поиска
-=======
   // Данные проектов
->>>>>>> origin/develop
   const [projectsData, setProjectsData] = useState<ProjectsResponse | null>(
     null,
   );
   const [loading, setLoading] = useState(true);
-<<<<<<< HEAD
-  const [currentPage, setCurrentPage] = useState(1); // сколько проектов на странице
-  const [itemsPerPage, setItemsPerPage] = useState(12); // по умолчанию для десктопа
-
-  //хук для синхронизации строки поиска с URL и обновления фильтров
-  const { search: urlSearch, updateFilters } = useUrlFilters();
-=======
 
   // Категории для фильтрации
   const [categories, setCategories] = useState<Category[]>([]);
@@ -73,20 +62,15 @@ export const ProjectsPage: React.FC = () => {
     updateFilters,
   } = useUrlFilters();
 
->>>>>>> origin/develop
   const [localSearch, setLocalSearch] = useState(urlSearch);
 
   const debounceTimerRef = useRef<number | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-<<<<<<< HEAD
-  // Адаптивное количество проектов на странице
-=======
   // Объединенный loading state
   const isPageLoading = loading || loadingTags || loadingCategories;
 
   // Обновление лимита при изменении размера окна
->>>>>>> origin/develop
   useEffect(() => {
     const updateLimit = () => {
       const width = window.innerWidth;
@@ -99,31 +83,12 @@ export const ProjectsPage: React.FC = () => {
     return () => window.removeEventListener("resize", updateLimit);
   }, []);
 
-<<<<<<< HEAD
-  // Загрузка данных с сервера (простая версия)
-  useEffect(() => {
-    async function getProjects() {
-      try {
-        setLoading(true);
-        const res = await apiClient.get<ProjectsResponse>("/projects");
-        console.log("Projects data:", res);
-        setProjectsData(res);
-      } catch (err) {
-        console.log("Ошибка загрузки проектов:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getProjects();
-=======
   // Загрузка категорий
   useEffect(() => {
     async function getCategories() {
       try {
         setLoadingCategories(true);
-        const res = await apiClient.get<Category[]>(
-          "/projects/categories");
+        const res = await apiClient.get<Category[]>("/projects/categories");
         setCategories(res);
       } catch (err) {
         console.log("Ошибка загрузки категорий:", err);
@@ -139,13 +104,14 @@ export const ProjectsPage: React.FC = () => {
     async function getTags() {
       try {
         setLoadingTags(true);
-        const res = await apiClient.get<string[]>(
-          "/projects/tags");
+        const res = await apiClient.get<string[]>("/projects/tags");
         // Преобразуем массив строк в массив объектов
-        const tagsAsObjects: Tag[] = res.map((tagName: string, index: number) => ({
-        id: `${index}-${tagName.toLowerCase().replace(/\s+/g, "-")}`,
-        name: tagName,
-      }));
+        const tagsAsObjects: Tag[] = res.map(
+          (tagName: string, index: number) => ({
+            id: `${index}-${tagName.toLowerCase().replace(/\s+/g, "-")}`,
+            name: tagName,
+          }),
+        );
         setAvailableTags(tagsAsObjects);
       } catch (err) {
         console.log("Ошибка загрузки тегов:", err);
@@ -154,7 +120,6 @@ export const ProjectsPage: React.FC = () => {
       }
     }
     getTags();
->>>>>>> origin/develop
   }, []);
 
   // Загрузка проектов с сервера
@@ -194,8 +159,7 @@ export const ProjectsPage: React.FC = () => {
 
         // Добавляем параметры к URL запроса
         const url = `/projects?${params.toString()}`;
-        const res = await apiClient.get<ProjectsResponse>(
-          url);
+        const res = await apiClient.get<ProjectsResponse>(url);
         setProjectsData(res);
       } catch (err: any) {
         if (err.name !== "AbortError") {
@@ -227,10 +191,6 @@ export const ProjectsPage: React.FC = () => {
 
       debounceTimerRef.current = window.setTimeout(() => {
         updateFilters({ search: value });
-<<<<<<< HEAD
-        setCurrentPage(1); // Сброс на первую страницу при поиске
-=======
->>>>>>> origin/develop
         debounceTimerRef.current = null;
       }, 500);
     },
@@ -261,56 +221,22 @@ export const ProjectsPage: React.FC = () => {
     }
   }, [urlSearch, localSearch]);
 
-<<<<<<< HEAD
-  // Получение текущих проектов для пагинации
-  const getCurrentPageItems = () => {
-    if (!projectsData?.items) return [];
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    return projectsData.items.slice(startIndex, endIndex);
-  };
-
-  // Пагинация - вперед
-  const goToNextPage = () => {
-    const totalPages = Math.ceil(
-      (projectsData?.items.length || 0) / itemsPerPage,
-    );
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-=======
   // Пагинация
   const goToNextPage = () => {
     if (projectsData?.pagination.isNext) {
       setPage((prev) => prev + 1);
->>>>>>> origin/develop
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   // Пагинация - назад
   const goToPrevPage = () => {
-<<<<<<< HEAD
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-=======
     if (page > 1) {
       setPage((prev) => prev - 1);
->>>>>>> origin/develop
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-<<<<<<< HEAD
-  // Пока загружаются данные - ничего не рендерим
-  if (loading && !projectsData) {
-    return <div className={styles.loader}>Загрузка...</div>;
-  }
-
-  const currentItems = getCurrentPageItems(); // проекты для текущей страницы
-  const totalItems = projectsData?.items.length || 0; // общее количество проектов
-  const totalPages = Math.ceil(totalItems / itemsPerPage); // общее количество страниц
-=======
   // Единый loader для всех состояний загрузки
   if (isPageLoading && !projectsData) {
     return (
@@ -320,48 +246,16 @@ export const ProjectsPage: React.FC = () => {
     );
   }
 
->>>>>>> origin/develop
-
   const totalItems = projectsData?.pagination.totalItems || 0;
   const totalPages = Math.ceil(totalItems / limit);
 
   // Проверка на пустые результаты после загрузки
   const isEmpty = !isPageLoading && projectsData?.items.length === 0;
-  
+
   return (
     <div className={styles.projectsList}>
       <h1>Проекты</h1>
 
-<<<<<<< HEAD
-      <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
-      <ProjectsList projects={currentItems} />
-
-      {/* Пагинация */}
-      {totalPages > 1 && (
-        <div className={styles.pagination}>
-          <button
-            onClick={goToPrevPage}
-            disabled={currentPage === 1}
-            className={styles.paginationButton}
-            aria-label="Предыдущая страница"
-          >
-            ← Назад
-          </button>
-
-          <span className={styles.pageInfo}>
-            Страница {currentPage} из {totalPages}
-          </span>
-
-          <button
-            onClick={goToNextPage}
-            disabled={currentPage === totalPages}
-            className={styles.paginationButton}
-            aria-label="Следующая страница"
-          >
-            Вперед →
-          </button>
-        </div>
-=======
       {/* Фильтры отображаются только после загрузки данных */}
       {!loadingTags && availableTags?.length > 0 && (
         <TagsFilter
@@ -388,7 +282,6 @@ export const ProjectsPage: React.FC = () => {
         </div>
       ) : (
         <>
-
           <ProjectsList projects={projectsData?.items || []} />
 
           {/* Пагинация */}
@@ -420,7 +313,6 @@ export const ProjectsPage: React.FC = () => {
             </nav>
           )}
         </>
->>>>>>> origin/develop
       )}
 
       <Link to={routesPaths.home} className={styles.homeLink}>

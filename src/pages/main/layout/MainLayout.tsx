@@ -70,7 +70,7 @@ const MainLayout = () => {
   return (
     <div className={styles.layout}>
       {/* TODO: передать initData в Header, когда компонент будет готов */}
-      <Header data = {initData}></Header>
+      <Header data={initData}></Header>
       <main className={styles.main}>
         <div className={styles.mainInner}>
           <Outlet />
