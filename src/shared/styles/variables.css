@@ -11,7 +11,6 @@
   --gray: #bdbdbd80;
   --transparent: transparent;
   --bg_color: #f6f6f6;
-  
 
   /*Оттенки Градиент */
   --purpure_1: #cdc5ff;
@@ -42,6 +41,7 @@
   --desktop_button: 400 24px/1.4 var(--button-font-family);
   --desktop_numbers: 600 24px/1 var(--main-font-family);
   --desktop_politic: 300 20px/1.5 var(--main-font-family);
+  --desktop_tags: 500 24px/1.4 var(--button-font-family);
 
   /* Параметры шрифтов tablet */
   --tablet_h1: 400 36px/1.4 var(--main-font-family);
