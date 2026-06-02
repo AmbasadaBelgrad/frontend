@@ -39,8 +39,9 @@
 .card_first {
   grid-column: 1 / 4;
   display: grid;
-  grid-template-columns: 60% 54%;
+  grid-template-columns: 69% 54%;
   min-height: 580px;
+  min-width: 1280px;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -58,7 +59,7 @@
   min-width: 950px;
   height: 92%;
   position: relative;
-  right: 454px;
+  right: 84%;
   top: 4%;
   object-fit: cover;
   grid-column: 2;
@@ -134,10 +135,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 38%;
+  width: 42.5%;
   height: 100%;
   background: #cbf28780;
-  clip-path: polygon(0 100%, 7% 100%, 100% 0, 93% 0);
+  clip-path: polygon(0 100%, 5% 100%, 79% 0, 73% 0);
   transform: translateX(-16%);
   z-index: 3;
   pointer-events: none;
@@ -148,7 +149,7 @@
   position: absolute;
   inset: 2px;
   background: #f1f1f1;
-  clip-path: polygon(0% 0%, 94% 0, 59% 100%, 0 100%);
+  clip-path: polygon(0% 0%, 84% 0, 53% 100%, 0 100%);
   z-index: 1;
 }
 
@@ -290,6 +291,7 @@
 
   .card_first {
     min-height: 570px;
+    min-width: 754px;
   }
 
   .card_usual {
@@ -318,6 +320,7 @@
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)); /*планшет 2 колонки*/
     gap: 20px;
+    min-width: 754px;
   }
 
   .tags {
@@ -333,14 +336,14 @@
   }
 
   .content_first::before {
-    width: 42%;
-    clip-path: polygon(0 100%, 10% 100%, 100% 0, 90% 0);
+    width: 47%;
+    clip-path: polygon(0 100%, 6% 100%, 81% 0, 75% 0);
     transform: translateX(0%);
   }
 
   .content_first::after {
     inset: 0;
-    clip-path: polygon(0% 0%, 100% 0, 62% 100%, 0 100%);
+    clip-path: polygon(0% 0%, 91% 0, 56% 100%, 0 100%);
   }
 
   .content_container_first {
@@ -349,7 +352,7 @@
 
   .image_first {
     min-width: 434px;
-    right: 150px;
+    right: 220px;
   }
 
   .description_usual {

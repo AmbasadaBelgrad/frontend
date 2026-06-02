@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import { Link } from "react-router-dom";
-import type { ProjectProps } from "./type";
+import type { ProjectsPreview } from "@/entities/home/model/types";
 import styles from "./SectionProjects.module.css";
+
+
+type ProjectProps = {
+  projects_preview: ProjectsPreview;
+}
 
 export const SectionProjects: React.FC<ProjectProps> = ({
   projects_preview,

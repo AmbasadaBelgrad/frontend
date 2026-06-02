@@ -1,1 +1,1 @@
-export {SectionProjects} from "../section-projects/SectionProjects"
+export {SectionProjects} from "./SectionProjects"
