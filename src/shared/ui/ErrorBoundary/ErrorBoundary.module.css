@@ -33,91 +33,10 @@
 	line-height: 140%;
 }
 
-.reportLink {
-	letter-spacing: 0;
-	font-weight: 300;
-	font-size: 24px;
-	line-height: 140%;
-}
-
-.reportButton {
-	color: var(--blue);
-	text-decoration: underline;
-}
-
 .actions {
 	margin-top: var(--spacing-2);
-}
-
-.modalOverlay {
-	position: fixed;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: rgba(0, 0, 0, 0.4);
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-	z-index: 3;
+	max-width: 232px;
 	width: 100%;
-}
-
-.modal {
-	display: flex;
-	flex-direction: column;
-	background: var(--politic_white);
-	border-radius: 8px;
-	border: 2px solid var(--balance);
-	padding: var(--spacing-6) var(--spacing-20) var(--spacing-15);
-	text-align: center;
-	position: relative;
-	row-gap: var(--spacing-2);
-}
-
-.secondaryText {
-	display: inline;
-}
-
-.modalCloseButtonWrapper {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.closeButton {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: var(--spacing-10);
-	height: var(--spacing-10);
-
-	padding: 0;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-
-	transition: opacity 0.2s ease;
-}
-
-.modalWrapper {
-	max-width: 544px;
-	width: 100%;
-}
-
-.modalTitle {
-	font: var(--desktop_h3);
-	line-height: 140%;
-	letter-spacing: 0;
-}
-
-.modalText {
-	letter-spacing: 0;
-	font: var(--desktop_main);
-	margin-top: var(--spacing-4);
-	margin-bottom: var(--spacing-10);
-}
-
-.buttonWrapper {
-	padding: 0 var(--spacing-5);
 }
 
 @media (max-width: 834px) {
@@ -129,18 +48,10 @@
 		font: var(--tablet_main);
 	}
 
-	.reportLink {
-		font: var(--tablet_main);
-	}
-
 	.actions {
-		width: 100%;
 		display: flex;
-		justify-content: center;
-	}
-
-	.backButton {
 		max-width: 350px;
+		justify-content: center;
 	}
 }
 
@@ -159,43 +70,11 @@
 		font: var(--mobile_main);
 	}
 
-	.reportLink {
-		font: var(--mobile_main);
-	}
-
 	.actions {
 		width: 100%;
 		display: flex;
 		justify-content: center;
 		margin: 0;
-	}
-
-	.backButton {
 		max-width: 255px;
-	}
-
-	.modal {
-		padding: var(--spacing-6) var(--spacing-10) var(--spacing-15);
-	}
-
-	.modalWrapper {
-		max-width: 255px;
-	}
-
-	.modalTitle {
-		font: var(--mobile_h3);
-	}
-
-	.modalText {
-		font: var(--mobile_main);
-	}
-
-	.buttonWrapper {
-		width: 100%;
-		padding: 0;
-	}
-
-	.secondaryText {
-		display: none;
 	}
 }

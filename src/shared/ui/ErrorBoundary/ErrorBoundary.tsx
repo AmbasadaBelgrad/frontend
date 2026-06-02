@@ -1,4 +1,4 @@
-import { Component, type ErrorInfo, type ReactNode } from "react";
+import { Component, type ReactNode } from "react";
 import type {
   ErrorBoundaryProps,
   ErrorBoundaryState,
@@ -15,8 +15,6 @@ export class ErrorBoundary extends Component<
 
     this.state = {
       hasError: false,
-      error: null,
-      errorInfo: null,
     };
   }
 
@@ -26,20 +24,11 @@ export class ErrorBoundary extends Component<
     };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    this.setState({
-      error,
-      errorInfo,
-    });
-
-    this.props.onError?.(error, errorInfo);
-  }
-
   render(): ReactNode {
-    const { hasError, error, errorInfo } = this.state;
+    const { hasError } = this.state;
 
     if (hasError) {
-      return <ErrorFallback error={error} errorInfo={errorInfo} />;
+      return <ErrorFallback />;
     }
 
     return this.props.children;

@@ -1,23 +1,27 @@
 {
-  "test": "Output of a line for a test translation check",
-  "toggle": "Toggle Language",
-  "language": {
-    "ru": "Russian",
-    "en": "English",
-    "sr-Latn": "Serbian",
-    "sr-Cyrl": "Serbian"
-  },
-  "footer": {
-    "site_name": "Ambasada za urbanizam"
-  },
-  "search": {
-    "placeholder": "Search",
-    "ariaLabel": "Search projects",
-    "clear": "Clear"
-  },
-  "notFound": {
-    "title": "Looks like you took a wrong turn",
-    "buttonDesktop": "Back to Home",
-    "buttonMobile": "Go to Home"
-  }
+	"test": "Output of a line for a test translation check",
+	"toggle": "Toggle Language",
+	"language": {
+		"ru": "Russian",
+		"en": "English",
+		"sr-Latn": "Serbian",
+		"sr-Cyrl": "Serbian"
+	},
+	"footer": {
+		"site_name": "Ambasada za urbanizam"
+	},
+	"search": {
+		"placeholder": "Search",
+		"ariaLabel": "Search projects",
+		"clear": "Clear"
+	},
+	"notFound": {
+		"title": "Looks like you took a wrong turn",
+		"buttonDesktop": "Back to Home",
+		"buttonMobile": "Go to Home"
+	},
+	"errorBoundary": {
+		"title": "Something went wrong. Someone has already put up a fence here.",
+		"buttonText": "Back"
+	}
 }

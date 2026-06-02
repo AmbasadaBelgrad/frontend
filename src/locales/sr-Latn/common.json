@@ -1,23 +1,27 @@
 {
-  "test": "Izlaz niza za probnu proveru prevoda",
-  "toggle": "Promeni jezik",
-  "language": {
-    "ru": "Ruski",
-    "en": "Engleski",
-    "sr-Latn": "Srpski",
-    "sr-Cyrl": "Srpski"
-  },
-  "footer": {
-    "site_name": "Ambasada za urbanizam"
-  },
-  "search": {
-    "placeholder": "Pretraga",
-    "ariaLabel": "Pretraga projekata",
-    "clear": "Obriši"
-  },
-  "notFound": {
-    "title": "Izgleda da ste skrenuli pogrešno",
-    "buttonDesktop": "Vrati se na početnu",
-    "buttonMobile": "Idi na početnu"
-  }
+	"test": "Izlaz niza za probnu proveru prevoda",
+	"toggle": "Promeni jezik",
+	"language": {
+		"ru": "Ruski",
+		"en": "Engleski",
+		"sr-Latn": "Srpski",
+		"sr-Cyrl": "Srpski"
+	},
+	"footer": {
+		"site_name": "Ambasada za urbanizam"
+	},
+	"search": {
+		"placeholder": "Pretraga",
+		"ariaLabel": "Pretraga projekata",
+		"clear": "Obriši"
+	},
+	"notFound": {
+		"title": "Izgleda da ste skrenuli pogrešno",
+		"buttonDesktop": "Vrati se na početnu",
+		"buttonMobile": "Idi na početnu"
+	},
+	"errorBoundary": {
+		"title": "Nešto je pošlo po zlu. Neko je već postavio ogradu ovde.",
+		"buttonText": "Nazad"
+	}
 }
