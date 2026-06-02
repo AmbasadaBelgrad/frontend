@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import type { HeroProps } from "./type";
 import styles from "./SectionHero.module.css";
+import type { Hero} from "@/entities/home/model/types";
+
+type HeroProps = {
+  hero: Hero;
+}
 
 export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
   return (
