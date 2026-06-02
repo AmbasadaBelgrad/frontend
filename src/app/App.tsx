@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
-import { QueryProvider } from "./providers/query/QueryProvider";
+
 import { AppRouter } from "./providers/router";
+import { QueryProvider } from "./providers/query/QueryProvider";
 import { ErrorBoundary } from "@/shared/ui/ErrorBoundary";
 //import { useTranslation } from "react-i18next"
 
