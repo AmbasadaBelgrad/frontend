@@ -1,12 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import type { ICookieConsent } from "../model/types";
 import { useCookieConsent } from "../model/useCookieConsent";
 import styles from "./CookieConsent.module.css";
-import type { ICookieConsent } from "../model/types";
 
 export const CookieConsent: React.FC<ICookieConsent> = ({
   text,
   confirmButtonText,
-}: ICookieConsent) => {
+}) => {
+  const { t } = useTranslation("common");
   const { isVisible, accept } = useCookieConsent();
 
   if (!isVisible) return null;
@@ -16,7 +18,7 @@ export const CookieConsent: React.FC<ICookieConsent> = ({
       className={styles.overlay}
       role="dialog"
       aria-live="polite"
-      aria-label="Уведомление об использовании cookies"
+      aria-label={t("cookieConsent.ariaLabel")}
     >
       <div className={styles.container}>
         <p className={styles.text}>{text}</p>
@@ -24,7 +26,7 @@ export const CookieConsent: React.FC<ICookieConsent> = ({
         <button
           className={`btn btn--primary ${styles.button}`}
           onClick={accept}
-          aria-label="Принять cookies"
+          aria-label={t("cookieConsent.acceptButtonAriaLabel")}
         >
           {confirmButtonText}
         </button>
