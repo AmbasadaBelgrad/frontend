@@ -6,12 +6,7 @@ import { routesPaths } from "@shared/config/routesPaths";
 import { AboutCommunity } from "./ui/AboutCommunity/AboutCommunity.tsx";
 
 export const Home: React.FC = () => {
-  const {
-    data,
-    isLoading,
-    isError,
-    error,
-  } = useHomeQuery();
+  const { data, isLoading, isError, error } = useHomeQuery();
 
   if (isLoading) {
     return <div>Загрузка...</div>;
@@ -19,11 +14,7 @@ export const Home: React.FC = () => {
 
   if (isError) {
     return (
-      <div>
-        {error instanceof Error
-          ? error.message
-          : "Ошибка загрузки"}
-      </div>
+      <div>{error instanceof Error ? error.message : "Ошибка загрузки"}</div>
     );
   }
 
@@ -33,13 +24,9 @@ export const Home: React.FC = () => {
     <div className={styles.mainContainer}>
       <h1>Главная страница</h1>
 
-      <Link to={routesPaths.projects}>
-        Проекты
-      </Link>
+      <Link to={routesPaths.projects}>Проекты</Link>
       {/* HeroSection */}
-      <AboutCommunity
-        aboutPreview={data.about_preview}
-      />
+      <AboutCommunity aboutPreview={data.about_preview} />
       {/* TeamSection */}
       {/* ProjectsSection */}
       {/* ContactSection */}
@@ -48,4 +35,3 @@ export const Home: React.FC = () => {
 };
 
 export default Home;
-

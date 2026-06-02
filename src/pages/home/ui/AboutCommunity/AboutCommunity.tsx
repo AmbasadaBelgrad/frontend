@@ -2,21 +2,13 @@ import styles from "./AboutCommunity.module.css";
 import type { AboutCommunityProps } from "./types";
 import { Link } from "react-router-dom";
 
-export const AboutCommunity = ({
-  aboutPreview,
-}: AboutCommunityProps) => {
+export const AboutCommunity = ({ aboutPreview }: AboutCommunityProps) => {
   return (
-    <section
-      className={styles.section}
-      aria-labelledby="about-community-title"
-    >
+    <section className={styles.section} aria-labelledby="about-community-title">
       {/* ✅ ИЗМЕНИЛ: теперь одна общая container-разметка */}
       <div className={styles.container}>
         {/* TITLE */}
-        <h2
-          id="about-community-title"
-          className={styles.title}
-        >
+        <h2 id="about-community-title" className={styles.title}>
           {aboutPreview.title}
         </h2>
 
@@ -26,10 +18,7 @@ export const AboutCommunity = ({
         </p>
 
         {/* BUTTON */}
-        <Link
-          to={aboutPreview.action_button.link}
-          className={styles.button}
-        >
+        <Link to={aboutPreview.action_button.link} className={styles.button}>
           <span className={styles.buttonText}>
             {aboutPreview.action_button.label}
           </span>
