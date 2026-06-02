@@ -8,7 +8,6 @@ interface SectionTeamProps {
 }
 
 export const SectionTeam: React.FC<SectionTeamProps> = ({ teamPreview }) => {
-  console.log(teamPreview);
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{teamPreview.title}</h2>
