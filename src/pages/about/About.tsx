@@ -4,7 +4,8 @@ import { AboutUs } from "./ui/about-us-section";
 import { OurValues } from "./ui/our-values";
 import { OurTeam } from "./ui/our-team";
 import { Gallery } from "./ui/our-gallery";
-import { ContactSection } from "@/widgets/contact-section";
+
+import styles from "./About.module.css";
 
 export const About = () => {
   const { data, isLoading, isError, error } = useAboutQuery();
@@ -22,13 +23,12 @@ export const About = () => {
   if (!data) return null;
 
   return (
-    <>
+    <section className={styles.container}>
       <AboutUs data={data.about_section} />
       <OurValues data={data.values} />
       <OurTeam data={data.team} />
       <Gallery data={data.gallery_carousel} />
-      <ContactSection />
-    </>
+    </section>
   );
 };
 
