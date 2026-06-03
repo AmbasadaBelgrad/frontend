@@ -2,7 +2,6 @@
 .title {
   font: var(--desktop_h2);
   line-height: 120%;
-  font-weight: 400;
   letter-spacing: -0.98px;
   margin-bottom: 42px;
 }
@@ -13,8 +12,7 @@
   border-radius: 40px;
   width: 500px;
   height: 72px;
-  font: var(--desktop_main);
-  font-weight: 400;
+  font: var(--desktop_button);
   line-height: 140%;
   letter-spacing: 0.3px;
 
