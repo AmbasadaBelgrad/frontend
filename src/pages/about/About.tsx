@@ -4,6 +4,7 @@ import { AboutUs } from "./ui/about-us-section";
 import { OurValues } from "./ui/our-values";
 import { OurTeam } from "./ui/our-team";
 import { Gallery } from "./ui/our-gallery";
+import { ContactSection } from "@/widgets/contact-section";
 
 export const About = () => {
   const { data, isLoading, isError, error } = useAboutQuery();
@@ -26,6 +27,7 @@ export const About = () => {
       <OurValues data={data.values} />
       <OurTeam data={data.team} />
       <Gallery data={data.gallery_carousel} />
+      <ContactSection />
     </>
   );
 };
