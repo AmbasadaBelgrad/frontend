@@ -1,6 +1,4 @@
 import styles from "./Footer.module.css";
-import { useTranslation } from "react-i18next";
-
 import { FooterNav } from "./nav/FooterNav";
 import { FooterSocials } from "./socials/FooterSocials";
 import { FooterLegalLinks } from "./legalLinks/FooterLegalLinks";
