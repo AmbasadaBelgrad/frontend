@@ -4,7 +4,6 @@ import { AboutUs } from "./ui/about-us-section";
 import { OurValues } from "./ui/our-values";
 import { OurTeam } from "./ui/our-team";
 import { Gallery } from "./ui/our-gallery";
-import { ContactSection } from "@/widgets/contact-section";
 
 import styles from "./About.module.css";
 
