@@ -105,5 +105,9 @@
     "home": "Почетна",
     "projectsCatalog": "Каталог пројеката",
     "breadcrumbs": "Навигација"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Обавештење о коришћењу колачића",
+    "acceptButtonAriaLabel": "Прихвати колачиће"
   }
 }

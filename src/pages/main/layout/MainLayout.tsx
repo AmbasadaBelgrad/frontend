@@ -1,6 +1,7 @@
-import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
 import { InitDataContext } from "@/shared/context/InitDataContext";
+import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
+import { Outlet } from "react-router-dom";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
 import styles from "./MainLayout.module.css";
@@ -72,12 +73,16 @@ const MainLayout = () => {
     <InitDataContext.Provider value={initData}>
       <div className={styles.layout}>
         {/* TODO: передать initData в Header, когда компонент будет готов */}
-        <Header data={initData} />
+        <Header data={initData}></Header>
         <main className={styles.main}>
           <div className={styles.mainInner}>
             <Outlet /> {/* Здесь подставляется содержимое страниц */}
           </div>
         </main>
+        <CookieConsent
+          text={initData.cookie_message}
+          confirmButtonText={initData.cookie_button_text}
+        />
         <Footer data={initData} />
       </div>
     </InitDataContext.Provider>
