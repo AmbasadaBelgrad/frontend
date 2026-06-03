@@ -105,5 +105,9 @@
     "home": "Home",
     "projectsCatalog": "Projects catalog",
     "breadcrumbs": "Navigation"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Cookie usage notification",
+    "acceptButtonAriaLabel": "Accept cookies"
   }
 }

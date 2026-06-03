@@ -115,5 +115,9 @@
     "home": "Главная",
     "projectsCatalog": "Каталог проектов",
     "breadcrumbs": "Навигация"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Уведомление об использовании cookies",
+    "acceptButtonAriaLabel": "Принять cookies"
   }
 }

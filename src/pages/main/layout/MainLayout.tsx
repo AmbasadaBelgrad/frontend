@@ -68,7 +68,6 @@ const MainLayout = () => {
     );
   }
 
-  console.log(initData);
   return (
     <InitDataContext.Provider value={initData}>
       <div className={styles.layout}>
