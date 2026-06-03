@@ -33,6 +33,46 @@
     "buttonDesktop": "Back to Home",
     "buttonMobile": "Go to Home"
   },
+  "contactForm": {
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "title": "Contact us",
+      "text": "Leave your ideas or recommend candidates for the team via the contact form",
+      "button_text": "Submit"
+    },
+    "errors": {
+      "requiredName": "Enter name",
+      "invalidNameAlphabet": "The field contains invalid characters, allowed: space, hyphen, and apostrophe",
+      "requiredEmail": "Enter email",
+      "invalidEmailWithExample": "Invalid email address, example: name@example.com",
+      "requiredMessage": "Enter comment",
+      "messageMinLength": "Comment must be at least {{min}} characters long",
+      "messageMaxLength": "Comment must not exceed {{max}} characters"
+    },
+    "hints": {
+      "nameRequired": "Enter name in Cyrillic or Latin alphabet",
+      "emailRequired": "Enter email in the format name@example.com",
+      "messageRequired": "Enter a comment between 20 and 600 characters"
+    },
+    "successModal": {
+      "title": "Thank you!",
+      "text": "The team will contact you after reviewing your request",
+      "button": "OK"
+    },
+    "errorModal": {
+      "title": "Failed to send",
+      "text": "If the problem persists, write to us directly at: ambasadazaurbanizam@gmail.com",
+      "button": "Try again"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "I am not a robot",
+    "continuePrompt": "Click to continue",
+    "imageTextLabel": "Enter the text from the image",
+    "confirmButton": "Confirm"
+  },
   "projectDetails": {
     "textButtonDesktop": "Back to catalog",
     "textButtonTablet": "To catalog",
@@ -65,5 +105,9 @@
     "home": "Home",
     "projectsCatalog": "Projects catalog",
     "breadcrumbs": "Navigation"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Cookie usage notification",
+    "acceptButtonAriaLabel": "Accept cookies"
   }
 }

@@ -14,6 +14,7 @@ import {
 } from "./ui/projects-filter/TagsFilter/TagsFilter";
 import styles from "./ProjectsPage.module.css";
 import { apiClient } from "@shared/api/client";
+import { ContactSection } from "@/widgets/contact-section";
 
 type ProjectsResponse = {
   items: Array<{
@@ -88,8 +89,7 @@ export const ProjectsPage: React.FC = () => {
     async function getCategories() {
       try {
         setLoadingCategories(true);
-        const res = await apiClient.get<Category[]>(
-          "/projects/categories");
+        const res = await apiClient.get<Category[]>("/projects/categories");
         setCategories(res);
       } catch (err) {
         console.log("Ошибка загрузки категорий:", err);
@@ -105,13 +105,14 @@ export const ProjectsPage: React.FC = () => {
     async function getTags() {
       try {
         setLoadingTags(true);
-        const res = await apiClient.get<string[]>(
-          "/projects/tags");
+        const res = await apiClient.get<string[]>("/projects/tags");
         // Преобразуем массив строк в массив объектов
-        const tagsAsObjects: Tag[] = res.map((tagName: string, index: number) => ({
-        id: `${index}-${tagName.toLowerCase().replace(/\s+/g, "-")}`,
-        name: tagName,
-      }));
+        const tagsAsObjects: Tag[] = res.map(
+          (tagName: string, index: number) => ({
+            id: `${index}-${tagName.toLowerCase().replace(/\s+/g, "-")}`,
+            name: tagName,
+          }),
+        );
         setAvailableTags(tagsAsObjects);
       } catch (err) {
         console.log("Ошибка загрузки тегов:", err);
@@ -159,8 +160,7 @@ export const ProjectsPage: React.FC = () => {
 
         // Добавляем параметры к URL запроса
         const url = `/projects?${params.toString()}`;
-        const res = await apiClient.get<ProjectsResponse>(
-          url);
+        const res = await apiClient.get<ProjectsResponse>(url);
         setProjectsData(res);
       } catch (err: any) {
         if (err.name !== "AbortError") {
@@ -247,81 +247,85 @@ export const ProjectsPage: React.FC = () => {
     );
   }
 
-
   const totalItems = projectsData?.pagination.totalItems || 0;
   const totalPages = Math.ceil(totalItems / limit);
 
   // Проверка на пустые результаты после загрузки
   const isEmpty = !isPageLoading && projectsData?.items.length === 0;
-  
+
   return (
-    <div className={styles.projectsList}>
-      <h1>Проекты</h1>
+    <>
+      <div className={styles.projectsList}>
+        <h1>Проекты</h1>
 
-      {/* Фильтры отображаются только после загрузки данных */}
-      {!loadingTags && availableTags?.length > 0 && (
-        <TagsFilter
-          tags={availableTags}
-          selectedTags={urlTags}
-          onChange={handleTagsChange}
-        />
-      )}
+        {/* Фильтры отображаются только после загрузки данных */}
+        {!loadingTags && availableTags?.length > 0 && (
+          <TagsFilter
+            tags={availableTags}
+            selectedTags={urlTags}
+            onChange={handleTagsChange}
+          />
+        )}
 
-      {!loadingCategories && categories.length > 0 && (
-        <TypeFilter
-          categories={categories}
-          selectedType={urlType || null}
-          onChange={(newType) => updateFilters({ type: newType || "" })}
-        />
-      )}
+        {!loadingCategories && categories.length > 0 && (
+          <TypeFilter
+            categories={categories}
+            selectedType={urlType || null}
+            onChange={(newType) => updateFilters({ type: newType || "" })}
+          />
+        )}
 
-      <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
+        <ProjectsSearch value={localSearch} onChange={handleSearchChange} />
 
-      {/* Результаты */}
-      {isEmpty ? (
-        <div className={styles.empty} role="status" aria-live="polite">
-          Проекты не найдены
-        </div>
-      ) : (
-        <>
+        {/* Результаты */}
+        {isEmpty ? (
+          <div className={styles.empty} role="status" aria-live="polite">
+            Проекты не найдены
+          </div>
+        ) : (
+          <>
+            <ProjectsList projects={projectsData?.items || []} />
 
-          <ProjectsList projects={projectsData?.items || []} />
-
-          {/* Пагинация */}
-          {totalPages > 1 && (
-            <nav className={styles.pagination} aria-label="Пагинация проектов">
-              <button
-                onClick={goToPrevPage}
-                disabled={page === 1}
-                className={styles.paginationButton}
-                aria-label="Предыдущая страница"
-                aria-disabled={page === 1}
+            {/* Пагинация */}
+            {totalPages > 1 && (
+              <nav
+                className={styles.pagination}
+                aria-label="Пагинация проектов"
               >
-                ← Назад
-              </button>
+                <button
+                  onClick={goToPrevPage}
+                  disabled={page === 1}
+                  className={styles.paginationButton}
+                  aria-label="Предыдущая страница"
+                  aria-disabled={page === 1}
+                >
+                  ← Назад
+                </button>
 
-              <span className={styles.pageInfo} aria-current="page">
-                Страница {page} из {totalPages}
-              </span>
+                <span className={styles.pageInfo} aria-current="page">
+                  Страница {page} из {totalPages}
+                </span>
 
-              <button
-                onClick={goToNextPage}
-                disabled={!projectsData?.pagination.isNext}
-                className={styles.paginationButton}
-                aria-label="Следующая страница"
-                aria-disabled={!projectsData?.pagination.isNext}
-              >
-                Вперед →
-              </button>
-            </nav>
-          )}
-        </>
-      )}
+                <button
+                  onClick={goToNextPage}
+                  disabled={!projectsData?.pagination.isNext}
+                  className={styles.paginationButton}
+                  aria-label="Следующая страница"
+                  aria-disabled={!projectsData?.pagination.isNext}
+                >
+                  Вперед →
+                </button>
+              </nav>
+            )}
+          </>
+        )}
 
-      <Link to={routesPaths.home} className={styles.homeLink}>
-        На главную
-      </Link>
-    </div>
+        <Link to={routesPaths.home} className={styles.homeLink}>
+          На главную
+        </Link>
+      </div>
+      <ContactSection />
+    </>
   );
 };
 
