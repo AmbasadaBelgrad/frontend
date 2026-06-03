@@ -1,10 +1,10 @@
-import styles from "./Header.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { NavLink, useLocation } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 import { useTranslation } from "react-i18next";
 import type { HeaderProps, NavItem } from "./types";
+import styles from "./Header.module.css";
 
 const NAV_ITEMS: NavItem[] = [
   {
@@ -74,9 +74,15 @@ export const Header = ({ data }: HeaderProps) => {
       ? "sr"
       : currentLangCode;
 
-  if (!data?.site_name) return null;
+  let siteName = "";
 
-  const words = data.site_name.split(" ");
+  if (!data?.site_name) {
+    siteName = "";
+  } else {
+    siteName = data.site_name;
+  }
+
+  const words = siteName.split(" ");
   const firstWord = words[0];
   const restWords = words.slice(1).join(" ");
 
@@ -93,7 +99,7 @@ export const Header = ({ data }: HeaderProps) => {
               <img
                 className={styles.logoImage}
                 src="/images/logo.svg"
-                alt={data.site_name}
+                alt={siteName}
               />
               <span className={styles.logoText}>
                 <span className={styles.logoTextFirst}>{firstWord}</span>
@@ -106,7 +112,7 @@ export const Header = ({ data }: HeaderProps) => {
               <img
                 className={styles.logoImage}
                 src="/images/logo.svg"
-                alt={data.site_name}
+                alt={siteName}
               />
               <span className={styles.logoText}>
                 <span className={styles.logoTextFirst}>{firstWord}</span>
@@ -204,7 +210,7 @@ export const Header = ({ data }: HeaderProps) => {
               role="listbox"
               aria-label={t("header.ariaLabel3")}
             >
-              {data.languages.map((lang) => (
+              {data?.languages.map((lang) => (
                 <li
                   key={lang.code}
                   className={`${styles.langSwitcherItem} ${

@@ -12,13 +12,15 @@ type Props = {
 };
 
 export const Footer = ({ data }: Props) => {
-  const { t } = useTranslation("common");
+  let siteName = "";
 
-  const siteNameRaw = t("site_name", {
-    defaultValue: data.site_name ?? "Амбасада за Урбанизам",
-  });
+  if (!data?.site_name) {
+    siteName = "";
+  } else {
+    siteName = data.site_name;
+  }
 
-  const words = siteNameRaw.split(" ");
+  const words = siteName.split(" ");
   const firstWord = words[0];
   const restWords = words.slice(1).join(" ");
 
@@ -27,13 +29,9 @@ export const Footer = ({ data }: Props) => {
       <div className={styles.content}>
         {/* TOP ROW */}
         <div className={styles.topRow}>
-          <a href="/" aria-label={siteNameRaw} className={styles.logoLink}>
+          <a href="/" aria-label={siteName} className={styles.logoLink}>
             {/* LOGO IMAGE */}
-            <img
-              src="/logo.svg"
-              alt={siteNameRaw}
-              className={styles.logoImage}
-            />
+            <img src="/logo.svg" alt={siteName} className={styles.logoImage} />
 
             {/*новый layout текста*/}
             <span className={styles.logoText}>
