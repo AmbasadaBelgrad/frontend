@@ -1,41 +1,36 @@
-import React, { useState, useEffect } from "react";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import { Link } from "react-router-dom";
 import type { ProjectsPreview } from "@/entities/home/model/types";
 import styles from "./SectionProjects.module.css";
 
-
 type ProjectProps = {
   projects_preview: ProjectsPreview;
-}
+};
 
 export const SectionProjects: React.FC<ProjectProps> = ({
   projects_preview,
 }) => {
   const { isMobile, isTablet } = useViewportWidth();
 
-  // desktop + tablet = hero
-  // mobile = обычная карточка
+  let visibleProjects = 4;
+
+  if (isMobile) {
+    visibleProjects = 1;
+  } else if (isTablet) {
+    visibleProjects = 3;
+  }
+
   const isHeroCard = !isMobile;
 
-  const [visibleProjects, setVisibleProjects] = useState(4);
-
-  useEffect(() => {
-    if (isMobile) {
-      setVisibleProjects(1);
-    } else if (isTablet) {
-      setVisibleProjects(3);
-    } else {
-      setVisibleProjects(4);
-    }
-  }, [isMobile, isTablet]);
+  const projects = projects_preview.items.slice(0, visibleProjects);
 
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{projects_preview.title}</h2>
+
       <ul className={styles.grid}>
-        {projects_preview.items.slice(0, visibleProjects).map((project) => {
-          const isFirstHero = project.isFirst && isHeroCard;
+        {projects.map((project, index) => {
+          const isFirstHero = index === 0 && isHeroCard;
 
           return (
             <li

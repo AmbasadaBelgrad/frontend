@@ -39,6 +39,7 @@
 .card_first {
   grid-column: 1 / -1;
   display: grid;
+  
   grid-template-columns: 69% 54%;
   min-height: 580px;
   min-width: 1280px;
@@ -59,7 +60,7 @@
   min-width: 950px;
   height: 92%;
   position: relative;
-  right: 84%;
+  right: 83%;
   top: 4%;
   object-fit: cover;
   grid-column: 2;
@@ -292,7 +293,6 @@
   .card_first {
     min-height: 570px;
     min-width: 754px;
-
   }
 
   .card_usual {
@@ -395,6 +395,10 @@
 
   .card {
     block-size: 519px;
+  }
+
+   .card_first {
+    min-width: 335px;
   }
 
   .card_usual {
