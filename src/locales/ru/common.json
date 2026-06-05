@@ -1,89 +1,127 @@
 {
-	"test": "Вывод строки для тестовой проверки перевода",
-	"toggle": "Переключить язык",
-	"header": {
-		"ariaLabel1": "На главную",
-		"ariaLabel2": "Главное меню",
-		"ariaLabel3": "Выбор языка",
-		"ariaLabel4": "Закрыть меню",
-		"ariaLabel5": "Открыть меню",
-		"menu": {
-			"projects_desktop": "Каталог проектов",
-			"projects_tablet": "Проекты",
-			"about": "О сообществе",
-			"contacts": "Связаться с нами"
-		}
-	},
+  "test": "Вывод строки для тестовой проверки перевода",
+  "toggle": "Переключить язык",
+  "header": {
+    "ariaLabel1": "На главную",
+    "ariaLabel2": "Главное меню",
+    "ariaLabel3": "Выбор языка",
+    "ariaLabel4": "Закрыть меню",
+    "ariaLabel5": "Открыть меню",
+    "menu": {
+      "projects_desktop": "Каталог проектов",
+      "projects_tablet": "Проекты",
+      "about": "О сообществе",
+      "contacts": "Связаться с нами"
+    }
+  },
 
-	"language": {
-		"ru": "Русский",
-		"en": "Английский",
-		"sr-Latn": "Сербский",
-		"sr-Cyrl": "Сербский"
-	},
-	"footer": {
-		"site_name": "Амбасада за урбанизам",
+  "language": {
+    "ru": "Русский",
+    "en": "Английский",
+    "sr-Latn": "Сербский",
+    "sr-Cyrl": "Сербский"
+  },
+  "footer": {
+    "site_name": "Амбасада за урбанизам",
 
-		"aria": {
-			"home": "На главную"
-		},
+    "aria": {
+      "home": "На главную"
+    },
 
-		"nav": {
-			"catalog": "Каталог проектов",
-			"about": "О сообществе",
-			"contacts": "Связаться с нами"
-		},
+    "nav": {
+      "catalog": "Каталог проектов",
+      "about": "О сообществе",
+      "contacts": "Связаться с нами",
+      "home": "Главная",
+      "projects": "Проекты"
+    },
 
-		"legal": {
-			"privacy_policy": "Политика конфиденциальности",
-			"personal_data_processing_agreement": "Согласие на обработку персональных данных"
-		}
-	},
-	"search": {
-		"placeholder": "Поиск",
-		"ariaLabel": "Поиск проектов",
-		"clear": "Очистить"
-	},
-	"notFound": {
-		"title": "Кажется, вы свернули не туда",
-		"buttonDesktop": "Вернуться на Главную",
-		"buttonMobile": "Перейти на Главную"
-	},
-	"projectDetails": {
-		"textButtonDesktop": "Назад в каталог",
-		"textButtonTablet": "В каталог",
-		"mainPage": "Главная",
-		"catalogProject": "Каталог проектов"
-	},
-	"projects": {
-		"title": "Проекты",
-		"loading": "Загрузка...",
-		"notFound": "Проекты не найдены",
-		"filterByTags": "Фильтр по тегам",
-		"filterByType": "Фильтр по типу",
-		"tagsList": "Список тегов для фильтрации",
-		"filterByTag": "Фильтр по тегу {{tagName}}",
-		"filterTagsDialog": "Выбор тегов для фильтрации",
-		"sortByTags": "Сортировка по тегам:",
-		"collapseTags": "Свернуть теги",
-		"allProjects": "Все проекты"
-	},
-	"pagination": {
-		"label": "Пагинация проектов",
-		"previous": "Предыдущая страница",
-		"next": "Следующая страница",
-		"page": "Страница {{page}}",
-		"of": "из",
-		"back": "Назад",
-		"forward": "Вперед"
-	},
-	"navigation": {
-		"home": "Главная",
-		"projectsCatalog": "Каталог проектов",
-		"breadcrumbs": "Навигация"
-	},
-	"cookieConsent": {
-		"ariaLabel": "Уведомление об использовании cookies",
-		"acceptButtonAriaLabel": "Принять cookies"
-	}
+    "legal": {
+      "privacy_policy": "Политика конфиденциальности",
+      "personal_data_processing_agreement": "Согласие на обработку персональных данных"
+    }
+  },
+  "search": {
+    "placeholder": "Поиск",
+    "ariaLabel": "Поиск проектов",
+    "clear": "Очистить"
+  },
+  "notFound": {
+    "title": "Кажется, вы свернули не туда",
+    "buttonDesktop": "Вернуться на Главную",
+    "buttonMobile": "Перейти на Главную"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Имя",
+      "email": "Email",
+      "message": "Комментарий",
+      "title": "Связаться с нами",
+      "text": "Оставляй свои идеи или рекомендуй кандидатов в команду через форму связи",
+      "button_text": "Отправить"
+    },
+    "errors": {
+      "requiredName": "Введите имя",
+      "invalidNameAlphabet": "Поле содержит недопустимые символы, кроме: пробела, дефиса и апострофа",
+      "requiredEmail": "Введите email",
+      "invalidEmailWithExample": "Адрес указан неверно, пример: name@example.com",
+      "requiredMessage": "Введите комментарий",
+      "messageMinLength": "Комментарий должен быть не короче {{min}} символов",
+      "messageMaxLength": "Комментарий не должен превышать {{max}} символов"
+    },
+    "hints": {
+      "nameRequired": "Введите имя на кириллице или латинице",
+      "emailRequired": "Введите email в формате name@example.com",
+      "messageRequired": "Введите комментарий от 20 до 600 символов"
+    },
+    "successModal": {
+      "title": "Спасибо!",
+      "text": "Команда свяжется с Вами после рассмотрения обращения",
+      "button": "Окей"
+    },
+    "errorModal": {
+      "title": "Не удалось отправить",
+      "text": "Если проблема повторяется, напишите нам напрямую на email: ambasadazaurbanizam@gmail.com ",
+      "button": "Попробовать снова"
+    }
+  },
+  "projectDetails": {
+    "textButtonDesktop": "Назад в каталог",
+    "textButtonTablet": "В каталог",
+    "mainPage": "Главная",
+    "catalogProject": "Каталог проектов"
+  },
+  "projects": {
+    "title": "Проекты",
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка при загрузке данных",
+    "empty": "Проекты не найдены",
+    "filterByTags": "Фильтр по тегам",
+    "filterByType": "Фильтр по типу",
+    "tagsList": "Список тегов для фильтрации",
+    "filterByTag": "Фильтр по тегу {{tagName}}",
+    "filterTagsDialog": "Выбор тегов для фильтрации",
+    "sortByTags": "Сортировка по тегам:",
+    "collapseTags": "Свернуть теги",
+    "allProjects": "Все проекты",
+    "all": "Все"
+  },
+  "pagination": {
+    "label": "Пагинация проектов",
+    "previous": "Предыдущая страница",
+    "next": "Следующая страница",
+    "page": "Страница {{page}}",
+    "of": "из",
+    "back": "Назад",
+    "forward": "Вперед"
+  },
+  "navigation": {
+    "home": "Главная",
+    "projects": "Каталог проектов",
+    "breadcrumbs": "Навигация"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Уведомление об использовании cookies",
+    "acceptButtonAriaLabel": "Принять cookies"
+  }
 }

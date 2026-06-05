@@ -73,7 +73,7 @@
   background: var(--gray);
   color: var(--ecologic);
   transform: translateY(-2px);
-  outline: 2px solid var(--ecologic); 
+  outline: 2px solid var(--ecologic);
 }
 
 .tagButton:hover {
@@ -86,7 +86,6 @@
   background: var(--ecologic);
   color: var(--white);
 }
-
 
 /* Кнопка "Свернуть теги" */
 .collapseButton {
@@ -183,5 +182,4 @@
     background: var(--ecologic);
     color: var(--white);
   }
-
 }
