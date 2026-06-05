@@ -69,5 +69,9 @@
 	"cookieConsent": {
 		"ariaLabel": "Obaveštenje o korišćenju kolačića",
 		"acceptButtonAriaLabel": "Prihvati kolačiće"
+	},
+	"errorBoundary": {
+		"buttonText": "Nazad",
+		"title": "Nešto nije u redu. Neko je već ovde postavio ogradu."
 	}
 }

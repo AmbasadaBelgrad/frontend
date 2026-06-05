@@ -85,5 +85,9 @@
 	"cookieConsent": {
 		"ariaLabel": "Уведомление об использовании cookies",
 		"acceptButtonAriaLabel": "Принять cookies"
+	},
+	"errorBoundary": {
+		"buttonText": "Назад",
+		"title": "Что-то пошло не так. Кто-то уже поставил здесь забор."
 	}
 }
