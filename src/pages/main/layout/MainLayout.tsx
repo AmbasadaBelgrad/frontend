@@ -1,11 +1,11 @@
 import { useInitQuery, useInitSeo } from "@/entities/init";
+import { InitDataContext } from "@/shared/context/InitDataContext";
 import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
 import { Outlet } from "react-router-dom";
-import styles from "./MainLayout.module.css";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
+import styles from "./MainLayout.module.css";
 
-// компонент будет оборачивать все маршруты в роутере
 const MainLayout = () => {
   const {
     data: initData,
@@ -69,23 +69,22 @@ const MainLayout = () => {
   }
 
   return (
-    <div className={styles.layout}>
-      {/* TODO: передать initData в Header, когда компонент будет готов */}
-      <Header data={initData}></Header>
-      <main className={styles.main}>
-        <div className={styles.mainInner}>
-          <Outlet />
-          {/* Здесь подставляется содержимое страниц */}
-        </div>
-      </main>
-      <CookieConsent
-        text={initData.cookie_message}
-        confirmButtonText={initData.cookie_button_text}
-      />
-      {/* TODO: передать initData в Footer, когда компонент будет готов */}
-      {/* <Footer /> */}
-      <Footer data={initData} />
-    </div>
+    <InitDataContext.Provider value={initData}>
+      <div className={styles.layout}>
+        {/* TODO: передать initData в Header, когда компонент будет готов */}
+        <Header data={initData}></Header>
+        <main className={styles.main}>
+          <div className={styles.mainInner}>
+            <Outlet /> {/* Здесь подставляется содержимое страниц */}
+          </div>
+        </main>
+        <CookieConsent
+          text={initData.cookie_message}
+          confirmButtonText={initData.cookie_button_text}
+        />
+        <Footer data={initData} />
+      </div>
+    </InitDataContext.Provider>
   );
 };
 

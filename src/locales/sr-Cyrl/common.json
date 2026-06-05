@@ -1,77 +1,119 @@
 {
-	"test": "Излаз низа за пробну проверу превода",
-	"toggle": "Промени језик",
-	"header": {
-		"ariaLabel1": "На главну",
-		"ariaLabel2": "Главни мени",
-		"ariaLabel3": "Избор језика",
-		"ariaLabel4": "Затвори мени",
-		"ariaLabel5": "Отвори мени",
-		"menu": {
-			"projects_desktop": "Каталог пројеката",
-			"projects_tablet": "Пројекти",
-			"about": "О заједници",
-			"contacts": "Контактирајте нас"
-		}
-	},
-	"language": {
-		"ru": "Руски",
-		"en": "Енглески",
-		"sr-Latn": "Српски",
-		"sr-Cyrl": "Српски"
-	},
-	"footer": {
-		"site_name": "Ambasada za urbanizam"
-	},
-	"search": {
-		"placeholder": "Претрага",
-		"ariaLabel": "Претрага пројеката",
-		"clear": "Обриши"
-	},
-	"notFound": {
-		"title": "Изгледа да сте скренули погрешно",
-		"buttonDesktop": "Врати се на почетну",
-		"buttonMobile": "Иди на почетну"
-	},
-	"projectDetails": {
-		"textButtonDesktop": "Назад у каталог",
-		"textButtonTablet": "У каталог",
-		"mainPage": "Почетна",
-		"catalogProject": "Каталог пројеката"
-	},
-	"projects": {
-		"title": "Пројекти",
-		"loading": "Учитавање...",
-		"notFound": "Пројекти нису пронађени",
-		"filterByTags": "Филтрирај по ознакама",
-		"filterByType": "Филтрирај по типу",
-		"tagsList": "Списак ознака за филтрирање",
-		"filterByTag": "Филтрирај по ознаци {{tagName}}",
-		"filterTagsDialog": "Изаберите ознаке за филтрирање",
-		"sortByTags": "Сортирај по ознакама:",
-		"collapseTags": "Сакриј ознаке",
-		"allProjects": "Сви пројекти"
-	},
-	"pagination": {
-		"label": "Пагинација пројеката",
-		"previous": "Претходна страница",
-		"next": "Следећа страница",
-		"page": "Страница {{page}}",
-		"of": "од",
-		"back": "Назад",
-		"forward": "Напред"
-	},
-	"navigation": {
-		"home": "Почетна",
-		"projectsCatalog": "Каталог пројеката",
-		"breadcrumbs": "Навигација"
-	},
-	"cookieConsent": {
-		"ariaLabel": "Обавештење о коришћењу колачића",
-		"acceptButtonAriaLabel": "Прихвати колачиће"
-	},
-	"errorBoundary": {
-		"buttonText": "Назад",
-		"title": "Нешто није у реду. Неко је већ овде поставио ограду."
-	}
+  "test": "Излаз низа за пробну проверу превода",
+  "toggle": "Промени језик",
+  "header": {
+    "ariaLabel1": "На главну",
+    "ariaLabel2": "Главни мени",
+    "ariaLabel3": "Избор језика",
+    "ariaLabel4": "Затвори мени",
+    "ariaLabel5": "Отвори мени",
+    "menu": {
+      "projects_desktop": "Каталог пројеката",
+      "projects_tablet": "Пројекти",
+      "about": "О заједници",
+      "contacts": "Контактирајте нас"
+    }
+  },
+  "language": {
+    "ru": "Руски",
+    "en": "Енглески",
+    "sr-Latn": "Српски",
+    "sr-Cyrl": "Српски"
+  },
+  "footer": {
+    "site_name": "Ambasada za urbanizam"
+  },
+  "search": {
+    "placeholder": "Претрага",
+    "ariaLabel": "Претрага пројеката",
+    "clear": "Обриши"
+  },
+  "notFound": {
+    "title": "Изгледа да сте скренули погрешно",
+    "buttonDesktop": "Врати се на почетну",
+    "buttonMobile": "Иди на почетну"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Име",
+      "email": "Email",
+      "message": "Коментар",
+      "title": "Контактирајте нас",
+      "text": "Остави своје идеје или препоручи кандидате за тим преко контакт форме",
+      "button_text": "Пошаљи"
+    },
+    "errors": {
+      "requiredName": "Унесите име",
+      "invalidNameAlphabet": "Поље садржи недозвољене знакове, дозвољени су: размак, цртица и апостроф",
+      "requiredEmail": "Унесите емаил",
+      "invalidEmailWithExample": "Адреса је наведена погрешно, пример: name@example.com",
+      "requiredMessage": "Унесите коментар",
+      "messageMinLength": "Коментар мора имати најмање {{min}} карактера",
+      "messageMaxLength": "Коментар не сме прелазити {{max}} карактера"
+    },
+    "hints": {
+      "nameRequired": "Унесите име на ћирилици или латиници",
+      "emailRequired": "Унесите емаил у формату name@example.com",
+      "messageRequired": "Унесите коментар од 20 до 600 карактера"
+    },
+    "successModal": {
+      "title": "Хвала!",
+      "text": "Тим ће вас контактирати након разматрања захтева",
+      "button": "У реду"
+    },
+    "errorModal": {
+      "title": "Неуспешно слање",
+      "text": "Ако се проблем понавља, пишите нам директно на емаил: ambasadazaurbanizam@gmail.com",
+      "button": "Покушај поново"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "Нисам робот",
+    "continuePrompt": "Кликните да наставите",
+    "imageTextLabel": "Унесите текст са слике",
+    "confirmButton": "Потврди"
+  },
+  "projectDetails": {
+    "textButtonDesktop": "Назад у каталог",
+    "textButtonTablet": "У каталог",
+    "mainPage": "Почетна",
+    "catalogProject": "Каталог пројеката"
+  },
+  "projects": {
+    "title": "Пројекти",
+    "loading": "Учитавање...",
+    "error": "Произошла је грешка при учитавању података",
+    "empty": "Пројекти нису пронађени",
+    "filterByTags": "Филтрирај по ознакама",
+    "filterByType": "Филтрирај по типу",
+    "tagsList": "Списак ознака за филтрирање",
+    "filterByTag": "Филтрирај по ознаци {{tagName}}",
+    "filterTagsDialog": "Изаберите ознаке за филтрирање",
+    "sortByTags": "Сортирај по ознакама:",
+    "collapseTags": "Сакриј ознаке",
+    "allProjects": "Сви пројекти",
+    "all": "Сви"
+  },
+  "pagination": {
+    "label": "Пагинација пројеката",
+    "previous": "Претходна страница",
+    "next": "Следећа страница",
+    "page": "Страница {{page}}",
+    "of": "од",
+    "back": "Назад",
+    "forward": "Напред"
+  },
+  "navigation": {
+    "home": "Почетна",
+    "projects": "Каталог пројеката",
+    "breadcrumbs": "Навигација"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Обавештење о коришћењу колачића",
+    "acceptButtonAriaLabel": "Прихвати колачиће"
+  },
+  "errorBoundary": {
+    "buttonText": "Назад",
+    "title": "Нешто није у реду. Неко је већ овде поставио ограду."
+  }
 }
