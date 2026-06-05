@@ -51,6 +51,10 @@
     "buttonDesktop": "Вернуться на Главную",
     "buttonMobile": "Перейти на Главную"
   },
+  "card_carousel": {
+    "button_right": "Прокрутить вправо",
+    "button_left": "Прокрутить влево"
+  },
   "contactForm": {
     "fields": {
       "name": "Имя",
