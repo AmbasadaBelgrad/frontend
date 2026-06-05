@@ -31,7 +31,9 @@
     "nav": {
       "catalog": "Каталог проектов",
       "about": "О сообществе",
-      "contacts": "Связаться с нами"
+      "contacts": "Связаться с нами",
+      "home": "Главная",
+      "projects": "Проекты"
     },
 
     "legal": {
@@ -96,7 +98,8 @@
   "projects": {
     "title": "Проекты",
     "loading": "Загрузка...",
-    "notFound": "Проекты не найдены",
+    "error": "Произошла ошибка при загрузке данных",
+    "empty": "Проекты не найдены",
     "filterByTags": "Фильтр по тегам",
     "filterByType": "Фильтр по типу",
     "tagsList": "Список тегов для фильтрации",
@@ -104,7 +107,8 @@
     "filterTagsDialog": "Выбор тегов для фильтрации",
     "sortByTags": "Сортировка по тегам:",
     "collapseTags": "Свернуть теги",
-    "allProjects": "Все проекты"
+    "allProjects": "Все проекты",
+    "all": "Все"
   },
   "pagination": {
     "label": "Пагинация проектов",
@@ -117,7 +121,7 @@
   },
   "navigation": {
     "home": "Главная",
-    "projectsCatalog": "Каталог проектов",
+    "projects": "Каталог проектов",
     "breadcrumbs": "Навигация"
   },
   "cookieConsent": {

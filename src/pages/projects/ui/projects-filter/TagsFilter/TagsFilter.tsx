@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import type { Tag } from "@entities/project/model/types";
 import styles from "./TagsFilter.module.css";
-
-export type Tag = {
-  id: string;
-  name: string;
-};
 
 interface ITagsFilterProps {
   tags: Tag[];
