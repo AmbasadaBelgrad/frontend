@@ -20,9 +20,9 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   // Фильтруем категории, убирая "Все" если она есть в массиве
-  const filteredCategories = categories.filter(
-    (cat) => cat.id !== ALL_ID && cat.name !== "Все",
-  );
+  // const filteredCategories = categories.filter(
+  //   (cat) => cat.id !== ALL_ID && cat.name !== "Все",
+  // );
 
   // Закрытие дропдауна при клике вне его
   useEffect(() => {
@@ -75,17 +75,17 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
         </button>
         {/* Остальные категории */}
         {categories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              className={`${styles.button} ${
-                isActive(category.id) ? styles.active : ""
-              }`}
-              onClick={() => handleSelect(category.id)}
-            >
-              {category.name}
-            </button>
-          ))}
+          <button
+            key={category.id}
+            type="button"
+            className={`${styles.button} ${
+              isActive(category.id) ? styles.active : ""
+            }`}
+            onClick={() => handleSelect(category.id)}
+          >
+            {category.name}
+          </button>
+        ))}
       </div>
 
       {/* MOBILE */}
@@ -122,17 +122,17 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
 
             {/* Остальные категории */}
             {categories.map((category) => (
-                <button
-                  key={category.id}
-                  type="button"
-                  className={`${styles.mobileItem} ${
-                    isActive(category.id) ? styles.active : ""
-                  }`}
-                  onClick={() => handleSelect(category.id)}
-                >
-                  {category.name}
-                </button>
-              ))}
+              <button
+                key={category.id}
+                type="button"
+                className={`${styles.mobileItem} ${
+                  isActive(category.id) ? styles.active : ""
+                }`}
+                onClick={() => handleSelect(category.id)}
+              >
+                {category.name}
+              </button>
+            ))}
           </div>
         </div>
       </div>
