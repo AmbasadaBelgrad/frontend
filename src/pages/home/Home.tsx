@@ -4,15 +4,10 @@ import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
 import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 import { SectionHero } from "./ui/section-hero/index";
-
+import ContactSection from "@/widgets/contact-section/ContactSection";
 
 export const Home: React.FC = () => {
-  const {
-    data,
-    isLoading,
-    isError,
-    error,
-  } = useHomeQuery();
+  const { data, isLoading, isError, error } = useHomeQuery();
 
   if (isLoading) {
     return <div>Загрузка...</div>;
@@ -20,32 +15,25 @@ export const Home: React.FC = () => {
 
   if (isError) {
     return (
-      <div>
-        {error instanceof Error
-          ? error.message
-          : "Ошибка загрузки"}
-      </div>
+      <div>{error instanceof Error ? error.message : "Ошибка загрузки"}</div>
     );
   }
 
   if (!data) return null;
 
   return (
-    <div className={styles.mainContainer}>
-      <h1>Главная страница</h1>
-
-      <Link to={routesPaths.projects}>
-        Проекты
-      </Link>
-      <SectionHero hero={data.hero}/>
-      {/* AboutSection */}
-      {/* TeamSection */}
-      {/* ProjectsSection */}
-      {/* ContactSection */}
-    </div>
+    <>
+      <div className={styles.mainContainer}>
+        <h1>Главная страница</h1>
+        <Link to={routesPaths.projects}>Проекты</Link>
+        <SectionHero hero={data.hero}/>
+        {/* AboutSection */}
+        {/* TeamSection */}
+        {/* ProjectsSection */}
+      </div>
+      <ContactSection />
+    </>
   );
 };
 
 export default Home;
-
-

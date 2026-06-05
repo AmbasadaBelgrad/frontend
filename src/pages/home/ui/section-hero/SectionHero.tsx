@@ -25,7 +25,8 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
               src={hero.image_left}
               alt={hero.title}
               className={styles.image_left}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -35,7 +36,8 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
               src={hero.image_right}
               alt={hero.title}
               className={styles.image_right}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
           <p className={styles.subtitle}>{hero.subtitle}</p>
