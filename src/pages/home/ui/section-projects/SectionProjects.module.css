@@ -1,6 +1,5 @@
 .container {
   background: var(--white);
-  padding: 0 clamp(20px, 5vw, 80px);
   max-width: 1440px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -39,7 +38,7 @@
 .card_first {
   grid-column: 1 / -1;
   display: grid;
-  
+
   grid-template-columns: 69% 54%;
   min-height: 580px;
   min-width: 1280px;
@@ -57,8 +56,9 @@
 
 .image_first {
   width: 100%;
+  filter: sepia(40%) grayscale(50%);
   min-width: 950px;
-  height: 92%;
+  max-height: 533px;
   position: relative;
   right: 83%;
   top: 4%;
@@ -248,6 +248,7 @@
 .buttonText {
   position: absolute;
   left: 50%;
+  letter-spacing: 0.03em;
   transform: translateX(-50%);
   opacity: 0;
   white-space: nowrap;
@@ -314,7 +315,6 @@
   }
 
   .container {
-    padding: 0 40px;
     box-sizing: border-box;
   }
 
@@ -351,14 +351,19 @@
     max-width: 440px;
   }
 
+  .content_container_usual {
+    gap: 16px;
+  }
+  
   .image_first {
-    min-width: 434px;
-    right: 220px;
+    clip-path: inset(0 490px 0 0);
+    max-height: 527px;
+    right: 246px;
   }
 
   .description_usual {
     font: var(--tablet_main);
-    line-height: 136%;
+    line-height: 140%;
   }
 
   .description_first {
@@ -372,10 +377,12 @@
 
   .buttonText {
     font: var(--tablet_button);
+    letter-spacing: 0;
   }
 
   .button {
     letter-spacing: 0;
+    margin-top: 40px;
   }
 }
 
@@ -383,10 +390,6 @@
   .title {
     font: var(--mobile_h2);
     margin-bottom: 30px;
-  }
-
-  .container {
-    padding: 0;
   }
 
   .grid {
@@ -397,12 +400,16 @@
     block-size: 519px;
   }
 
-   .card_first {
+  .card_first {
     min-width: 335px;
   }
 
   .card_usual {
     min-height: 335px;
+  }
+
+  .content_usual {
+    padding: 19px;
   }
 
   .content_usual,
@@ -428,7 +435,7 @@
     width: 100%;
     height: 40px;
     margin: 0 auto;
-    border-radius: 16px;
+    border-radius: 40px;
     align-items: center;
     justify-content: center;
     background: var(--energy);
@@ -440,6 +447,8 @@
 
   .button {
     max-width: 255px;
+    margin-top: 41px;
+    letter-spacing: 0;
   }
 
   .buttonText {
@@ -447,5 +456,6 @@
     color: var(--white);
     font: var(--mobile_button);
     opacity: 1;
+    letter-spacing: 0;
   }
 }

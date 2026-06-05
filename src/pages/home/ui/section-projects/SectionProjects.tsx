@@ -20,8 +20,6 @@ export const SectionProjects: React.FC<ProjectProps> = ({
     visibleProjects = 3;
   }
 
-  const isHeroCard = !isMobile;
-
   const projects = projects_preview.items.slice(0, visibleProjects);
 
   return (
@@ -30,7 +28,7 @@ export const SectionProjects: React.FC<ProjectProps> = ({
 
       <ul className={styles.grid}>
         {projects.map((project, index) => {
-          const isFirstHero = index === 0 && isHeroCard;
+          const isFirstHero = index === 0 && !isMobile;
 
           return (
             <li
@@ -39,14 +37,22 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                 isFirstHero ? styles.card_first : styles.card_usual
               }`}
             >
-              <img
-                src={project.image}
-                alt={project.title}
+              <div
                 className={
-                  isFirstHero ? styles.image_first : styles.image_usual
+                  isFirstHero
+                    ? styles.image_wrapper_first
+                    : styles.image_wrapper_usual
                 }
-                loading="lazy"
-              />
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={
+                    isFirstHero ? styles.image_first : styles.image_usual
+                  }
+                  loading="lazy"
+                />
+              </div>
 
               <div
                 className={

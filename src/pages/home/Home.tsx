@@ -4,6 +4,7 @@ import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
 import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 import { SectionProjects } from "./ui/section-projects";
+import { SectionTeam } from "./ui/section-team";
 import ContactSection from "@/widgets/contact-section/ContactSection";
 
 export const Home: React.FC = () => {
@@ -30,6 +31,8 @@ export const Home: React.FC = () => {
         {/* AboutSection */}
         {/* TeamSection */}
         <SectionProjects projects_preview={data.projects_preview} />
+        <SectionTeam teamPreview={data.team_preview}/>
+        {/* ProjectsSection */}
       </div>
       <ContactSection />
     </>
