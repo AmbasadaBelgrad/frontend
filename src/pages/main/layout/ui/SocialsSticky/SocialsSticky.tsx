@@ -5,7 +5,6 @@ import styles from "./SocialsSticky.module.css";
 
 export const SocialsSticky = ({ socials }: SocialsStickyProps) => {
   if (!socials?.length) return null;
-  console.log("SocialsSticky" + socials);
 
   return (
     <aside className={styles.wrapper} aria-label="Социальные сети">

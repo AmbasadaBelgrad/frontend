@@ -40,8 +40,6 @@ const MainLayout = () => {
 
   useInitSeo(initData);
 
-  console.log(initData?.socials);
-
   const socialsForSticky: SocialItem[] =
     initData?.socials
       .map(convertToSocialItem)
