@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 export const AboutCommunity = ({ aboutPreview }: AboutCommunityProps) => {
   return (
     <section className={styles.section} aria-labelledby="about-community-title">
-      {/* ✅ ИЗМЕНИЛ: теперь одна общая container-разметка */}
+      {/* общая container-разметка */}
       <div className={styles.container}>
         {/* TITLE */}
         <h2 id="about-community-title" className={styles.title}>
-          {aboutPreview.title}
+          {aboutPreview?.title}
         </h2>
 
         {/* TEXT */}
         <p className={styles.text}>
-          {aboutPreview.text.replace("к сообществу", "к\u00A0сообществу")}
+          {aboutPreview.text}
         </p>
 
         {/* BUTTON */}
@@ -27,7 +27,7 @@ export const AboutCommunity = ({ aboutPreview }: AboutCommunityProps) => {
         {/* IMAGE */}
         <div className={styles.imageWrapper}>
           <img
-            src="image_aboutCommunity.jpg"
+            src={aboutPreview.image}
             alt={aboutPreview.title}
             className={styles.image}
             loading="lazy"

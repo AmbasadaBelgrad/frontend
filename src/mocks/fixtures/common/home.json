@@ -16,8 +16,12 @@
   "team_preview": {
     "title": "Команда",
     "members": [
-      { "name": "Имя Фамилия", "role": "Архитектор", "photo": "url" },
-      { "name": "Имя Фамилия", "role": "Дизайнер", "photo": "url" }
+      { "name": "Анна Соколова", "role": "Архитектор", "photo": "/images/photomember.png" },
+      { "name": "Федор Докукин", "role": "Дизайнер", "photo": "/images/photomember.png" },
+      { "name": "Алексей Радченко", "role": "Архитектор", "photo": "/images/photomember.png"},
+      { "name": "Александра Карягина", "role": "Дизайнер", "photo": "/images/photomember.png" },
+      { "name": "Имя Фамилия", "role": "Архитектор", "photo": "/images/photomember.png" },
+      { "name": "Имя Фамилия", "role": "Дизайнер", "photo": "/images/photomember.png" }
     ],
     "action_button": {
       "label": "Присоединиться к команде",

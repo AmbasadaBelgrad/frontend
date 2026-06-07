@@ -31,7 +31,9 @@
     "nav": {
       "catalog": "Каталог проектов",
       "about": "О сообществе",
-      "contacts": "Связаться с нами"
+      "contacts": "Связаться с нами",
+      "home": "Главная",
+      "projects": "Проекты"
     },
 
     "legal": {
@@ -49,6 +51,44 @@
     "buttonDesktop": "Вернуться на Главную",
     "buttonMobile": "Перейти на Главную"
   },
+  "card_carousel": {
+    "button_right": "Прокрутить вправо",
+    "button_left": "Прокрутить влево"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Имя",
+      "email": "Email",
+      "message": "Комментарий",
+      "title": "Связаться с нами",
+      "text": "Оставляй свои идеи или рекомендуй кандидатов в команду через форму связи",
+      "button_text": "Отправить"
+    },
+    "errors": {
+      "requiredName": "Введите имя",
+      "invalidNameAlphabet": "Поле содержит недопустимые символы, кроме: пробела, дефиса и апострофа",
+      "requiredEmail": "Введите email",
+      "invalidEmailWithExample": "Адрес указан неверно, пример: name@example.com",
+      "requiredMessage": "Введите комментарий",
+      "messageMinLength": "Комментарий должен быть не короче {{min}} символов",
+      "messageMaxLength": "Комментарий не должен превышать {{max}} символов"
+    },
+    "hints": {
+      "nameRequired": "Введите имя на кириллице или латинице",
+      "emailRequired": "Введите email в формате name@example.com",
+      "messageRequired": "Введите комментарий от 20 до 600 символов"
+    },
+    "successModal": {
+      "title": "Спасибо!",
+      "text": "Команда свяжется с Вами после рассмотрения обращения",
+      "button": "Окей"
+    },
+    "errorModal": {
+      "title": "Не удалось отправить",
+      "text": "Если проблема повторяется, напишите нам напрямую на email: ambasadazaurbanizam@gmail.com ",
+      "button": "Попробовать снова"
+    }
+  },
   "projectDetails": {
     "textButtonDesktop": "Назад в каталог",
     "textButtonTablet": "В каталог",
@@ -58,7 +98,8 @@
   "projects": {
     "title": "Проекты",
     "loading": "Загрузка...",
-    "notFound": "Проекты не найдены",
+    "error": "Произошла ошибка при загрузке данных",
+    "empty": "Проекты не найдены",
     "filterByTags": "Фильтр по тегам",
     "filterByType": "Фильтр по типу",
     "tagsList": "Список тегов для фильтрации",
@@ -66,7 +107,8 @@
     "filterTagsDialog": "Выбор тегов для фильтрации",
     "sortByTags": "Сортировка по тегам:",
     "collapseTags": "Свернуть теги",
-    "allProjects": "Все проекты"
+    "allProjects": "Все проекты",
+    "all": "Все"
   },
   "pagination": {
     "label": "Пагинация проектов",
@@ -79,7 +121,11 @@
   },
   "navigation": {
     "home": "Главная",
-    "projectsCatalog": "Каталог проектов",
+    "projects": "Каталог проектов",
     "breadcrumbs": "Навигация"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Уведомление об использовании cookies",
+    "acceptButtonAriaLabel": "Принять cookies"
   }
 }

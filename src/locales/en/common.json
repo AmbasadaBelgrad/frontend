@@ -33,6 +33,50 @@
     "buttonDesktop": "Back to Home",
     "buttonMobile": "Go to Home"
   },
+  "card_carousel": {
+    "button_right": "Scroll to the right",
+    "button_left": "Scroll to the left"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "title": "Contact us",
+      "text": "Leave your ideas or recommend candidates for the team via the contact form",
+      "button_text": "Submit"
+    },
+    "errors": {
+      "requiredName": "Enter name",
+      "invalidNameAlphabet": "The field contains invalid characters, allowed: space, hyphen, and apostrophe",
+      "requiredEmail": "Enter email",
+      "invalidEmailWithExample": "Invalid email address, example: name@example.com",
+      "requiredMessage": "Enter comment",
+      "messageMinLength": "Comment must be at least {{min}} characters long",
+      "messageMaxLength": "Comment must not exceed {{max}} characters"
+    },
+    "hints": {
+      "nameRequired": "Enter name in Cyrillic or Latin alphabet",
+      "emailRequired": "Enter email in the format name@example.com",
+      "messageRequired": "Enter a comment between 20 and 600 characters"
+    },
+    "successModal": {
+      "title": "Thank you!",
+      "text": "The team will contact you after reviewing your request",
+      "button": "OK"
+    },
+    "errorModal": {
+      "title": "Failed to send",
+      "text": "If the problem persists, write to us directly at: ambasadazaurbanizam@gmail.com",
+      "button": "Try again"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "I am not a robot",
+    "continuePrompt": "Click to continue",
+    "imageTextLabel": "Enter the text from the image",
+    "confirmButton": "Confirm"
+  },
   "projectDetails": {
     "textButtonDesktop": "Back to catalog",
     "textButtonTablet": "To catalog",
@@ -42,7 +86,8 @@
   "projects": {
     "title": "Projects",
     "loading": "Loading...",
-    "notFound": "Projects not found",
+    "error": "An error occurred while loading data",
+    "empty": "No projects found",
     "filterByTags": "Filter by tags",
     "filterByType": "Filter by type",
     "tagsList": "List of tags for filtering",
@@ -50,7 +95,8 @@
     "filterTagsDialog": "Select tags for filtering",
     "sortByTags": "Sort by tags:",
     "collapseTags": "Collapse tags",
-    "allProjects": "All projects"
+    "allProjects": "All projects",
+    "all": "All"
   },
   "pagination": {
     "label": "Projects pagination",
@@ -63,7 +109,7 @@
   },
   "navigation": {
     "home": "Home",
-    "projectsCatalog": "Projects catalog",
-    "breadcrumbs": "Navigation"
+    "projects": "Project Catalog",
+    "breadcrumbs": "Breadcrumbs"
   }
 }

@@ -1,10 +1,33 @@
-import { Outlet } from "react-router-dom";
 import { useInitQuery, useInitSeo } from "@/entities/init";
-import styles from "./MainLayout.module.css";
+import { InitDataContext } from "@/shared/context/InitDataContext";
+import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
+import { Outlet } from "react-router-dom";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
+import { SocialsSticky } from "./ui/SocialsSticky";
+import type { SocialItem, SocialType } from "./ui/SocialsSticky";
+import type { Social } from "@/entities/init/";
+import styles from "./MainLayout.module.css";
 
-// компонент будет оборачивать все маршруты в роутере
+const convertToSocialItem = (social: Social): SocialItem | null => {
+  const validTypes: SocialType[] = [
+    "Telegram",
+    "Instagram",
+    "Facebook",
+    "Linkedin",
+    "Email",
+  ];
+
+  if (validTypes.includes(social.social_type as SocialType)) {
+    return {
+      type: social.social_type as SocialType,
+      url: social.url,
+    };
+  }
+
+  return null;
+};
+
 const MainLayout = () => {
   const {
     data: initData,
@@ -17,7 +40,12 @@ const MainLayout = () => {
 
   useInitSeo(initData);
 
-   if (isLoading) {
+  const socialsForSticky: SocialItem[] =
+    initData?.socials
+      .map(convertToSocialItem)
+      .filter((item): item is SocialItem => item !== null) ?? [];
+
+  if (isLoading) {
     return (
       <div className={styles.appState}>
         <p>Загрузка сайта...</p>
@@ -68,16 +96,23 @@ const MainLayout = () => {
   }
 
   return (
-    <div className={styles.layout}>
-      {/* TODO: передать initData в Header, когда компонент будет готов */}
-      <Header data = {initData}></Header>
-      <main className={styles.main}>
-        <div className={styles.mainInner}>
-          <Outlet /> {/* Здесь подставляется содержимое страниц */}
-        </div>
-      </main>
-      <Footer data={initData} />
-    </div>
+    <InitDataContext.Provider value={initData}>
+      <div className={styles.layout}>
+        {/* TODO: передать initData в Header, когда компонент будет готов */}
+        <Header data={initData}></Header>
+        <main className={styles.main}>
+          <div className={styles.mainInner}>
+            <Outlet /> {/* Здесь подставляется содержимое страниц */}
+          </div>
+        </main>
+        <CookieConsent
+          text={initData.cookie_message}
+          confirmButtonText={initData.cookie_button_text}
+        />
+        <SocialsSticky socials={socialsForSticky} />
+        <Footer data={initData} />
+      </div>
+    </InitDataContext.Provider>
   );
 };
 

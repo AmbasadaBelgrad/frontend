@@ -33,6 +33,50 @@
     "buttonDesktop": "Vrati se na početnu",
     "buttonMobile": "Idi na početnu"
   },
+  "card_carousel": {
+    "button_right": "Pomerite se udesno",
+    "button_left": "Pomerite se ulevo"
+  },
+  "contactForm": {
+    "fields": {
+      "name": "Ime",
+      "email": "Email",
+      "message": "Komentar",
+      "title": "Kontaktirajte nas",
+      "text": "Ostavljaj svoje ideje ili preporučuj kandidate za tim putem kontakt forme",
+      "button_text": "Pošalji"
+    },
+    "errors": {
+      "requiredName": "Unesite ime",
+      "invalidNameAlphabet": "Polje sadrži nedozvoljene znakove, dozvoljeni su: razmak, crtica i apostrof",
+      "requiredEmail": "Unesite email",
+      "invalidEmailWithExample": "Adresa je navedena pogrešno, primer: name@example.com",
+      "requiredMessage": "Unesite komentar",
+      "messageMinLength": "Komentar mora imati najmanje {{min}} karaktera",
+      "messageMaxLength": "Komentar ne sme prelaziti {{max}} karaktera"
+    },
+    "hints": {
+      "nameRequired": "Unesite ime na ćirilici ili latinici",
+      "emailRequired": "Unesite email u formatu name@example.com",
+      "messageRequired": "Unesite komentar od 20 do 600 karaktera"
+    },
+    "successModal": {
+      "title": "Hvala!",
+      "text": "Tim će vas kontaktirati nakon razmatranja zahteva",
+      "button": "U redu"
+    },
+    "errorModal": {
+      "title": "Neuspešno slanje",
+      "text": "Ako se problem ponavlja, pišite nam direktno na email: ambasadazaurbanizam@gmail.com",
+      "button": "Pokušaj ponovo"
+    }
+  },
+  "captcha": {
+    "notRobotLabel": "Nisam robot",
+    "continuePrompt": "Kliknite da nastavite",
+    "imageTextLabel": "Unesite tekst sa slike",
+    "confirmButton": "Potvrdi"
+  },
   "projectDetails": {
     "textButtonDesktop": "Nazad u katalog",
     "textButtonTablet": "U katalog",
@@ -42,7 +86,8 @@
   "projects": {
     "title": "Projekti",
     "loading": "Učitavanje...",
-    "notFound": "Projekti nisu pronađeni",
+    "error": "Desila se greška prilikom učitavanja podataka",
+    "empty": "Projekti nisu pronađeni",
     "filterByTags": "Filtriraj po oznakama",
     "filterByType": "Filtriraj po tipu",
     "tagsList": "Spisak oznaka za filtriranje",
@@ -50,7 +95,8 @@
     "filterTagsDialog": "Izaberite oznake za filtriranje",
     "sortByTags": "Sortiraj po oznakama:",
     "collapseTags": "Sakrij oznake",
-    "allProjects": "Svi projekti"
+    "allProjects": "Svi projekti",
+    "all": "Svi"
   },
   "pagination": {
     "label": "Paginacija projekata",
@@ -63,7 +109,11 @@
   },
   "navigation": {
     "home": "Početna",
-    "projectsCatalog": "Katalog projekata",
+    "projects": "Katalog projekata",
     "breadcrumbs": "Navigacija"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Obaveštenje o korišćenju kolačića",
+    "acceptButtonAriaLabel": "Prihvati kolačiće"
   }
 }
