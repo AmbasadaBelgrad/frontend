@@ -19,7 +19,7 @@ type TContactFormProps = {
 };
 
 const FIELD_LIMITS = {
-  name: 30,
+  name: 100,
   messageMin: 20,
   messageMax: 600,
 } as const;

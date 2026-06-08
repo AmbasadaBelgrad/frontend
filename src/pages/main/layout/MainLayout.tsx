@@ -4,7 +4,29 @@ import { CookieConsent } from "@/features/cookie-consent/ui/CookieConsent";
 import { Outlet } from "react-router-dom";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
+import { SocialsSticky } from "./ui/SocialsSticky";
+import type { SocialItem, SocialType } from "./ui/SocialsSticky";
+import type { Social } from "@/entities/init/";
 import styles from "./MainLayout.module.css";
+
+const convertToSocialItem = (social: Social): SocialItem | null => {
+  const validTypes: SocialType[] = [
+    "Telegram",
+    "Instagram",
+    "Facebook",
+    "Linkedin",
+    "Email",
+  ];
+
+  if (validTypes.includes(social.social_type as SocialType)) {
+    return {
+      type: social.social_type as SocialType,
+      url: social.url,
+    };
+  }
+
+  return null;
+};
 
 const MainLayout = () => {
   const {
@@ -17,6 +39,11 @@ const MainLayout = () => {
   } = useInitQuery();
 
   useInitSeo(initData);
+
+  const socialsForSticky: SocialItem[] =
+    initData?.socials
+      .map(convertToSocialItem)
+      .filter((item): item is SocialItem => item !== null) ?? [];
 
   if (isLoading) {
     return (
@@ -82,6 +109,7 @@ const MainLayout = () => {
           text={initData.cookie_message}
           confirmButtonText={initData.cookie_button_text}
         />
+        <SocialsSticky socials={socialsForSticky} />
         <Footer data={initData} />
       </div>
     </InitDataContext.Provider>
