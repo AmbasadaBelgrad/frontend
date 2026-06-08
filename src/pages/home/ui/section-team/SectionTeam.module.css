@@ -1,0 +1,56 @@
+.title {
+  font: var(--desktop_h2);
+  line-height: 120%;
+  letter-spacing: -0.98px;
+  margin-bottom: 42px;
+}
+
+.button {
+  background-color: var(--energy);
+  color: var(--politic_white);
+  border-radius: 40px;
+  width: 500px;
+  height: 72px;
+  font: var(--desktop_button);
+  line-height: 140%;
+  letter-spacing: 0.3px;
+}
+
+.button_container {
+  margin-top: 42px;
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1023px) {
+  .title {
+    font: var(--tablet_h2);
+    margin-bottom: 24px;
+  }
+
+  .button {
+    font: var(--tablet_main);
+    width: 350px;
+    height: 48px;
+    letter-spacing: 0;
+  }
+
+  .button_container {
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 833px) {
+  .title {
+    font: var(--mobile_h2);
+    margin-bottom: 50px;
+  }
+
+  .button {
+    font: var(--mobile_main);
+    width: 255px;
+    height: 36px;
+  }
+}

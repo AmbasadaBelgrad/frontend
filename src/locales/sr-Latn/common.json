@@ -33,6 +33,10 @@
     "buttonDesktop": "Vrati se na početnu",
     "buttonMobile": "Idi na početnu"
   },
+  "card_carousel": {
+    "button_right": "Pomerite se udesno",
+    "button_left": "Pomerite se ulevo"
+  },
   "contactForm": {
     "fields": {
       "name": "Ime",

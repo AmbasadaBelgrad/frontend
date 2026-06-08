@@ -2,6 +2,7 @@ import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import React from "react";
 import { Link } from "react-router-dom";
+import ContactSection from "@/widgets/contact-section/ContactSection";
 import styles from "./Home.module.css";
 
 export const Home: React.FC = () => {
@@ -20,16 +21,17 @@ export const Home: React.FC = () => {
   if (!data) return null;
 
   return (
-    <div className={styles.mainContainer}>
-      <h1>Главная страница</h1>
-
-      <Link to={routesPaths.projects}>Проекты</Link>
-      {/* HeroSection */}
-      {/* AboutSection */}
-      {/* TeamSection */}
-      {/* ProjectsSection */}
-      {/* ContactSection */}
-    </div>
+    <>
+      <div className={styles.mainContainer}>
+        <h1>Главная страница</h1>
+        <Link to={routesPaths.projects}>Проекты</Link>
+        {/* HeroSection */}
+        {/* AboutSection */}
+        {/* TeamSection */}
+        {/* ProjectsSection */}
+      </div>
+      <ContactSection />
+    </>
   );
 };
 
