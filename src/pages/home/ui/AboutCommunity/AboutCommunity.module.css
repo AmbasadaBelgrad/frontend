@@ -39,6 +39,7 @@
   font: var(--desktop_main);
   color: var(--black);
   padding-right: 30px;
+  margin-bottom: 40px;
 }
 
 .button {
