@@ -21,7 +21,24 @@
     "sr-Cyrl": "Српски"
   },
   "footer": {
-    "site_name": "Ambasada za urbanizam"
+    "site_name": "Амбасада за урбанизам",
+
+    "aria": {
+      "home": "На почетну"
+    },
+
+    "nav": {
+      "catalog": "Каталог пројеката",
+      "about": "О заједници",
+      "contacts": "Контактирајте нас",
+      "home": "Почетна",
+      "projects": "Пројекти"
+    },
+
+    "legal": {
+      "privacy_policy": "Политика приватности",
+      "personal_data_processing_agreement": "Сагасност за обраду личних података"
+    }
   },
   "search": {
     "placeholder": "Претрага",
@@ -70,12 +87,6 @@
       "text": "Ако се проблем понавља, пишите нам директно на емаил: ambasadazaurbanizam@gmail.com",
       "button": "Покушај поново"
     }
-  },
-  "captcha": {
-    "notRobotLabel": "Нисам робот",
-    "continuePrompt": "Кликните да наставите",
-    "imageTextLabel": "Унесите текст са слике",
-    "confirmButton": "Потврди"
   },
   "projectDetails": {
     "textButtonDesktop": "Назад у каталог",
