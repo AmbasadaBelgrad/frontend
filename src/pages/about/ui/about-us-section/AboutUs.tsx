@@ -1,8 +1,11 @@
 import styles from "./AboutUs.module.css";
 import { Link } from "react-router-dom";
 import type { IAboutUsProps } from "@/entities/about/model/types";
+import { useTranslation } from "react-i18next";
 
 export const AboutUs = ({ data }: IAboutUsProps) => {
+  const { t } = useTranslation("common");
+
   return (
     <section className={styles.about_section} aria-labelledby="about-title">
       <div className={styles.container}>
@@ -18,11 +21,11 @@ export const AboutUs = ({ data }: IAboutUsProps) => {
           <ul className={styles.breadcrumbs}>
             <li>
               <Link to="/" className={styles.breadcrumb_link}>
-                Главная
+                {t("navigation.home", "Главная")}
               </Link>
             </li>
             <li aria-hidden="true">&gt;</li>
-            <li aria-current="page">О сообществе</li>
+            <li aria-current="page">{t("navigation.about", "О сообществе")}</li>
           </ul>
         </nav>
 

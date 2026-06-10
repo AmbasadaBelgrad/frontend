@@ -64,7 +64,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_prev}`}
           onClick={prevSlide}
           disabled={isAnimating}
-          aria-label={t("gallery.previous")}
+          aria-label={t("pagination.previous")}
           type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
@@ -117,7 +117,7 @@ export const Gallery = ({ data }: ICarouselProps) => {
           className={`${styles.nav_button} ${styles.nav_next}`}
           onClick={nextSlide}
           disabled={isAnimating}
-          aria-label={t("gallery.next")}
+          aria-label={t("pagination.next")}
           type="button"
         >
           <svg width="13" height="24" viewBox="0 0 13 24" fill="none">
