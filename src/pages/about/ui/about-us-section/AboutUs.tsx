@@ -7,7 +7,7 @@ export const AboutUs = ({ data }: IAboutUsProps) => {
   const { t } = useTranslation("common");
 
   return (
-    <section className={styles.about_section} aria-labelledby="about-title">
+    <section className={styles.aboutSection} aria-labelledby="about-title">
       <div className={styles.container}>
         <div className={styles.squares} aria-hidden="true">
           {Array(8)
@@ -20,7 +20,7 @@ export const AboutUs = ({ data }: IAboutUsProps) => {
         <nav aria-label="Хлебные крошки">
           <ul className={styles.breadcrumbs}>
             <li>
-              <Link to="/" className={styles.breadcrumb_link}>
+              <Link to="/" className={styles.breadcrumbLink}>
                 {t("navigation.home", "Главная")}
               </Link>
             </li>
@@ -29,17 +29,17 @@ export const AboutUs = ({ data }: IAboutUsProps) => {
           </ul>
         </nav>
 
-        <div className={styles.content_wrapper}>
+        <div className={styles.contentWrapper}>
           <h1 id="about-title" className={styles.title}>
             {data.title}
           </h1>
-          <div className={styles.paragraphs_container}>
+          <div className={styles.paragraphsContainer}>
             {data.paragraphs.map((paragraph, index) => (
-              <div key={index} className={styles.paragraph_card}>
-                <p className={styles.first_sentence}>
+              <div key={index} className={styles.paragraphCard}>
+                <p className={styles.firstSentence}>
                   {`${paragraph.first_sentence} `}
 
-                  <span className={styles.main_text}>
+                  <span className={styles.mainText}>
                     {`${paragraph.main_text}`}
                   </span>
                 </p>
@@ -48,7 +48,7 @@ export const AboutUs = ({ data }: IAboutUsProps) => {
           </div>
           <Link
             to={data.action_button.link}
-            className={`btn btn--primary ${styles.custom_button}`}
+            className={`btn btn--primary ${styles.customButton}`}
             aria-label={data.action_button.text}
           >
             {data.action_button.text}
