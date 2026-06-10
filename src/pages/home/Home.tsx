@@ -6,6 +6,7 @@ import { routesPaths } from "@shared/config/routesPaths";
 import { SectionProjects } from "./ui/section-projects";
 import { SectionTeam } from "./ui/section-team";
 import ContactSection from "@/widgets/contact-section/ContactSection";
+import { AboutCommunity } from "./ui/AboutCommunity/AboutCommunity.tsx";
 
 export const Home: React.FC = () => {
   const { data, isLoading, isError, error } = useHomeQuery();
@@ -28,7 +29,7 @@ export const Home: React.FC = () => {
         <h1>Главная страница</h1>
         <Link to={routesPaths.projects}>Проекты</Link>
         {/* HeroSection */}
-        {/* AboutSection */}
+        <AboutCommunity aboutPreview={data.about_preview} />
         {/* TeamSection */}
         <SectionProjects projects_preview={data.projects_preview} />
         <SectionTeam teamPreview={data.team_preview}/>

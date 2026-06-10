@@ -14,6 +14,7 @@ export interface Hero {
 export interface AboutPreview {
   title: string;
   text: string;
+  image: string;
   action_button: ActionButton;
 }
 
