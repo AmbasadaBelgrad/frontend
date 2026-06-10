@@ -11,13 +11,13 @@
   min-height: 869px;
 }
 
-.left_column {
+.leftColumn {
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
-.right_column {
+.rightColumn {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -56,16 +56,16 @@
   font: var(--desktop_main);
 }
 
-.image_wrapper_left {
+.imageWrapperLeft {
   margin-left: 50px;
 }
 
-.image_wrapper_right {
+.imageWrapperRight {
   margin-right: 50px;
 }
 
-.image_wrapper_left,
-.image_wrapper_right {
+.imageWrapperLeft,
+.imageWrapperRight {
   display: block;
   position: relative;
   z-index: 5;
@@ -73,8 +73,8 @@
   object-position: center;
 }
 
-.image_wrapper_left img,
-.image_wrapper_right img {
+.imageWrapperLeft img,
+.imageWrapperRight img {
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -82,7 +82,7 @@
   z-index: 4;
 }
 
-.image_wrapper_left::before {
+.imageWrapperLeft::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -98,7 +98,7 @@
 }
 
 
-.image_wrapper_right::after {
+.imageWrapperRight::after {
   content: "";
   position: absolute;
   z-index: 0;
@@ -138,11 +138,11 @@
     gap: 75px;
   }
 
-  .right_column {
+  .rightColumn {
     padding-top: 20px;
   }
 
-  .left_column {
+  .leftColumn {
     gap: 207px;
   }
 
@@ -162,11 +162,11 @@
     height: 57.29px;
   }
 
-  .image_wrapper_left {
+  .imageWrapperLeft {
     margin-left: 22px;
   }
 
-  .image_wrapper_right::after {
+  .imageWrapperRight::after {
     top: -3%;
     right: -6%;
     width: 284px;
@@ -174,7 +174,7 @@
     background-image: url("/images/hero-section/green_corner_tablet.svg");
   }
 
-  .image_wrapper_left::before {
+  .imageWrapperLeft::before {
     left: -8%;
     bottom: -5%;
     width: 160px;
@@ -182,12 +182,12 @@
     background-image: url("/images/hero-section/purple_corner_tablet.svg");
   }
 
-  .image_wrapper_left img {
+  .imageWrapperLeft img {
     min-width: 270px;
     min-height: 489px;
   }
 
-  .image_wrapper_right img {
+  .imageWrapperRight img {
     min-width: 367px;
     min-height: 708px;
   }
@@ -220,17 +220,17 @@
     gap: 25px;
   }
 
-  .right_column {
+  .rightColumn {
     padding-top: 0;
     gap: 38px;
   }
 
-  .left_column {
+  .leftColumn {
     gap: 0;
   }
 
   .squares,
-  .image_wrapper_left {
+  .imageWrapperLeft {
     display: none;
   }
 
@@ -242,16 +242,16 @@
     display: none;
   }
 
-  .image_wrapper_right {
+  .imageWrapperRight {
     margin: 0 auto;
   }
 
-  .image_wrapper_right img {
+  .imageWrapperRight img {
     max-width: 303px;
     min-height: 391px;
   }
 
-  .image_wrapper_right::after {
+  .imageWrapperRight::after {
     background-image: url("/images/hero-section/green_corner_mobile.svg");
     left: 66%;
     top: -4%;
@@ -259,7 +259,7 @@
     height: 120px;
   }
 
-  .image_wrapper_right::before {
+  .imageWrapperRight::before {
     content: "";
     position: absolute;
     z-index: 0;

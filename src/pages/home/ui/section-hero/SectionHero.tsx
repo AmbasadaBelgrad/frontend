@@ -11,7 +11,7 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
   return (
     <section className={styles.container}>
       <div className={styles.grid}>
-        <div className={styles.left_column}>
+        <div className={styles.leftColumn}>
           <h1 className={styles.title}>{hero.title}</h1>
           <div className={styles.squares} aria-hidden="true">
             {Array(12)
@@ -20,22 +20,22 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
                 <div key={i} className={styles.square} />
               ))}
           </div>
-          <div className={styles.image_wrapper_left}>
+          <div className={styles.imageWrapperLeft}>
             <img
               src={hero.image_left}
               alt={hero.title}
-              className={styles.image_left}
+              className={styles.imageLeft}
               loading="eager"
               fetchPriority="high"
             />
           </div>
         </div>
-        <div className={styles.right_column}>
-          <div className={styles.image_wrapper_right}>
+        <div className={styles.rightColumn}>
+          <div className={styles.imageWrapperRight}>
             <img
               src={hero.image_right}
               alt={hero.title}
-              className={styles.image_right}
+              className={styles.imageRight}
               loading="eager"
               fetchPriority="high"
             />
