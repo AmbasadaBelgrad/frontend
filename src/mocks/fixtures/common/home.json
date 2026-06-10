@@ -1,10 +1,10 @@
 {
   "hero": {
-    "title": "Амбасада за урбанизам",
-    "subtitle": "Исследуем, проектируем и меняем городскую среду",
-    "image_left": "https://cdn.../hero.webp",
-    "image_right": "https://cdn.../hero.webp",
-    "action_button": { "label": "Узнать больше", "link": "/projects" }
+    "title": "Мы — сообщество белградских урбанистов",
+    "subtitle": "Вместе мы улучшаем городскую среду, делаем улицы комфортнее и безопаснее",
+    "image_left": "/images/hero1.png",
+    "image_right": "/images/hero2.png",
+    "action_button": { "label": "Перейти к проектам", "link": "/projects" }
   },
 
   "about_preview": {

@@ -1,0 +1,287 @@
+.container {
+  background: var(--white);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+  min-height: 869px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 43px;
+}
+
+.titleContainer {
+  position: relative;
+}
+
+.title {
+  font: var(--desktop_h1);
+}
+
+.squares {
+  position: absolute;
+  top: 102.5%;
+  left: 62%;
+  transform: translate(-27%, -65%);
+  display: grid;
+  grid-template-columns: repeat(4, 64px);
+  gap: 13px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.square:nth-child(4),
+.square:nth-child(5),
+.square:nth-child(11) {
+  background-color: transparent;
+}
+
+.square {
+  width: 64px;
+  height: 64px;
+  background-color: #c1b7ff33;
+}
+
+.subtitle {
+  font: var(--desktop_main);
+}
+
+.imageWrapperLeft {
+  margin-left: 50px;
+}
+
+.imageWrapperRight {
+  margin-right: 50px;
+}
+
+.imageWrapperLeft,
+.imageWrapperRight {
+  display: block;
+  position: relative;
+  z-index: 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.imageWrapperLeft img,
+.imageWrapperRight img {
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  z-index: 4;
+}
+
+.imageWrapperLeft::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -40px;
+  bottom: -36px;
+  width: 480px;
+  height: 462px;
+  background-image: url("/images/hero-section/purple_corner.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  pointer-events: none;
+}
+
+.imageWrapperRight::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -50px;
+  top: -45px;
+  width: 574px;
+  height: 574px;
+  background-image: url("/images/hero-section/green_corner.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  pointer-events: none;
+}
+
+.button {
+  max-width: 500px;
+  margin-left: 130px;
+  letter-spacing: 0.02em;
+}
+
+.button:hover {
+  color: var(--energy);
+  background-color: var(--white);
+  border: 2px solid var(--energy);
+}
+
+.button:disabled {
+  background-color: var(--gray);
+  color: var(--black_2);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (min-width: 834px) and (max-width: 1023px) {
+  .grid {
+    gap: 75px;
+  }
+
+  .rightColumn {
+    padding-top: 20px;
+  }
+
+  .leftColumn {
+    gap: 207px;
+  }
+
+  .title {
+    font: var(--tablet_h1);
+  }
+
+  .squares {
+    grid-template-columns: repeat(4, 52px);
+    gap: 10px;
+    top: 147.5%;
+    left: 39%;
+  }
+
+  .square {
+    width: 51.51px;
+    height: 57.29px;
+  }
+
+  .imageWrapperLeft {
+    margin-left: 22px;
+  }
+
+  .imageWrapperRight::after {
+    top: -3%;
+    right: -6%;
+    width: 284px;
+    height: 284px;
+    background-image: url("/images/hero-section/green_corner_tablet.svg");
+  }
+
+  .imageWrapperLeft::before {
+    left: -8%;
+    bottom: -5%;
+    width: 160px;
+    height: 179px;
+    background-image: url("/images/hero-section/purple_corner_tablet.svg");
+  }
+
+  .imageWrapperLeft img {
+    min-width: 270px;
+    min-height: 489px;
+  }
+
+  .imageWrapperRight img {
+    min-width: 367px;
+    min-height: 708px;
+  }
+
+  .subtitle {
+    font: var(--tablet_main);
+  }
+
+  .square:nth-child(12) {
+    background-color: transparent;
+  }
+
+  .button {
+    max-width: 383px;
+    margin-left: 0;
+    letter-spacing: 0;
+  }
+
+  .button:hover {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 833px) {
+  .grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 25px;
+  }
+
+  .rightColumn {
+    padding-top: 0;
+    gap: 38px;
+  }
+
+  .leftColumn {
+    gap: 0;
+  }
+
+  .squares,
+  .imageWrapperLeft {
+    display: none;
+  }
+
+  .title {
+    font: var(--mobile_h1);
+  }
+
+  .squares {
+    display: none;
+  }
+
+  .imageWrapperRight {
+    margin: 0 auto;
+  }
+
+  .imageWrapperRight img {
+    max-width: 303px;
+    min-height: 391px;
+  }
+
+  .imageWrapperRight::after {
+    background-image: url("/images/hero-section/green_corner_mobile.svg");
+    left: 66%;
+    top: -4%;
+    width: 120px;
+    height: 120px;
+  }
+
+  .imageWrapperRight::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: -5%;
+    bottom: -4%;
+    width: 120px;
+    height: 120px;
+    background-image: url("/images/hero-section/purple_corner_mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .button {
+    max-width: 255px;
+    margin: 0 auto;
+    letter-spacing: 0;
+  }
+}
