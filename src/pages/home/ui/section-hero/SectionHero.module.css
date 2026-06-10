@@ -24,14 +24,18 @@
   padding-top: 43px;
 }
 
+.titleContainer {
+  position: relative;
+}
+
 .title {
   font: var(--desktop_h1);
 }
 
 .squares {
   position: absolute;
-  top: 68.5%;
-  left: 33%;
+  top: 102.5%;
+  left: 62%;
   transform: translate(-27%, -65%);
   display: grid;
   grid-template-columns: repeat(4, 64px);
@@ -97,7 +101,6 @@
   pointer-events: none;
 }
 
-
 .imageWrapperRight::after {
   content: "";
   position: absolute;
@@ -153,8 +156,8 @@
   .squares {
     grid-template-columns: repeat(4, 52px);
     gap: 10px;
-    top: 81.5%;
-    left: 19%;
+    top: 147.5%;
+    left: 39%;
   }
 
   .square {
@@ -192,7 +195,6 @@
     min-height: 708px;
   }
 
-
   .subtitle {
     font: var(--tablet_main);
   }
@@ -213,7 +215,6 @@
 }
 
 @media (max-width: 833px) {
-
   .grid {
     grid-template-columns: 1fr;
     min-height: 0;

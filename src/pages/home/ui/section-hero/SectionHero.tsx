@@ -1,24 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SectionHero.module.css";
-import type { Hero} from "@/entities/home/model/types";
+import type { Hero } from "@/entities/home/model/types";
 
 type HeroProps = {
   hero: Hero;
-}
+};
 
 export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
   return (
     <section className={styles.container}>
       <div className={styles.grid}>
         <div className={styles.leftColumn}>
-          <h1 className={styles.title}>{hero.title}</h1>
-          <div className={styles.squares} aria-hidden="true">
-            {Array(12)
-              .fill(null)
-              .map((_, i) => (
-                <div key={i} className={styles.square} />
-              ))}
+          <div className={styles.titleContainer}>
+            <h1 className={styles.title}>{hero.title}</h1>
+            <div className={styles.squares} aria-hidden="true">
+              {Array(12)
+                .fill(null)
+                .map((_, i) => (
+                  <div key={i} className={styles.square} />
+                ))}
+            </div>
           </div>
           <div className={styles.imageWrapperLeft}>
             <img
