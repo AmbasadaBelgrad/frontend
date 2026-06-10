@@ -1,13 +1,30 @@
-// FIX: добавлен импорт Link для хлебных крошек
 import { Link } from "react-router-dom";
 import styles from "./ContactsHero.module.css";
 import type { ContactsHeroProps } from "./types";
+import { useEffect, useState } from "react";
 
 export const ContactsHero = ({
   phone,
   address,
   socials,
 }: ContactsHeroProps) => {
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => {
+      setIsTablet(window.innerWidth <= 835);
+    };
+
+    checkSize();
+    window.addEventListener("resize", checkSize);
+
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
+  const title = isTablet
+    ? "Свяжитесь любым удобным образом"
+    : "Свяжитесь с нами любым удобным образом";
+
   return (
     <section className={styles.hero}>
       {/* Фон-карта (самый нижний слой) */}
@@ -20,10 +37,7 @@ export const ContactsHero = ({
       </div>
 
       {/* Цветной слой поверх карты */}
-      <div
-        className={styles.backgroundShape}
-        aria-hidden="true"
-      />
+      <div className={styles.backgroundShape} aria-hidden="true" />
 
       {/* Хлебные крошки */}
       <nav aria-label="Хлебные крошки" className={styles.breadcrumbsWrapper}>
@@ -38,17 +52,13 @@ export const ContactsHero = ({
             &gt;
           </li>
 
-          <li aria-current="page">
-            Связаться с нами
-          </li>
+          <li aria-current="page">Связаться с нами</li>
         </ul>
       </nav>
 
-      {/* Контент поверх всего */}
+      {/* Контент */}
       <div className={styles.info}>
-        <h1 className={styles.title}>
-          Свяжитесь с нами любым удобным образом
-        </h1>
+        <h1 className={styles.title}>{title}</h1>
 
         <div className={styles.contactBlock}>
           <h2 className={styles.subtitle}>Позвонить</h2>
@@ -63,10 +73,7 @@ export const ContactsHero = ({
 
           <ul className={styles.socials}>
             {socials.map((social) => (
-              <li
-                key={social.id}
-                className={styles.socialItem}
-              >
+              <li key={social.id} className={styles.socialItem}>
                 <a
                   href={social.href}
                   aria-label={social.label}
@@ -74,7 +81,11 @@ export const ContactsHero = ({
                   rel="noopener noreferrer"
                   className={styles.socialLink}
                 >
-                  {social.icon}
+                  <img
+                    src={`/icons_socials/${social.id.toLowerCase()}.svg`}
+                    alt=""
+                    aria-hidden="true"
+                  />
                 </a>
               </li>
             ))}
@@ -82,13 +93,9 @@ export const ContactsHero = ({
         </div>
 
         <div className={styles.contactBlock}>
-          <h2 className={styles.subtitle}>
-            Приехать в офис
-          </h2>
+          <h2 className={styles.subtitle}>Приехать в офис</h2>
 
-          <address className={styles.address}>
-            {address}
-          </address>
+          <address className={styles.address}>{address}</address>
         </div>
       </div>
     </section>

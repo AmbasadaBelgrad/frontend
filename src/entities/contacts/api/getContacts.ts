@@ -5,7 +5,7 @@ export function getContacts(
   signal?: AbortSignal,
 ): Promise<ContactsResponse> {
   return apiClient.get<ContactsResponse>(
-    "/api/v1/contacts",
+    "/contacts",
     { signal },
   );
 }

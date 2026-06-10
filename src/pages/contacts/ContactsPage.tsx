@@ -16,7 +16,6 @@ const ContactsPage = () => {
     id: social.social_type,
     href: social.url,
     label: social.social_type,
-    icon: null,
   }));
 
   return (

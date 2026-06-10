@@ -1,10 +1,12 @@
-import type { ReactNode } from "react";
+export type Social = {
+  social_type: string;
+  url: string;
+};
 
 export interface ContactSocial {
   id: string;
   href: string;
   label: string;
-  icon: ReactNode;
 }
 
 export interface ContactsHeroProps {
