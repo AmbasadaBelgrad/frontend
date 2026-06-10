@@ -7,6 +7,7 @@ import { SectionHero } from "./ui/section-hero/index";
 import { SectionProjects } from "./ui/section-projects";
 import { SectionTeam } from "./ui/section-team";
 import ContactSection from "@/widgets/contact-section/ContactSection";
+import { AboutCommunity } from "./ui/AboutCommunity/AboutCommunity.tsx";
 
 export const Home: React.FC = () => {
   const { data, isLoading, isError, error } = useHomeQuery();
@@ -29,11 +30,9 @@ export const Home: React.FC = () => {
         <h1>Главная страница</h1>
         <Link to={routesPaths.projects}>Проекты</Link>
         <SectionHero hero={data.hero}/>
-        {/* AboutSection */}
-        {/* TeamSection */}
-        <SectionProjects projects_preview={data.projects_preview} />
+        <AboutCommunity aboutPreview={data.about_preview} />
         <SectionTeam teamPreview={data.team_preview}/>
-        {/* ProjectsSection */}
+        <SectionProjects projects_preview={data.projects_preview} />
       </div>
       <ContactSection />
     </>
