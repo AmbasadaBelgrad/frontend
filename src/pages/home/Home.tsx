@@ -31,7 +31,7 @@ export const Home: React.FC = () => {
         {/* AboutSection */}
         {/* TeamSection */}
         <SectionProjects projects_preview={data.projects_preview} />
-        <SectionTeam teamPreview={data.team_preview}/>
+        <SectionTeam teamPreview={data.team_preview} />
         {/* ProjectsSection */}
       </div>
       <ContactSection />
