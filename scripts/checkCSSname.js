@@ -3,10 +3,8 @@ export default {
     "css-modules-camelcase": {
       meta: {
         type: "problem",
-        fixable: "code",
         messages: {
-          notCamelCase:
-            'Имя класса "{{name}}" должно быть в camelCase. Используйте "{{fixed}}" вместо "{{name}}".',
+          notCamelCase: 'Название стиля "{{name}}" должно быть в camelCase.',
         },
       },
       create(context) {
@@ -24,12 +22,23 @@ export default {
           MemberExpression(node) {
             if (
               node.object.type === "Identifier" &&
-              node.object.name === "styles" &&
-              node.property.type === "Identifier"
+              node.object.name === "styles"
             ) {
-              const propertyName = node.property.name;
+              let propertyName = null;
 
-              if (!isCamelCase(propertyName)) {
+              // Случай: styles.className
+              if (node.property.type === "Identifier") {
+                propertyName = node.property.name;
+              }
+              // Случай: styles["className"]
+              else if (
+                node.property.type === "Literal" &&
+                typeof node.property.value === "string"
+              ) {
+                propertyName = node.property.value;
+              }
+
+              if (propertyName && !isCamelCase(propertyName)) {
                 const fixed = toCamelCase(propertyName);
                 context.report({
                   node: node.property,
@@ -37,9 +46,6 @@ export default {
                   data: {
                     name: propertyName,
                     fixed: fixed,
-                  },
-                  fix(fixer) {
-                    return fixer.replaceText(node.property, fixed);
                   },
                 });
               }
