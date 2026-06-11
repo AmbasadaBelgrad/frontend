@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 40px;                  /* desktop */
+  gap: 40px; /* desktop */
   width: 100%;
   transform: translateX(2px);
 }
@@ -36,8 +36,8 @@
   }
 
   .footerNavLink {
-    font-size: 20px;          /* tablet размер */
-    line-height: 140%;        /* 28px */
+    font-size: 20px; /* tablet размер */
+    line-height: 140%; /* 28px */
   }
 }
 
@@ -48,7 +48,7 @@
     align-items: flex-end;
     gap: 8px;
     transform: translateX(-2px);
-    width: 138px;                 /* точная ширина меню из Figma */
+    width: 138px; /* точная ширина меню из Figma */
   }
   .footerNavLink {
     font-size: 16px;

@@ -170,117 +170,119 @@ export const ProjectsPage: React.FC = () => {
 
   return (
     <div>
-    <div className={styles.container}>
-      <nav className={styles.breadcrumbs} aria-label="Навигация">
-        <Link to={routesPaths.home} className={styles.breadcrumbLink}>
-          {t("navigation.home", "Главная")}
-        </Link>
+      <div className={styles.container}>
+        <nav className={styles.breadcrumbs} aria-label="Навигация">
+          <Link to={routesPaths.home} className={styles.breadcrumbLink}>
+            {t("navigation.home", "Главная")}
+          </Link>
 
-        <span className={styles.breadcrumbSeparator}>{" > "}</span>
+          <span className={styles.breadcrumbSeparator}>{" > "}</span>
 
-        <Link to={routesPaths.projects} className={styles.breadcrumbLink}>
-          {t("navigation.projects", "Каталог проектов")}
-        </Link>
-      </nav>
+          <Link to={routesPaths.projects} className={styles.breadcrumbLink}>
+            {t("navigation.projects", "Каталог проектов")}
+          </Link>
+        </nav>
 
-      <div className={styles.headerRow}>
-        <h1 className={styles.title}>{t("projects.title", "Проекты")}</h1>
+        <div className={styles.headerRow}>
+          <h1 className={styles.title}>{t("projects.title", "Проекты")}</h1>
 
-        <ProjectsSearch value={localSearch} onChange={setLocalSearch} />
-      </div>
-
-      <div className={styles.filtersRow}>
-        {/* Фильтры отображаются только после загрузки данных */}
-        {!loadingCategories && categories.length > 0 && (
-          <TypeFilter
-            categories={categories}
-            selectedType={urlType || null}
-            onChange={(newType) =>
-              updateFilters({
-                type: newType || "",
-              })
-            }
-          />
-        )}
-
-        {!loadingTags && availableTags.length > 0 && (
-          <TagsFilter
-            tags={availableTags}
-            selectedTags={urlTags}
-            onChange={handleTagsChange}
-          />
-        )}
-      </div>
-
-      {/* Результаты */}
-      {isFetching && (
-        <div className={styles.fetching} role="status" aria-live="polite">
-          {t("projects.loading", "Загрузка...")}
+          <ProjectsSearch value={localSearch} onChange={setLocalSearch} />
         </div>
-      )}
 
-      {isEmpty ? (
-        <div className={styles.empty} role="status" aria-live="polite">
-          {t("projects.empty", "Проекты не найдены")}
-        </div>
-      ) : (
-        <>
-          <ProjectsList projects={projectsData?.items || []} />
-
-          {/* Пагинация */}
-          {totalPages > 1 && (
-            <nav
-              className={styles.pagination}
-              aria-label={t("pagination.label", "Пагинация проектов")}
-            >
-              <button
-                onClick={() => goToPage(page - 1)}
-                disabled={page === 1}
-                className={styles.paginationButton}
-                aria-label={t("pagination.previous", "Предыдущая страница")}
-                aria-disabled={page === 1}
-              >
-                {"<"}
-              </button>
-
-              <div className={styles.pageNumbers}>
-                {visiblePages.map((item, index) =>
-                  item === "..." ? (
-                    <span key={`ellipsis-${index}`} className={styles.ellipsis}>
-                      ...
-                    </span>
-                  ) : (
-                    <button
-                      key={item}
-                      onClick={() => goToPage(item as number)}
-                      className={`${styles.paginationButton} ${
-                        item === page ? styles.active : ""
-                      }`}
-                      aria-label={t("pagination.page", "Страница {{page}}", {
-                        page: item,
-                      })}
-                      aria-current={item === page ? "page" : undefined}
-                    >
-                      {item}
-                    </button>
-                  ),
-                )}
-              </div>
-
-              <button
-                onClick={() => goToPage(page + 1)}
-                disabled={!projectsData?.pagination.isNext}
-                className={styles.paginationButton}
-                aria-label={t("pagination.next", "Следующая страница")}
-                aria-disabled={!projectsData?.pagination.isNext}
-              >
-                {">"}
-              </button>
-            </nav>
+        <div className={styles.filtersRow}>
+          {/* Фильтры отображаются только после загрузки данных */}
+          {!loadingCategories && categories.length > 0 && (
+            <TypeFilter
+              categories={categories}
+              selectedType={urlType || null}
+              onChange={(newType) =>
+                updateFilters({
+                  type: newType || "",
+                })
+              }
+            />
           )}
-          
-        </>
-      )}
+
+          {!loadingTags && availableTags.length > 0 && (
+            <TagsFilter
+              tags={availableTags}
+              selectedTags={urlTags}
+              onChange={handleTagsChange}
+            />
+          )}
+        </div>
+
+        {/* Результаты */}
+        {isFetching && (
+          <div className={styles.fetching} role="status" aria-live="polite">
+            {t("projects.loading", "Загрузка...")}
+          </div>
+        )}
+
+        {isEmpty ? (
+          <div className={styles.empty} role="status" aria-live="polite">
+            {t("projects.empty", "Проекты не найдены")}
+          </div>
+        ) : (
+          <>
+            <ProjectsList projects={projectsData?.items || []} />
+
+            {/* Пагинация */}
+            {totalPages > 1 && (
+              <nav
+                className={styles.pagination}
+                aria-label={t("pagination.label", "Пагинация проектов")}
+              >
+                <button
+                  onClick={() => goToPage(page - 1)}
+                  disabled={page === 1}
+                  className={styles.paginationButton}
+                  aria-label={t("pagination.previous", "Предыдущая страница")}
+                  aria-disabled={page === 1}
+                >
+                  {"<"}
+                </button>
+
+                <div className={styles.pageNumbers}>
+                  {visiblePages.map((item, index) =>
+                    item === "..." ? (
+                      <span
+                        key={`ellipsis-${index}`}
+                        className={styles.ellipsis}
+                      >
+                        ...
+                      </span>
+                    ) : (
+                      <button
+                        key={item}
+                        onClick={() => goToPage(item as number)}
+                        className={`${styles.paginationButton} ${
+                          item === page ? styles.active : ""
+                        }`}
+                        aria-label={t("pagination.page", "Страница {{page}}", {
+                          page: item,
+                        })}
+                        aria-current={item === page ? "page" : undefined}
+                      >
+                        {item}
+                      </button>
+                    ),
+                  )}
+                </div>
+
+                <button
+                  onClick={() => goToPage(page + 1)}
+                  disabled={!projectsData?.pagination.isNext}
+                  className={styles.paginationButton}
+                  aria-label={t("pagination.next", "Следующая страница")}
+                  aria-disabled={!projectsData?.pagination.isNext}
+                >
+                  {">"}
+                </button>
+              </nav>
+            )}
+          </>
+        )}
       </div>
       <ContactSection />
     </div>

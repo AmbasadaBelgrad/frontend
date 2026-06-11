@@ -24,7 +24,7 @@
   text-decoration: underline;
   text-decoration-style: solid;
   text-underline-offset: 25%;
-  text-decoration-thickness: 0%; 
+  text-decoration-thickness: 0%;
   text-decoration-skip-ink: auto;
 }
 
@@ -137,12 +137,12 @@
 
   .mobileItem:hover,
   .mobileItem.focus {
-  text-decoration: underline;
-  text-decoration-style: solid;
-  text-underline-offset: 25%;
-  text-decoration-thickness: 0%; 
-  text-decoration-skip-ink: auto;
-}
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-underline-offset: 25%;
+    text-decoration-thickness: 0%;
+    text-decoration-skip-ink: auto;
+  }
 
   .mobileItem.active {
     color: var(--black);
