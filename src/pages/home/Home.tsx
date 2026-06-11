@@ -1,8 +1,9 @@
 import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
-import ContactSection from "@/widgets/contact-section/ContactSection";
-import { routesPaths } from "@shared/config/routesPaths.ts";
-import React from "react";
 import { Link } from "react-router-dom";
+import { routesPaths } from "@shared/config/routesPaths";
+import { SectionTeam } from "./ui/section-team";
+import ContactSection from "@/widgets/contact-section/ContactSection";
+import React from "react";
 import styles from "./Home.module.css";
 
 export const Home: React.FC = () => {
@@ -27,7 +28,7 @@ export const Home: React.FC = () => {
         <Link to={routesPaths.projects}>Проекты</Link>
         {/* HeroSection */}
         {/* AboutSection */}
-        {/* TeamSection */}
+        <SectionTeam teamPreview={data.team_preview} />
         {/* ProjectsSection */}
       </div>
       <ContactSection />
