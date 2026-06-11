@@ -1,8 +1,8 @@
 import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
+import ContactSection from "@/widgets/contact-section/ContactSection";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import React from "react";
 import { Link } from "react-router-dom";
-import ContactSection from "@/widgets/contact-section/ContactSection";
 import styles from "./Home.module.css";
 
 export const Home: React.FC = () => {

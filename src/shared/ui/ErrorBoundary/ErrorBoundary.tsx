@@ -24,13 +24,28 @@ export class ErrorBoundary extends Component<
     };
   }
 
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    const { onError } = this.props;
+
+    if (onError) {
+      onError(error, errorInfo);
+    }
+  }
+
+  resetErrorBoundary = (): void => {
+    this.setState({
+      hasError: false,
+    });
+  };
+
   render(): ReactNode {
     const { hasError } = this.state;
+    const { children } = this.props;
 
     if (hasError) {
-      return <ErrorFallback />;
+      return <ErrorFallback resetError={this.resetErrorBoundary} />;
     }
 
-    return this.props.children;
+    return children;
   }
 }

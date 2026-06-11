@@ -118,6 +118,7 @@
   },
   "errorBoundary": {
     "buttonText": "Nazad",
-    "title": "Nešto nije u redu. Neko je već ovde postavio ogradu."
+    "title": "Nešto nije u redu. Neko je već ovde postavio ogradu.",
+    "resetButtonText": "Pokušajte ponovo"
   }
 }

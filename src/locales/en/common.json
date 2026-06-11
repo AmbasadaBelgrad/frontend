@@ -114,6 +114,7 @@
   },
   "errorBoundary": {
     "buttonText": "Go Back",
-    "title": "Something went wrong. Someone has already put up a fence here."
+    "title": "Something went wrong. Someone has already put up a fence here.",
+    "resetButtonText": "Try again"
   }
 }
