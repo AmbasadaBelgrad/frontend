@@ -16,12 +16,36 @@
   "team_preview": {
     "title": "Команда",
     "members": [
-      { "name": "Анна Соколова", "role": "Архитектор", "photo": "/images/photomember.png" },
-      { "name": "Федор Докукин", "role": "Дизайнер", "photo": "/images/photomember.png" },
-      { "name": "Алексей Радченко", "role": "Архитектор", "photo": "/images/photomember.png"},
-      { "name": "Александра Карягина", "role": "Дизайнер", "photo": "/images/photomember.png" },
-      { "name": "Имя Фамилия", "role": "Архитектор", "photo": "/images/photomember.png" },
-      { "name": "Имя Фамилия", "role": "Дизайнер", "photo": "/images/photomember.png" }
+      {
+        "name": "Анна Соколова",
+        "role": "Архитектор",
+        "photo": "/images/photomember.png"
+      },
+      {
+        "name": "Федор Докукин",
+        "role": "Дизайнер",
+        "photo": "/images/photomember.png"
+      },
+      {
+        "name": "Алексей Радченко",
+        "role": "Архитектор",
+        "photo": "/images/photomember.png"
+      },
+      {
+        "name": "Александра Карягина",
+        "role": "Дизайнер",
+        "photo": "/images/photomember.png"
+      },
+      {
+        "name": "Имя Фамилия",
+        "role": "Архитектор",
+        "photo": "/images/photomember.png"
+      },
+      {
+        "name": "Имя Фамилия",
+        "role": "Дизайнер",
+        "photo": "/images/photomember.png"
+      }
     ],
     "action_button": {
       "label": "Присоединиться к команде",
@@ -37,7 +61,15 @@
         "title": "Звездарска шума",
         "description": "Мы создали визуально-аналитическую базу, которая объясняет, как Звездарский лес функционирует сегодня и какие изменения могут сделать его более комфортным",
         "project_type": "Навигация",
-        "tags": ["2024-2026", "исследования", "парк", "брендинг","навигация", "экология", "лес" ],
+        "tags": [
+          "2024-2026",
+          "исследования",
+          "парк",
+          "брендинг",
+          "навигация",
+          "экология",
+          "лес"
+        ],
         "year": "2023",
         "image": "/images/01.jpg",
         "isFirst": true,
