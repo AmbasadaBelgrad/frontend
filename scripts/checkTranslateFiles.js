@@ -92,17 +92,21 @@ function compareTranslations() {
   }
 
   const referenceKeys = translations[referenceLang].keys;
+  const referenceKeysSet = new Set(referenceKeys); // Создаем Set для базового языка
   const results = {};
 
   // Проверяем каждый язык
   for (const [lang, translation] of Object.entries(translations)) {
     if (lang === referenceLang) continue;
 
+    const translationKeysSet = new Set(translation.keys); // Создаем Set для текущего языка
+
+    // Используем Set для быстрого поиска
     const missingKeys = referenceKeys.filter(
-      (key) => !translation.keys.includes(key),
+      (key) => !translationKeysSet.has(key),
     );
     const extraKeys = translation.keys.filter(
-      (key) => !referenceKeys.includes(key),
+      (key) => !referenceKeysSet.has(key),
     );
 
     results[lang] = {
