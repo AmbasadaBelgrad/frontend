@@ -3,7 +3,6 @@
   max-width: 1356px;
   height: 927px;
   overflow: hidden;
-  margin-bottom: 100px;
 }
 
 /* =========================
@@ -253,12 +252,23 @@
   .breadcrumbsWrapper {
     left: 40px;
     top: 38.7px;
+    transform: translateY(1px);
   }
 
   .breadcrumbs {
     font: var(--tablet_main);
-    gap: 20px;
+    gap: 36px;
     align-items: center;
+  }
+
+  .breadcrumbSeparator {
+    letter-spacing: -1em;
+    transform: translateY(-1.7px);
+  }
+
+  .breadcrumbCurrent {
+    margin-left: -6px;
+    transform: translateX(1px);
   }
 
   /* =========================
