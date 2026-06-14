@@ -122,10 +122,18 @@
   "navigation": {
     "home": "Главная",
     "projects": "Каталог проектов",
-    "breadcrumbs": "Навигация"
+    "breadcrumbs": "Навигация",
+    "contacts": "Связаться с нами"
   },
   "cookieConsent": {
     "ariaLabel": "Уведомление об использовании cookies",
     "acceptButtonAriaLabel": "Принять cookies"
+  },
+  "contacts": {
+    "titleDesktop": "Свяжитесь с нами любым удобным образом",
+    "titleTablet": "Свяжитесь любым удобным образом",
+    "call": "Позвонить",
+    "write": "Написать",
+    "visitOffice": "Приехать в офис"
   }
 }

@@ -110,10 +110,18 @@
   "navigation": {
     "home": "Почетна",
     "projects": "Каталог пројеката",
-    "breadcrumbs": "Навигација"
+    "breadcrumbs": "Навигација",
+    "contacts": "Контактирајте нас"
   },
   "cookieConsent": {
     "ariaLabel": "Обавештење о коришћењу колачића",
     "acceptButtonAriaLabel": "Прихвати колачиће"
+  },
+  "contacts": {
+    "titleDesktop": "Контактирајте нас на било који погодан начин",
+    "titleTablet": "Контактирајте нас на погодан начин",
+    "call": "Позовите",
+    "write": "Пишите нам",
+    "visitOffice": "Посетите нашу канцеларију"
   }
 }

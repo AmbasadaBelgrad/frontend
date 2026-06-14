@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useViewportWidth } from "@/shared/lib/useWidthViewPort";
 import styles from "./ContactsHero.module.css";
 import type { ContactsHeroProps } from "./types";
@@ -8,15 +9,16 @@ export const ContactsHero = ({
   address,
   socials,
 }: ContactsHeroProps) => {
+  const { t } = useTranslation("common");
   const { isMobile, isTablet } = useViewportWidth();
+
   const title =
     isMobile || isTablet
-      ? "Свяжитесь любым удобным образом"
-      : "Свяжитесь с нами любым удобным образом";
+      ? t("contacts.titleTablet", "Свяжитесь любым удобным образом")
+      : t("contacts.titleDesktop", "Свяжитесь с нами любым удобным образом");
 
   return (
     <section className={styles.hero}>
-      {/* Фон-карта (самый нижний слой) */}
       <div className={styles.mapWrapper}>
         <img
           src="/mapImage.png"
@@ -25,15 +27,10 @@ export const ContactsHero = ({
         />
       </div>
 
-      {/* Цветной слой поверх карты */}
-      <div
-        className={styles.backgroundShape}
-        aria-hidden="true"
-      />
+      <div className={styles.backgroundShape} aria-hidden="true" />
 
-      {/* Хлебные крошки */}
       <nav
-        aria-label="Хлебные крошки"
+        aria-label={t("navigation.breadcrumbs", "Навигация")}
         className={styles.breadcrumbsWrapper}
       >
         <ul className={styles.breadcrumbs}>
@@ -41,34 +38,27 @@ export const ContactsHero = ({
             <Link
               to="/"
               className={styles.breadcrumbLink}
-              aria-label="Перейти на главную страницу"
+              aria-label={t("navigation.home", "Главная")}
             >
-              Главная
+              {t("navigation.home", "Главная")}
             </Link>
           </li>
 
-          <li
-            aria-hidden="true"
-            className={styles.breadcrumbSeparator}
-          >
+          <li aria-hidden="true" className={styles.breadcrumbSeparator}>
             &gt;
           </li>
 
-          <li
-            aria-current="page"
-            className={styles.breadcrumbCurrent}
-          >
-            Связаться с нами
+          <li aria-current="page" className={styles.breadcrumbCurrent}>
+            {t("navigation.contacts", "Связаться с нами")}
           </li>
         </ul>
       </nav>
 
-      {/* Контент */}
       <div className={styles.info}>
         <h1 className={styles.title}>{title}</h1>
 
         <div className={styles.contactBlock}>
-          <h2 className={styles.subtitle}>Позвонить</h2>
+          <h2 className={styles.subtitle}>{t("contacts.call", "Позвонить")}</h2>
 
           <a href={`tel:${phone}`} className={styles.link}>
             {phone}
@@ -76,14 +66,11 @@ export const ContactsHero = ({
         </div>
 
         <div className={styles.contactBlock}>
-          <h2 className={styles.subtitle}>Написать</h2>
+          <h2 className={styles.subtitle}>{t("contacts.write", "Написать")}</h2>
 
           <ul className={styles.socials}>
             {socials.map((social) => (
-              <li
-                key={social.id}
-                className={styles.socialItem}
-              >
+              <li key={social.id} className={styles.socialItem}>
                 <a
                   href={social.href}
                   aria-label={social.label}
@@ -104,12 +91,10 @@ export const ContactsHero = ({
 
         <div className={styles.contactBlock}>
           <h2 className={styles.subtitle}>
-            Приехать в офис
+            {t("contacts.visitOffice", "Приехать в офис")}
           </h2>
 
-          <address className={styles.address}>
-            {address}
-          </address>
+          <address className={styles.address}>{address}</address>
         </div>
       </div>
     </section>
