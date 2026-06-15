@@ -110,7 +110,8 @@
   "navigation": {
     "home": "Почетна",
     "projects": "Каталог пројеката",
-    "breadcrumbs": "Навигација"
+    "breadcrumbs": "Навигација",
+    "about": "О заједници"
   },
   "cookieConsent": {
     "ariaLabel": "Обавештење о коришћењу колачића",
