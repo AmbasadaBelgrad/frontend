@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 import MainLayout from "@pages/main";
+import { ErrorBoundary } from "@/shared/ui/ErrorBoundary";
 
 // Lazy-импорты страниц (code splitting по роутам)
 const Home = lazy(() => import("@pages/home"));
@@ -17,16 +18,63 @@ export const AppRouter: React.FC = () => {
     <Suspense fallback={<div className="loading">Загрузка приложения...</div>}>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path={routesPaths.home} element={<Home />} />
-          <Route path={routesPaths.projects} element={<ProjectsPage />} />
+          {/* Оборачиваем каждый маршрут в ErrorBoundary */}
+          <Route
+            path={routesPaths.home}
+            element={
+              <ErrorBoundary>
+                <Home />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path={routesPaths.projects}
+            element={
+              <ErrorBoundary>
+                <ProjectsPage />
+              </ErrorBoundary>
+            }
+          />
           <Route
             path={routesPaths.projectDetails}
-            element={<ProjectDetails />}
+            element={
+              <ErrorBoundary>
+                <ProjectDetails />
+              </ErrorBoundary>
+            }
           />
-          <Route path={routesPaths.about} element={<About />} />
-          <Route path={routesPaths.contacts} element={<Contacts />} />
-          <Route path={routesPaths.policy} element={<Policy />} />
-          <Route path={routesPaths.notFound} element={<NotFound />} />
+          <Route
+            path={routesPaths.about}
+            element={
+              <ErrorBoundary>
+                <About />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path={routesPaths.contacts}
+            element={
+              <ErrorBoundary>
+                <Contacts />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path={routesPaths.policy}
+            element={
+              <ErrorBoundary>
+                <Policy />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path={routesPaths.notFound}
+            element={
+              <ErrorBoundary>
+                <NotFound />
+              </ErrorBoundary>
+            }
+          />
         </Route>
       </Routes>
     </Suspense>
