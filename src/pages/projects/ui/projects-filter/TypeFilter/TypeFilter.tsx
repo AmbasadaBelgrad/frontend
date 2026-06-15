@@ -20,9 +20,9 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   // Фильтруем категории, убирая "Все" если она есть в массиве
-  const filteredCategories = categories.filter(
-    (cat) => cat.id !== ALL_ID && cat.label !== "Все",
-  );
+  // const filteredCategories = categories.filter(
+  //   (cat) => cat.id !== ALL_ID && cat.label !== "Все",
+  // );
 
   // Закрытие дропдауна при клике вне его
   useEffect(() => {
@@ -74,7 +74,7 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
           {t("projects.allProjects", "Все")}
         </button>
         {/* Остальные категории */}
-        {filteredCategories.map((category) => (
+        {categories.map((category) => (
           <button
             key={category.id}
             type="button"
@@ -121,7 +121,7 @@ export const TypeFilter: React.FC<ITypeFilterProps> = ({
             </button>
 
             {/* Остальные категории */}
-            {filteredCategories.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category.id}
                 type="button"

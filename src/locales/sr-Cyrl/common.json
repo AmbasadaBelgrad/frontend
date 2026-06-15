@@ -127,5 +127,10 @@
   "cookieConsent": {
     "ariaLabel": "Обавештење о коришћењу колачића",
     "acceptButtonAriaLabel": "Прихвати колачиће"
+  },
+  "errorBoundary": {
+    "buttonText": "Назад",
+    "title": "Нешто није у реду. Неко је већ овде поставио ограду.",
+    "resetButtonText": "Покушајте поново"
   }
 }
