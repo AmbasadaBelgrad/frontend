@@ -1,8 +1,8 @@
 .socials {
   display: flex;
-  gap: 12px;                 /* gap одинаков для всех разрешений */
+  gap: 12px; /* gap одинаков для всех разрешений */
   align-items: center;
-  width: 248px;              /* desktop */
+  width: 248px; /* desktop */
   max-width: 100%;
 }
 
@@ -15,10 +15,10 @@
 }
 
 .icon {
-  width: 40px;               /* desktop: иконки 40x40 */
+  width: 40px; /* desktop: иконки 40x40 */
   height: 40px;
   display: block;
-  color: var(--white);            /* белый цвет SVG */
+  color: var(--white); /* белый цвет SVG */
 }
 
 .iconLink:hover {
@@ -39,7 +39,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .socials {
-    width: 201px;            /* точная ширина из Figma tablet */
+    width: 201px; /* точная ширина из Figma tablet */
     justify-content: center; /* центрируем иконки */
     transform: translate(14px, 7px);
     gap: 16px;
@@ -56,7 +56,7 @@
 @media (max-width: 768px) {
   .socials {
     width: 201px;
-    gap: 16px; 
+    gap: 16px;
     margin-top: 4px;
     flex-grow: 0;
     transform: translate(-1px, -1px);

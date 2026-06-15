@@ -18,7 +18,7 @@
   z-index: 1;
   box-sizing: border-box;
   height: 298px;
-  position: relative;           /* для абсолютного позиционирования паттерна */
+  position: relative; /* для абсолютного позиционирования паттерна */
 }
 
 /* TOP ROW */
@@ -136,7 +136,7 @@ button:focus:not(:focus-visible) {
 /* ========== ДЕКОРАТИВНЫЙ ПАТТЕРН ========== */
 .pattern {
   position: absolute;
-  right: 0;                  /* прижат к правому краю контента */
+  right: 0; /* прижат к правому краю контента */
   top: -32px;
   width: 592px;
   height: 362px;
@@ -155,7 +155,7 @@ button:focus:not(:focus-visible) {
 .rect138 {
   width: 287.68px;
   height: 284.53px;
-  left: 302.79px;            /* 1150.79 - 848 */
+  left: 302.79px; /* 1150.79 - 848 */
   top: 0;
   border: 1px solid rgba(26, 26, 26, 0.15);
 }
@@ -170,13 +170,13 @@ button:focus:not(:focus-visible) {
   width: 62.64px;
   height: 62.38px;
   left: 302.79px;
-  top: 74.22px;               /* 42.22 + 32 (смещение top) */
+  top: 74.22px; /* 42.22 + 32 (смещение top) */
   /* без фона */
 }
 .rect143 {
   width: 62.38px;
   height: 62.38px;
-  left: 378.07px;            /* 1226.07 - 848 */
+  left: 378.07px; /* 1226.07 - 848 */
   top: 74.22px;
   background: rgba(26, 26, 26, 0.05);
 }
@@ -219,7 +219,7 @@ button:focus:not(:focus-visible) {
   width: 62.38px;
   height: 62.38px;
   left: 453.34px;
-  top: 150.03px;             /* 118.03 + 32 */
+  top: 150.03px; /* 118.03 + 32 */
   /* без фона */
 }
 .rect153 {
@@ -276,8 +276,8 @@ button:focus:not(:focus-visible) {
 .rect138b {
   width: 287.68px;
   height: 284.53px;
-  left: 0.79px;              /* 848.79 - 848 */
-  top: 76.11px;              /* 44.11 + 32 */
+  left: 0.79px; /* 848.79 - 848 */
+  top: 76.11px; /* 44.11 + 32 */
   border: 1px solid rgba(26, 26, 26, 0.15);
 }
 .rect139b {
@@ -391,7 +391,6 @@ button:focus:not(:focus-visible) {
 }
 
 @media (max-width: 1300px) and (min-width: 1025px) {
-  
   .topRow {
     padding: 0 40px;
     justify-content: space-between;
@@ -453,7 +452,7 @@ button:focus:not(:focus-visible) {
     gap: 10px;
   }
 
-  .logoImage{
+  .logoImage {
     width: 66px;
     transform: translateY(7px);
   }
@@ -801,9 +800,22 @@ button:focus:not(:focus-visible) {
   }
 
   /* Скрываем все левые прямоугольники, кроме rect153b */
-  .rect138b, .rect139b, .rect140b, .rect143b, .rect146b, .rect147b, .rect148b,
-  .rect149b, .rect150b, .rect151b, .rect144b, .rect141b, .rect145b, .rect152b,
-  .rect154b, .rect142b {
+  .rect138b,
+  .rect139b,
+  .rect140b,
+  .rect143b,
+  .rect146b,
+  .rect147b,
+  .rect148b,
+  .rect149b,
+  .rect150b,
+  .rect151b,
+  .rect144b,
+  .rect141b,
+  .rect145b,
+  .rect152b,
+  .rect154b,
+  .rect142b {
     display: none;
   }
 
@@ -814,8 +826,8 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 234.26px;
     height: 214.99px;
-    left: 61.16px;   /* 229.54 - 168.38 */
-    top: 0;          /* 3 - 3 */
+    left: 61.16px; /* 229.54 - 168.38 */
+    top: 0; /* 3 - 3 */
     border: 1px solid rgba(26, 26, 26, 0.15);
     background: transparent;
   }
@@ -834,7 +846,7 @@ button:focus:not(:focus-visible) {
     width: 51.01px;
     height: 47.13px;
     left: 61.16px;
-    top: 56.08px;   /* 59.08 - 3 */
+    top: 56.08px; /* 59.08 - 3 */
     background: transparent;
   }
   .rect143 {
@@ -842,7 +854,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.13px;
-    left: 122.46px;  /* 290.84 - 168.38 */
+    left: 122.46px; /* 290.84 - 168.38 */
     top: 56.08px;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -860,7 +872,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 46.93px;
-    left: 183.76px;  /* 352.14 - 168.38 */
+    left: 183.76px; /* 352.14 - 168.38 */
     top: 0;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -869,7 +881,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 46.93px;
-    left: 245.06px;  /* 413.44 - 168.38 */
+    left: 245.06px; /* 413.44 - 168.38 */
     top: 0;
     background: transparent;
   }
@@ -897,7 +909,7 @@ button:focus:not(:focus-visible) {
     width: 50.8px;
     height: 47.13px;
     left: 183.76px;
-    top: 113.36px;  /* 116.36 - 3 */
+    top: 113.36px; /* 116.36 - 3 */
     background: transparent;
   }
   .rect153 {
@@ -905,7 +917,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.13px;
-    left: 245.91px;  /* 414.29 - 168.38 */
+    left: 245.91px; /* 414.29 - 168.38 */
     top: 113.36px;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -923,8 +935,8 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.13px;
-    left: 60.52px;   /* 228.9 - 168.38 */
-    top: 112.17px;   /* 115.17 - 3 */
+    left: 60.52px; /* 228.9 - 168.38 */
+    top: 112.17px; /* 115.17 - 3 */
     background: rgba(26, 26, 26, 0.05);
   }
   .rect145 {
@@ -932,8 +944,8 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.33px;
-    left: 122.03px;  /* 290.41 - 168.38 */
-    top: 168.85px;   /* 171.85 - 3 */
+    left: 122.03px; /* 290.41 - 168.38 */
+    top: 168.85px; /* 171.85 - 3 */
     background: rgba(26, 26, 26, 0.05);
   }
   .rect152 {
@@ -941,7 +953,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.33px;
-    left: 183.33px;  /* 351.71 - 168.38 */
+    left: 183.33px; /* 351.71 - 168.38 */
     top: 168.85px;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -950,7 +962,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.33px;
-    left: 244.63px;  /* 413.01 - 168.38 */
+    left: 244.63px; /* 413.01 - 168.38 */
     top: 168.85px;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -959,7 +971,7 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 51.01px;
     height: 47.33px;
-    left: 60.74px;   /* 229.12 - 168.38 */
+    left: 60.74px; /* 229.12 - 168.38 */
     top: 168.85px;
     background: rgba(26, 26, 26, 0.05);
   }
@@ -969,8 +981,8 @@ button:focus:not(:focus-visible) {
     position: absolute;
     width: 50.8px;
     height: 47.13px;
-    left: 0;          /* 168.38 - 168.38 */
-    top: 170.87px;    /* 173.87 - 3 */
+    left: 0; /* 168.38 - 168.38 */
+    top: 170.87px; /* 173.87 - 3 */
     background: rgba(26, 26, 26, 0.05);
   }
 }

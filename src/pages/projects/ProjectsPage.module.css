@@ -21,7 +21,7 @@
   text-decoration: underline;
   text-decoration-style: solid;
   text-underline-offset: 25%;
-  text-decoration-thickness: 0%; 
+  text-decoration-thickness: 0%;
   text-decoration-skip-ink: auto;
 }
 
@@ -43,12 +43,11 @@
 
 .filtersRow {
   display: flex;
-  flex-direction: column; 
-  gap: 36px;              
+  flex-direction: column;
+  gap: 36px;
   width: 100%;
   padding-top: 24px;
   padding-bottom: 24px;
-  
 }
 
 .fetching,
@@ -64,7 +63,6 @@
   align-items: center;
   padding-top: 40px;
   padding-bottom: 120px;
-  
 }
 
 .pageNumbers {
@@ -121,32 +119,31 @@
   }
 
   .headerRow {
-  padding-block: 28px;
-}
+    padding-block: 28px;
+  }
 
   .title {
-  font: var(--tablet_h2);
-  letter-spacing: -2%;
-}
+    font: var(--tablet_h2);
+    letter-spacing: -2%;
+  }
 
-.filtersRow {
-  padding-bottom: 20px;
-}
+  .filtersRow {
+    padding-bottom: 20px;
+  }
 
-.loader,
-.empty {
-  font: var(--tablet_h2);
-}
+  .loader,
+  .empty {
+    font: var(--tablet_h2);
+  }
 
-.pagination {
-  padding-top: 20px;
-  padding-bottom: 100px;
-  
-}
+  .pagination {
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
 
-.paginationButton {
-  font: var(--tablet_main);
-}
+  .paginationButton {
+    font: var(--tablet_main);
+  }
 }
 
 @media (max-width: 833px) {
@@ -168,10 +165,10 @@
     letter-spacing: -2%;
   }
 
-   .filtersRow {
+  .filtersRow {
     display: flex;
     flex-direction: column-reverse;
-    gap: 32px;              
+    gap: 32px;
     padding-top: 2px;
     padding-bottom: 20px;
   }
@@ -180,17 +177,16 @@
   .loader,
   .empty {
     font: var(--mobile_h2);
-  } 
+  }
 
   .pagination {
-  padding-top: 24px;
-  padding-bottom: 106px;
-}
+    padding-top: 24px;
+    padding-bottom: 106px;
+  }
 
-.paginationButton {
-  font: var(--mobile_main);
-  width: 24px;
-  height: 24px;
-}
-
+  .paginationButton {
+    font: var(--mobile_main);
+    width: 24px;
+    height: 24px;
+  }
 }

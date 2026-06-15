@@ -95,11 +95,11 @@
 
   /* Закрытое состояние – только иконка справа */
   .searchWrapper:not(.open) {
-    padding: 0;               
-    justify-content: flex-end; 
+    padding: 0;
+    justify-content: flex-end;
     gap: 0;
     border: none;
-    padding-right: 10px; 
+    padding-right: 10px;
   }
 
   /* Поле ввода и крестик скрываем, когда поиск закрыт */
@@ -122,9 +122,9 @@
   }
 
   .searchIcon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;  
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 
   .searchInput {

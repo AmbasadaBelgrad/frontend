@@ -2,7 +2,7 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  padding: var(--spacing-15)var(--spacing-5);
+  padding: var(--spacing-15) var(--spacing-5);
   background-color: var(--bg_color);
   display: flex;
   flex-direction: column;
@@ -98,7 +98,8 @@ button:focus-visible {
 /* tablet */
 @media (min-width: 834px) and (max-width: 1439px) {
   .container_mainInfo {
-    padding: clamp(1rem, -2.7847rem + 7.2607vw, 3.75rem) var(--spacing-5) clamp(1.875rem, -6.3553rem + 15.7895vw, 3.75rem);
+    padding: clamp(1rem, -2.7847rem + 7.2607vw, 3.75rem) var(--spacing-5)
+      clamp(1.875rem, -6.3553rem + 15.7895vw, 3.75rem);
   }
 
   .infoBlock {

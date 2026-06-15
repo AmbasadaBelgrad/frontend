@@ -2810,7 +2810,6 @@
         "link": "/projects/{id}"
       }
     }
-
   ],
   "pagination": {
     "totalItems": 80,

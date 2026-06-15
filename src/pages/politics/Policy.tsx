@@ -1,12 +1,34 @@
+import { usePolicyQuery } from "@/entities/policy";
+import { safeCode } from "@/shared/lib/safeCode"; // 👈 импортируем функцию
+import { QueryStateFallback } from "@/shared/ui/QueryStateFallback";
 import React from "react";
-import { Link } from "react-router-dom";
-import { routesPaths } from "@shared/config/routesPaths.ts";
+import styles from "./Policy.module.css";
 
 export const Policy: React.FC = () => {
+  const { data: policyHtml, isLoading, isError, error } = usePolicyQuery();
+
+  if (isLoading || isError) {
+    return (
+      <QueryStateFallback
+        isLoading={isLoading}
+        isError={isError}
+        error={error}
+      />
+    );
+  }
+
+  if (!policyHtml) {
+    return null;
+  }
+
+  const sanitizedHtml = safeCode(policyHtml);
+
   return (
-    <div>
-      <h1>Политика конфиденциальности</h1>
-      <Link to={routesPaths.home}>На главную</Link>
+    <div className={styles.container}>
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+      />
     </div>
   );
 };

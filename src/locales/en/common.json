@@ -121,7 +121,8 @@
   "navigation": {
     "home": "Home",
     "projects": "Project Catalog",
-    "breadcrumbs": "Breadcrumbs"
+    "breadcrumbs": "Breadcrumbs",
+    "about": "About the community"
   },
   "cookieConsent": {
     "ariaLabel": "Cookie usage notification",
