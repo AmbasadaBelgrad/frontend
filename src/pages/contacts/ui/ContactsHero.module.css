@@ -371,7 +371,7 @@
   ========================= */
   .info {
     position: absolute;
-    top: -58px;
+    top: 20px;
     left: 20px; 
     width: 335px;
     height: auto;
@@ -382,15 +382,14 @@
      TITLE (mobile H2)
   ========================= */
   .title {
-    font: var(--mobile_h2); 
-    letter-spacing: -0.02em;
+    display: none;
   }
 
   /* =========================
      CONTACT BLOCKS
   ========================= */
   .contactBlock {
-    max-width: 261px;
+    max-width: 320px;
     gap: 12px;
   }
 
