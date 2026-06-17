@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./Home.module.css";
 import { useHomeQuery } from "@/entities/home/model/useHomeQuery";
 import { Link } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
-import { SectionHero } from "./ui/section-hero/index";
-import { SectionProjects } from "./ui/section-projects";
 import { SectionTeam } from "./ui/section-team";
 import ContactSection from "@/widgets/contact-section/ContactSection";
-import { AboutCommunity } from "./ui/AboutCommunity/AboutCommunity.tsx";
+import React from "react";
+import styles from "./Home.module.css";
+import { AboutCommunity } from "./ui/AboutCommunity/AboutCommunity";
+import { SectionHero } from "./ui/section-hero";
+import { SectionProjects } from "./ui/section-projects";
 
 export const Home: React.FC = () => {
   const { data, isLoading, isError, error } = useHomeQuery();
@@ -33,6 +33,8 @@ export const Home: React.FC = () => {
         <AboutCommunity aboutPreview={data.about_preview} />
         <SectionTeam teamPreview={data.team_preview} />
         <SectionProjects projects_preview={data.projects_preview} />
+        <SectionTeam teamPreview={data.team_preview} />
+        {/* ProjectsSection */}
       </div>
       <ContactSection />
     </>

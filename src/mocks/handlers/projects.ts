@@ -20,15 +20,15 @@ export const projectHandlers = [
 
     // фильтр по типу проекта
     if (projectType) {
-      filtered = filtered.filter(
-        (p) => p.project_type.toLowerCase() === projectType.toLowerCase(),
-      );
+      filtered = filtered.filter((p) => p.project_type === projectType);
     }
 
     // фильтр по тегу
     if (tag) {
+      const selectedTags = tag.split(",").map((tag) => tag.toLowerCase());
+
       filtered = filtered.filter((p) =>
-        p.tags.some((t) => t.toLowerCase() === tag.toLowerCase()),
+        p.tags.some((t) => selectedTags.includes(t.toLowerCase())),
       );
     }
 
@@ -55,7 +55,9 @@ export const projectHandlers = [
 
   // GET /projects/categories
   http.get("/api/v1/projects/categories", () => {
-    return HttpResponse.json(categories);
+    return HttpResponse.json({
+      types: categories,
+    });
   }),
 
   // GET /projects/predefined-categories
