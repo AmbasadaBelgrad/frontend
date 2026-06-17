@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useViewportWidth } from "@/shared/lib/useWidthViewPort";
 import styles from "./ContactsHero.module.css";
 import type { ContactsHeroProps } from "./types";
+import { useEmail } from "@/shared/lib/useEmail";
 
 export const ContactsHero = ({
   phone,
@@ -69,23 +70,25 @@ export const ContactsHero = ({
           <h2 className={styles.subtitle}>{t("contacts.write", "Написать")}</h2>
 
           <ul className={styles.socials}>
-            {socials.map((social) => (
-              <li key={social.id} className={styles.socialItem}>
-                <a
-                  href={social.href}
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                >
-                  <img
-                    src={`/icons_socials/${social.id.toLowerCase()}.svg`}
-                    alt=""
-                    aria-hidden="true"
-                  />
-                </a>
-              </li>
-            ))}
+            {socials.map((social) => {
+              const linkProps = useEmail(social.href, social.label);
+
+              return (
+                <li key={social.id} className={styles.socialItem}>
+                  <a
+                    aria-label={social.label}
+                    className={styles.socialLink}
+                    {...linkProps}
+                  >
+                    <img
+                      src={`/icons_socials/${social.id.toLowerCase()}.svg`}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
