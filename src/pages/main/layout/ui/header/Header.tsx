@@ -79,7 +79,7 @@ export const Header = ({ data }: HeaderProps) => {
     i18n.language.startsWith("ru");
 
   const siteName = isLocalizedLanguage
-  ? t("footer.site_name")
+  ? t("header.site_name")
   : (data?.site_name ?? "");
 
   const words = siteName.split(" ");
