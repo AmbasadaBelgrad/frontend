@@ -3,7 +3,7 @@
   top: 50%;
   right: var(--spacing-0);
   transform: translateY(-50%);
-  z-index: 3;
+  z-index: 5;
   display: flex;
   justify-content: center;
 }
@@ -33,4 +33,10 @@
 
 .link:focus-visible .icon {
   color: var(--orange_2);
+}
+
+@media (max-width: 834px) {
+  .wrapper {
+    display: none;
+  }
 }

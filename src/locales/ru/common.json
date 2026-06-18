@@ -122,10 +122,24 @@
   "navigation": {
     "home": "Главная",
     "projects": "Каталог проектов",
-    "breadcrumbs": "Навигация"
+    "breadcrumbs": "Навигация",
+    "contacts": "Связаться с нами",
+    "about": "О сообществе"
   },
   "cookieConsent": {
     "ariaLabel": "Уведомление об использовании cookies",
     "acceptButtonAriaLabel": "Принять cookies"
+  },
+  "contacts": {
+    "titleDesktop": "Свяжитесь с нами любым удобным образом",
+    "titleTablet": "Свяжитесь любым удобным образом",
+    "call": "Позвонить",
+    "write": "Написать",
+    "visitOffice": "Приехать в офис"
+  },
+  "errorBoundary": {
+    "buttonText": "Назад",
+    "title": "Что-то пошло не так. Кто-то уже поставил здесь забор.",
+    "resetButtonText": "Попробовать снова"
   }
 }

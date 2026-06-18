@@ -21,7 +21,24 @@
     "sr-Cyrl": "Српски"
   },
   "footer": {
-    "site_name": "Ambasada za urbanizam"
+    "site_name": "Амбасада за урбанизам",
+
+    "aria": {
+      "home": "На почетну"
+    },
+
+    "nav": {
+      "catalog": "Каталог пројеката",
+      "about": "О заједници",
+      "contacts": "Контактирајте нас",
+      "home": "Почетна",
+      "projects": "Пројекти"
+    },
+
+    "legal": {
+      "privacy_policy": "Политика приватности",
+      "personal_data_processing_agreement": "Сагасност за обраду личних података"
+    }
   },
   "search": {
     "placeholder": "Претрага",
@@ -71,12 +88,6 @@
       "button": "Покушај поново"
     }
   },
-  "captcha": {
-    "notRobotLabel": "Нисам робот",
-    "continuePrompt": "Кликните да наставите",
-    "imageTextLabel": "Унесите текст са слике",
-    "confirmButton": "Потврди"
-  },
   "projectDetails": {
     "textButtonDesktop": "Назад у каталог",
     "textButtonTablet": "У каталог",
@@ -110,10 +121,24 @@
   "navigation": {
     "home": "Почетна",
     "projects": "Каталог пројеката",
-    "breadcrumbs": "Навигација"
+    "breadcrumbs": "Навигација",
+    "contacts": "Контактирајте нас",
+    "about": "О заједници"
   },
   "cookieConsent": {
     "ariaLabel": "Обавештење о коришћењу колачића",
     "acceptButtonAriaLabel": "Прихвати колачиће"
+  },
+  "contacts": {
+    "titleDesktop": "Контактирајте нас на било који погодан начин",
+    "titleTablet": "Контактирајте нас на погодан начин",
+    "call": "Позовите",
+    "write": "Пишите нам",
+    "visitOffice": "Посетите нашу канцеларију"
+  },
+  "errorBoundary": {
+    "buttonText": "Назад",
+    "title": "Нешто није у реду. Неко је већ овде поставио ограду.",
+    "resetButtonText": "Покушајте поново"
   }
 }

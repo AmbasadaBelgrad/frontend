@@ -98,7 +98,6 @@
   color: var(--disabled-text);
 }
 
-
 .imageWrapper {
   grid-area: image;
   max-width: 628px;
@@ -119,7 +118,6 @@
 }
 
 @media (max-width: 1325px) and (min-width: 1025px) {
-
   .section {
     padding: 0 40px 80px;
     overflow-x: hidden;
@@ -193,7 +191,6 @@
 /* TABLET */
 
 @media (max-width: 1024px) {
-
   .section {
     width: 100%;
     padding: 0 0px 40px;
@@ -303,7 +300,6 @@
 /* MOBILE */
 
 @media (max-width: 640px) {
-
   .section {
     width: 100%;
     padding: 0 0px 80px;

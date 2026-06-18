@@ -74,7 +74,6 @@ export const createApiClient = (config: IApiClientConfig) => {
     const requestOptions: RequestInit = {
       method,
       headers: requestHeaders,
-      credentials: "include",
       signal,
     };
 

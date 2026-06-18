@@ -354,7 +354,7 @@
   .content_container_usual {
     gap: 16px;
   }
-  
+
   .image_first {
     clip-path: inset(0 490px 0 0);
     max-height: 527px;

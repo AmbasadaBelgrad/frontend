@@ -21,7 +21,24 @@
     "sr-Cyrl": "Srpski"
   },
   "footer": {
-    "site_name": "Ambasada za urbanizam"
+    "site_name": "Ambasada za urbanizam",
+
+    "aria": {
+      "home": "Na početnu"
+    },
+
+    "nav": {
+      "catalog": "Katalog projekata",
+      "about": "O zajednici",
+      "contacts": "Kontaktirajte nas",
+      "home": "Početna",
+      "projects": "Projekti"
+    },
+
+    "legal": {
+      "privacy_policy": "Politika privatnosti",
+      "personal_data_processing_agreement": "Saglasnost za obradu ličnih podataka"
+    }
   },
   "search": {
     "placeholder": "Pretraga",
@@ -71,12 +88,6 @@
       "button": "Pokušaj ponovo"
     }
   },
-  "captcha": {
-    "notRobotLabel": "Nisam robot",
-    "continuePrompt": "Kliknite da nastavite",
-    "imageTextLabel": "Unesite tekst sa slike",
-    "confirmButton": "Potvrdi"
-  },
   "projectDetails": {
     "textButtonDesktop": "Nazad u katalog",
     "textButtonTablet": "U katalog",
@@ -110,10 +121,24 @@
   "navigation": {
     "home": "Početna",
     "projects": "Katalog projekata",
-    "breadcrumbs": "Navigacija"
+    "breadcrumbs": "Navigacija",
+    "contacts": "Kontaktirajte nas",
+    "about": "O zajednici"
   },
   "cookieConsent": {
     "ariaLabel": "Obaveštenje o korišćenju kolačića",
     "acceptButtonAriaLabel": "Prihvati kolačiće"
+  },
+  "contacts": {
+    "titleDesktop": "Kontaktirajte nas na bilo koji pogodan način",
+    "titleTablet": "Kontaktirajte nas na pogodan način",
+    "call": "Pozovite",
+    "write": "Pišite nam",
+    "visitOffice": "Posetite našu kancelariju"
+  },
+  "errorBoundary": {
+    "buttonText": "Nazad",
+    "title": "Nešto nije u redu. Neko je već ovde postavio ogradu.",
+    "resetButtonText": "Pokušajte ponovo"
   }
 }

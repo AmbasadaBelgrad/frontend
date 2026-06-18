@@ -1,6 +1,10 @@
 export type Category = {
   id: string;
-  name: string;
+  label: string;
+};
+
+export type CategoriesResponse = {
+  types: Category[];
 };
 
 export type Tag = {
@@ -35,5 +39,5 @@ export type GetProjectsParams = {
   offset: number;
   search?: string;
   type?: string;
-  tags?: string[];
+  tag?: string[];
 };
