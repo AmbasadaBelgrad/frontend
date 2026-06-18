@@ -30,6 +30,7 @@
 
     "nav": {
       "catalog": "Project Catalog",
+      "catalog_tablet": "Projects",
       "about": "About Community",
       "contacts": "Contact Us",
       "home": "Home",
