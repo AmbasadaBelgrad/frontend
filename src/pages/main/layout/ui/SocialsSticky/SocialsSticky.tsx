@@ -2,7 +2,7 @@ import type { SocialsStickyProps } from "./SocialsSticky.types";
 import { SOCIAL_LABELS } from "./SocialsSticky.constants";
 import { SOCIAL_ICONS } from "./SocialsSticky.icons";
 import styles from "./SocialsSticky.module.css";
-import { useEmail } from "@/shared/lib/useEmail";
+import { getLinkProps } from "@/shared/lib/getLinkProps";
 
 export const SocialsSticky = ({ socials }: SocialsStickyProps) => {
   if (!socials?.length) return null;
@@ -11,7 +11,7 @@ export const SocialsSticky = ({ socials }: SocialsStickyProps) => {
     <aside className={styles.wrapper} aria-label="Социальные сети">
       <ul className={styles.list}>
         {socials.map((item) => {
-          const linkProps = useEmail(item.url, item.type);
+          const linkProps = getLinkProps(item.url, item.type);
 
           return (
             <li key={item.type} className={styles.item}>

@@ -1,6 +1,6 @@
 import styles from "./FooterSocials.module.css";
 import type { Social } from "@/entities/init/model/types";
-import { useEmail } from "@/shared/lib/useEmail";
+import { getLinkProps } from "@/shared/lib/getLinkProps";
 
 type Props = {
   socials?: Social[];
@@ -12,7 +12,7 @@ export const FooterSocials = ({ socials }: Props) => {
   return (
     <div className={styles.socials}>
       {socials.map((social) => {
-        const linkProps = useEmail(social.url, social.social_type);
+        const linkProps = getLinkProps(social.url, social.social_type);
 
         return (
           <a key={social.url} aria-label={social.social_type} {...linkProps}>

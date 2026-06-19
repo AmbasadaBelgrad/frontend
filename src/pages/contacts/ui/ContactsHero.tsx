@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useViewportWidth } from "@/shared/lib/useWidthViewPort";
 import styles from "./ContactsHero.module.css";
 import type { ContactsHeroProps } from "./types";
-import { useEmail } from "@/shared/lib/useEmail";
+import { getLinkProps } from "@/shared/lib/getLinkProps";
 
 export const ContactsHero = ({
   phone,
@@ -71,7 +71,7 @@ export const ContactsHero = ({
 
           <ul className={styles.socials}>
             {socials.map((social) => {
-              const linkProps = useEmail(social.href, social.label);
+              const linkProps = getLinkProps(social.href, social.label);
 
               return (
                 <li key={social.id} className={styles.socialItem}>

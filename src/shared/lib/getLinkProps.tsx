@@ -1,4 +1,4 @@
-export const useEmail = (url: string, type: string) => {
+export const getLinkProps = (url: string, type: string) => {
   const isEmail = type?.toLowerCase() === "email";
 
   return {
