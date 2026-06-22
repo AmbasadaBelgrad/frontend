@@ -4,6 +4,6 @@ export const getLinkProps = (url: string, type: string) => {
   return {
     href: isEmail ? `mailto:${url}` : url,
     target: isEmail ? undefined : "_blank",
-    rel: isEmail ? undefined : "noopener noreferrer",
+    rel: isEmail ? undefined : "noopener",
   };
 };
