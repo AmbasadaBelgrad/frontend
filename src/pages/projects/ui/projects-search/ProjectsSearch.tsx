@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import styles from "./ProjectsSearch.module.css";
-import { useState } from "react";
 
 interface ProjectsSearchProps {
   value: string;
@@ -10,6 +9,8 @@ interface ProjectsSearchProps {
   ariaLabel?: string;
   disabled?: boolean; // Возможность отключить поле поиска в мобильной версии
   className?: string; // Дополнительный класс для стилизации
+  isOpen?: boolean; // возможность контролировать открытие в мобильной версии
+  onOpenChange?: (isOpen: boolean) => void; 
 }
 
 export const ProjectsSearch: React.FC<ProjectsSearchProps> = ({
@@ -19,21 +20,22 @@ export const ProjectsSearch: React.FC<ProjectsSearchProps> = ({
   placeholder,
   ariaLabel,
   disabled = false,
+  isOpen = false,
+  onOpenChange,
 }) => {
   const { t } = useTranslation("common");
-  const [isOpen, setIsOpen] = useState(false); // Состояние: открыт ли поиск
 
   // Открытие поиска при клике на иконку
   const handleOpen = () => {
     if (!disabled) {
-      setIsOpen(true);
+      onOpenChange?.(true);
     }
   };
 
   // Скрыть при клике вне поля или при очистке
   const handleBlur = () => {
     if (!value) {
-      setIsOpen(false);
+      onOpenChange?.(false);
     }
   };
 
@@ -45,7 +47,7 @@ export const ProjectsSearch: React.FC<ProjectsSearchProps> = ({
     e.stopPropagation(); // Стоп срабатывание handleBlur
     onChange("");
     onClear?.();
-    setIsOpen(false); // Закрыть поиск при очистке
+    onOpenChange?.(false); // Закрыть поиск при очистке
   };
 
   return (

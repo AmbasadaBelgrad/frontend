@@ -1,5 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useLayoutEffect,
+} from "react";
+import { Link, useLocation } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths.ts";
 import { useUrlFilters } from "./hooks/useUrlFilters";
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
@@ -16,9 +21,11 @@ import { useTagsQuery } from "@entities/project/model/useTagsQuery";
 
 export const ProjectsPage: React.FC = () => {
   const { t } = useTranslation("common");
-
+  const location = useLocation();
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
+  const [isRestoring, setIsRestoring] = useState(true);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const {
     search: urlSearch,
@@ -28,10 +35,7 @@ export const ProjectsPage: React.FC = () => {
   } = useUrlFilters();
 
   const [localSearch, setLocalSearch] = useState(urlSearch);
-
   const { isMobile, isTablet } = useViewportWidth();
-
-  // адаптивное количество проектов на странице
   const isMobileOrTablet = isMobile || isTablet;
 
   useEffect(() => {
@@ -96,6 +100,32 @@ export const ProjectsPage: React.FC = () => {
     [updateFilters],
   );
 
+  // для восстановления фильтров ДО рендера
+  useLayoutEffect(() => {
+    const state = location.state as {
+      fromProjects?: { search?: string; type?: string; tags?: string[] };
+    } | null;
+
+    if (state?.fromProjects) {
+      const { search = "", type = "", tags = [] } = state.fromProjects;
+      updateFilters({ search, type, tags });
+      window.history.replaceState({}, document.title);
+    }
+    setIsRestoring(false);
+  }, []);
+
+  // общий лоадер для всех данных
+  const isPageLoading = loadingProjects || loadingCategories || loadingTags;
+  const showLoader = isRestoring || (isPageLoading && !projectsData);
+
+  if (showLoader) {
+    return (
+      <div className={styles.loader} role="status" aria-live="polite">
+        {t("projects.loading", "Загрузка...")}
+      </div>
+    );
+  }
+
   const totalItems = projectsData?.pagination.totalItems || 0;
   const totalPages = Math.ceil(totalItems / limit);
 
@@ -111,22 +141,11 @@ export const ProjectsPage: React.FC = () => {
     }
   };
 
-  const isPageLoading = loadingProjects || loadingCategories || loadingTags;
-
   // Обработка ошибок
   if (categoriesError || tagsError || projectsError) {
     return (
       <div className={styles.error} role="alert" aria-live="assertive">
         {t("projects.error", "Произошла ошибка при загрузке данных")}
-      </div>
-    );
-  }
-
-  // Единый loader для всех состояний загрузки
-  if (isPageLoading && !projectsData) {
-    return (
-      <div className={styles.loader} role="status" aria-live="polite">
-        {t("projects.loading", "Загрузка...")}
       </div>
     );
   }
@@ -168,6 +187,10 @@ export const ProjectsPage: React.FC = () => {
     visiblePages.push(totalPages);
   }
 
+  // Скрытие заголовка в мобильной версии при открытом поиске
+  const shouldHideTitle = isMobile && isSearchOpen;
+  const shouldHideFilters = isMobile && isSearchOpen;
+
   return (
     <div>
       <div className={styles.container}>
@@ -184,33 +207,42 @@ export const ProjectsPage: React.FC = () => {
         </nav>
 
         <div className={styles.headerRow}>
-          <h1 className={styles.title}>{t("projects.title", "Проекты")}</h1>
-
-          <ProjectsSearch value={localSearch} onChange={setLocalSearch} />
-        </div>
-
-        <div className={styles.filtersRow}>
-          {/* Фильтры отображаются только после загрузки данных */}
-          {!loadingCategories && categories.length > 0 && (
-            <TypeFilter
-              categories={categories}
-              selectedType={urlType || null}
-              onChange={(newType) =>
-                updateFilters({
-                  type: newType || "",
-                })
-              }
-            />
+          {!shouldHideTitle && (
+            <h1 className={styles.title}>{t("projects.title", "Проекты")}</h1>
           )}
 
-          {!loadingTags && availableTags.length > 0 && (
-            <TagsFilter
-              tags={availableTags}
-              selectedTags={urlTags}
-              onChange={handleTagsChange}
-            />
-          )}
+          <ProjectsSearch
+            value={localSearch}
+            onChange={setLocalSearch}
+            isOpen={isSearchOpen}
+            onOpenChange={setIsSearchOpen}
+          />
         </div>
+
+        {!shouldHideFilters && (
+          <div className={styles.filtersRow}>
+            {/* Фильтры отображаются только после загрузки данных */}
+            {!loadingCategories && categories.length > 0 && (
+              <TypeFilter
+                categories={categories}
+                selectedType={urlType || null}
+                onChange={(newType) =>
+                  updateFilters({
+                    type: newType || "",
+                  })
+                }
+              />
+            )}
+
+            {!loadingTags && availableTags.length > 0 && (
+              <TagsFilter
+                tags={availableTags}
+                selectedTags={urlTags}
+                onChange={handleTagsChange}
+              />
+            )}
+          </div>
+        )}
 
         {/* Результаты */}
         {isFetching && (
@@ -225,7 +257,14 @@ export const ProjectsPage: React.FC = () => {
           </div>
         ) : (
           <>
-            <ProjectsList projects={projectsData?.items || []} />
+            <ProjectsList
+              projects={projectsData?.items || []}
+              currentFilters={{
+                search: urlSearch,
+                type: urlType,
+                tags: urlTags,
+              }}
+            />
 
             {/* Пагинация */}
             {totalPages >= 1 && (
