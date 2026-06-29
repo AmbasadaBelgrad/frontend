@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding-bottom: var(--spacing-30);
 }
 
 .navigation {
@@ -23,16 +22,28 @@
   align-items: center;
 }
 
+.pathItem {
+  max-width: 350px;
+  display: inline-flex;
+  align-items: center;
+}
+
 .pathItem:not(:last-child)::after {
   content: ">";
   font: var(--desktop_main);
   color: var(--black);
   margin-left: var(--spacing-6);
+  flex-shrink: 0;
 }
 
 .pathText {
   font: var(--desktop_main);
   color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .button {
@@ -53,6 +64,7 @@
   min-height: 0;
   scrollbar-width: auto;
   scrollbar-color: #cdc5ff rgba(201, 201, 201, 0.2);
+  padding-bottom: var(--spacing-30);
 }
 
 .infoBlock {
@@ -114,6 +126,10 @@
     margin-top: var(--spacing-1);
   }
 
+  .pathItem {
+    max-width: clamp(15.625rem, 7.0235rem + 16.5017vw, 21.875rem);
+  }
+
   .pathText {
     font: var(--tablet_main);
   }
@@ -136,7 +152,7 @@
   .container {
     padding-bottom: var(--spacing-25);
   }
-  
+
   .navigation {
     background-color: var(--bg_color);
     height: 54px;
@@ -147,6 +163,11 @@
   .pathList {
     gap: 8px;
   }
+
+  .pathItem {
+    max-width: clamp(10.625rem, -11.3796rem + 93.8865vw, 37.5rem);
+  }
+
   .pathText {
     font: var(--mobile_caption);
   }
