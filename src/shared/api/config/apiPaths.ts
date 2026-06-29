@@ -6,8 +6,8 @@ export const apiPaths = {
     refreshToken: "/auth/token/refresh/",
   },
   contact: {
-    get: "/contact/",
-    create: "/contact/",
+    get: "/contacts/",
+    create: "/contacts/",
   },
   home: "/home/",
 
