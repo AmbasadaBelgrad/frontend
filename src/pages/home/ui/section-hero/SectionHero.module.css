@@ -26,6 +26,7 @@
 
 .titleContainer {
   position: relative;
+  max-width: 550px;
 }
 
 .title {
@@ -99,6 +100,8 @@
   background-size: 100% 100%;
   background-position: center;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .imageWrapperRight::after {
@@ -114,6 +117,13 @@
   background-size: 100% 100%;
   background-position: center;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageLoaded::before,
+.imageLoaded::after {
+  opacity: 1;
 }
 
 .button {
@@ -273,6 +283,8 @@
     background-size: 100% 100%;
     background-position: center;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .subtitle {
