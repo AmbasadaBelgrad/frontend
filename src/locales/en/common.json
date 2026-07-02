@@ -124,7 +124,8 @@
     "home": "Home",
     "projects": "Project Catalog",
     "breadcrumbs": "Breadcrumbs",
-    "contacts": "Contact us"
+    "contacts": "Contact us",
+    "about": "About the community"
   },
   "contacts": {
     "titleDesktop": "Contact us in any convenient way",
@@ -138,5 +139,10 @@
   "cookieConsent": {
     "ariaLabel": "Cookie usage notification",
     "acceptButtonAriaLabel": "Accept cookies"
+  },
+  "errorBoundary": {
+    "buttonText": "Back",
+    "title": "Something went wrong. Someone has already put up a fence here.",
+    "resetButtonText": "Try again"
   }
 }
