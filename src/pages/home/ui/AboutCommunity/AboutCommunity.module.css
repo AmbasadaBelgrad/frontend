@@ -70,12 +70,8 @@
 }
 
 .button:hover {
-  background: var(--energy-hover);
-  border: 2px solid var(--energy);
-}
-
-.button:hover .buttonText {
-  color: var(--energy-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(235, 61, 0, 0.3);
 }
 
 .button:active {

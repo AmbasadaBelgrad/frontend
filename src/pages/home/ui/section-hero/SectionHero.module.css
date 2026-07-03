@@ -132,11 +132,6 @@
   letter-spacing: 0.02em;
 }
 
-.button:hover {
-  color: var(--energy);
-  background-color: var(--white);
-  border: 2px solid var(--energy);
-}
 
 .button:disabled {
   background-color: var(--gray);
@@ -223,9 +218,6 @@
     letter-spacing: 0;
   }
 
-  .button:hover {
-    background-color: transparent;
-  }
 }
 
 @media (max-width: 833px) {
