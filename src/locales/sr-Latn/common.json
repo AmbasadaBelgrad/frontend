@@ -7,6 +7,7 @@
     "ariaLabel3": "Izbor jezika",
     "ariaLabel4": "Zatvori meni",
     "ariaLabel5": "Otvori meni",
+    "site_name": "Ambasada za Urbanizam",
     "menu": {
       "projects_desktop": "Katalog projekata",
       "projects_tablet": "Projekti",
@@ -107,6 +108,7 @@
     "filterTagsDialog": "Izaberite oznake za filtriranje",
     "sortByTags": "Sortiraj po oznakama:",
     "collapseTags": "Sakrij oznake",
+    "resetTags": "Ресетуј",
     "allProjects": "Svi projekti",
     "all": "Svi"
   },

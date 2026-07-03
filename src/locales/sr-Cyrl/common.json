@@ -7,6 +7,7 @@
     "ariaLabel3": "Избор језика",
     "ariaLabel4": "Затвори мени",
     "ariaLabel5": "Отвори мени",
+    "site_name": "Амбасада за урбанизам",
     "menu": {
       "projects_desktop": "Каталог пројеката",
       "projects_tablet": "Пројекти",
@@ -107,6 +108,7 @@
     "filterTagsDialog": "Изаберите ознаке за филтрирање",
     "sortByTags": "Сортирај по ознакама:",
     "collapseTags": "Сакриј ознаке",
+    "resetTags": "Ресетуј",
     "allProjects": "Сви пројекти",
     "all": "Сви"
   },
