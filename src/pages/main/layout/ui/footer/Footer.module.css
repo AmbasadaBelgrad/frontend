@@ -109,11 +109,6 @@
   z-index: 3;
 }
 
-/* Скрываем правовые ссылки (в макете их нет) */
-.bottomRow > *:last-child {
-  display: none;
-}
-
 /* ФОКУС */
 a:focus-visible,
 button:focus-visible {
