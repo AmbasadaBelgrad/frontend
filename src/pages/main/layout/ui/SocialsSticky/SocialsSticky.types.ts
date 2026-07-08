@@ -2,7 +2,7 @@ export type SocialType =
   | "Telegram"
   | "Instagram"
   | "Facebook"
-  | "Linkedin"
+  | "LinkedIn"
   | "Email";
 
 export interface SocialItem {

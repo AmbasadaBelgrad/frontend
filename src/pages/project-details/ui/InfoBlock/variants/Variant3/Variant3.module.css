@@ -9,6 +9,9 @@
   font: var(--desktop_main);
   display: block;
   position: relative;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .textContent b,
