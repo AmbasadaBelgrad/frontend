@@ -8,6 +8,9 @@ type HeroProps = {
 };
 
 export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
+  const [leftLoaded, setLeftLoaded] = React.useState(false);
+  const [rightLoaded, setRightLoaded] = React.useState(false);
+
   return (
     <section className={styles.container}>
       <div className={styles.grid}>
@@ -22,24 +25,26 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
                 ))}
             </div>
           </div>
-          <div className={styles.imageWrapperLeft}>
+          <div className={`${styles.imageWrapperLeft} ${leftLoaded ? styles.imageLoaded : ""}`}>
             <img
               src={hero.image_left}
               alt={hero.title}
               className={styles.imageLeft}
               loading="eager"
               fetchPriority="high"
+              onLoad={() => setLeftLoaded(true)}
             />
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <div className={styles.imageWrapperRight}>
+          <div className={`${styles.imageWrapperRight} ${rightLoaded ? styles.imageLoaded : ""}`}>
             <img
               src={hero.image_right}
               alt={hero.title}
               className={styles.imageRight}
               loading="eager"
               fetchPriority="high"
+              onLoad={() => setRightLoaded(true)}
             />
           </div>
           <p className={styles.subtitle}>{hero.subtitle}</p>
