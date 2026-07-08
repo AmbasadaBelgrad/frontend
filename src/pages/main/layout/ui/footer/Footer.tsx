@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import styles from "./Footer.module.css";
 import { FooterNav } from "./nav/FooterNav";
 import { FooterSocials } from "./socials/FooterSocials";
-import { FooterLegalLinks } from "./legalLinks/FooterLegalLinks";
 import { FooterCopyright } from "./copyright/FooterCopyright";
 import type { FooterData } from "./types";
 
@@ -49,7 +48,6 @@ export const Footer = ({ data }: Props) => {
 
         <div className={styles.bottomRow}>
           <FooterCopyright copyright={data.copyright} />
-          <FooterLegalLinks legalLinks={data.legal_links} />
         </div>
 
         <div className={styles.pattern} aria-hidden="true">

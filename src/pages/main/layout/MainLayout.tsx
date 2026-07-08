@@ -14,7 +14,7 @@ const convertToSocialItem = (social: Social): SocialItem | null => {
     "Telegram",
     "Instagram",
     "Facebook",
-    "Linkedin",
+    "LinkedIn",
     "Email",
   ];
 
@@ -94,6 +94,8 @@ const MainLayout = () => {
       </div>
     );
   }
+
+  console.log(socialsForSticky);
 
   return (
     <InitDataContext.Provider value={initData}>

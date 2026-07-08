@@ -4,6 +4,6 @@ export const SOCIAL_LABELS: Record<SocialType, string> = {
   Telegram: "Telegram",
   Instagram: "Instagram",
   Facebook: "Facebook",
-  Linkedin: "LinkedIn",
+  LinkedIn: "LinkedIn",
   Email: "Email",
 };

@@ -10,6 +10,6 @@ export const SOCIAL_ICONS: Record<SocialType, ReactNode> = {
   Telegram: <TelegramIcon />,
   Instagram: <InstagramIcon />,
   Facebook: <FacebookIcon />,
-  Linkedin: <LinkedinIcon />,
+  LinkedIn: <LinkedinIcon />,
   Email: <EmailIcon />,
 };
