@@ -52,13 +52,7 @@
   border-radius: 40px;
   background: var(--energy);
   text-decoration: none;
-  border: 2px solid transparent;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
   align-self: end;
-  transform: translateY(-4px);
 }
 
 .buttonText {
