@@ -64,6 +64,15 @@
   width: 500px;
 }
 
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.closeButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 @media (min-width: 834px) and (max-width: 1439px) {
   .container {
     width: 470px;
