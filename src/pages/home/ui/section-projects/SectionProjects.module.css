@@ -28,14 +28,14 @@
   position: relative;
 }
 
-.card_usual {
+.cardUsual {
   display: flex;
   flex-direction: column;
   gap: 20px;
   min-height: 685px;
 }
 
-.card_first {
+.cardFirst {
   grid-column: 1 / -1;
   display: grid;
 
@@ -47,14 +47,14 @@
   overflow: hidden;
 }
 
-.image_usual {
+.imageUsual {
   width: 100%;
   height: 265px;
   object-fit: cover;
   border-radius: 16px;
 }
 
-.image_first {
+.imageFirst {
   width: 100%;
   filter: sepia(40%) grayscale(50%);
   min-width: 950px;
@@ -68,7 +68,7 @@
   border-radius: 16px;
 }
 
-.content_usual {
+.contentUsual {
   background: var(--white);
   border-radius: 16px;
   padding: 20px;
@@ -80,7 +80,7 @@
   overflow: hidden;
 }
 
-.content_first {
+.contentFirst {
   grid-column: 1;
   grid-row: 1;
   position: relative;
@@ -89,7 +89,7 @@
   z-index: 2;
 }
 
-.content_container_first {
+.contentContainerFirst {
   max-width: 600px;
   padding: 18px;
   height: 100%;
@@ -98,7 +98,7 @@
   flex-direction: column;
 }
 
-.content_container_usual {
+.contentContainerUsual {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -131,7 +131,7 @@
   color: var(--white);
 }
 
-.content_first::before {
+.contentFirst::before {
   content: "";
   position: absolute;
   top: 0;
@@ -145,7 +145,7 @@
   pointer-events: none;
 }
 
-.content_first::after {
+.contentFirst::after {
   content: "";
   position: absolute;
   inset: 2px;
@@ -154,13 +154,13 @@
   z-index: 1;
 }
 
-.content_first > * {
+.contentFirst > * {
   position: relative;
   z-index: 2;
 }
 
-.title_usual,
-.title_first {
+.titleUsual,
+.titleFirst {
   font: var(--desktop_h3);
   font-family: var(--main-font-family);
   color: var(--black);
@@ -174,12 +174,12 @@
   hyphens: auto;
 }
 
-.title_first {
+.titleFirst {
   margin-top: 10px;
 }
 
-.description_usual,
-.description_first {
+.descriptionUsual,
+.descriptionFirst {
   font: var(--desktop_main);
   font-family: var(--main-font-family);
   color: var(--black);
@@ -198,15 +198,15 @@
   word-wrap: break-word;
 }
 
-.description_first {
+.descriptionFirst {
   max-height: calc(1.3em * 5);
 }
 
-.button_project_first {
+.buttonProjectFirst {
   width: 500px;
 }
 
-.button_project_first .buttonText {
+.buttonProjectFirst .buttonText {
   position: static;
   transform: none;
   opacity: 1;
@@ -214,7 +214,41 @@
   pointer-events: auto;
 }
 
-.button_project {
+.arrowButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: var(--energy);
+  cursor: pointer;
+  position: relative;
+}
+
+.arrowButton:after {
+  content: "";
+  position: absolute;
+  top: 54%;
+  left: 38%;
+  transform: translate(-40%, -50%);
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  rotate: 45deg;
+}
+
+.arrowButton::before {
+  content: "";
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.buttonProject {
   position: relative;
   width: 60px;
   height: 60px;
@@ -229,19 +263,11 @@
   transition: width 0.3s ease;
 }
 
-.button_project:hover {
+.buttonProject:hover {
   width: 100%;
 }
 
-.icon {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-}
-
-.button_project:hover .icon {
+.buttonProject:hover .icon {
   opacity: 0;
 }
 
@@ -259,7 +285,7 @@
   z-index: 2;
 }
 
-.button_project::after {
+.buttonProject::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -270,11 +296,11 @@
   z-index: 0;
 }
 
-.button_project:hover .buttonText {
+.buttonProject:hover .buttonText {
   opacity: 1;
 }
 
-.button_project:hover::after {
+.buttonProject:hover::after {
   opacity: 1;
 }
 
@@ -291,26 +317,26 @@
     font: var(--tablet_h2);
   }
 
-  .card_first {
+  .cardFirst {
     min-height: 570px;
     min-width: 754px;
   }
 
-  .card_usual {
+  .cardUsual {
     min-height: 636px;
   }
 
-  .title_first {
+  .titleFirst {
     letter-spacing: -0.02em;
     font: var(--tablet_h2);
   }
 
-  .title_usual {
+  .titleUsual {
     font: var(--tablet_h3);
   }
 
-  .description_first,
-  .description_usual {
+  .descriptionFirst,
+  .descriptionUsual {
     font: var(--tablet_main);
   }
 
@@ -328,49 +354,49 @@
     margin-top: 28px;
   }
 
-  .content_usual {
+  .contentUsual {
     height: 327px;
   }
 
-  .content_first {
+  .contentFirst {
     width: calc(100% + 160px);
   }
 
-  .content_first::before {
+  .contentFirst::before {
     width: 47%;
     clip-path: polygon(0 100%, 6% 100%, 81% 0, 75% 0);
     transform: translateX(0%);
   }
 
-  .content_first::after {
+  .contentFirst::after {
     inset: 0;
     clip-path: polygon(0% 0%, 91% 0, 56% 100%, 0 100%);
   }
 
-  .content_container_first {
+  .contentContainerFirst {
     max-width: 440px;
   }
 
-  .content_container_usual {
+  .contentContainerUsual {
     gap: 16px;
   }
 
-  .image_first {
+  .imageFirst {
     clip-path: inset(0 490px 0 0);
     max-height: 527px;
     right: 246px;
   }
 
-  .description_usual {
+  .descriptionUsual {
     font: var(--tablet_main);
     line-height: 140%;
   }
 
-  .description_first {
+  .descriptionFirst {
     max-height: calc(2.3em * 5);
   }
 
-  .button_project_first,
+  .buttonProjectFirst,
   .button {
     max-width: 350px;
   }
@@ -400,37 +426,37 @@
     block-size: 519px;
   }
 
-  .card_first {
+  .cardFirst {
     min-width: 335px;
   }
 
-  .card_usual {
+  .cardUsual {
     min-height: 335px;
   }
 
-  .content_usual {
+  .contentUsual {
     padding: 19px;
   }
 
-  .content_usual,
-  .content_container_usual {
+  .contentUsual,
+  .contentContainerUsual {
     gap: 16px;
     height: 295px;
   }
 
-  .image_usual {
+  .imageUsual {
     max-height: 205px;
   }
 
-  .title_usual {
+  .titleUsual {
     font: var(--mobile_h3);
   }
 
-  .description_usual {
+  .descriptionUsual {
     font: var(--mobile_main);
   }
 
-  .button_project {
+  .buttonProject {
     display: flex;
     width: 100%;
     height: 40px;
@@ -441,7 +467,8 @@
     background: var(--energy);
   }
 
-  .icon {
+  .arrowButton:after,
+  .arrowButton::before {
     display: none;
   }
 

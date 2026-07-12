@@ -55,11 +55,7 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({
                   className={styles.button}
                   aria-label={project.action_button.label}
                 >
-                  <img
-                    src="/button for cards.svg"
-                    alt=""
-                    className={styles.icon}
-                  />
+                  <div className={styles.arrowButton} />
                   <span className={styles.buttonText}>
                     {project.action_button.label}
                   </span>

@@ -29,7 +29,11 @@ export const Footer = ({ data }: Props) => {
       <div className={styles.content}>
         <div className={styles.topRow}>
           <a href="/" aria-label={siteName} className={styles.logoLink}>
-            <img src="/logo.svg" alt={siteName} className={styles.logoImage} />
+            <img
+              src="/images/logo.svg"
+              alt={siteName}
+              className={styles.logoImage}
+            />
 
             <span className={styles.logoText}>
               <span className={styles.logoTextMain}>{firstWord}</span>

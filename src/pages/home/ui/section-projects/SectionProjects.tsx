@@ -34,21 +34,21 @@ export const SectionProjects: React.FC<ProjectProps> = ({
             <li
               key={project.id}
               className={`${styles.card} ${
-                isFirstHero ? styles.card_first : styles.card_usual
+                isFirstHero ? styles.cardFirst : styles.cardUsual
               }`}
             >
               <div
                 className={
                   isFirstHero
-                    ? styles.image_wrapper_first
-                    : styles.image_wrapper_usual
+                    ? styles.imageWrapperFirst
+                    : styles.imageWrapperUsual
                 }
               >
                 <img
                   src={project.image}
                   alt={project.title}
                   className={
-                    isFirstHero ? styles.image_first : styles.image_usual
+                    isFirstHero ? styles.imageFirst : styles.imageUsual
                   }
                   loading="lazy"
                 />
@@ -56,14 +56,14 @@ export const SectionProjects: React.FC<ProjectProps> = ({
 
               <div
                 className={
-                  isFirstHero ? styles.content_first : styles.content_usual
+                  isFirstHero ? styles.contentFirst : styles.contentUsual
                 }
               >
                 <div
                   className={
                     isFirstHero
-                      ? styles.content_container_first
-                      : styles.content_container_usual
+                      ? styles.contentContainerFirst
+                      : styles.contentContainerUsual
                   }
                 >
                   {isFirstHero && (
@@ -78,7 +78,7 @@ export const SectionProjects: React.FC<ProjectProps> = ({
 
                   <h3
                     className={
-                      isFirstHero ? styles.title_first : styles.title_usual
+                      isFirstHero ? styles.titleFirst : styles.titleUsual
                     }
                   >
                     {project.title}
@@ -87,8 +87,8 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                   <p
                     className={
                       isFirstHero
-                        ? styles.description_first
-                        : styles.description_usual
+                        ? styles.descriptionFirst
+                        : styles.descriptionUsual
                     }
                   >
                     {project.description}
@@ -102,18 +102,12 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                       )}
                       className={
                         isFirstHero
-                          ? `btn btn--primary ${styles.button_project_first}`
-                          : styles.button_project
+                          ? `btn btn--primary ${styles.buttonProjectFirst}`
+                          : styles.buttonProject
                       }
                       aria-label={project.action_button.label}
                     >
-                      {!isFirstHero && (
-                        <img
-                          src="/button for cards.svg"
-                          alt=""
-                          className={styles.icon}
-                        />
-                      )}
+                      {!isFirstHero && <div className={styles.arrowButton} />}
 
                       <span className={styles.buttonText}>
                         {project.action_button.label}
