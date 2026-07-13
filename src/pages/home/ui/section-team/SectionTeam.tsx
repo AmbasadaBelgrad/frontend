@@ -12,7 +12,7 @@ export const SectionTeam: React.FC<SectionTeamProps> = ({ teamPreview }) => {
     <section className={styles.container}>
       <h2 className={styles.title}>{teamPreview.title}</h2>
       <CardCarousel cards={teamPreview.members}></CardCarousel>
-      <div className={styles.button_container}>
+      <div className={styles.buttonContainer}>
         <Link
           to={teamPreview.action_button.link}
           className={`btn btn--primary ${styles.button}`}

@@ -61,19 +61,17 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
           </svg>
         </button>
       )}
-      <ul className={styles.card_wrapper} ref={containerRef}>
+      <ul className={styles.cardWrapper} ref={containerRef}>
         {cards.map((card, index) => (
           <li key={`${card.name}-${index}`}>
-            <div className={styles.card_container}>
+            <div className={styles.cardContainer}>
               <div
-                className={`${styles.bg_shape} ${
-                  index % 2 === 0
-                    ? styles.bg_shape_purple
-                    : styles.bg_shape_green
+                className={`${styles.bgShape} ${
+                  index % 2 === 0 ? styles.bgShapePurple : styles.bgShapeGreen
                 }`}
               />
 
-              <div className={styles.photo_container}>
+              <div className={styles.photoContainer}>
                 <img src={card.photo} alt={card.name} loading="lazy" />
               </div>
               <span className={styles.name}>{card.name}</span>

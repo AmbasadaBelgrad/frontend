@@ -37,7 +37,7 @@ export const usePagination = ({
 
   // Обновленная функция с проверкой на изменение
   const setTotalItems = useCallback((total: number) => {
-    setTotalItemsState(prev => {
+    setTotalItemsState((prev) => {
       if (prev === total) return prev;
       return total;
     });
@@ -142,7 +142,7 @@ export const usePagination = ({
     hasPrev,
     limit,
     setLimit,
-    setTotalItems, 
+    setTotalItems,
     offset,
     resetPage,
   };

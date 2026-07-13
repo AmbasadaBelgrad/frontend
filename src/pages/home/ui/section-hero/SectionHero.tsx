@@ -25,7 +25,9 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
                 ))}
             </div>
           </div>
-          <div className={`${styles.imageWrapperLeft} ${leftLoaded ? styles.imageLoaded : ""}`}>
+          <div
+            className={`${styles.imageWrapperLeft} ${leftLoaded ? styles.imageLoaded : ""}`}
+          >
             <img
               src={hero.image_left}
               alt={hero.title}
@@ -37,7 +39,9 @@ export const SectionHero: React.FC<HeroProps> = ({ hero }) => {
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <div className={`${styles.imageWrapperRight} ${rightLoaded ? styles.imageLoaded : ""}`}>
+          <div
+            className={`${styles.imageWrapperRight} ${rightLoaded ? styles.imageLoaded : ""}`}
+          >
             <img
               src={hero.image_right}
               alt={hero.title}

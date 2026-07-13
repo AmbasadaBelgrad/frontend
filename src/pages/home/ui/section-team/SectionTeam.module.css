@@ -16,7 +16,7 @@
   letter-spacing: 0.3px;
 }
 
-.button_container {
+.buttonContainer {
   margin-top: 42px;
   max-width: 1280px;
   display: flex;
@@ -37,7 +37,7 @@
     letter-spacing: 0;
   }
 
-  .button_container {
+  .buttonContainer {
     margin-top: 35px;
   }
 }
