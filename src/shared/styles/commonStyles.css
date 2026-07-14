@@ -87,6 +87,9 @@ ghost - светло-серая с серыми буквами
 .btn--primary {
   background-color: var(--energy);
   color: var(--politic_white);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .btn--secondary {
@@ -106,8 +109,13 @@ ghost - светло-серая с серыми буквами
 }
 
 .btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(235, 61, 0, 0.3);
+  background-color: var(--politic_white);
+  color: var(--energy);
+  border: 2px solid var(--energy);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border 0.3s ease;
 }
 
 .btn--secondary:hover {

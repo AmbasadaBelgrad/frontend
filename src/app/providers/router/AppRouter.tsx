@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { routesPaths } from "@shared/config/routesPaths";
 import MainLayout from "@pages/main";
 import { ErrorBoundary } from "@/shared/ui/ErrorBoundary";
+import { ScrollToTop } from "@/shared/lib/useScrollToTop";
 
 // Lazy-импорты страниц (code splitting по роутам)
 const Home = lazy(() => import("@pages/home"));
@@ -16,6 +17,7 @@ const NotFound = lazy(() => import("@pages/not-found"));
 export const AppRouter: React.FC = () => {
   return (
     <Suspense fallback={<div className="loading">Загрузка приложения...</div>}>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           {/* Оборачиваем каждый маршрут в ErrorBoundary */}

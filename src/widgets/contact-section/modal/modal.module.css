@@ -5,6 +5,8 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  padding: 72px 80px 60px 80px;
+  padding: 24px 80px 60px 80px;
   background-color: rgba(255, 255, 255, 1);
   border: 2px solid rgba(193, 183, 255, 1);
   border-radius: 8px;
@@ -30,15 +32,21 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
+}
+
+.closeButtonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .closeButton {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 38px;
-  right: 93px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
@@ -49,15 +57,30 @@
 .text {
   margin: 0;
   font: var(--desktop_main);
+  padding-top: 20px;
 }
 
 .button {
   width: 500px;
 }
 
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.closeButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 @media (min-width: 834px) and (max-width: 1439px) {
   .container {
     width: 470px;
+    padding: 24px 60px 40px 60px;
+  }
+
+  .closeButtonContainer {
+    margin-bottom: 8px;
   }
 
   .title {
@@ -75,11 +98,17 @@
 @media (max-width: 833px) {
   .container {
     width: 325px;
-    padding: 20px 40px 40px 40px;
+    padding: 20px 40px 32px 40px;
   }
+
+  .closeButtonContainer {
+    margin-bottom: 8px;
+  }
+
   .button {
     width: 100%;
   }
+
   .title {
     font: var(--mobile_h3);
   }
