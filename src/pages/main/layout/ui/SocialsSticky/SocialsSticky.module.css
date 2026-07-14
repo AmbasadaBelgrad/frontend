@@ -35,7 +35,7 @@
   color: var(--orange_2);
 }
 
-@media (max-width: 834px) {
+@media (max-width: 1440px) {
   .wrapper {
     display: none;
   }

@@ -101,12 +101,38 @@
   width: 100%;
 }
 
-.icon {
+.arrowButton {
   width: 60px;
   height: 60px;
-  flex-shrink: 0;
+  border-radius: 100%;
+  background-color: var(--energy);
+  cursor: pointer;
   position: relative;
-  z-index: 2;
+}
+
+.arrowButton:after {
+  content: "";
+  position: absolute;
+  top: 54%;
+  left: 38%;
+  transform: translate(-40%, -50%);
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  rotate: 45deg;
+}
+
+.arrowButton::before {
+  content: "";
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
 }
 
 .button:hover .icon {
@@ -217,7 +243,8 @@
     background: var(--energy);
   }
 
-  .icon {
+  .arrowButton:after, 
+  .arrowButton::before {
     display: none;
   }
 

@@ -1,4 +1,4 @@
-.container_mainInfo {
+.containerMainInfo {
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.container_mainInfo li {
+.containerMainInfo li {
   display: block;
   unicode-bidi: normal;
 }
@@ -103,7 +103,7 @@ button:focus-visible {
 
 /* tablet */
 @media (min-width: 834px) and (max-width: 1439px) {
-  .container_mainInfo {
+  .containerMainInfo {
     padding: clamp(1rem, -2.7847rem + 7.2607vw, 3.75rem) var(--spacing-5)
       clamp(1.875rem, -6.3553rem + 15.7895vw, 3.75rem);
   }
@@ -134,7 +134,7 @@ button:focus-visible {
 
 /* mobile */
 @media (max-width: 833px) {
-  .container_mainInfo {
+  .containerMainInfo {
     padding: clamp(0.3125rem, 0.5678rem + -1.0893vw, 0rem) var(--spacing-5) 25px;
   }
   .infoBlock {

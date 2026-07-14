@@ -20,9 +20,7 @@ export const AboutCommunity = ({ aboutPreview }: AboutCommunityProps) => {
           to={aboutPreview.action_button.link}
           className={`btn btn--primary ${styles.button}`}
         >
-          <span className={styles.buttonText}>
-            {aboutPreview.action_button.label}
-          </span>
+          {aboutPreview.action_button.label}
         </Link>
 
         {/* IMAGE */}

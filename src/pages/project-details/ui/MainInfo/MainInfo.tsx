@@ -65,7 +65,7 @@ function MainInfo(props: IMainInfo) {
       : tags;
 
   return (
-    <div className={styles.container_mainInfo}>
+    <div className={styles.containerMainInfo}>
       <PicCircle pictures={props.picture} />
       <div className={styles.infoBlock}>
         <div className={styles.info}>
