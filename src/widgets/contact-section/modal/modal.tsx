@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { useRef, useEffect } from "react";
-import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import styles from "./modal.module.css";
 
 interface ModalProps {
@@ -11,7 +10,6 @@ interface ModalProps {
 const Modal = ({ type, onClose }: ModalProps) => {
   const { t } = useTranslation("common");
   const modalRef = useRef<HTMLDivElement>(null);
-  const { isMobile, isTablet } = useViewportWidth();
 
   const handleClose = () => {
     onClose?.();
@@ -50,7 +48,7 @@ const Modal = ({ type, onClose }: ModalProps) => {
     >
       <div ref={modalRef} className={styles.container}>
         <div className={styles.content}>
-          {!isMobile && !isTablet && (
+          <div className={styles.closeButtonContainer}>
             <button onClick={handleClose} className={styles.closeButton}>
               <svg
                 width="14"
@@ -66,7 +64,7 @@ const Modal = ({ type, onClose }: ModalProps) => {
                 />
               </svg>
             </button>
-          )}
+          </div>
           <h3 id={titleId} className={styles.title}>
             {type === "success" && t("contactForm.successModal.title")}
             {type === "error" && t("contactForm.errorModal.title")}

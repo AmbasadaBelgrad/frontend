@@ -35,7 +35,7 @@
 
 .mainInner {
   max-width: var(--breakpoint_desktop);
-  margin: 0 auto;
+  margin: 104px auto 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -44,6 +44,10 @@
 }
 
 @media (max-width: 1023px) {
+  .mainInner {
+    margin: clamp(5.6875rem, 2.6892rem + 5.7522vw, 6.5rem) auto 0px;
+  }
+
   .appState {
     padding: var(--spacing-6);
     gap: var(--spacing-5);
@@ -62,6 +66,10 @@
 }
 
 @media (max-width: 833px) {
+  .mainInner {
+    margin: clamp(5rem, 4.4383rem + 2.3965vw, 5.6875rem) auto 0px;
+  }
+
   .appState {
     gap: var(--spacing-2);
     font: var(--mobile_main);

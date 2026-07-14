@@ -114,10 +114,14 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                           className={styles.icon}
                         />
                       )}
-
-                      <span className={styles.buttonText}>
-                        {project.action_button.label}
-                      </span>
+                      {isFirstHero && (
+                        <span>{project.action_button.label}</span>
+                      )}
+                      {!isFirstHero && (
+                        <span className={styles.buttonText}>
+                          {project.action_button.label}
+                        </span>
+                      )}
                     </Link>
                   )}
                 </div>

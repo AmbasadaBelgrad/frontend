@@ -95,8 +95,6 @@ const MainLayout = () => {
     );
   }
 
-  console.log(socialsForSticky);
-
   return (
     <InitDataContext.Provider value={initData}>
       <div className={styles.layout}>

@@ -1,7 +1,9 @@
 .header {
   background: var(--ecologic);
+  height: 104px;
   width: 100%;
-  position: relative;
+  position: fixed;
+  z-index: 1000;
 }
 
 .headerTop {
@@ -261,6 +263,10 @@
 }
 
 @media (max-width: 1060px) {
+  .header {
+    height: clamp(5.6875rem, 2.6892rem + 5.7522vw, 6.5rem);
+  }
+
   .headerTop {
     padding: 0 40px;
     min-height: 91px;
@@ -319,6 +325,10 @@
 }
 
 @media (max-width: 833px) {
+  .header {
+    height: clamp(5rem, 4.4383rem + 2.3965vw, 5.6875rem);
+  }
+
   .headerTop {
     padding: 0 20px;
     min-height: 80px;
