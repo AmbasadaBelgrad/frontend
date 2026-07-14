@@ -108,10 +108,14 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                       aria-label={project.action_button.label}
                     >
                       {!isFirstHero && <div className={styles.arrowButton} />}
-
-                      <span className={styles.buttonText}>
-                        {project.action_button.label}
-                      </span>
+                      {isFirstHero && (
+                        <span>{project.action_button.label}</span>
+                      )}
+                      {!isFirstHero && (
+                        <span className={styles.buttonText}>
+                          {project.action_button.label}
+                        </span>
+                      )}
                     </Link>
                   )}
                 </div>

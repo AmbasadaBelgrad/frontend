@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import { Header } from "./ui/header";
 import { Footer } from "./ui/footer/index";
 import { SocialsSticky } from "./ui/SocialsSticky";
-import { useViewportWidth } from "@/shared/lib/useWidthViewPort";
 import type { SocialItem, SocialType } from "./ui/SocialsSticky";
 import type { Social } from "@/entities/init/";
 import styles from "./MainLayout.module.css";
@@ -40,8 +39,6 @@ const MainLayout = () => {
   } = useInitQuery();
 
   useInitSeo(initData);
-
-  const { isMobile, isTablet } = useViewportWidth();
 
   const socialsForSticky: SocialItem[] =
     initData?.socials
@@ -112,7 +109,7 @@ const MainLayout = () => {
           text={initData.cookie_message}
           confirmButtonText={initData.cookie_button_text}
         />
-        {!isMobile && !isTablet && <SocialsSticky socials={socialsForSticky} />}
+        <SocialsSticky socials={socialsForSticky} />
         <Footer data={initData} />
       </div>
     </InitDataContext.Provider>
