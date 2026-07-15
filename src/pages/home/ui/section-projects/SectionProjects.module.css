@@ -223,31 +223,6 @@
   position: relative;
 }
 
-.arrowButton:after {
-  content: "";
-  position: absolute;
-  top: 54%;
-  left: 38%;
-  transform: translate(-40%, -50%);
-  width: 20px;
-  height: 20px;
-  border-top: 2px solid white;
-  border-right: 2px solid white;
-  rotate: 45deg;
-}
-
-.arrowButton::before {
-  content: "";
-  position: absolute;
-  top: 49%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 2px;
-  background-color: white;
-  border-radius: 2px;
-}
-
 .buttonProject {
   position: relative;
   width: 60px;
