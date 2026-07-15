@@ -1,4 +1,8 @@
-import { useQuery, type UseQueryResult } from "@tanstack/react-query";
+import {
+  useQuery,
+  keepPreviousData,
+  type UseQueryResult,
+} from "@tanstack/react-query";
 import { getProjects } from "../api/getProjects";
 import type { ProjectsResponse, GetProjectsParams } from "./types";
 
@@ -8,7 +12,6 @@ const INIT_GC_TIME = 10 * 60 * 1000;
 export function useProjectsQuery(
   params: GetProjectsParams,
 ): UseQueryResult<ProjectsResponse> {
-  // Убеждаемся, что все параметры включены в queryKey
   const queryKey = [
     "projects",
     params.limit,
@@ -18,14 +21,15 @@ export function useProjectsQuery(
     params.tag?.join(",") || "",
   ];
 
-  return useQuery({
+  return useQuery<ProjectsResponse>({
     queryKey,
     queryFn: ({ signal }) => getProjects(params, signal),
     staleTime: INIT_STALE_TIME,
     gcTime: INIT_GC_TIME,
     retry: 1,
-    refetchOnWindowFocus: true,
-    refetchOnReconnect: true,
-    placeholderData: (previousData) => previousData,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false, // Изменено с "if-stale" на false
+    placeholderData: keepPreviousData,
   });
 }

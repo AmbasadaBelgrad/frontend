@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useCallback, useRef } from "react";
+import { useMemo, useEffect, useCallback, useState, useRef } from "react";
 import { useUrlFilters } from "./useUrlFilters";
 import { useProjectsQuery } from "@entities/project/model/useProjectsQuery";
 import { useCategoriesQuery } from "@entities/project/model/useCategoriesQuery";
@@ -13,7 +13,6 @@ export const useGetProjectsData = () => {
     tags: urlTags,
     updateFilters: urlUpdateFilters,
   } = useUrlFilters();
-
   const { isMobile, isTablet } = useViewportWidth();
   const isFirstRender = useRef(true);
   const prevFiltersRef = useRef({
@@ -21,17 +20,15 @@ export const useGetProjectsData = () => {
     type: urlType,
     tags: urlTags,
   });
-
+  const [isRestoring, setIsRestoring] = useState(false);
   const limit = useMemo(() => {
     return isMobile || isTablet ? 6 : 12;
   }, [isMobile, isTablet]);
-
   const pagination = usePagination({
     totalItems: 0,
     initialPage: 1,
     initialLimit: limit,
   });
-
   const queryParams = useMemo(
     () => ({
       limit: pagination.limit,
@@ -42,19 +39,20 @@ export const useGetProjectsData = () => {
     }),
     [pagination.limit, pagination.offset, urlSearch, urlType, urlTags],
   );
-
   const queryResult = useProjectsQuery(queryParams);
-
   const categoriesQuery = useCategoriesQuery();
   const tagsQuery = useTagsQuery();
 
-  // Обновляем totalItems
   useEffect(() => {
     const totalItems = queryResult.data?.pagination?.totalItems;
     if (totalItems !== undefined) {
       pagination.setTotalItems(totalItems);
     }
   }, [queryResult.data, pagination]);
+
+  useEffect(() => {
+    pagination.setLimit(limit);
+  }, [limit, pagination]);
 
   const handleUpdateFilters = useCallback(
     (filters: { search?: string; type?: string; tags?: string[] }) => {
@@ -77,7 +75,6 @@ export const useGetProjectsData = () => {
     [urlUpdateFilters, urlSearch, urlType, urlTags, pagination],
   );
 
-  // Сбрасываем страницу только при реальном изменении фильтров
   useEffect(() => {
     const prevFilters = prevFiltersRef.current;
     const filtersChanged =
@@ -86,30 +83,33 @@ export const useGetProjectsData = () => {
       urlTags.length !== prevFilters.tags.length ||
       urlTags.some((tag, index) => tag !== prevFilters.tags[index]);
 
-    if (filtersChanged && !isFirstRender.current) {
+    if (filtersChanged && !isFirstRender.current && !isRestoring) {
       pagination.resetPage();
-      prevFiltersRef.current = {
-        search: urlSearch,
-        type: urlType,
-        tags: urlTags,
-      };
     }
+
+    prevFiltersRef.current = {
+      search: urlSearch,
+      type: urlType,
+      tags: urlTags,
+    };
 
     if (isFirstRender.current) {
       isFirstRender.current = false;
-      prevFiltersRef.current = {
-        search: urlSearch,
-        type: urlType,
-        tags: urlTags,
-      };
     }
-  }, [urlSearch, urlType, urlTags, pagination]);
+  }, [urlSearch, urlType, urlTags, pagination, isRestoring]);
+
+  const setRestoring = useCallback((value: boolean) => {
+    setIsRestoring(value);
+  }, []);
 
   useEffect(() => {
-    pagination.setLimit(limit);
-  }, [limit, pagination]);
+    const timer = setTimeout(() => {
+      setIsRestoring(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
-  const isLoading = isFirstRender.current && queryResult.isLoading;
+  const isLoading = !queryResult.data && queryResult.isLoading;
 
   return useMemo(
     () => ({
@@ -117,14 +117,17 @@ export const useGetProjectsData = () => {
       categories: categoriesQuery.data || [],
       availableTags: tagsQuery.data || [],
       loading: isLoading,
-      isFetching: queryResult.isFetching,
+      isFetching: queryResult.isFetching && !isRestoring,
       error: queryResult.error || categoriesQuery.error || tagsQuery.error,
       filters: {
         search: urlSearch,
         type: urlType,
         tags: urlTags,
       },
+
       updateFilters: handleUpdateFilters,
+      setRestoring,
+
       pagination: {
         currentPage: pagination.currentPage,
         totalPages: pagination.totalPages,
@@ -153,6 +156,8 @@ export const useGetProjectsData = () => {
       handleUpdateFilters,
       pagination,
       isLoading,
+      isRestoring,
+      setRestoring,
     ],
   );
 };
