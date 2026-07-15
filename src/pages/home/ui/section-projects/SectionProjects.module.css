@@ -101,6 +101,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
 }
 
 .tags {
@@ -183,7 +184,7 @@
   font-family: var(--main-font-family);
   color: var(--black);
   flex: 1;
-  min-height: 170px;
+  min-height: 0;
   display: -webkit-box;
   -webkit-line-clamp: 5; /* 5 строк*/
   line-clamp: 5;
@@ -312,7 +313,6 @@
   .descriptionFirst,
   .descriptionUsual {
     font: var(--tablet_main);
-    min-height: 140px;
   }
 
   .container {
@@ -429,7 +429,6 @@
 
   .descriptionUsual {
     font: var(--mobile_main);
-    min-height: 130px;
   }
 
   .buttonProject {
