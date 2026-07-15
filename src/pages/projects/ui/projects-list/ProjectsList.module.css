@@ -218,8 +218,7 @@
     background: var(--energy);
   }
 
-  .arrowButton:after, 
-  .arrowButton::before {
+  .arrowButton {
     display: none;
   }
 
