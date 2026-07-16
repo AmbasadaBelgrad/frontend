@@ -48,7 +48,7 @@
     align-items: flex-end;
     gap: 8px;
     transform: translateX(-2px);
-    width: 138px; /* точная ширина меню из Figma */
+    width: 140px; /* точная ширина меню из Figma */
   }
   .footerNavLink {
     font-size: 16px;
