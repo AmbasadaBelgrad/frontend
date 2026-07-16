@@ -1,5 +1,6 @@
 import { useViewportWidth } from "@shared/lib/useWidthViewPort";
 import { Link } from "react-router-dom";
+import { WhiteArrow } from "@shared/ui/WhiteArrow/WhiteArrow";
 import type { ProjectsPreview } from "@/entities/home/model/types";
 import styles from "./SectionProjects.module.css";
 
@@ -107,7 +108,11 @@ export const SectionProjects: React.FC<ProjectProps> = ({
                       }
                       aria-label={project.action_button.label}
                     >
-                      {!isFirstHero && <div className={styles.arrowButton} />}
+                      {!isFirstHero && (
+                        <div className={styles.arrowButton}>
+                          <WhiteArrow />
+                        </div>
+                      )}
                       {isFirstHero && (
                         <span>{project.action_button.label}</span>
                       )}

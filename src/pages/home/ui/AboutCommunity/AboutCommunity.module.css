@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: 0 0px 80px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -109,7 +109,7 @@
 
 @media (max-width: 1325px) and (min-width: 1025px) {
   .section {
-    padding: 0 40px 80px;
+    padding: 0 40px 0px;
     overflow-x: hidden;
   }
 
@@ -183,7 +183,7 @@
 @media (max-width: 1024px) {
   .section {
     width: 100%;
-    padding: 0 0px 40px;
+    padding: 0;
     box-sizing: border-box;
   }
 
@@ -292,7 +292,7 @@
 @media (max-width: 640px) {
   .section {
     width: 100%;
-    padding: 0 0px 80px;
+    padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
   }

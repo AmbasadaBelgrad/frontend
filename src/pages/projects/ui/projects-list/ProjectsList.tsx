@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { WhiteArrow } from "@shared/ui/WhiteArrow/WhiteArrow";
 import styles from "./ProjectsList.module.css";
 
 interface Project {
@@ -55,7 +56,9 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({
                   className={styles.button}
                   aria-label={project.action_button.label}
                 >
-                  <div className={styles.arrowButton} />
+                  <div className={styles.arrowButton}>
+                    <WhiteArrow />
+                  </div>
                   <span className={styles.buttonText}>
                     {project.action_button.label}
                   </span>

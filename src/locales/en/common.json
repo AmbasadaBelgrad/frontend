@@ -23,7 +23,7 @@
   },
   "footer": {
     "site_name": "Ambasada za Urbanizam",
-
+    "navigation": "Navigation panel",
     "aria": {
       "home": "Go to home"
     },

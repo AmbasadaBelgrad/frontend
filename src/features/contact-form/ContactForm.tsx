@@ -123,6 +123,41 @@ const ContactForm = ({
     Object.keys(allErrors).length === 0 && contactPreference.length === 0;
 
   useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      const updatedErrors = validateValues(values);
+      setErrors(updatedErrors);
+    } else {
+      const nextErrors: TFormErrors = {};
+
+      if (touched.name && values.name.trim()) {
+        const validationResult = validateValues(values);
+        if (validationResult.name) {
+          nextErrors.name = validationResult.name;
+        }
+      }
+
+      if (touched.email && values.email.trim()) {
+        const validationResult = validateValues(values);
+        if (validationResult.email) {
+          nextErrors.email = validationResult.email;
+        }
+      }
+
+      if (touched.message && values.message.trim()) {
+        const validationResult = validateValues(values);
+        if (validationResult.message) {
+          nextErrors.message = validationResult.message;
+        }
+      }
+
+      if (Object.keys(nextErrors).length > 0) {
+        setErrors(nextErrors);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t]);
+
+  useEffect(() => {
     onValidityChange?.(isFormValid);
   }, [isFormValid, onValidityChange]);
 
