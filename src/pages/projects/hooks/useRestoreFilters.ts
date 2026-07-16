@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useCallback } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useUrlFilters } from "./useUrlFilters";
 
@@ -17,15 +17,8 @@ export const useRestoreFilters = () => {
       updateFilters({ search, type, tags });
       window.history.replaceState({}, document.title);
     }
-
-    requestAnimationFrame(() => {
-      setIsRestoring(false);
-    });
+    setIsRestoring(false);
   }, [location.state, updateFilters]);
 
-  const resetRestoring = useCallback(() => {
-    setIsRestoring(false);
-  }, []);
-
-  return { isRestoring, resetRestoring };
+  return { isRestoring };
 };

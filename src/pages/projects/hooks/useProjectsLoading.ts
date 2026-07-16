@@ -4,7 +4,7 @@ export const useProjectsLoading = () => {
   // Отслеживаем все запросы с ключом "projects"
   const fetchCount = useIsFetching({
     queryKey: ["projects"],
-    exact: false,
+    exact: false, // отслеживаем все вариации
   });
 
   const isFetching = fetchCount > 0;
