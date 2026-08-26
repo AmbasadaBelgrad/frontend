@@ -153,6 +153,10 @@ export const Header = ({ data }: HeaderProps) => {
         </nav>
 
         <div className={styles.headerActions}>
+          <NavLink to={routesPaths.contacts} className={styles.supportLink}>
+            {t("header.menu.support")}
+          </NavLink>
+
           <div className={styles.langSwitcher} ref={langRef}>
             <button
               type="button"
@@ -275,6 +279,13 @@ export const Header = ({ data }: HeaderProps) => {
             {t(item.labelKey)}
           </NavLink>
         ))}
+        <NavLink
+          to={routesPaths.contacts}
+          className={styles.mobileSupportLink}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {t("header.menu.support")}
+        </NavLink>
       </div>
     </header>
   );
