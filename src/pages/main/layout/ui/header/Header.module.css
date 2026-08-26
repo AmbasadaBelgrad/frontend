@@ -64,6 +64,41 @@
   flex-shrink: 0;
 }
 
+.supportCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 16px;
+
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  background: var(--black);
+  color: var(--white);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.supportCta:hover {
+  background: transparent;
+  color: var(--black);
+}
+
+.supportCta:focus-visible,
+.mobileSupportCta:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
 .headerNav {
   margin-left: 45px;
 }
@@ -262,6 +297,10 @@
   display: none;
 }
 
+.mobileSupportCta {
+  display: none;
+}
+
 @media (max-width: 1060px) {
   .header {
     height: clamp(5.6875rem, 2.6892rem + 5.7522vw, 6.5rem);
@@ -311,6 +350,12 @@
     font-size: 20px;
   }
 
+  .supportCta {
+    min-height: 38px;
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
   .langSwitcherCurrent {
     font-size: 20px;
   }
@@ -321,6 +366,30 @@
 
   .langSwitcherArrow {
     margin-top: 5px;
+  }
+}
+
+@media (max-width: 930px) and (min-width: 834px) {
+  .headerTop {
+    padding: 0 24px;
+    gap: 10px;
+  }
+
+  .headerNav {
+    margin-left: 12px;
+  }
+
+  .navList {
+    gap: 14px;
+  }
+
+  .supportCta {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .headerActions {
+    gap: 12px;
   }
 }
 
@@ -368,6 +437,10 @@
     gap: 30px;
     padding-right: 7px;
     min-width: 0;
+  }
+
+  .supportCta {
+    display: none;
   }
 
   .langSwitcherCurrent {
@@ -424,7 +497,8 @@
     pointer-events: auto;
   }
 
-  .mobileMenuLink {
+  .mobileMenuLink,
+  .mobileSupportCta {
     min-height: 46px;
     line-height: 140%;
 
@@ -439,7 +513,9 @@
     font-weight: 300;
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  }
 
+  .mobileMenuLink {
     opacity: 0.5;
     transition: opacity 0.2s ease;
   }
@@ -452,7 +528,16 @@
     opacity: 1;
   }
 
-  .mobileMenuLink:last-child {
+  .mobileSupportCta {
+    min-height: 52px;
     border-bottom: none;
+    background: var(--black);
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .mobileSupportCta:hover {
+    opacity: 0.85;
   }
 }
