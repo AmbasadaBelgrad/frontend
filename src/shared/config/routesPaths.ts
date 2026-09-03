@@ -3,6 +3,7 @@ export const routesPaths = {
   projects: "/projects",
   projectDetails: "/projects/:slug",
   about: "/about",
+  help: "/help",
   contacts: "/contacts",
   policy: "/policy",
   notFound: "*",

@@ -12,7 +12,8 @@
       "projects_desktop": "Katalog projekata",
       "projects_tablet": "Projekti",
       "about": "O zajednici",
-      "contacts": "Kontaktirajte nas"
+      "contacts": "Kontaktirajte nas",
+      "help": "Podrži nas"
     }
   },
   "language": {
@@ -138,6 +139,12 @@
     "call": "Pozovite",
     "write": "Pišite nam",
     "visitOffice": "Posetite našu kancelariju"
+  },
+  "help": {
+    "title": "Postanite deo Ambasada",
+    "description": "Svako može da postane deo Ambasada i podrži naše gradske projekte. Vaš doprinos nam pomaže da nastavimo da stvaramo inicijative korisne za grad i njegove ljude.",
+    "qrTitle": "Donacija putem QR koda",
+    "qrAlt": "QR kod za donaciju od 500 RSD"
   },
   "errorBoundary": {
     "buttonText": "Nazad",
