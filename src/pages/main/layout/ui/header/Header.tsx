@@ -153,8 +153,8 @@ export const Header = ({ data }: HeaderProps) => {
         </nav>
 
         <div className={styles.headerActions}>
-          <NavLink to={routesPaths.contacts} className={styles.supportLink}>
-            {t("header.menu.support")}
+          <NavLink to={routesPaths.help} className={styles.supportLink}>
+            {t("header.menu.help")}
           </NavLink>
 
           <div className={styles.langSwitcher} ref={langRef}>
@@ -280,11 +280,11 @@ export const Header = ({ data }: HeaderProps) => {
           </NavLink>
         ))}
         <NavLink
-          to={routesPaths.contacts}
+          to={routesPaths.help}
           className={styles.mobileSupportLink}
           onClick={() => setIsMenuOpen(false)}
         >
-          {t("header.menu.support")}
+          {t("header.menu.help")}
         </NavLink>
       </div>
     </header>

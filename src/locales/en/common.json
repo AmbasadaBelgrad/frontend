@@ -13,7 +13,7 @@
       "projects_tablet": "Projects",
       "about": "About the community",
       "contacts": "Contact us",
-      "support": "Support us"
+      "help": "Support us"
     }
   },
   "language": {
@@ -137,6 +137,12 @@
     "visitOffice": "Visit Our Office",
     "breadcrumbs": "Breadcrumbs",
     "about": "About the community"
+  },
+  "help": {
+    "title": "Become part of Ambasada",
+    "description": "Anyone can join Ambasada and support our city projects. Your contribution helps us keep creating public initiatives for the city and its people.",
+    "qrTitle": "Donate with the QR code",
+    "qrAlt": "QR code for a 500 RSD donation"
   },
   "cookieConsent": {
     "ariaLabel": "Cookie usage notification",
